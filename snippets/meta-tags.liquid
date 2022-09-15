@@ -1,3 +1,27 @@
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="{{ settings.header_background }}">
+
+{%- liquid
+  assign og_title = page_title
+  if og_title == blank
+    assign og_title = shop.name | escape
+  endif
+  assign og_url = canonical_url | default: shop.url
+  assign og_type = 'website'
+  assign og_description = page_description
+  if og_description == blank
+    assign og_description = shop.description | default: shop.name | escape
+  endif
+-%}
+
+{% if page_description %}
+<meta name="description" content="{{ page_description | escape }}">
+{% endif %}
+
+
 {%- liquid
   assign og_title = page_title | default: shop.name
   assign og_url = canonical_url | default: request.origin

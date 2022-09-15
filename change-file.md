@@ -1,0 +1,17 @@
+[a] style.css
+[a] theme.js
+[a] vendor.js
+[m] password.liquid
+[m] theme.liquid
+[m] announcement-bar.liquid
+[m] header.liquid
+[m] main-collection-product-grid.liquid
+[a] global-variables.liquid
+[a] header-icons.liquid
+[a] header-logo.liquid
+[a] header-menu.liquid
+[a] header-search.liquid
+[m] icon-cart.liquid
+[a] icon-search.liquid
+[m] meta-tags.liquid
+[m] gift_card.liquid
