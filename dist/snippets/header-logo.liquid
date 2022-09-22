@@ -1,5 +1,11 @@
 
 <div class="header-logo">
+  <div class="img-wrapper desktop ">
+    {%- render 'image', image: section.logo, width: section.pc_logo_width -%}
+  </div>
+  <div class="img-wrapper mobile ">
+    {%- render 'image', image: section.logo, width: section.mobile_logo_width -%}
+  </div>
 </div>
 
 

@@ -1,0 +1,14 @@
+{%- liquid
+  assign img_class = img_class
+  assign width = width
+  assign height = width | divided_by: image.aspect_ratio | round
+-%}
+
+<img 
+  src="{{ image | image_url }}" 
+  alt="{{ image.alt | escape }}"  
+  width="{{ width }}" 
+  height="{{ height }}" 
+  loading="lazy" 
+  class="xuer-image {{ img_class }}"
+/>

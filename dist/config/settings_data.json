@@ -142,21 +142,32 @@
             }
           },
           "type": "announcement-bar",
-          "block_order": [
-            "1478526632860",
-            "1478526632861"
-          ]
+          "block_order": ["1478526632860", "1478526632861"]
         },
         "header": {
           "type": "header",
           "settings": {
-            "color_scheme": "background-1",
-            "logo_width": 90,
-            "logo_position": "middle-left",
-            "menu": "main-menu",
-            "show_line_separator": true,
-            "enable_sticky_header": true,
-            "margin_bottom": 0
+            "logo": "shopify:\/\/shop_images\/O1CN010wcmqM1wuau0VUVSZ__3267756368-0-cib.jpg",
+            "logo_img_width_int": 60,
+            "mobile_logo_img_width_int": 130,
+            "logo_h1": true,
+            "enable_sticky": true,
+            "enable_transparent": false,
+            "transparent_color": "#ffffff",
+            "transparent_logo": "shopify:\/\/shop_images\/Upstream_Booklet_Composition_cropped_2-1440x960.jpg",
+            "menu_linklist": "main-menu",
+            "menu_linklist_mobile": "",
+            "menu_layout": "inline-menu-center",
+            "nav_featured_link": "Sale",
+            "enable_mobile_promo_carousel": true,
+            "enable_nav_mob_products": false,
+            "nav_mob_products_title": "Best Sellers",
+            "nav_mob_products_collection": "",
+            "enable_search": true,
+            "search_suggestions_title": "",
+            "search_suggestions_menu": "",
+            "icon_strategy": "icons_only",
+            "cart_icon": "bag"
           }
         },
         "footer": {
@@ -180,15 +191,11 @@
               "type": "text",
               "settings": {
                 "heading": "Our mission",
-                "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+                "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
               }
             }
           },
-          "block_order": [
-            "footer-0",
-            "footer-1",
-            "footer-2"
-          ],
+          "block_order": ["footer-0", "footer-1", "footer-2"],
           "settings": {
             "color_scheme": "background-1",
             "newsletter_enable": true,

@@ -1,12 +1,27 @@
 
-<div class="search-warpper">
-  <div class="search-icon">
-    {% render 'icon-plus' %}
-  </div>
-
-  <div class="search-suggest-wrapper">
-    
-  </div>
+<div class="header-menu-warpper">
+  {%- if section.menu != blank -%}
+    <nav class="menu-menu">
+      <ul>
+        {%- for link in section.menu.links -%}
+          <li>
+            {%- if link.links != blank -%}
+              <span>
+                {{ link.title | escape }}
+              </span>
+            {%- else -%}
+              <a 
+                href="{{ link.url }}" 
+                class="{% if link.current %} active{% endif %}" 
+              >
+                {{ link.title | escape }}
+              </a>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  {%- endif -%}
 </div>
 
 

@@ -1,25 +1,21 @@
-{%- assign secSettings = section.settings -%}
+<xu-header class="header-wrapper {% if section.settings.enable_sticky_header %}sticky{% endif %} ">
+  {%- liquid
+    if section.settings.menu_alignment == 'left' 
+      if section.settings.menu == blank
+        render 'header-search'
+      else
+        render 'header-menu', section: section.settings
+      endif
+      render 'header-logo', section: section.settings
+      render 'header-icons', showSearch: section.settings.menu != blank
+    endif
 
-<xu-header class="header-wrapper {% if secSettings.enable_sticky_header %}sticky{% endif %} ">
-  <div class="menu-wrapper">
-    {%- liquid
-      if secSettings.menu_alignment == 'left' 
-        if secSettings.menu == blank
-          render 'header-search'
-        else
-          render 'header-menu'
-        endif
-        render 'header-logo'
-        render 'header-icons', showSearch: secSettings.menu != blank
-      endif
-  
-      if secSettings.menu_alignment == 'center' 
-        render 'header-logo'
-        render 'header-menu'
-        render 'header-icons', showSearch: true
-      endif
-    -%}
-  </div>
+    if section.settings.menu_alignment == 'center' 
+      render 'header-logo'
+      render 'header-menu'
+      render 'header-icons', showSearch: true
+    endif
+  -%}
 </xu-header>
 
 
