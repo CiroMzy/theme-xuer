@@ -11,16 +11,12 @@
     <link rel="preconnect" href="https://monorail-edge.shopifysvc.com">
     <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     
-    {%- unless settings.type_body_font.system? -%}
-      {{ settings.type_body_font | font_url | preload_tag: as: 'font' }}
-    {%- endunless -%}
-    {%- unless settings.type_header_font.system? -%}
-      {{ settings.type_header_font | font_url | preload_tag: as: 'font' }}
-    {%- endunless -%}
+    
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
-    {%- endif -%}
+    {%- endif -%} 
 
+    {{ 'vendor.css' | asset_url | stylesheet_tag }}
     {{ 'style.css' | asset_url | stylesheet_tag }}
     {{ content_for_header }}
 

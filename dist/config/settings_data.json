@@ -122,19 +122,29 @@
       "currency_code_enabled": true,
       "sections": {
         "announcement-bar": {
-          "type": "announcement-bar",
+          "settings": {
+            "background_color": "#212121",
+            "text_color": "#f7f1f0",
+            "message_font_size": 14
+          },
           "blocks": {
-            "announcement-bar-0": {
-              "type": "announcement",
+            "1478526632861": {
               "settings": {
-                "text": "Welcome to our store",
-                "color_scheme": "background-1",
-                "link": ""
-              }
+                "text_value": "<p>Welcome to our store</p>"
+              },
+              "type": "announcement"
+            },
+            "1478526632860": {
+              "settings": {
+                "text_value": "<p>Answer goes here...</p>"
+              },
+              "type": "announcement"
             }
           },
+          "type": "announcement-bar",
           "block_order": [
-            "announcement-bar-0"
+            "1478526632860",
+            "1478526632861"
           ]
         },
         "header": {
