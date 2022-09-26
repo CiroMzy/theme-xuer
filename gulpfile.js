@@ -3,7 +3,7 @@ var less = require('gulp-less');
  
 var paths = {
   styles: {
-    src: 'assets/*.less',
+    src: 'less/*.less',
     dest: './dist/assets'
   }
 };
@@ -12,7 +12,7 @@ var paths = {
  * Define our tasks using plain functions
  */
 function styles() {
-  return gulp.src('assets/style.less')
+  return gulp.src('less/style.less')
     .pipe(less())
     // .pipe(cleanCSS())
     .pipe(gulp.dest('./dist/assets'));

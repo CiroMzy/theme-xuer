@@ -4,6 +4,7 @@ var fs = require('fs');
 var watcher = chokidar.watch([
   'snippets',
   'config',
+  'assets',
   'sections'
 ], {
   ignored: [
