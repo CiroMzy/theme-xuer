@@ -1,6 +1,58 @@
 {
   "sections": {
+    "166416263949705a88": {
+      "type": "slideshow",
+      "blocks": {
+        "1664162639d434a28a-0": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/woman-and-two-children-stand-in-a-gold-colored-field.jpg",
+            "heading": "Image slide",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "1664162639d434a28a-1": {
+          "type": "slide",
+          "settings": {
+            "heading": "Image slide",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "1664162639d434a28a-0",
+        "1664162639d434a28a-1"
+      ],
+      "settings": {
+        "section_height": "adapt",
+        "height_desktop": 600,
+        "height_mobile": 460,
+        "mobile_text_under": false,
+        "effect": "fade",
+        "show_arrow": true,
+        "show_dots": false,
+        "autoplay": true,
+        "autoplay_speed": 7
+      }
+    }
   },
   "order": [
+    "166416263949705a88"
   ]
 }

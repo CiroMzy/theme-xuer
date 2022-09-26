@@ -1,7 +1,9 @@
 {%- liquid
   assign img_class = img_class
   assign width = width
-  assign height = width | divided_by: image.aspect_ratio | round
+  if width
+    assign height = width | divided_by: image.aspect_ratio | round
+  endif
 -%}
 
 <img 

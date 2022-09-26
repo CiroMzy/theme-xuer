@@ -7,7 +7,19 @@ var BaseHTMLElement = class extends HTMLElement {
   loading() {}
   hideLoading() {}
   attributeChangedCallback() {}
-  disconnectedCallback() {}
+  disconnectedCallback() {
+    if (this.curSlider) {
+      this.curSlider.disable()
+    }
+  }
+  initSlide(options={}) {
+    const swiperId = this.getData('swiper-container')
+    this.curSlider = new Swiper(`#${swiperId}`, {
+      loop: 'true',
+      autoplay:true,
+      ...options
+    });
+  }
   getData(key) {
     return $(this).data(key)
   }
@@ -15,16 +27,17 @@ var BaseHTMLElement = class extends HTMLElement {
 
 var AnnouncementBar = class extends BaseHTMLElement {
   connectedCallback () {
-    const swiperId = this.getData('swiper-container-id')
-    this.curSlider = new Swiper(`#${swiperId}`, {
-      loop: 'true',
-      direction : 'vertical',
+    this.initSlide({
       effect: "fade",
-      autoplay:true,
-    });
-  }
-  disconnectedCallback() {
-    this.curSlider && this.curSlider.disable()
+      direction : 'vertical'
+    })
   }
 };
 window.customElements.define("xuer-announcement-bar", AnnouncementBar);
+
+var Slideshow = class extends BaseHTMLElement {
+  connectedCallback () {
+    this.initSlide()
+  }
+};
+window.customElements.define("xuer-slideshow", Slideshow);
