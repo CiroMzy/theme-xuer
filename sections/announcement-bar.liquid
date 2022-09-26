@@ -1,0 +1,91 @@
+{%- liquid
+  assign multiple = false
+  if section.blocks.size > 1
+    assign multiple = true
+  endif
+-%}
+{% style %}
+#id-{{ section.id }} {
+  --announcement-background: {{ section.settings.background_color }};
+  --announcement-text: {{ section.settings.text_color }};
+  --link-underline: {{ section.settings.text_color | color_modify: "alpha", 0.6 }};
+  --announcement-font-size: {{ section.settings.font_size }}px;
+}
+{% endstyle %}
+<xuer-announcement-bar
+  id="id-{{ section.id }}" 
+  class="announcement-bar {% if multiple %}announcement-bar--multiple{% endif %}"
+  data-swiper-container="swiper-{{ section.id }}"
+>
+  <div class="announcement-bar-list" id="swiper-{{ section.id }}">
+    <div class="swiper-wrapper">
+      {%- for block in section.blocks -%}
+        <div class="swiper-slide">
+          {%- if block.settings.text_value != blank -%}
+            {%- if block.settings.link != blank -%}
+              <a href="{{ block.settings.link }}" class="announcement-bar-link ">
+            {%- endif -%}
+                <div class="layout-width">
+                  <p class="announcement-bar__message">
+                    {{ block.settings.text_value | strip_html | escape }}
+                  </p>
+                </div>
+            {%- if block.settings.link != blank -%}
+              </a>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</xuer-announcement-bar>
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "background color",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "text color",
+      "default": "#212121"
+    },
+    {
+      "type": "range",
+      "id": "message_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "font size",
+      "default": 14
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "announcement",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text_value",
+          "label": "Text",
+          "default": "<p>Welcome to our store</p>"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "announcement"
+      }
+    ]
+  }
+}
+{% endschema %}

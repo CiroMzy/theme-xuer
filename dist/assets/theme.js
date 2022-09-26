@@ -28,8 +28,7 @@ var BaseHTMLElement = class extends HTMLElement {
 var AnnouncementBar = class extends BaseHTMLElement {
   connectedCallback () {
     this.initSlide({
-      effect: "fade",
-      direction : 'vertical'
+      grabCursor : true,
     })
   }
 };
