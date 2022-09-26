@@ -1,9 +1,13 @@
 /**********************
 * common.less 
 */
-@screen-desktop: 750px;
-@screen-desktop-under: 749px;
+@import url('./variables.less');
 
+.full-width-padding {
+  padding-left: 4*@distance;
+  padding-right: 4*@distance;
+  box-sizing: border-box;
+}
 
 @media screen and (min-width: @screen-desktop){
   .desktop {
