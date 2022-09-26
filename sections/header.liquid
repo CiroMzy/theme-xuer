@@ -1,0 +1,93 @@
+<xu-header class="header-wrapper {% if section.settings.enable_sticky_header %}sticky{% endif %} full-width-padding">
+  {%- liquid
+    if section.settings.menu_alignment == 'left' 
+      if section.settings.menu == blank
+        render 'header-search'
+      else
+        render 'header-menu', section: section.settings
+      endif
+      render 'header-logo', section: section.settings
+      render 'header-icons', showSearch: section.settings.menu != blank
+    endif
+
+    if section.settings.menu_alignment == 'center' 
+      render 'header-logo'
+      render 'header-menu'
+      render 'header-icons', showSearch: true
+    endif
+  -%}
+</xu-header>
+
+
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo",
+      "info": "520 x 200px (recommended)"
+    },
+    {
+      "type": "range",
+      "id": "pc_logo_width",
+      "min": 30,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "label": "logo width",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "mobile_logo_width",
+      "min": 30,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "label": "mobile logo width",
+      "default": 80
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "Enable sticky header",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_search",
+      "label": "Enable search",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "NAVIGATION"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "select",
+      "id": "menu_alignment",
+      "label": "Menu alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "left"
+        },
+        {
+          "value": "center",
+          "label": "center"
+        }
+      ],
+      "default": "left"
+    }
+  ]
+}
+{% endschema %}

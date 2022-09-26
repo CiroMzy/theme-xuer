@@ -3,6 +3,7 @@ var fs = require('fs');
  
 var watcher = chokidar.watch([
   'snippets',
+  'config',
   'sections'
 ], {
   ignored: [

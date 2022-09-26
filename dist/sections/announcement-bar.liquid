@@ -1,34 +1,35 @@
-
 {%- liquid
-  assign multiple = false
+  assign single = true
   if section.blocks.size > 1
-    assign multiple = true
+    assign single = false
   endif
 -%}
 {% style %}
 #id-{{ section.id }} {
   --announcement-background: {{ section.settings.background_color }};
-  --announcement-text: {{ section.settings.text_color }};
-  --link-underline: {{ section.settings.text_color | color_modify: "alpha", 0.6 }};
+  --announcement-text-color: {{ section.settings.text_color }};
   --announcement-font-size: {{ section.settings.font_size }}px;
 }
 {% endstyle %}
 <xuer-announcement-bar
   id="id-{{ section.id }}" 
-  class="announcement-bar {% if multiple %}announcement-bar--multiple{% endif %}"
+  class="announcement-bar padding-ver-1"
   data-swiper-container="swiper-{{ section.id }}"
 >
-  <div class="announcement-bar-list" id="swiper-{{ section.id }}">
+  <div class="announcement-bar-list" 
+    id="swiper-{{ section.id }}" 
+    {% if single %}data-swiper-disable="true" {% endif %}
+  >
     <div class="swiper-wrapper">
       {%- for block in section.blocks -%}
         <div class="swiper-slide">
-          {%- if block.settings.text_value != blank -%}
+          {%- if block.settings.text != blank -%}
             {%- if block.settings.link != blank -%}
               <a href="{{ block.settings.link }}" class="announcement-bar-link ">
             {%- endif -%}
                 <div class="layout-width">
                   <p class="announcement-bar__message">
-                    {{ block.settings.text_value | strip_html | escape }}
+                    {{ block.settings.text }}
                   </p>
                 </div>
             {%- if block.settings.link != blank -%}
@@ -40,7 +41,6 @@
     </div>
   </div>
 </xuer-announcement-bar>
-
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",
@@ -48,23 +48,23 @@
     {
       "type": "color",
       "id": "background_color",
-      "label": "background color",
+      "label": "Background color",
       "default": "#4a4a4a"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "text color",
+      "label": "Text color",
       "default": "#212121"
     },
     {
       "type": "range",
-      "id": "message_font_size",
+      "id": "font_size",
       "min": 12,
       "max": 20,
       "step": 1,
       "unit": "px",
-      "label": "font size",
+      "label": "Font size",
       "default": 14
     }
   ],
@@ -75,9 +75,14 @@
       "settings": [
         {
           "type": "richtext",
-          "id": "text_value",
+          "id": "text",
           "label": "Text",
-          "default": "<p>Welcome to our store</p>"
+          "default": "<p>Welcome to our store，<a>learn more</a></p>"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
         }
       ]
     }

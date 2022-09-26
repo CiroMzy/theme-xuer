@@ -1,3 +1,21 @@
+{% style %}
+
+:root {
+  /* colors */
+  --primary_color: {{ settings.primary_color }};
+  --accent_color: {{ settings.accent_color }};
+  --inverse_color: {{ settings.inverse_color }};
+  --text_color: {{ settings.text_color }};
+  --background_color: {{ settings.background_color }};
+
+
+  --link_decoration: {% if settings.link_underline %} underline {% else %} none {% endif %};
+}
+
+
+{% endstyle %}
+
 <script>
-  var theme = theme || {}
-  </script>
+var theme = theme || {}
+</script>
+

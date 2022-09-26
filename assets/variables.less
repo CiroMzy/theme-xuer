@@ -1,3 +1,24 @@
 @screen-desktop: 750px;
 @screen-desktop-under: 749px;
 @distance: 8px;
+
+.clearfix() {
+  &::before {
+    display: table;
+    content: '';
+  }
+  &::after {
+    display: table;
+    clear: both;
+    content: '';
+  }
+}
+
+.padding-vertical(@number) {
+  padding-top: @number*@distance;
+  padding-bottom: @number*@distance;
+}
+.padding-horizontal(@number) {
+  padding-left: @number*@distance;
+  padding-right: @number*@distance;
+}

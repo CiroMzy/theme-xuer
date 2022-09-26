@@ -12,22 +12,28 @@ var BaseHTMLElement = class extends HTMLElement {
       this.curSlider.disable()
     }
   }
-  initSlide(options={}) {
-    const swiperId = this.getData('swiper-container')
+  initSwiper(options={}) {
+    const swiperId = $(this).data('swiper-container')
+    const swiperSelector = `#${swiperId}`
+    const datas = $(swiperSelector).data()
+    console.log('datas', datas);
     this.curSlider = new Swiper(`#${swiperId}`, {
       loop: 'true',
       autoplay:true,
       ...options
     });
+    if (datas.swiperDisable) {
+      this.curSlider.disable()
+    }
   }
   getData(key) {
-    return $(this).data(key)
+    
   }
 };
 
 var AnnouncementBar = class extends BaseHTMLElement {
   connectedCallback () {
-    this.initSlide({
+    this.initSwiper({
       grabCursor : true,
     })
   }
@@ -36,7 +42,7 @@ window.customElements.define("xuer-announcement-bar", AnnouncementBar);
 
 var Slideshow = class extends BaseHTMLElement {
   connectedCallback () {
-    this.initSlide()
+    this.initSwiper()
   }
 };
 window.customElements.define("xuer-slideshow", Slideshow);

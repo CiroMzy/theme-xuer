@@ -3,10 +3,26 @@
 */
 @import url('./variables.less');
 
+body{
+  color:var(--primary_color);
+}
+a{
+  color: var(--primary_color);
+  text-decoration: var(--link_decoration);
+}
+a:hover{
+  color: var(--accent_color);
+}
+
 .full-width-padding {
-  padding-left: 4*@distance;
-  padding-right: 4*@distance;
+  .padding-horizontal(4);
   box-sizing: border-box;
+}
+.padding-ver-2 {
+  .padding-vertical(2);
+}
+.padding-ver-1 {
+  .padding-vertical(1);
 }
 
 @media screen and (min-width: @screen-desktop){
