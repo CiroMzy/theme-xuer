@@ -113,6 +113,9 @@ table {
 /**********************
 * common.less 
 */
+.no-dec a {
+  text-decoration: none;
+}
 body {
   color: var(--primary_color);
 }
@@ -161,6 +164,9 @@ a:hover {
   justify-content: space-between;
   width: 100%;
 }
+.header-wrapper a {
+  text-decoration: none;
+}
 .header-wrapper .search-warpper {
   width: 24px;
   height: 24px;
@@ -179,9 +185,6 @@ a:hover {
 }
 .header-wrapper .header-menu-warpper .menu-menu li {
   float: left;
-}
-.header-wrapper .header-menu-warpper .menu-menu li a {
-  padding: 24px;
 }
 .header-wrapper .header-icons {
   flex: 1;

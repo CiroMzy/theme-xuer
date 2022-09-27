@@ -1,4 +1,4 @@
-<xu-header class="header-wrapper {% if section.settings.enable_sticky_header %}sticky{% endif %} full-width-padding">
+<xuer-header class="header-wrapper {% if section.settings.enable_sticky_header %}sticky{% endif %} full-width-padding">
   {%- liquid
     if section.settings.menu_alignment == 'left' 
       if section.settings.menu == blank
@@ -16,12 +16,12 @@
       render 'header-icons', showSearch: true
     endif
   -%}
-</xu-header>
+</xuer-header>
 
 
 {% schema %}
 {
-  "name": "t:sections.header.name",
+  "name": "Header",
   "class": "section-header",
   "settings": [
     {
@@ -32,7 +32,7 @@
     },
     {
       "type": "range",
-      "id": "pc_logo_width",
+      "id": "desktop_logo_width",
       "min": 30,
       "max": 300,
       "step": 5,

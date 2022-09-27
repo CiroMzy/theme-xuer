@@ -5,7 +5,8 @@ var watcher = chokidar.watch([
   'snippets',
   'config',
   'assets',
-  'sections'
+  'sections',
+  'theme.liquid'
 ], {
   ignored: [
     /(^|[\/\\])\../,

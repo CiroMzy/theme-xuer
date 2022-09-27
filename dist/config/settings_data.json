@@ -153,15 +153,15 @@
         "header": {
           "type": "header",
           "settings": {
-            "logo": "shopify:\/\/shop_images\/O1CN010wcmqM1wuau0VUVSZ__3267756368-0-cib.jpg",
-            "logo_img_width_int": 60,
+            "logo": null,
+            "desktop_logo_width": 120,
             "mobile_logo_img_width_int": 130,
             "logo_h1": true,
             "enable_sticky": true,
             "enable_transparent": false,
             "transparent_color": "#ffffff",
             "transparent_logo": "shopify:\/\/shop_images\/Upstream_Booklet_Composition_cropped_2-1440x960.jpg",
-            "menu_linklist": "main-menu",
+            "menu": "multi-menu",
             "menu_linklist_mobile": "",
             "menu_layout": "inline-menu-center",
             "nav_featured_link": "Sale",
