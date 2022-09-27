@@ -2,12 +2,45 @@
 /***************
 * header
 */
+.menu-item-hover{
+  &>a{
+    position: relative;
+    &::before{
+      content: "";
+      background-color: var(--primary_color);
+      width: 0;
+      height: 2px;
+      position: absolute;
+      left: auto;
+      right: @distance*2;
+      bottom: 10px;
+      transition: width 300ms ease 0s, left 300ms ease 0s;
+    }
+    &:hover{
+      &::before{
+        width: calc(100% - @distance*4);
+        left: @distance*2;
+        right: auto;
+      }
+    }
+  }
+}
 .header-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
+  background-color: var(--header_background_color);
+  position: relative;
+  display: flex;
   .no-dec;
+  &.sticky{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+  .header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   .search-warpper {
     width: 24px;
     height: 24px;
@@ -15,9 +48,66 @@
   .header-menu-warpper {
     flex: 1;
     .menu-menu {
-      .clearfix();
+      ul{
+        .clearfix();
+      }
       li{
         float: left;
+      }
+      .menu-item {
+        &.menu-level-1 {
+          a {
+            padding: @distance*2;
+            display: block;
+            font-size: 16px;
+            color: var(--header_link_color);
+          }
+        }
+        .sub-menu-1 {
+          display: none;
+          left: 0;
+          right: 0;
+          background: #fff;
+          position: absolute;
+          padding: 4*@distance;
+          z-index: 10;
+          a{
+            color: var(--text_color);
+            &:hover{
+              color: var(--accent_color);
+            }
+          }
+          .menu-item-active a{
+            color: var(--accent_color);
+          }
+          &.wide {
+            .menu-level-2 {
+              width: 25%;
+              .menu-title {
+                padding-top: 4px;
+                padding-bottom: 4px;
+              }
+              .sub2-menu {
+                li{
+                  width: 100%;
+                  a{
+                    padding-top: 4px;
+                    padding-bottom: 4px;
+                    line-height: 1.5;
+                    font-size: 14px;
+                    display: inline-block;
+                  }
+                }
+              }
+            }
+          }
+        }
+        &.open .sub-menu-1 {
+          display: block;
+        }
+        &.menu-level-1{
+          .menu-item-hover;
+        }
       }
     }
   }
@@ -26,6 +116,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    .header-icon {
+      width: 18px;
+      height: 18px;
+      &:hover{
+        color: var(--accent_color);
+      }
+    }
   }
 }
 

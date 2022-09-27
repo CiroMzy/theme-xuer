@@ -1,21 +1,37 @@
-<xuer-header class="header-wrapper {% if section.settings.enable_sticky_header %}sticky{% endif %} full-width-padding">
-  {%- liquid
-    if section.settings.menu_alignment == 'left' 
-      if section.settings.menu == blank
-        render 'header-search'
-      else
-        render 'header-menu', section: section.settings
+{% style %}
+#shopify-section-{{ section.id }} {
+  --header_background_color: {{ section.settings.background_color }};
+  --header_link_color: {{ section.settings.link_color }};
+  {%- if section.settings.enable_sticky -%}
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  {%- else -%}
+    position: relative;
+  {%- endif -%}
+}
+{% endstyle %}
+<xuer-header class="header-wrapper  full-width-padding">
+  <div class="page_width header-main">
+    {%- liquid
+      if section.settings.menu_alignment == 'left' 
+        if section.settings.menu == blank and section.settings.enable_search
+          render 'header-search'
+        else
+          render 'header-menu', section: section.settings
+        endif
+        render 'header-logo', section: section.settings
+        render 'header-icons', enable_search: section.settings.enable_search and section.settings.menu != blank
       endif
-      render 'header-logo', section: section.settings
-      render 'header-icons', showSearch: section.settings.menu != blank
-    endif
-
-    if section.settings.menu_alignment == 'center' 
-      render 'header-logo'
-      render 'header-menu'
-      render 'header-icons', showSearch: true
-    endif
-  -%}
+  
+      if section.settings.menu_alignment == 'center' 
+        render 'header-logo'
+        render 'header-menu'
+        render 'header-icons', enable_search: section.settings.enable_search
+      endif
+    -%}
+  </div>
 </xuer-header>
 
 
@@ -87,6 +103,22 @@
         }
       ],
       "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Color settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "#02867f",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "default": "#000000",
+      "label": "Link color"
     }
   ]
 }

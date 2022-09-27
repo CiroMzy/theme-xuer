@@ -2,7 +2,8 @@
   "current": "Default",
   "presets": {
     "Default": {
-      "primary_color": "#9d1339",
+      "primary_color": "#ff4f33",
+      "accent_color": "#9d1339",
       "inverse_color": "#FFFFFF",
       "text_color": "#000000",
       "background_color": "#000000",
@@ -154,6 +155,8 @@
           "type": "header",
           "settings": {
             "logo": null,
+            "background_color": "#02867f",
+            "link_color": "#000000",
             "desktop_logo_width": 120,
             "mobile_logo_img_width_int": 130,
             "logo_h1": true,

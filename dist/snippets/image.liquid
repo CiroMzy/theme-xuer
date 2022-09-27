@@ -1,25 +1,21 @@
 {%- liquid
-  assign img_class = img_class
   if max_width
     assign width = width | at_most: max_width
-  else
-    assign width = width | at_most 
   endif
+
   if width
     assign height = width | divided_by: image.aspect_ratio | round
   endif
-  if alt
-    assign img_alt = alt
-  else
-    assign img_alt = image.alt
-  endif
+
+  assign img_alt = alt | default: image.alt
+
 -%}
 
 <img 
   src="{{ image | image_url }}" 
-  alt="{{ img_alt | escape }}"  
+  alt="{{ img_alt | escape }}"
   width="{{ width }}"
   height="{{ height }}" 
   loading="lazy" 
-  class="xuer-image {{ img_class }}"
+  class="xuer-image {{ img_class }} {% if cover %}cover{% endif %}"
 />

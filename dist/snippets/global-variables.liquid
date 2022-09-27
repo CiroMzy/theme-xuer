@@ -3,6 +3,7 @@
 :root {
   /* colors */
   --primary_color: {{ settings.primary_color }};
+  --primary_color_rgb:--color-base-text: {{ settings.primary_color.red }}, {{ settings.primary_color.green }}, {{ settings.primary_color.blue }};
   --accent_color: {{ settings.accent_color }};
   --inverse_color: {{ settings.inverse_color }};
   --text_color: {{ settings.text_color }};
@@ -11,7 +12,10 @@
 
   --link_decoration: {% if settings.link_underline %} underline {% else %} none {% endif %};
 }
-
+.page_width {
+  width: {{ settings.page_width }}px;
+  margin:0 auto;
+}
 
 {% endstyle %}
 

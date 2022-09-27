@@ -4,36 +4,45 @@
     <nav class="menu-menu">
       <ul>
         {%- for link in section.menu.links -%}
-          <li class="{% if link.current %}menu-item-active{% endif %}">
+          {%- liquid
+            assign wide_mode = false
+            if link.levels >= 2
+              assign wide_mode = true
+            endif
+          -%}
+          <li class="menu-level-1 menu-item {% if link.current %}menu-item-active{% endif %}  {% if wide_mode %}wide_mode{% endif %}">
             {%- if link.links != blank -%}
               <a href="{{ link.url }}">
                 {{ link.title | escape }}
               </a>
-              <ul class="sub-menu">
-                {%- for childlink in link.links -%}
-                  {%- if childlink.links != blank -%}
-                    <li class="{% if childlink.current %}menu-item-active{% endif %}">
-                      <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-                      <ul class="sub-menu">
+              <div class="sub-menu sub-menu-1 {% if wide_mode %}wide{% endif %} ">
+                <ul class="page_width">
+                  {%- for childlink in link.links -%}
+                    {%- if childlink.links != blank -%}
+                      <li class="menu-level-2 menu-item {% if childlink.current %}menu-item-active{% endif %}">
+                        <a href="{{ childlink.url }}" class="menu-title">
+                          {{ childlink.title | escape }}
+                        </a>
+                        <ul class="sub2-menu">
                           {%- for grandsons in childlink.links -%}
                             <li class="{% if grandsons.current %}menu-item-active{% endif %}">
-                              <a href="{{ grandsons.url }}">{{ grandsons.title | escape }}</a>
+                              <a href="{{ grandsons.url }}">
+                                {{ grandsons.title | escape }}
+                              </a>
                             </li>
                           {%- endfor -%}
-                      </ul>
-                    </li>
-                  {%- else -%}
-                    <li class="{% if childlink.current %}menu-item-active{% endif %}">
-                      <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-                    </li>
-                  {%- endif -%}
-                {%- endfor -%}
-              </ul>
+                        </ul>
+                      </li>
+                    {%- else -%}
+                      <li class="{% if childlink.current %}menu-item-active{% endif %}">
+                        <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              </div>
             {%- else -%}
-              <a 
-                href="{{ link.url }}" 
-                class="{% if link.current %} menu-item-active{% endif %}" 
-              >
+              <a href="{{ link.url }}" class="{% if link.current %} menu-item-active{% endif %}">
                 {{ link.title | escape }}
               </a>
             {%- endif -%}
@@ -42,12 +51,4 @@
       </ul>
     </nav>
   {%- endif -%}
-  <div class="desktop-menu" >
-    <div>
-      
-    </div>
-  </div>
 </xuer-header-menu>
-
-
-

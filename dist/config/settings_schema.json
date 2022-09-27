@@ -17,13 +17,13 @@
       {
         "type": "color",
         "id": "primary_color",
-        "default": "#9d1339",
+        "default": "#ff4f33",
         "label": "Primary color"
       },
       {
         "type": "color",
         "id": "accent_color",
-        "default": "#ff4f33",
+        "default": "#9d1339",
         "label": "Accent color"
       },
       {
@@ -44,7 +44,6 @@
         "default": "#000000",
         "label": "Background color"
       },
-
       {
         "type": "color",
         "id": "colors_solid_button_labels",
