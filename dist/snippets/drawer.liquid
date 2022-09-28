@@ -1,0 +1,42 @@
+<xuer-drawer class="drawer-container">
+  <div class="drawer-bg" data-action="close" ></div>
+  <div class="drawer-main">
+    <div class="drawer-header">
+      <div class="title">
+
+      </div>
+      <div class="close" data-actioin="close">
+        {% render 'icon-close' %}
+      </div>
+    </div>
+    <div class="drawer-content">
+    </div>
+
+  </div>
+</xuer-drawer>
+
+<template id="search-tpl" data-title="{{ 'header.search.title' | t }}">
+  <div class="search-container">
+    <div class="search-form-container">
+      <form class="search-form" action="{{ routes.search_url }}" method="get" autocomplete="off">
+        <input type="hidden" name="type" value="product">
+        <input type="hidden" name="options[prefix]" value="last">
+        <div class="search-input">
+          <input class="search" type="text" name="q" autocomplete="off" autocorrect="off"   aria-label="{{ 'header.search.title' | t }}" placeholder="{{ 'header.search.title_placeholder' | t }}">
+          <button type="submit" class="search-submit button button-clearn" href="{{ routes.search_url }}">
+            {% render 'icon-search' %}  
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="search-suggest-wrapper">
+      
+    </div>
+  </div>
+</template>
+
+
+
+
+
+

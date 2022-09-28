@@ -1,19 +1,21 @@
 /**********************
-* common.less 
+* common
 */
 @import url('./variables.less');
 
 body{
-  color:var(--primary_color);
+  color:var(--text_color);
 }
 a{
-  color: var(--primary_color);
+  color: var(--link_color);
   text-decoration: var(--link_decoration);
 }
 a:hover{
-  color: var(--accent_color);
+  color: var(--link_active_color);
 }
-
+[hidden] {
+  display: none;
+}
 .full-width-padding {
   .padding-horizontal(4);
   box-sizing: border-box;
@@ -23,6 +25,11 @@ a:hover{
 }
 .padding-ver-1 {
   .padding-vertical(1);
+}
+.flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (min-width: @screen-desktop){

@@ -12,7 +12,7 @@
     "settings": [
       {
         "type": "header",
-        "content": "Base settings"
+        "content": "Base colors"
       },
       {
         "type": "color",
@@ -20,6 +20,80 @@
         "default": "#ff4f33",
         "label": "Primary color"
       },
+      {
+        "type": "color",
+        "id": "text_color",
+        "default": "#000000",
+        "label": "text color"
+      },
+      {
+        "type": "header",
+        "content": "Link colors"
+      },
+      {
+        "type": "color",
+        "id": "link_color",
+        "default": "#6d7175",
+        "label": "Link color"
+      },
+      {
+        "type": "color",
+        "id": "link_active_color",
+        "default": "#202223",
+        "label": "Link active color"
+      },
+      {
+        "type": "header",
+        "content": "Announcement bar"
+      },
+      {
+        "type": "color",
+        "id": "announcement_text_color",
+        "default": "#212121",
+        "label": "Announcement text color"
+      },
+      {
+        "type": "color",
+        "id": "announcement_background_color",
+        "default": "#ffffff",
+        "label": "Announcement background color"
+      },
+      {
+        "type": "color",
+        "id": "announcement_link_color",
+        "default": "#212121",
+        "label": "Announcement link color"
+      },
+      {
+        "type": "color",
+        "id": "announcement_link_active_color",
+        "default": "#000000",
+        "label": "Announcement link active color"
+      },
+
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "color",
+        "id": "header_background_color",
+        "default": "#02867f",
+        "label": "Background color"
+      },
+      {
+        "type": "color",
+        "id": "header_link_color",
+        "label": "Link color"
+      },
+
+
+
+
+
+
+
+
       {
         "type": "color",
         "id": "accent_color",
@@ -34,16 +108,15 @@
       },
       {
         "type": "color",
-        "id": "text_color",
-        "default": "#000000",
-        "label": "text color"
-      },
-      {
-        "type": "color",
         "id": "background_color",
         "default": "#000000",
         "label": "Background color"
       },
+
+
+
+
+
       {
         "type": "color",
         "id": "colors_solid_button_labels",

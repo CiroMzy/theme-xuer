@@ -1,13 +1,38 @@
 {% style %}
 
 :root {
-  /* colors */
+  /***********
+  * colors
+  */
+  
   --primary_color: {{ settings.primary_color }};
-  --primary_color_rgb:--color-base-text: {{ settings.primary_color.red }}, {{ settings.primary_color.green }}, {{ settings.primary_color.blue }};
+  --text_color: {{ settings.text_color }};
+  --link_color: {{ settings.link_color }};
+  --link_active_color: {{ settings.link_active_color }};
+
+  /* Announcement bar */
+  --announcement_background_color: {{ settings.announcement_background_color }};
+  --announcement_text_color: {{ settings.announcement_text_color }};
+  --announcement_link_color: {{ settings.announcement_link_color }};
+  --announcement_link_active_color: {{ settings.announcement_link_active_color }};
+  /* Header */
+  --header_background_color: {{ settings.header_background_color }};
+  --header_link_color: {{ settings.header_link_color }};
+  
+
+
+
+
+
+
+
+
+
+  --background_color: {{ settings.background_color }};
   --accent_color: {{ settings.accent_color }};
   --inverse_color: {{ settings.inverse_color }};
-  --text_color: {{ settings.text_color }};
-  --background_color: {{ settings.background_color }};
+
+
 
 
   --link_decoration: {% if settings.link_underline %} underline {% else %} none {% endif %};
@@ -21,5 +46,8 @@
 
 <script>
 var theme = theme || {}
+theme.routes = {
+  predictive_search_url: '{{ routes.predictive_search_url }}'
+}
 </script>
 

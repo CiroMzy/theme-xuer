@@ -1,6 +1,10 @@
 @screen-desktop: 750px;
 @screen-desktop-under: 749px;
 @distance: 8px;
+@distance2: 8px*2;
+@distance3: 8px*3;
+@distance4: 8px*4;
+@distance5: 8px*5;
 
 .clearfix() {
   &::before {
@@ -25,5 +29,16 @@
 .no-dec {
   a{
     text-decoration: none;
+  }
+}
+.trans{
+  transition: 0.3s ease all;
+}
+.link(@color, @colorAct) {
+  a{
+    color: @color;
+    &:hover{
+      color: @colorAct;
+    }
   }
 }

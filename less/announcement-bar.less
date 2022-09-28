@@ -1,18 +1,23 @@
+/**********************
+* announcement-bar
+*/
+
+@import url(./variables.less);
 .announcement-bar {
   width: 100%;
   position: relative;
   display: block;
-  background: var(--announcement-background);
+  background: var(--announcement_background_color);
   .announcement-bar-list {
     overflow: hidden;
-    
     .swiper-slide {
       text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: var(--announcement-font-size);
-      color: var(--announcement-text-color);
+      color: var(--announcement_text_color);
+      .link(var(--announcement_link_color), var(--announcement_link_active_color));
     }
   }
 }

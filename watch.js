@@ -6,6 +6,7 @@ var watcher = chokidar.watch([
   'config',
   'assets',
   'sections',
+  'templates',
   'theme.liquid'
 ], {
   ignored: [

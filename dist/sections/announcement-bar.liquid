@@ -6,8 +6,6 @@
 -%}
 {% style %}
 #id-{{ section.id }} {
-  --announcement-background: {{ section.settings.background_color }};
-  --announcement-text-color: {{ section.settings.text_color }};
   --announcement-font-size: {{ section.settings.font_size }}px;
 }
 {% endstyle %}
@@ -45,18 +43,6 @@
 {
   "name": "t:sections.announcement-bar.name",
   "settings": [
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background color",
-      "default": "#4a4a4a"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color",
-      "default": "#212121"
-    },
     {
       "type": "range",
       "id": "font_size",

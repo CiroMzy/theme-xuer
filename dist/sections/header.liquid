@@ -1,7 +1,5 @@
 {% style %}
 #shopify-section-{{ section.id }} {
-  --header_background_color: {{ section.settings.background_color }};
-  --header_link_color: {{ section.settings.link_color }};
   {%- if section.settings.enable_sticky -%}
     position: -webkit-sticky;
     position: sticky;
@@ -17,9 +15,9 @@
     {%- liquid
       if section.settings.menu_alignment == 'left' 
         if section.settings.menu == blank and section.settings.enable_search
-          render 'header-search'
+          render 'icon-search'
         else
-          render 'header-menu', section: section.settings
+          render 'header-menu', section: section.settings, blocks: section.blocks
         endif
         render 'header-logo', section: section.settings
         render 'header-icons', enable_search: section.settings.enable_search and section.settings.menu != blank
@@ -34,6 +32,7 @@
   </div>
 </xuer-header>
 
+{% render 'drawer' %}
 
 {% schema %}
 {
@@ -107,18 +106,34 @@
     {
       "type": "header",
       "content": "Color settings"
-    },
+    }
+  ],
+  "blocks": [
     {
-      "type": "color",
-      "id": "background_color",
-      "default": "#02867f",
-      "label": "Background color"
-    },
-    {
-      "type": "color",
-      "id": "link_color",
-      "default": "#000000",
-      "label": "Link color"
+      "type": "custom_menu_item",
+      "name": "自定义菜单",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_title",
+          "label": "Menu title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "图片"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link"
+        }
+      ]
     }
   ]
 }

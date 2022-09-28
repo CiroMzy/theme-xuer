@@ -9,17 +9,21 @@
             if link.levels >= 2
               assign wide_mode = true
             endif
+            assign has_links = false
+            if link.links != blank
+              assign has_links = true
+            endif
           -%}
-          <li class="menu-level-1 menu-item {% if link.current %}menu-item-active{% endif %}  {% if wide_mode %}wide_mode{% endif %}">
-            {%- if link.links != blank -%}
+          <li class="menu-level-1 menu-item {% if link.current %}menu-item-active{% endif %}  {% if wide_mode and has_links %}wide{% elsif has_links  %}thin{% endif %}" >
+            {%- if has_links -%}
               <a href="{{ link.url }}">
                 {{ link.title | escape }}
               </a>
-              <div class="sub-menu sub-menu-1 {% if wide_mode %}wide{% endif %} ">
-                <ul class="page_width">
+              <div class="sub-menu sub-menu-1 {% if wide_mode %}wide{% else %}thin{% endif %} ">
+                <ul class="{% if wide_mode %}page_width{% endif %}">
                   {%- for childlink in link.links -%}
                     {%- if childlink.links != blank -%}
-                      <li class="menu-level-2 menu-item {% if childlink.current %}menu-item-active{% endif %}">
+                      <li class="menu-level-2 menu-item {% if childlink.current %}menu-item-active{% endif %} animate__animated animate__fadeInUp animate__faster">
                         <a href="{{ childlink.url }}" class="menu-title">
                           {{ childlink.title | escape }}
                         </a>
@@ -36,6 +40,18 @@
                     {%- else -%}
                       <li class="{% if childlink.current %}menu-item-active{% endif %}">
                         <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                  {%- for block in blocks -%}
+                    {%- if block.settings.menu_title == link.title -%}
+                      <li class="menu-level-2 menu-item custom-menu-item">
+                        <a href="{% if block.settings.link != blank %} {{block.settings.link}}{% else %}javascript:; {% endif %}">
+                          <div class="custom-menu-item-img">
+                            {%- render 'image', image: block.settings.image -%}
+                          </div>
+                          <div class="custom-menu-item-title">{{ block.settings.title }}</div>
+                        </a>
                       </li>
                     {%- endif -%}
                   {%- endfor -%}
