@@ -470,3 +470,42 @@ a:hover {
   width: 24px;
   height: 24px;
 }
+.drawer-container .search-container #predictive-search-results #predictive-search-products {
+  display: none;
+}
+.drawer-container .search-container #predictive-search-results .predictive-search__item {
+  display: flex;
+  padding: 8px;
+  margin: 16px;
+  transition: 0.3s ease all;
+}
+.drawer-container .search-container #predictive-search-results .predictive-search__item:hover {
+  background-color: #f4f4f499;
+}
+.drawer-container .search-container #predictive-search-results .predictive-search__item img {
+  width: 100px;
+  height: auto;
+  max-height: 300px;
+}
+.drawer-container .search-container #predictive-search-results .predictive-search__item .predictive-search__item-content {
+  flex: 1;
+  padding-left: 16px;
+}
+.drawer-container .search-container #predictive-search-results button {
+  background: none;
+  padding: 16px;
+  width: 100%;
+  border: none;
+  border-top: 1px solid #bfbfbf99;
+  border-bottom: 1px solid #bfbfbf99;
+  outline: none;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.drawer-container .search-container #predictive-search-results button:hover {
+  background: #000;
+}
+.drawer-container .search-container #predictive-search-results button svg {
+  width: 16px;
+}

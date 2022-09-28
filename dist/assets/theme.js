@@ -1,3 +1,4 @@
+
 var BaseHTMLElement = class extends HTMLElement {
   constructor() {
     super();
@@ -13,9 +14,9 @@ var BaseHTMLElement = class extends HTMLElement {
     }
   }
   initSwiper(options={}) {
-    const swiperId = $(this).data('swiper-container')
-    const swiperSelector = `#${swiperId}`
-    const datas = $(swiperSelector).data()
+    var swiperId = $(this).data('swiper-container')
+    var swiperSelector = `#${swiperId}`
+    var datas = $(swiperSelector).data()
     this.curSlider = new Swiper(`#${swiperId}`, {
       loop: 'true',
       autoplay:true,
@@ -25,11 +26,9 @@ var BaseHTMLElement = class extends HTMLElement {
       this.curSlider.disable()
     }
   }
-  getData(key) {
-    
-  }
 };
 
+// AnnouncementBar
 var AnnouncementBar = class extends BaseHTMLElement {
   connectedCallback () {
     this.initSwiper({
@@ -39,42 +38,6 @@ var AnnouncementBar = class extends BaseHTMLElement {
 };
 window.customElements.define("xuer-announcement-bar", AnnouncementBar);
 
-var Slideshow = class extends BaseHTMLElement {
-  connectedCallback () {
-    this.initSwiper()
-  }
-};
-window.customElements.define("xuer-slideshow", Slideshow);
-
-var Header = class extends BaseHTMLElement {
-  connectedCallback () {
-    this.bindMouseEvent()
-
-  }
-  bindMouseEvent () {
-    $('[data-active]').click(function() {
-      var type = $(this).data('action-type')      
-      theme.drawer.open(type)
-    })
-  }
-};
-window.customElements.define("xuer-header", Header);
-
-
-var HeaderMenu = class extends BaseHTMLElement {
-  connectedCallback () {
-    this.bindMouseEvent()
-  }
-  bindMouseEvent () {
-    $(this).find('.menu-level-1').hover(function() {
-      $(this).addClass('open')
-    }, function() {
-      $(this).removeClass('open')
-    })
-  }
-
-};
-window.customElements.define("xuer-header-menu", HeaderMenu);
 
 var Drawer = class extends BaseHTMLElement {
   connectedCallback () {
@@ -85,37 +48,36 @@ var Drawer = class extends BaseHTMLElement {
     
   }
   bindMouseEvent () {
-    const _this = this
+    var _this = this
     this.$container.find('.drawer-bg').click(function() {
       _this.$container.removeClass('open')
     })
   }
   bindSearch() {
-    const _this = this
+    var _this = this
     this.$container.find('.search').bind("input propertychange", function(e){
       _this.search($(this).val())
     })
   }
   search(val) {
-    var $form = $(this).find('form');
-    const _this = this
+    var _this = this
     $.ajax({
       url: theme.routes.predictive_search_url,
       data: {
         "q": val,
         "section_id": "predictive-search",
         "resources": {
-          "type": $form.find('input[name="type"]').val(),
+          "type": "product",
           "limit": 10,
           "options": {
             "unavailable_products": "last",
-            "fields": "title,product_type,variants.title,vendor"
+            "fields": "title,body,product_type,variants.title,vendor"
           } 
         } 
       },
       dataType: 'html',
       success: function success(response) {
-        console.log('response', response);
+        _this.$container.find('[search-result]').html(response)
         
       },
       error: function error(response) {
@@ -135,7 +97,7 @@ var Drawer = class extends BaseHTMLElement {
   }
 
   insertHtml () {
-    const $con = $(`#${this.searchTplId}`)
+    var $con = $(`#${this.searchTplId}`)
     this.html = $con.html()
     this.title = $con.data('title')
     $(this).find('.drawer-content').html(this.html)
@@ -145,3 +107,41 @@ var Drawer = class extends BaseHTMLElement {
  
 };
 window.customElements.define("xuer-drawer", Drawer);
+
+var HeaderMenu = class extends BaseHTMLElement {
+  connectedCallback () {
+    this.bindMouseEvent()
+  }
+  bindMouseEvent () {
+    $(this).find('.menu-level-1').hover(function() {
+      $(this).addClass('open')
+    }, function() {
+      $(this).removeClass('open')
+    })
+  }
+
+};
+window.customElements.define("xuer-header-menu", HeaderMenu);
+
+
+var Header = class extends BaseHTMLElement {
+  connectedCallback () {
+    this.bindMouseEvent()
+
+  }
+  bindMouseEvent () {
+    $('[data-active]').click(function() {
+      var type = $(this).data('action-type')      
+      theme.drawer.open(type)
+    })
+  }
+};
+window.customElements.define("xuer-header", Header);
+
+
+var Slideshow = class extends BaseHTMLElement {
+  connectedCallback () {
+    this.initSwiper()
+  }
+};
+window.customElements.define("xuer-slideshow", Slideshow);

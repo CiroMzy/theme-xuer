@@ -72,5 +72,46 @@
         }
       }
     }
+    #predictive-search-results{
+      #predictive-search-products {
+        display: none;
+      }
+      .predictive-search__item {
+        display: flex;
+        &:hover{
+          background-color:#f4f4f499; 
+        }
+        padding: @distance*1;
+        margin: @distance*2;
+        .trans;
+        img{
+          width: 100px;
+          height: auto;
+          max-height: 300px;
+        }
+        .predictive-search__item-content {
+          flex: 1;
+          padding-left: @distance2;
+        }
+      }
+      button{
+        background: none;
+        padding: @distance2;
+        width: 100%;
+        border: none;
+        border-top: 1px solid #bfbfbf99;
+        border-bottom: 1px solid #bfbfbf99;
+        outline: none;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        &:hover{
+          background: #000;
+        }
+        svg{
+          width: @distance2;
+        }
+      }
+    }
   }
 }
