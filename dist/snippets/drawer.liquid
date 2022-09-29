@@ -1,17 +1,25 @@
 <xuer-drawer class="drawer-container">
-  <div class="drawer-bg" data-action="close" ></div>
-  <div class="drawer-main">
+  <div class="drawer-bg" action-close ></div>
+  <div class="drawer-main" >
     <div class="drawer-header">
       <div class="title">
 
       </div>
-      <div class="close" data-actioin="close">
+      <div class="close" action-close>
         {% render 'icon-close' %}
       </div>
     </div>
-    <div class="drawer-content">
-    </div>
+    <div class="drawer-content-wrapper">
+      <div class="drawer-content" drawer-content >
+  
+      </div>
+      <div class="drawer-loading" drawer-loading >
+        <svg focusable="false" width="50" height="50" class="icon icon--spinner   " viewBox="25 25 50 50">
+          <circle cx="50" cy="50" r="20" fill="none" stroke="#282828" stroke-width="4"></circle>
+        </svg>
+      </div>
 
+    </div>
   </div>
 </xuer-drawer>
 

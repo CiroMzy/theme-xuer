@@ -27,3 +27,23 @@ var BaseHTMLElement = class extends HTMLElement {
     }
   }
 };
+
+theme.debounce = function (func, wait, callback) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+      var result = func.apply(context, args)
+      if (result.then) {
+        result.then(res => {
+          callback && callback(res)
+        })
+      } else {
+        callback && callback(res)
+      }
+		};
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+	};
+};

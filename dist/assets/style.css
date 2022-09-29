@@ -176,6 +176,25 @@ a:hover {
     display: block;
   }
 }
+@keyframes rotateInfinit {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateDash {
+  0% {
+    stroke-dasharray: 1,200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -124;
+  }
+}
 /***************
 * header
 */
@@ -387,6 +406,9 @@ a:hover {
   width: 100%;
   height: 200px;
 }
+.slideshow .swiper-wrapper {
+  overflow-x: hidden;
+}
 .slideshow .swiper-slide {
   background: #fff;
 }
@@ -420,6 +442,9 @@ a:hover {
   opacity: 1;
   visibility: visible;
 }
+.drawer-container.open .drawer-main {
+  transform: translateX(0);
+}
 .drawer-container .drawer-main {
   position: relative;
   z-index: 1;
@@ -427,6 +452,10 @@ a:hover {
   width: 480px;
   background: #fff;
   height: 100%;
+  transform: translateX(100%);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 .drawer-container .drawer-main .drawer-header {
   border-bottom: 1px solid #333;
@@ -436,10 +465,46 @@ a:hover {
   padding-right: 16px;
   align-items: center;
 }
-.drawer-container .drawer-main .drawer-content {
-  padding: 16px;
+.drawer-container .drawer-main .drawer-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+.drawer-container .drawer-main .drawer-content-wrapper .drawer-loading {
+  position: absolute;
+  top: 113px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.drawer-container .drawer-main .drawer-content-wrapper .drawer-loading.show {
+  display: flex;
+}
+.drawer-container .drawer-main .drawer-content-wrapper .drawer-loading svg {
+  margin: auto;
+  animation: rotateInfinit 2s linear infinite;
+  transform-origin: center center;
+}
+.drawer-container .drawer-main .drawer-content-wrapper .drawer-loading circle {
+  animation: rotateDash 1.5s ease-in-out infinite;
+}
+.drawer-container .drawer-main .drawer-content-wrapper .drawer-content {
+  flex: 1;
+  overflow: hidden;
+}
+.drawer-container .search-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .drawer-container .search-container .search-input {
+  margin: 16px;
   background: rgba(0, 0, 0, 0.05);
   border-radius: 3px;
   padding: 0;
@@ -470,17 +535,28 @@ a:hover {
   width: 24px;
   height: 24px;
 }
+.drawer-container .search-container .search-suggest-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 16px;
+  overscroll-behavior: contain;
+}
+.drawer-container .search-container .search-suggest-wrapper .shopify-section > span {
+  display: none;
+}
 .drawer-container .search-container #predictive-search-results #predictive-search-products {
   display: none;
 }
 .drawer-container .search-container #predictive-search-results .predictive-search__item {
   display: flex;
-  padding: 8px;
+  padding: 8px 16px;
   margin: 16px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
   transition: 0.3s ease all;
 }
 .drawer-container .search-container #predictive-search-results .predictive-search__item:hover {
-  background-color: #f4f4f499;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: none;
 }
 .drawer-container .search-container #predictive-search-results .predictive-search__item img {
   width: 100px;
@@ -491,21 +567,31 @@ a:hover {
   flex: 1;
   padding-left: 16px;
 }
-.drawer-container .search-container #predictive-search-results button {
-  background: none;
+.drawer-container .search-container #predictive-search-results .predictive-search__list-item button {
   padding: 16px;
-  width: 100%;
   border: none;
-  border-top: 1px solid #bfbfbf99;
-  border-bottom: 1px solid #bfbfbf99;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   outline: none;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  margin: 0 16px;
+  display: block;
+  background: rgba(0, 0, 0, 0.01);
+  flex: 1;
 }
-.drawer-container .search-container #predictive-search-results button:hover {
-  background: #000;
+.drawer-container .search-container #predictive-search-results .predictive-search__list-item button:hover {
+  background: none;
 }
-.drawer-container .search-container #predictive-search-results button svg {
+.drawer-container .search-container #predictive-search-results .predictive-search__list-item button svg {
   width: 16px;
+}
+.drawer-container .search-container #predictive-search-results #predictive-search-option-search-keywords {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.drawer-container .search-container #predictive-search-results .predictive-search__loading-state {
+  display: none;
 }
