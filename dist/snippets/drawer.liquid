@@ -9,7 +9,7 @@
         {% render 'icon-close' %}
       </div>
     </div>
-    <div class="drawer-content-wrapper">
+    <div class="drawer-content-wrapper" drawer-content-wrapper>
       <div class="drawer-content" drawer-content >
   
       </div>
@@ -26,7 +26,7 @@
 <template id="search-tpl" data-title="{{ 'header.search.title' | t }}">
   <div class="search-container">
     <div class="search-form-container">
-      <form class="search-form" action="{{ routes.search_url }}" method="get" autocomplete="off">
+      <form id="predictive-search-form" class="search-form" action="{{ routes.search_url }}" method="get" autocomplete="off">
         <input type="hidden" name="type" value="product">
         <input type="hidden" name="options[prefix]" value="last">
         <div class="search-input">

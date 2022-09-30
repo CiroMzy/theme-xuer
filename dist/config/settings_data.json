@@ -19,7 +19,7 @@
 
 
 
-      "link_underline": true,
+      "link_underline": false,
       "accent_color": "#9d1339",
       "inverse_color": "#FFFFFF",
 

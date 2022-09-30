@@ -1,4 +1,12 @@
-var Search = {
+var Search = class{
+  constructor(){
+    this.$container = $('[drawer-content-wrapper]')
+    this.init()
+  }
+  init () {
+    this.bindSearch()
+  }
+
   searchProduct(val) {
     return new Promise(resolve => {
       if (!val) {
@@ -30,6 +38,23 @@ var Search = {
     })
   }
 
+  bindSearch() {
+    var _this = this
+    this.debounceSearchProduct = theme.debounce(_this.searchProduct, 500, _this.insertSearchResult.bind(_this));
+    this.$container.find('.search').bind("input propertychange", function(){
+      _this.$container.find('[drawer-loading]').addClass('show')
+      _this.debounceSearchProduct($(this).val())
+    })
+  }
+
+  insertSearchResult(res) {
+    this.$container.find('[search-result]').html(res)
+    this.$container.find('[drawer-loading]').removeClass('show')
+  }
+  bindViewAllClick() {
+
+  }
+
 }
 
 
@@ -39,6 +64,7 @@ var Drawer = class extends BaseHTMLElement {
     this.searchTplId = 'search-tpl'
     this.$container = $(this)
     this.bindMouseEvent()
+    this.controller = null
     
   }
   bindMouseEvent () {
@@ -47,31 +73,19 @@ var Drawer = class extends BaseHTMLElement {
       _this.$container.removeClass('open')
     })
   }
-  bindSearch() {
-    var _this = this
-    this.debounceSearchProduct = theme.debounce(Search.searchProduct, 500, _this.insertSearchResult.bind(_this));
-    this.$container.find('.search').bind("input propertychange", function(){
-      _this.$container.find('[drawer-loading]').addClass('show')
-      _this.debounceSearchProduct($(this).val())
-    })
-  }
-  insertSearchResult(res) {
-    this.$container.find('[search-result]').html(res)
-    this.$container.find('[drawer-loading]').removeClass('show')
-  }
   open(type) {
-    this.insertHtml()
-    $(this).addClass('open')
     switch(type) {
       case 'search':
-        this.bindSearch()
+        this.insertHtml(this.searchTplId)
+        $(this).addClass('open')
+        this.controller = new Search()
         break;
     }
     $(this).find('[drawer-main]').addClass('open')
   }
 
-  insertHtml () {
-    var $con = $(`#${this.searchTplId}`)
+  insertHtml (tplId) {
+    var $con = $(`#${tplId}`)
     this.html = $con.html()
     this.title = $con.data('title')
     $(this).find('[drawer-content]').html(this.html)

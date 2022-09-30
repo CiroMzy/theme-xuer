@@ -7,6 +7,8 @@
   
   --primary_color: {{ settings.primary_color }};
   --text_color: {{ settings.text_color }};
+  --text_color_rgb: {{ settings.text_color.red }}, {{ settings.text_color.green }}, {{ settings.text_color.blue }};
+  --text_color_fade: rgba(var(--text_color_rgb), 0.6) ;
   --link_color: {{ settings.link_color }};
   --link_active_color: {{ settings.link_active_color }};
 
@@ -22,6 +24,7 @@
 
 
 
+  --text_border_color: rgba(var(--text_color_rgb), 0.1);
 
 
 
