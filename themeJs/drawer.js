@@ -70,7 +70,7 @@ var Drawer = class extends BaseHTMLElement {
   bindMouseEvent () {
     var _this = this
     this.$container.find('[action-close]').click(function() {
-      _this.$container.removeClass('open')
+      _this.close()
     })
   }
   open(type) {
@@ -82,6 +82,11 @@ var Drawer = class extends BaseHTMLElement {
         break;
     }
     $(this).find('[drawer-main]').addClass('open')
+    $('body').addClass('lock')
+  }
+  close () {
+    $('body').removeClass('lock')
+    this.$container.removeClass('open')
   }
 
   insertHtml (tplId) {

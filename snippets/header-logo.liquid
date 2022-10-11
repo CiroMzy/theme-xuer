@@ -1,6 +1,6 @@
 
 {%- if request.page_type == 'index' -%}
-  <h1 class="header__heading">
+  <h1 class="header__heading {% if section.menu_alignment == 'center' %} left {% endif %}">
 {%- endif -%}
     <a href="{{ routes.root_url }}" >
       {%- if section.logo != blank -%}

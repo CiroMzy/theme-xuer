@@ -1,5 +1,10 @@
 <xuer-slideshow class="slideshow" data-swiper-container="swiper-{{ section.id }}">
-  <div id="swiper-{{ section.id }}">
+  <div 
+    id="swiper-{{ section.id }}"
+    data-swiper-loop="true"
+    data-swiper-autoplay="true"
+    data-swiper-speed="300"
+  >
     <div class="swiper-wrapper">
       {%- for block in section.blocks -%}
         <div class="swiper-slide">

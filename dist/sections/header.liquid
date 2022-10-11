@@ -24,8 +24,8 @@
       endif
   
       if section.settings.menu_alignment == 'center' 
-        render 'header-logo'
-        render 'header-menu'
+        render 'header-logo', section: section.settings
+        render 'header-menu', section: section.settings, blocks: section.blocks
         render 'header-icons', enable_search: section.settings.enable_search
       endif
     -%}
@@ -102,10 +102,6 @@
         }
       ],
       "default": "left"
-    },
-    {
-      "type": "header",
-      "content": "Color settings"
     }
   ],
   "blocks": [

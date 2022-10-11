@@ -18,8 +18,10 @@ var BaseHTMLElement = class extends HTMLElement {
     var swiperSelector = `#${swiperId}`
     var datas = $(swiperSelector).data()
     this.curSlider = new Swiper(`#${swiperId}`, {
-      loop: 'true',
-      autoplay:true,
+      loop: datas.swiperLoop,
+      autoplay: datas.swiperAutoplay,
+      speed: datas.swiperSpeed || 300,
+      effect: datas.swiperEffect || 'slide',
       ...options
     });
     if (datas.swiperDisable) {
