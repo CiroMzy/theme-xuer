@@ -7,8 +7,36 @@
   height: 200px;
   .swiper-slide {
     background: #fff;
-    img{
+    position: relative;
+    .slideshow-image {
       width: 100%;
+      position: relative;
+      img{
+        width: 100%;
+      }
+      &.small, &.medium, &.large{
+        img{
+          object-fit: cover;
+        }
+      }
+      &.small{
+        height: 300px;
+      }
+      &.medium {
+        height: 500px;
+      }
+      &.large {
+        height: 800px;
+      }
+    }
+    .slideshow-content {
+      position: absolute;
+      top: 30%;
+      left: 30%;
+      width: 40%;
+      .slideshow-content_subheading {
+        margin: @distance3;
+      }
     }
   }
 }

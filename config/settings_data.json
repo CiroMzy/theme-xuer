@@ -15,6 +15,17 @@
       "announcement_link_color": "#c16452",
       "announcement_link_active_color": "#7f3425",
 
+      "slideshow_text_color": "#ffffff",
+
+      "button_fill_text_color": "#ffffff",
+      "button_fill_background_color": "#000000",
+      "button_outline_text_color": "#000000",
+      "button_outline_background_color": "#ffffff",
+
+
+
+
+
 
 
 

@@ -169,6 +169,47 @@ a:hover {
   align-items: center;
   justify-content: center;
 }
+.xuer-image-wrapper .xuer-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.xuer-image-wrapper .xuer-placeholder-image.xuer-full svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.xuer-h2 {
+  font-size: 67px;
+}
+.xuer-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.xuer-button.fill {
+  background-color: var(--button_fill_background_color);
+  color: var(--button_fill_text_color);
+}
+.xuer-button.fill:hover {
+  background-color: var(--button_fill_text_color);
+  color: var(--button_fill_background_color);
+}
+.xuer-button.outline {
+  background-color: var(--button_outline_background_color);
+  border: 1px solid var(--button_outline_text_color);
+  color: var(--button_outline_text_color);
+}
+.xuer-button.outline:hover {
+  color: var(--primary_color);
+  border-color: var(--primary_color);
+}
 @media screen and (min-width: 750px) {
   .desktop {
     display: block;
@@ -422,9 +463,37 @@ a:hover {
 }
 .slideshow .swiper-slide {
   background: #fff;
+  position: relative;
 }
-.slideshow .swiper-slide img {
+.slideshow .swiper-slide .slideshow-image {
   width: 100%;
+  position: relative;
+}
+.slideshow .swiper-slide .slideshow-image img {
+  width: 100%;
+}
+.slideshow .swiper-slide .slideshow-image.small img,
+.slideshow .swiper-slide .slideshow-image.medium img,
+.slideshow .swiper-slide .slideshow-image.large img {
+  object-fit: cover;
+}
+.slideshow .swiper-slide .slideshow-image.small {
+  height: 300px;
+}
+.slideshow .swiper-slide .slideshow-image.medium {
+  height: 500px;
+}
+.slideshow .swiper-slide .slideshow-image.large {
+  height: 800px;
+}
+.slideshow .swiper-slide .slideshow-content {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 40%;
+}
+.slideshow .swiper-slide .slideshow-content .slideshow-content_subheading {
+  margin: 24px;
 }
 /**********************
 * drawer

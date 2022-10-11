@@ -86,7 +86,51 @@
         "id": "header_link_color",
         "label": "Link color"
       },
+      {
+        "type": "header",
+        "content": "Slideshow"
+      },
+      {
+        "type": "color",
+        "id": "slideshow_text_color",
+        "default": "#ffffff",
+        "label": "Slideshow text color"
+      },
+      {
+        "type": "color",
+        "id": "slideshow_button_color",
+        "label": "Slideshow button color"
+      },
+      {
+        "type": "color",
+        "id": "slideshow_button_background_color",
+        "label": "Slideshow button background color"
+      },
 
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "type": "color",
+        "id": "button_fill_text_color",
+        "label": "Button fill text color"
+      },
+      {
+        "type": "color",
+        "id": "button_fill_background_color",
+        "label": "Button fill background color"
+      },
+      {
+        "type": "color",
+        "id": "button_outline_text_color",
+        "label": "Button outline text color"
+      },
+      {
+        "type": "color",
+        "id": "button_outline_background_color",
+        "label": "Button outline background color"
+      },
 
 
 
