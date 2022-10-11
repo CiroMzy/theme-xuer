@@ -231,40 +231,48 @@
         "footer": {
           "type": "footer",
           "blocks": {
-            "footer-0": {
+            "ad4480be-93b2-4579-8970-d9d9bbcb537f": {
               "type": "link_list",
               "settings": {
                 "heading": "Quick links",
                 "menu": "footer"
               }
             },
-            "footer-1": {
-              "type": "link_list",
+            "091a3c0c-1958-4320-9f30-e9e07c0505e1": {
+              "type": "company_info",
               "settings": {
-                "heading": "Info",
-                "menu": "footer"
+                "heading": "Contact Information",
+                "company_info_address": "1635 Franklin Street Montgomery, Near Sherwood Mall. AL 36104",
+                "company_info_email": "info@abc.com",
+                "company_info_phone": "+1-202-555-1234"
               }
             },
-            "footer-2": {
-              "type": "text",
+            "19fa2e5a-160b-436b-a2b4-0faa4c1b8591": {
+              "type": "newsletter",
               "settings": {
-                "heading": "Our mission",
-                "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
+                "heading": "Newsletter",
+                "newsletter_info": "Sign Up to our Newsletter to get the latest news and offers."
+              }
+            },
+            "4f3806b6-6f94-4c1d-b27f-65deef71cc3c": {
+              "type": "company_info",
+              "settings": {
+                "heading": "Contact Information",
+                "company_info_address": "1635 Franklin Street Montgomery, Near Sherwood Mall. AL 36104",
+                "company_info_email": "info@abc.com",
+                "company_info_phone": "+1-202-555-1234"
               }
             }
           },
-          "block_order": ["footer-0", "footer-1", "footer-2"],
+          "block_order": [
+            "ad4480be-93b2-4579-8970-d9d9bbcb537f",
+            "091a3c0c-1958-4320-9f30-e9e07c0505e1",
+            "19fa2e5a-160b-436b-a2b4-0faa4c1b8591",
+            "4f3806b6-6f94-4c1d-b27f-65deef71cc3c"
+          ],
           "settings": {
-            "color_scheme": "background-1",
-            "newsletter_enable": true,
-            "newsletter_heading": "Subscribe to our emails",
-            "show_social": true,
-            "enable_country_selector": false,
-            "enable_language_selector": false,
-            "payment_enable": true,
-            "margin_top": 48,
-            "padding_top": 36,
-            "padding_bottom": 36
+            "show_language_selector": true,
+            "show_social": true
           }
         },
         "main-password-header": {
