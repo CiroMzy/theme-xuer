@@ -102,6 +102,12 @@
         "default": "#ffffff",
         "label": "Footer text color"
       },
+      {
+        "type": "color",
+        "id": "footer_link_hover_color",
+        "default": "#02867f",
+        "label": "Footer link hover color"
+      },
 
       {
         "type": "header",

@@ -169,6 +169,9 @@ a:hover {
   align-items: center;
   justify-content: center;
 }
+.xuer-image {
+  max-width: 100%;
+}
 .xuer-image-wrapper .xuer-image {
   position: absolute;
   left: 0;
@@ -183,6 +186,9 @@ a:hover {
 }
 .xuer-h2 {
   font-size: 67px;
+}
+.xuer-h4 {
+  font-size: 22px;
 }
 .xuer-button {
   display: flex;
@@ -491,8 +497,18 @@ a:hover {
 .site-footer a {
   color: var(--footer_text_color);
 }
+.site-footer a:hover {
+  color: var(--footer_link_hover_color);
+}
+.site-footer .footer-base .footer-logo {
+  font-size: 0;
+  margin-bottom: 24px;
+}
 .site-footer .footer-block-container .xuer-row .xuer-col {
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+}
+.site-footer .footer-block-container .xuer-h4 {
+  margin-bottom: 8px;
 }
 /**********************
 * slideshow
