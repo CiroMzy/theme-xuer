@@ -79,13 +79,30 @@
         "type": "color",
         "id": "header_background_color",
         "default": "#02867f",
-        "label": "Background color"
+        "label": "Header background color"
       },
       {
         "type": "color",
         "id": "header_link_color",
         "label": "Link color"
       },
+      {
+        "type": "header",
+        "content": "Footer"
+      },
+      {
+        "type": "color",
+        "id": "footer_background_color",
+        "default": "#000000",
+        "label": "Footer background color"
+      },
+      {
+        "type": "color",
+        "id": "footer_text_color",
+        "default": "#ffffff",
+        "label": "Footer text color"
+      },
+
       {
         "type": "header",
         "content": "Slideshow"

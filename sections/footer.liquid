@@ -1,118 +1,94 @@
 {%- liquid
+
 -%}
 
 
 <footer class="site-footer ">
-  <div class="footer-main">
-    <div class="container">
-      <div class="row">
-        <div 
-          id="themedraft_about_company_widget-3"
-          class="widget col-lg-3 col-md-6 widget_themedraft_about_company_widget"
-        >
-          {%- if section.settings.logo_image -%}
-            <div id="text-4" class="widget widget_text text-left Aqua-footer-logo">
-              <div class="textwidget">
-                <p>
-                  <img loading="lazy" class="image wp-image-6321 attachment-140x47 size-140x47"
-                    style="max-width: 100%; height: auto;" src="{{ section.settings.logo_image | img_url }}" alt=""
-                    width="140" height="47" 
-                  />
-                </p>
-              </div>
-            </div>
-          {%- endif -%}
-          {%- if section.settings.footer_describe and section.settings.footer_describe != "" -%}
-          <div id="text-2" class="widget widget_text text-left">
-            <div class="textwidget">
-              <p>
-                {{ section.settings.footer_describe}}
-              </p>
-            </div>
-          </div>
-          {%- endif -%}
-          
-          {% render 'social', section: section %}
+  <div class="xuer-row page_width">
+    <div  class="xuer-col col-3">
+      {%- if section.settings.logo_image != blank -%}
+        <div class="footer-logo">
+          <img loading="lazy" class="image wp-image-6321 attachment-140x47 size-140x47"
+            style="max-width: 100%; height: auto;" src="{{ section.settings.logo_image | img_url }}" alt=""
+            width="140" height="47" 
+          />
         </div>
+      {%- endif -%}
+      {%- if section.settings.footer_describe != blank -%}
+        <p class="footer-describe">
+          {{ section.settings.footer_describe }}
+        </p>
+      {%- endif -%}
+      {% render 'social', section: section %}
+    </div>
 
-        <div class="footer-block-container col-lg-9 col-md-6 widget-column">
-          <div class="row">
-            {%- for item in section.blocks -%}
-              {%- if item.type == '@app' -%}
-                <div class="widget col-lg-4 col-md-6">
-                  {% render item %}
-                </div>
-              {%- endif -%}    
-              {%- if item.type == 'link_list' -%}
-                <div class="widget col-lg-4 col-md-6 widget_themedraft_nav_menu">
-                  <h4 class="widget-title">{{item.settings.heading}}</h4>
+    <div class="xuer-col col-9 footer-block-container ">
+      <div class="xuer-row">
+        {%- for block in section.blocks -%}
+          <div class="xuer-col col-4">
+            {%- case block.type -%}
+              {%- when 'link_list' -%}
+                <div class="footer-block link-list">
+                  <h4 class="xuer-h4">
+                    {{ block.settings.heading }}
+                  </h4>
                   <div class="menu-quick-links-container">
-                    <ul id="menu-quick-links" class="menu">
-                      {%- if item.settings.menu and item.settings.menu.links -%}
-                        {%- for menu in item.settings.menu.links -%}
-                          <li
-                            id="menu-item-137"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137"
-                          >
-                            <a href="{{menu.url}}">{{menu.title}}</a>
+                    <ul class="menu">
+                      {%- if block.settings.menu.links != blank -%}
+                        {%- for menu in block.settings.menu.links -%}
+                          <li class="menu-item footer-menu-item">
+                            <a href="{{ menu.url }}">{{ menu.title }}</a>
                           </li>
                         {%- endfor -%}
                       {%- endif -%}
                     </ul>
                   </div>
                 </div>
-              {%- endif -%}
-
-              {%- if item.type == 'newsletter' -%}
-                <div
-                  id="themedraft_contact_info_widget-2"
-                  class="widget col-lg-4 col-md-6 themedraft_contact_info_widget"
-                >
-                  <h4 class="widget-title">{{item.settings.heading}}</h4>
-                  {%-if item.settings.newsletter_info and  item.settings.newsletter_info != "" -%}
-                    <div class="newsletter-content">{{item.settings.newsletter_info}}</div>
+              {%- when 'newsletter' -%}
+                <div class="footer-block newsletter">
+                  <h4 class="xuer-h4">
+                    {{ block.settings.heading }}
+                  </h4>
+                  {%- if block.settings.newsletter_info != blank -%}
+                    <div class="newsletter-content">
+                      {{ block.settings.newsletter_info }}
+                    </div>
                   {%- endif -%}
                   <div class="footer-subscribe-form">
-                    {% render 'snippets/newsletter_snippets' %}
+                    ==
                   </div>
                 </div>
-              {%- endif -%}
-
-              {%- if item.type == 'company_info' -%}
-                <div
-                  id="themedraft_contact_info_widget-2"
-                  class="widget col-lg-4 col-md-6 themedraft_contact_info_widget"
-                >
-                  <h4 class="widget-title">{{item.settings.heading}}</h4>
+              {%- when 'company_info' -%}
+                <div class="footer-block company-info">
+                  <h4 class="widget-title">
+                    {{ block.settings.heading }}
+                  </h4>
                   <div class="footer-address">
                     <ul>
-                      {%-if item.settings.company_info_address and  item.settings.company_info_address != "" -%}
+                      {%- if block.settings.company_info_address != blank -%}
                         <li>
                           <i class="fas fa-map-marker-alt"></i>
-                          <span>{{ item.settings.company_info_address }}</span>
+                          <span>{{ block.settings.company_info_address }}</span>
                         </li>
                       {%- endif -%}
-                      {%-if item.settings.company_info_email and  item.settings.company_info_email != "" -%}
+                      {%- if block.settings.company_info_email != blank -%}
                       <li>
                         <i class="far fa-envelope"></i>
-                        <span>{{ item.settings.company_info_email }}</span>
+                        <span>{{ block.settings.company_info_email }}</span>
                       </li>
                       {%- endif -%}
-                      {%-if item.settings.company_info_phone and  item.settings.company_info_phone != "" -%}
+                      {%- if block.settings.company_info_phone != blank -%}
                       <li>
                         <i class="fas fa-headset"></i>
-                        <span>{{ item.settings.company_info_phone }}</span>
+                        <span>{{ block.settings.company_info_phone }}</span>
                       </li>
                       {%- endif -%}
                     </ul>
                   </div>
                 </div>
-              {%- endif -%}
-
-            {%- endfor -%}
+            {%- endcase -%}
           </div>
-        </div>
-
+        {%- endfor -%}
       </div>
     </div>
   </div>
@@ -122,6 +98,17 @@
 {
   "name": "t:sections.footer.name",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "footer_describe",
+      "default": "Build any site you can imagine with no coding skills. We make websites are the number one ranked design, build and marketing team.",
+      "label": "Description"
+    },
     {
       "type": "checkbox",
       "id": "show_language_selector",

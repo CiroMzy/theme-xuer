@@ -245,6 +245,32 @@ a:hover {
     stroke-dashoffset: -124;
   }
 }
+/**********
+* layout
+*/
+.xuer-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.xuer-row .xuer-col {
+  position: relative;
+  width: 100%;
+  padding-right: 8px;
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+.xuer-row .xuer-col.col-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.xuer-row .xuer-col.col-4 {
+  flex: 0 0 33.3%;
+  max-width: 33.3%;
+}
+.xuer-row .xuer-col.col-9 {
+  flex: 0 0 75%;
+  max-width: 75%;
+}
 /***************
 * header
 */
@@ -453,6 +479,20 @@ a:hover {
 }
 .announcement-bar .announcement-bar-list .swiper-slide a:hover {
   color: var(--announcement_link_active_color);
+}
+/**********
+* footer
+*/
+.site-footer {
+  background-color: var(--footer_background_color);
+  color: var(--footer_text_color);
+  padding: 24px;
+}
+.site-footer a {
+  color: var(--footer_text_color);
+}
+.site-footer .footer-block-container .xuer-row .xuer-col {
+  margin-bottom: 16px;
 }
 /**********************
 * slideshow
