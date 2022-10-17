@@ -623,6 +623,13 @@ a:hover {
   flex-direction: column;
   flex: 1;
   overflow: hidden;
+  position: relative;
+}
+.drawer-container .drawer-main .drawer-content-wrapper .drawer-main {
+  display: block;
+  overflow-y: auto;
+  padding: 16px;
+  box-sizing: border-box;
 }
 .drawer-container .drawer-main .drawer-content-wrapper .drawer-loading {
   position: absolute;

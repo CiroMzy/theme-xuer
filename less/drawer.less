@@ -58,6 +58,13 @@
       flex-direction: column;
       flex: 1;
       overflow: hidden;
+      position: relative;
+      .drawer-main {
+        display: block;
+        overflow-y: auto;
+        padding: @distance2;
+        box-sizing: border-box;
+      }
       .drawer-loading{
         position: absolute;
         top: 132px;
@@ -201,6 +208,9 @@
   }
   .localization-container {
     .xuer-list-selector {
+      .form-selected {
+
+      }
       
     }
   }

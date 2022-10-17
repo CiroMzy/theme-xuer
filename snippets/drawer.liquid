@@ -46,11 +46,11 @@
 
 {% comment %} country {% endcomment %}
 <template id="country-tpl" data-title="{{ 'localization.country_label' | t }}">
-  <xuer-localization-form class="localization-container">
+  <xuer-localization-form class="localization-container  drawer-main">
     {%- form 'localization', id: "localization-form", class: 'selectors-form' -%}
       <div class="form-item">
         <xuer-selector class="xuer-selector">
-          <button type="button" >
+          <button type="button" class="form-selected">
             <span class="localization-item-label">{{ localization.country.name }}</span>
             <span class="localization-item-isocode">({{ country.currency.iso_code }}&nbsp;{{ country.currency.symbol }})</span>
           </button>
@@ -75,11 +75,11 @@
 
 {% comment %} language {% endcomment %}
 <template id="language-tpl" data-title="{{ 'localization.country_label' | t }}">
-  <xuer-localization-form class="localization-container">
+  <xuer-localization-form class="localization-container drawer-main ">
     {%- form 'localization', id: "localization-form", class: 'selectors-form' -%}
       <div class="form-item">
         <div class="xuer-list-selector" xuer-list-selector>
-          <button type="button" >
+          <button type="button" class="form-selected" >
             <span class="localization-item-label">{{- localization.language.endonym_name | capitalize -}}</span>
           </button>
           <ul >
