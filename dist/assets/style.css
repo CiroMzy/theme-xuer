@@ -504,6 +504,15 @@ a:hover {
   font-size: 0;
   margin-bottom: 24px;
 }
+.site-footer .footer-base .footer-base_button button {
+  border-bottom: 1px solid var(--footer_text_color);
+  color: var(--footer_text_color);
+  padding: 0;
+}
+.site-footer .footer-base .footer-base_button button:hover {
+  color: var(--footer_link_hover_color);
+  border-bottom: 1px solid var(--footer_link_hover_color);
+}
 .site-footer .footer-block-container .xuer-row .xuer-col {
   margin-bottom: 24px;
 }

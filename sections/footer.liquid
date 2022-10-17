@@ -3,7 +3,7 @@
 -%}
 
 
-<footer class="site-footer ">
+<footer class="site-footer " >
   <div class="xuer-row page_width">
     <div class="xuer-col col-3">
       <div class="footer-base">
@@ -16,6 +16,21 @@
           <p class="footer-describe">
             {{ section.settings.footer_describe }}
           </p>
+        {%- endif -%}
+        {%- if section.settings.show_country_selector -%}
+          <div class="footer-base_button" drawer-open-localization data-action-type="country">
+            <button type="button" class="footer-base_country button-clearn button">
+              <span class="localization-item-label">{{ localization.country.name }}</span>
+              <span class="localization-item-isocode">({{ localization.country.currency.iso_code }}&nbsp;{{ localization.country.currency.symbol }})</span>
+            </button>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.show_language_selector -%}
+          <div class="footer-base_button" drawer-open-localization data-action-type="language">
+            <button type="button" class="footer-base_language button-clearn button ">
+              <span class="localization-item-label">{{- localization.language.endonym_name | capitalize -}}</span>
+            </button>
+          </div>
         {%- endif -%}
         {% render 'social', section: section %}
       </div>
@@ -117,6 +132,12 @@
       "id": "footer_describe",
       "default": "Build any site you can imagine with no coding skills. We make websites are the number one ranked design, build and marketing team.",
       "label": "Description"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_country_selector",
+      "label": "Enable country selector",
+      "default": true
     },
     {
       "type": "checkbox",

@@ -51,10 +51,6 @@ var Search = class{
     this.$container.find('[search-result]').html(res)
     this.$container.find('[drawer-loading]').removeClass('show')
   }
-  bindViewAllClick() {
-
-  }
-
 }
 
 
@@ -73,12 +69,20 @@ var Drawer = class extends BaseHTMLElement {
       _this.close()
     })
   }
-  open(type) {
+  open(type, params) {
     switch(type) {
       case 'search':
         this.insertHtml(this.searchTplId)
         $(this).addClass('open')
         this.controller = new Search()
+        break;
+      case 'country':
+        this.insertHtml('country-tpl')
+        $(this).addClass('open')
+        break;
+      case 'language':
+        this.insertHtml('language-tpl')
+        $(this).addClass('open')
         break;
     }
     $(this).find('[drawer-main]').addClass('open')

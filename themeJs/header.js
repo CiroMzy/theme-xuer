@@ -5,7 +5,7 @@ var Header = class extends BaseHTMLElement {
 
   }
   bindMouseEvent () {
-    $('[data-active]').click(function() {
+    $('[drawer-open]').click(function() {
       var type = $(this).data('action-type')      
       theme.drawer.open(type)
     })

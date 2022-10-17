@@ -6,6 +6,12 @@
     }
 
   },
+  "localization": {
+    "country_label": "Country/region",
+    "language_label": "Language",
+    "update_language": "Update language",
+    "update_country": "Update country/region"
+  },
 
 
 
@@ -13,6 +19,7 @@
 
   "general": {
     "close": "Close",
+    "confirm": "Confirm",
 
 
 
@@ -316,12 +323,6 @@
     "page": {
       "title": "Page title"
     }
-  },
-  "localization": {
-    "country_label": "Country/region",
-    "language_label": "Language",
-    "update_language": "Update language",
-    "update_country": "Update country/region"
   },
   "customer": {
     "account": {

@@ -112,10 +112,6 @@ var Search = class{
     this.$container.find('[search-result]').html(res)
     this.$container.find('[drawer-loading]').removeClass('show')
   }
-  bindViewAllClick() {
-
-  }
-
 }
 
 
@@ -134,12 +130,20 @@ var Drawer = class extends BaseHTMLElement {
       _this.close()
     })
   }
-  open(type) {
+  open(type, params) {
     switch(type) {
       case 'search':
         this.insertHtml(this.searchTplId)
         $(this).addClass('open')
         this.controller = new Search()
+        break;
+      case 'country':
+        this.insertHtml('country-tpl')
+        $(this).addClass('open')
+        break;
+      case 'language':
+        this.insertHtml('language-tpl')
+        $(this).addClass('open')
         break;
     }
     $(this).find('[drawer-main]').addClass('open')
@@ -162,6 +166,11 @@ var Drawer = class extends BaseHTMLElement {
 };
 window.customElements.define("xuer-drawer", Drawer);
 
+$(function () {
+  $('[drawer-open-localization]').click(function() {
+      theme.drawer.open($(this).data('action-type'))
+  })
+})
 var HeaderMenu = class extends BaseHTMLElement {
   connectedCallback () {
     this.bindMouseEvent()
@@ -184,13 +193,32 @@ var Header = class extends BaseHTMLElement {
 
   }
   bindMouseEvent () {
-    $('[data-active]').click(function() {
+    $('[drawer-open]').click(function() {
       var type = $(this).data('action-type')      
       theme.drawer.open(type)
     })
   }
 };
 window.customElements.define("xuer-header", Header);
+
+/*******
+ * LocalizationForm
+ */
+
+var LocalizationForm = class extends BaseHTMLElement {
+  connectedCallback () {
+    this.bindMouseEvent()
+
+  }
+  bindMouseEvent () {
+    var $container = $('[xuer-list-selector]')
+    $container.find('.localization-select-item').click(function() {
+      var val = $(this).data('value')
+      $container.find('[name=locale_code]').val(val)
+    })
+  }
+};
+window.customElements.define("xuer-localization-form", LocalizationForm);
 
 
 var Slideshow = class extends BaseHTMLElement {

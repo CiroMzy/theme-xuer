@@ -1,0 +1,50 @@
+
+
+{%- form 'localization', id: "localization-form", class: 'selectors-form' -%}
+  {%- if section.settings.show_country_selector -%}
+    <div class="form-item">
+      <xuer-selector class="xuer-selector">
+        <button type="button" xuer-toogle >
+          <span class="localization-item-label">{{ localization.country.name }}</span>
+          <span class="localization-item-isocode">({{ country.currency.iso_code }}&nbsp;{{ country.currency.symbol }})</span>
+        </button>
+        <ul xuer-selector-list >
+          {% for country in localization.available_countries %}
+            <li 
+              class="localization-select-item {% if country.iso_code == localization.country.iso_code %} active{% endif %}"
+              data-value="{{ country.currency.iso_code }}"
+            >
+              <span class="localization-item-label">{{ country.name }}</span>
+              <span class="localization-item-isocode">({{ country.currency.iso_code }}&nbsp;{{ country.currency.symbol }})</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </xuer-selector>
+      <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}" />
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.show_language_selector -%}
+    <div class="form-item">
+      <xuer-selector class="xuer-selector">
+        <button type="button" xuer-toogle >
+          <span class="localization-item-label">{{- localization.language.endonym_name | capitalize -}}</span>
+        </button>
+        <ul xuer-selector-list >
+          {% for language in localization.available_languages %}
+            <li 
+              class="localization-select-item {% if language.iso_code == localization.language.iso_code %} active{% endif %}"
+              data-value="{{ language.endonym_name }}"
+            >
+              {{- language.endonym_name | capitalize -}}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </xuer-selector>
+      <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}" />
+    </div>
+  {%- endif -%}
+
+  
+{%- endform -%}
+
