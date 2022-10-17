@@ -79,16 +79,19 @@
     {%- form 'localization', id: "localization-form", class: 'selectors-form' -%}
       <div class="form-item">
         <div class="xuer-list-selector" xuer-list-selector>
-          <button type="button" class="form-selected" >
+          <div class="form-selected" >
             <span class="localization-item-label">{{- localization.language.endonym_name | capitalize -}}</span>
-          </button>
-          <ul >
+          </div>
+          <ul xuer-list >
             {% for language in localization.available_languages %}
-              <li 
-                class="localization-select-item {% if language.iso_code == localization.language.iso_code %} active{% endif %}"
-                data-value="{{ language.iso_code }}"
-              >
-                {{- language.endonym_name | capitalize -}}
+              {%- liquid
+                assign is_checked = false
+                if language.iso_code == localization.language.iso_code
+                  assign is_checked = true
+                endif
+              -%}
+              <li class="localization-select-item {% if is_checked %} checked{% endif %}" data-value="{{ language.iso_code }}">
+                {% render 'form-radio', is_checked: is_checked, value: language.iso_code, name: 'language', label: language.endonym_name | capitalize %}
               </li>
             {%- endfor -%}
           </ul>

@@ -1,0 +1,28 @@
+
+{% comment %}
+  Renders a radio
+
+  Accepts:
+  - is_checked: {Boolean} 
+  - value: {String} 
+  - name: {String} 
+  - label: {String} 
+
+  Usage:
+  {% render 'form-radio', is_checked: true,value: 'red',name: 'color', label: 'color'   %}
+{% endcomment %}
+
+
+<label class="xuer-radio-wrapper {% if is_checked %} xuer-radio-wrapper-checked{% endif %}">
+  <span class="xuer-radio" >
+    <input 
+      type="radio" 
+      class="xuer-radio-input" 
+      value="{{ value }}" 
+      {% if is_checked %} checked {% endif %} 
+      name="{{ name }}"
+    />
+    <span class="xuer-radio-inner"></span>
+  </span>
+  <span class="xuer-radio-label">{{ label }}</span>
+</label>
