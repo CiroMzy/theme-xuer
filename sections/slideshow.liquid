@@ -1,5 +1,72 @@
 
-<xuer-slideshow class="slideshow" data-swiper-container="swiper-{{ section.id }}">
+
+	<style>
+		.swiper-container {
+			width: 100%;
+			height: 100%;
+			background-color: rgb(179, 189, 196);
+			transition: 1s background-color 1.3s;
+		}
+
+		.swiper-wrapper {
+			transition-delay: 1s;
+			transition-timing-function: cubic-bezier(0.5, 0, 0, 1);
+		}
+
+		.swiper-slide {
+			text-align: center;
+			font-size: 18px;
+			/* Center slide text vertically */
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+		}
+
+		.title {
+			transition-delay: 1s;
+			z-index: 10;
+		}
+
+		.title .text {
+			font-weight: 700;
+			font-size: calc(55px + 54 * ((53vw + 53vh) - 520px) / 820);
+			letter-spacing: -1px;
+			color: rgba(255, 255, 255, 0);
+			-webkit-text-stroke: 2px #fff;
+		}
+
+		.img-box {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			transform: scale(0.6, 0.6);
+			transition-duration: 1s;
+			transition-property: transform;
+			transition-timing-function: cubic-bezier(0.5, 0, 0, 1);
+			opacity: 0.9;
+			overflow: hidden;
+		}
+
+		.img-box img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transform: scale(1.2, 1.2) translateX(50%);
+			transition-timing-function: cubic-bezier(0.5, 0, 0, 1);
+			transition-property: transform;
+		}
+	</style>
+  
+<xuer-slideshow class="slideshow block" data-swiper-container="swiper-{{ section.id }}">
   <div 
     id="swiper-{{ section.id }}"
     data-swiper-loop="true"
@@ -9,7 +76,7 @@
     <div class="swiper-wrapper">
       {%- for block in section.blocks -%}
         <div class="swiper-slide">
-          <div class="slideshow-image xuer-image-wrapper {{ section.settings.section_height }}" >
+          <div class="img-box slideshow-image xuer-image-wrapper {{ section.settings.section_height }}" >
             {%- if block.settings.image != blank -%}
               {%- render 'image', image: block.settings.image -%}
             {%- else -%}
@@ -18,7 +85,7 @@
               </div>
             {%- endif -%}
           </div>
-          <div class="slideshow-content" style="color:{{ settings.slideshow_text_color }}">
+          <div class="title slideshow-content" style="color:{{ settings.slideshow_text_color }}">
             <h2 class="slideshow-content_heading xuer-h2">
               {{ block.settings.heading }}
             </h2>
@@ -40,6 +107,9 @@
         </div>
       {%- endfor -%}
     </div>
+
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
   </div>
 </xuer-slideshow>
 {% schema %}
