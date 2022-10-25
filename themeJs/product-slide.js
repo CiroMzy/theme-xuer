@@ -10,13 +10,11 @@ var ProductSlide = class extends BaseHTMLElement {
     var thumbnailId = this.$container.find('[swiper-thumbnail]').attr('id')
 
     var swiperThumb = new Swiper(`#${thumbnailId}`, {
-      loop: true,
       spaceBetween: 10,
       slidesPerView: 4,
       watchSlidesProgress: true,
     });
     new Swiper(`#${mainId}`, {
-      loop: true,
       spaceBetween: 10,
       autoHeight: true,
       navigation: {

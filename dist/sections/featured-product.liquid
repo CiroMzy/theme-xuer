@@ -27,23 +27,23 @@
           {% render block %}
 
         {% when 'title' %}
-          <div class="title-row" {{ block.shopify_attributes }}>
+          <div class="featured-product_row" >
             {% if product != blank %}
-              <h2 class="h1-style title">{{ product.title | link_to: product.url }}</h2>
+              <h2 class="xuer-h1 title">{{ product.title | link_to: product.url }}</h2>
             {% else %}
-              <h2 class="h1-style title">{{ 'product.product_title' | t }}</h2>
+              <h2 class="xuer-h1 title">{{ 'product.product_title' | t }}</h2>
             {% endif %}
           </div>
 
         {% when 'price' %}
-          <div class="price-container" {{ block.shopify_attributes }}>
-            price
+          <div class="featured-product_row" >
+            {% render 'price', product: product %}
           </div>
 
-          {% when 'description' %}
-            <div class="{% if block.settings.show_in_tab %}product-detail-accordion{% endif %}" {{ block.shopify_attributes }}>
-              {{ product.description }}
-            </div>
+        {% when 'description' %}
+          <div class="featured-product_row" >
+            {{ product.description }}
+          </div>
 
         {% when 'vendor' %}
           {%- liquid
@@ -54,19 +54,19 @@
               assign vendor_url = product.vendor | url_for_vendor
             endif
           -%}
-          <div class="vendor lightly-spaced-row" {{ block.shopify_attributes }}>
+          <div class="vendor lightly-spaced-row" >
             {{ product.vendor | link_to: vendor_url }}
           </div>
 
         {% when 'sku' %}
-          <div class="sku {% if current_variant and current_variant.sku == blank %}sku--no-sku{% endif %}" {{ block.shopify_attributes }}>
+          <div class="sku {% if current_variant and current_variant.sku == blank %}sku--no-sku{% endif %}" >
             {{- current_variant.sku -}}
           </div>
 
         {% when 'variant_picker' %}
-          <div class="input-row" {{ block.shopify_attributes }}>
+          <div class="input-row" >
             {% if product != blank %}
-              {% comment %} {% render 'variant-picker', section: section, product: product, block: block %} {% endcomment %}
+              {% render 'variant-picker', section: section, product: product, block: block %}
             {% endif %}
           </div>
 
@@ -79,7 +79,7 @@
 
         {% when 'richtext' %}
           {% if block.settings.richtext != blank %}
-            <div class="lightly-spaced-row" {{ block.shopify_attributes }}>
+            <div class="lightly-spaced-row" >
               <div class="rte cf">{{ block.settings.richtext }}</div>
             </div>
           {% endif %}
