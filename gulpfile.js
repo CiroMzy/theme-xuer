@@ -25,6 +25,7 @@ function watch() {
     'config',
     'assets',
     'sections',
+    'locales',
     'templates',
     'theme.liquid'
   ]);

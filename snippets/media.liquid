@@ -1,0 +1,14 @@
+<div class="media-container">
+{% case media.media_type %}
+  {% when 'image' %}
+    <div class="media-image">
+      {% render 'image', image: media.preview_image, min_aspect_ratio: min_aspect_ratio %}
+    </div>
+  {% when 'external_video', 'video' %}
+    ====== video =====
+  {% when 'model' %}
+    ====== model ======
+  {% else %}
+    ===== else ====
+{% endcase %}
+</div>

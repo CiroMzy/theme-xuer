@@ -2,6 +2,7 @@
 var BaseHTMLElement = class extends HTMLElement {
   constructor() {
     super();
+    this.$container = $(this)
   }
   get rootDelegate() {}
   get delegate() {}
@@ -234,6 +235,37 @@ var LocalizationForm = class extends BaseHTMLElement {
   }
 };
 window.customElements.define("xuer-localization-form", LocalizationForm);
+
+// product-slide
+var ProductSlide = class extends BaseHTMLElement {
+  connectedCallback () {
+    
+    console.log(this.$container);
+    // if (this.$container.data(''))
+  }
+  initSwiper () {
+    
+    // var swiper = new Swiper(".mySwiper", {
+    //   loop: true,
+    //   spaceBetween: 10,
+    //   slidesPerView: 4,
+    //   freeMode: true,
+    //   watchSlidesProgress: true,
+    // });
+    // var swiper2 = new Swiper(".mySwiper2", {
+    //   loop: true,
+    //   spaceBetween: 10,
+    //   navigation: {
+    //     nextEl: ".swiper-button-next",
+    //     prevEl: ".swiper-button-prev",
+    //   },
+    //   thumbs: {
+    //     swiper: swiper,
+    //   },
+    // });
+  }
+};
+window.customElements.define("xuer-product-slide", ProductSlide);
 
 
 var Slideshow = class extends BaseHTMLElement {

@@ -871,3 +871,15 @@ a:hover,
   color: rgba(var(--text_color_rgb), 0.6);
   text-decoration: line-through;
 }
+/**********************
+* featured-product
+*/
+.featured-product {
+  display: flex;
+}
+.featured-product .featured-product_slide {
+  flex: 6;
+}
+.featured-product .featured-product_blocks {
+  flex: 4;
+}

@@ -2,6 +2,7 @@
 var BaseHTMLElement = class extends HTMLElement {
   constructor() {
     super();
+    this.$container = $(this)
   }
   get rootDelegate() {}
   get delegate() {}
