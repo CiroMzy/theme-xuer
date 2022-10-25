@@ -8,21 +8,8 @@
   >
     <div class="swiper-wrapper">
       {%- for block in section.blocks -%}
-        {%- liquid
-          assign aspect_ratio = section.blocks.first.settings.image.aspect_ratio | default: 2.0
-          assign padding_bottom = 1 | divided_by: aspect_ratio | times: 100
-          
-        -%}
         <div class="swiper-slide">
-          <div 
-            class="slideshow-image xuer-image-wrapper {{ section.settings.section_height }}" 
-            {%- if section.settings.section_height == 'adapt' -%}
-              style="padding-bottom:{{ padding_bottom }}%" 
-            {%- elsif section.settings.section_height == 'fixed' -%}
-              style="padding-bottom:{{ section.settings.height_desktop }}px" 
-            {%- endif -%}
-
-          >
+          <div class="slideshow-image xuer-image-wrapper {{ section.settings.section_height }}" >
             {%- if block.settings.image != blank -%}
               {%- render 'image', image: block.settings.image -%}
             {%- else -%}

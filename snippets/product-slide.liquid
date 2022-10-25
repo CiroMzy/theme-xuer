@@ -1,14 +1,13 @@
 
 {%- liquid
-  assign min_aspect_ratio = 0.6
   assign use_slide = false
   if product.media.size > 1
     assign use_slide = true
   endif
 -%}
 
-<xuer-product-slide class="product-slide" {% if use_slide %} use-slide{% endif %} >
-  <div class="swiper" swiper-main>
+<xuer-product-slide class="product-slide" {% if use_slide %} use-slide{% endif %}>
+  <div class="swiper product-slide_main" swiper-main id="product-slide-main-{{ section.id }}">
     <div class="swiper-wrapper">
       {%- for media in product.media -%}
         <div class="swiper-slide">
@@ -22,11 +21,13 @@
     {% endif %}
   </div>
   {% if use_slide %}
-    <div class="swiper" swiper->
+    <div class="swiper product-slide_thumbnail" swiper-thumbnail id="product-slide-thumbnail-{{ section.id }}">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          {% render 'image', image: media.preview_image, min_aspect_ratio: min_aspect_ratio %}
-        </div>
+        {%- for media in product.media -%}
+          <div class="swiper-slide">
+            {% render 'media', media: media, min_aspect_ratio: min_aspect_ratio %}
+          </div>
+        {%- endfor -%}
       </div>
     </div>
   {% endif %}

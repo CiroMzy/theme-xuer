@@ -219,6 +219,9 @@ a:hover,
   color: var(--primary_color);
   border-color: var(--primary_color);
 }
+.xuer-image-wrapper {
+  position: relative;
+}
 @media screen and (min-width: 750px) {
   .desktop {
     display: block;
@@ -872,14 +875,20 @@ a:hover,
   text-decoration: line-through;
 }
 /**********************
+*       product-slide
+**********************/
+.product-slide {
+  height: 300px;
+}
+/**********************
 * featured-product
 */
 .featured-product {
   display: flex;
 }
 .featured-product .featured-product_slide {
-  flex: 6;
+  width: 60%;
 }
 .featured-product .featured-product_blocks {
-  flex: 4;
+  width: 40%;
 }

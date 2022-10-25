@@ -1,0 +1,23 @@
+{%- liquid
+  assign sizes = sizes | default: '400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800'
+  assign array_sizes = sizes | remove: ' ' | split: ','
+  
+  assign src_list = ''
+  
+  for size in array_sizes
+    assign size_str = size | append: 'w'
+    assign image_url_str = image | image_url: width: size, crop: crop
+    
+    assign full_url = image_url_str | append: ' ' | append: size_str
+    
+    assign src_list = src_list | append: full_url
+    if  forloop.last == false
+      assign src_list = src_list | append: ','
+    endif
+  endfor
+-%}
+{%- if sizes_only -%}
+  {{ src_list }}
+{%- else -%}
+  height="{{ image.height }}" width="{{ image.width }}" alt="{{ alt | default: image.alt | escape }}" src="{{ image | image_url: biggest_size_descriptor, crop: crop }}" srcset="{{ src_list }}"
+{%- endif -%}
