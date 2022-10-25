@@ -880,11 +880,27 @@ a:hover,
 .product-slide {
   height: 300px;
 }
+.product-slide .product-slide_thumbnail .swiper-slide::after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #000;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.product-slide .product-slide_thumbnail .swiper-slide.swiper-slide-thumb-active::after {
+  opacity: 1;
+}
 /**********************
 * featured-product
 */
 .featured-product {
   display: flex;
+  margin-bottom: 30px;
 }
 .featured-product .featured-product_slide {
   width: 60%;
