@@ -1,7 +1,71 @@
+@import url(./variables.less);
 /**********************
 * form
 */
 /***** radio *****/
+.xuer-radio-selector {
+  .xuer-option-item {
+    margin-bottom: @distance;
+    .xuer-option-item_label {
+      .flex-center;
+      justify-content: space-between;
+      margin-bottom: @distance;
+    }
+    .xuer-option-item_btns {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -@distance 0 0 -@distance;
+      .xuer-option-item_input {
+        display: none;
+      }
+      .xuer-option-item_btn {
+        .flex-center;
+        padding: @distance;
+        border: 1px solid #dbdcdc;
+        margin: @distance;
+        border-radius: @borderRds;
+        cursor: pointer;
+      }
+      .xuer-option-item_input:checked+.xuer-option-item_btn {
+        border-color: #707173;
+      }
+    }
+  }
+}
+/******* buttons *****/
+.xuer-button {
+  cursor: pointer;
+  padding: @distance @distance2 ;
+  background-color: var(--button_fill_background_color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: @radius;
+  box-sizing: border-box;
+  font-size: 15px;
+  &.xuer-button_block {
+    display: block;
+    width: 100%;
+  }
+  &.xuer-button_fill{
+    background-color: var(--button_fill_background_color);
+    color: var(--button_fill_text_color);
+    &:hover{
+      background-color: var(--button_fill_text_color);
+      color: var(--button_fill_background_color);
+    }
+  }
+  &.xuer-button_outline{
+    background-color: var(--button_outline_background_color);
+    border:1px solid var(--button_outline_text_color);
+    color: var(--button_outline_text_color);
+    &:hover{
+      color: var(--primary_color);
+      border-color: var(--primary_color);
+    }
+  }
+}
+
 .xuer-radio-wrapper {
   box-sizing: border-box;
   margin: 0 @distance 0 0;

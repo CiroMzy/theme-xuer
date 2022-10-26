@@ -11,12 +11,10 @@
       assign featured_media = product.featured_media
     endif
   endfor
-
-
 -%}
 
 
-<xuer-featured-product class="featured-product page_width">
+<xuer-featured-product class="featured-product page_width custom-section">
   <div class="featured-product_slide">
     {% render 'product-slide', product: product, min_aspect_ratio: min_aspect_ratio %}
   </div>
@@ -36,9 +34,21 @@
           </div>
 
         {% when 'price' %}
-          <div class="featured-product_row" >
+          <div class="featured-product_row xuer-h4" >
             {% render 'price', product: product %}
           </div>
+
+        {% when 'variant_picker' %}
+          <div class="input-row" >
+            {% if product != blank %}
+              {% render 'variant-picker', section: section, product: product, block: block %}
+            {% endif %}
+          </div>
+
+        {% when 'buy_buttons' %}
+          <button class="xuer-button xuer-button_outline xuer-button_block featured-product_row">
+            {{ 'product.add_to_cart' | t }}
+          </button>
 
         {% when 'description' %}
           <div class="featured-product_row" >
@@ -63,19 +73,7 @@
             {{- current_variant.sku -}}
           </div>
 
-        {% when 'variant_picker' %}
-          <div class="input-row" >
-            {% if product != blank %}
-              {% render 'variant-picker', section: section, product: product, block: block %}
-            {% endif %}
-          </div>
 
-        {% when 'buy_buttons' %}
-          <div class="quantity-submit-row__submit input-row">
-            <button class="button button--large">
-              {{- 'products.product.add_to_cart' | t -}}
-            </button>
-          </div>
 
         {% when 'richtext' %}
           {% if block.settings.richtext != blank %}

@@ -126,12 +126,17 @@ table {
 :focus-visible {
   outline: var(--primary_color) auto 1px;
 }
-.block {
+.custom-section {
   display: block;
 }
 /**********************
 * common
 */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .no-dec a {
   text-decoration: none;
 }
@@ -170,11 +175,6 @@ a:hover,
   padding-top: 8px;
   padding-bottom: 8px;
 }
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .xuer-image {
   max-width: 100%;
 }
@@ -197,38 +197,12 @@ a:hover,
   font-size: 67px;
 }
 .xuer-h4 {
-  font-size: 22px;
+  font-size: 24px;
 }
 .xuer-h1,
 .xuer-h2,
 .xuer-h3 {
   font-weight: 400;
-}
-.xuer-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
-  box-sizing: border-box;
-  cursor: pointer;
-  border-radius: 4px;
-}
-.xuer-button.fill {
-  background-color: var(--button_fill_background_color);
-  color: var(--button_fill_text_color);
-}
-.xuer-button.fill:hover {
-  background-color: var(--button_fill_text_color);
-  color: var(--button_fill_background_color);
-}
-.xuer-button.outline {
-  background-color: var(--button_outline_background_color);
-  border: 1px solid var(--button_outline_text_color);
-  color: var(--button_outline_text_color);
-}
-.xuer-button.outline:hover {
-  color: var(--primary_color);
-  border-color: var(--primary_color);
 }
 .xuer-image-wrapper {
   position: relative;
@@ -298,6 +272,70 @@ a:hover,
 * form
 */
 /***** radio *****/
+.xuer-radio-selector .xuer-option-item {
+  margin-bottom: 8px;
+}
+.xuer-radio-selector .xuer-option-item .xuer-option-item_label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.xuer-radio-selector .xuer-option-item .xuer-option-item_btns {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -8px 0 0 -8px;
+}
+.xuer-radio-selector .xuer-option-item .xuer-option-item_btns .xuer-option-item_input {
+  display: none;
+}
+.xuer-radio-selector .xuer-option-item .xuer-option-item_btns .xuer-option-item_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: 1px solid #dbdcdc;
+  margin: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.xuer-radio-selector .xuer-option-item .xuer-option-item_btns .xuer-option-item_input:checked + .xuer-option-item_btn {
+  border-color: #707173;
+}
+/******* buttons *****/
+.xuer-button {
+  cursor: pointer;
+  padding: 8px 16px;
+  background-color: var(--button_fill_background_color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+.xuer-button.xuer-button_block {
+  display: block;
+  width: 100%;
+}
+.xuer-button.xuer-button_fill {
+  background-color: var(--button_fill_background_color);
+  color: var(--button_fill_text_color);
+}
+.xuer-button.xuer-button_fill:hover {
+  background-color: var(--button_fill_text_color);
+  color: var(--button_fill_background_color);
+}
+.xuer-button.xuer-button_outline {
+  background-color: var(--button_outline_background_color);
+  border: 1px solid var(--button_outline_text_color);
+  color: var(--button_outline_text_color);
+}
+.xuer-button.xuer-button_outline:hover {
+  color: var(--primary_color);
+  border-color: var(--primary_color);
+}
 .xuer-radio-wrapper {
   box-sizing: border-box;
   margin: 0 8px 0 0;
@@ -940,4 +978,7 @@ a:hover,
   width: 50%;
   box-sizing: border-box;
   padding-left: 24px;
+}
+.featured-product .featured-product_blocks .featured-product_row {
+  margin-bottom: 16px;
 }

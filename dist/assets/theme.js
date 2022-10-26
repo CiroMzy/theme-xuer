@@ -167,6 +167,12 @@ var Drawer = class extends BaseHTMLElement {
 };
 window.customElements.define("xuer-drawer", Drawer);
 
+var FeaturedProduct = class extends BaseHTMLElement {
+  connectedCallback() {
+  }
+};
+window.customElements.define("xuer-featured-product", FeaturedProduct);
+
 $(function () {
   $('[drawer-open-localization]').click(function() {
       theme.drawer.open($(this).data('action-type'))
