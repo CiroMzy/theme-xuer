@@ -626,18 +626,28 @@ a:hover,
 */
 .slideshow {
   width: 100%;
-  height: 200px;
+}
+.slideshow .swiper-container {
+  width: 100%;
+  height: 100%;
+  transition: 1s background-color 1.3s;
+}
+.slideshow .swiper-container .swiper-wrapper {
+  transition-delay: 1s;
+  transition-timing-function: cubic-bezier(0.5, 0, 0, 1);
 }
 .slideshow .swiper-slide {
-  background: #fff;
   position: relative;
 }
 .slideshow .swiper-slide .slideshow-image {
   width: 100%;
   position: relative;
-}
-.slideshow .swiper-slide .slideshow-image img {
-  width: 100%;
+  transform: scale(0.6, 0.6);
+  transition-duration: 1s;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.5, 0, 0, 1);
+  opacity: 0.9;
+  overflow: hidden;
 }
 .slideshow .swiper-slide .slideshow-image.small img,
 .slideshow .swiper-slide .slideshow-image.medium img,
@@ -658,6 +668,13 @@ a:hover,
   top: 30%;
   left: 30%;
   width: 40%;
+  transition-delay: 1s;
+  z-index: 10;
+}
+.slideshow .swiper-slide .slideshow-content .text {
+  font-weight: 700;
+  -webkit-text-stroke: 2px var(--block_text_color);
+  color: rgba(var(--block_text_color_rgb), 0);
 }
 .slideshow .swiper-slide .slideshow-content .slideshow-content_subheading {
   margin: 24px;

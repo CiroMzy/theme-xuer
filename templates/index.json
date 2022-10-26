@@ -6,41 +6,45 @@
         "1664162639d434a28a-0": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/woman-and-two-children-stand-in-a-gold-colored-field.jpg",
+            "image": "shopify:\/\/shop_images\/img2.jpg",
+            "slide_background_color":"rgb(180, 183, 166)",
             "heading": "Image slide",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
-            "link": "",
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "background-1",
-            "text_alignment_mobile": "center",
-            "button_type": "fill"
+            "button_type": "fill",
+            "link": ""
           }
         },
         "1664162639d434a28a-1": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/woman-and-two-children-stand-in-a-gold-colored-field.jpg",
+            "image": "shopify:\/\/shop_images\/img1.jpg",
+            "slide_background_color":"rgb(179, 189, 196)",
             "heading": "Image slide",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
-            "link": "",
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "background-1",
-            "text_alignment_mobile": "center",
-            "button_type": "outline"
+            "button_type": "outline",
+            "text_color":"#02867f",
+            "link": ""
+          }
+        },
+        "1320fd99-fbf5-4e57-917b-49906cd755cb": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/img3.jpg",
+            "slide_background_color":"rgb(140, 152, 187)",
+            "heading": "Image slide",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "button_type": "filled",
+            "link": ""
           }
         }
       },
       "block_order": [
         "1664162639d434a28a-0",
-        "1664162639d434a28a-1"
+        "1664162639d434a28a-1",
+        "1320fd99-fbf5-4e57-917b-49906cd755cb"
       ],
       "settings": {
         "section_height": "adapt",

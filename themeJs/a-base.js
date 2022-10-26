@@ -10,7 +10,7 @@ var BaseHTMLElement = class extends HTMLElement {
   hideLoading() {}
   attributeChangedCallback() {}
   disconnectedCallback() {
-    if (this.curSlider) {
+    if (this.curSlider && this.curSlider.disable) {
       this.curSlider.disable()
     }
   }
@@ -25,7 +25,7 @@ var BaseHTMLElement = class extends HTMLElement {
       effect: datas.swiperEffect || 'slide',
       ...options
     });
-    if (datas.swiperDisable) {
+    if (datas.swiperDisable && this.curSlider.disable) {
       this.curSlider.disable()
     }
   }
