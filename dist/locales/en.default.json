@@ -1,9 +1,10 @@
 {
-  "header": {
-    "search": {
+  "header":{
+    "search":{
       "title": "Search Products",
       "title_placeholder": "Search..."
     }
+
   },
   "localization": {
     "country_label": "Country/region",
@@ -13,11 +14,28 @@
   },
   "product": {
     "product_title": "Pruduct title",
-    "add_to_cart": "Add to cart"
+    "add_to_cart":"Add to cart",
+    "unavailable":"Unavailable",
+    "no_stock":"No stock"
   },
+  
+
+
+
+
+
   "general": {
     "close": "Close",
     "confirm": "Confirm",
+
+
+
+
+
+
+
+
+
     "password_page": {
       "login_form_heading": "Enter store using password:",
       "login_password_button": "Enter using password",

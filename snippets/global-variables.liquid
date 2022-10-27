@@ -60,7 +60,12 @@
 <script>
 var theme = theme || {}
 theme.routes = {
-  predictive_search_url: '{{ routes.predictive_search_url }}'
+  predictive_search_url: '{{ routes.predictive_search_url }}',
+  cart_add_url: '{{ routes.cart_add_url }}',
+}
+theme.language = {
+  product_add_to_cart: {{ 'product.add_to_cart' | t | json }},
+  product_variant_no_stock: {{ 'product.no_stock' | t | json }},
 }
 </script>
 

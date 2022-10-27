@@ -1,4 +1,48 @@
 
+theme.swipers = {}
+theme.event = {
+  dispatch: function(key, params) {
+    theme.event[key] && theme.event[key](params)
+  }
+}
+theme.ajax = {
+  post: function(url, data) {
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        headers: {
+          "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "accept": "text/javascript",
+        },
+        type: "POST",
+        url: url,
+        data: data,
+        dataType:'text',
+        success: function (data) {
+          resolve(JSON.parse(data))
+        },
+        error: function (err) {
+          reject(err)
+        }
+      })
+    })
+  }
+}
+$.fn.serializeObject = function() { 
+  var o = {}; 
+  var a = this.serializeArray(); 
+  $.each(a, function() { 
+    if (o[this.name]) { 
+      if (!o[this.name].push) { 
+        o[this.name] = [ o[this.name] ]; 
+      } 
+      o[this.name].push(this.value || ''); 
+    } else { 
+      o[this.name] = this.value || ''; 
+    } 
+  }); 
+  return o; 
+} 
+
 var BaseHTMLElement = class extends HTMLElement {
   constructor() {
     super();
@@ -10,24 +54,45 @@ var BaseHTMLElement = class extends HTMLElement {
   hideLoading() {}
   attributeChangedCallback() {}
   disconnectedCallback() {
-    if (this.curSlider && this.curSlider.disable) {
-      this.curSlider.disable()
-    }
   }
   initSwiper(options={}) {
-    var swiperId = $(this).data('swiper-container')
-    var swiperSelector = `#${swiperId}`
-    var datas = $(swiperSelector).data()
-    this.curSlider = new Swiper(`#${swiperId}`, {
-      loop: datas.swiperLoop,
-      autoplay: datas.swiperAutoplay,
-      speed: datas.swiperSpeed || 300,
-      effect: datas.swiperEffect || 'slide',
-      ...options
-    });
-    if (datas.swiperDisable && this.curSlider.disable) {
-      this.curSlider.disable()
+    var $swiperContainers = $(this).find('[swiper]')
+    if ($swiperContainers.length) {
+        $swiperContainers.each((idx, el) => {
+          var $swiperContainer = $(el)
+          var swiperId = $swiperContainer.attr('id')
+          var datas = $swiperContainer.data() || {}
+          var swiper = new Swiper(`#${swiperId}`, {
+            loop: datas.swiperLoop || false,
+            autoplay: datas.swiperAutoplay,
+            speed: datas.swiperSpeed || 300,
+            effect: datas.swiperEffect || 'slide',
+            ...options
+          });
+          theme.swipers[swiperId] = swiper
+      })
     }
+  }
+  changeClass(el, className, status, changeText) {
+    if (status) {
+      $(el).addClass(className)
+      if (changeText) {
+        $(el).html($(el).data('disableText'))
+      }
+    } else {
+      $(el).removeClass(className)
+      if (changeText) {
+        $(el).html($(el).data('activeText'))
+      }
+    }
+  }
+  changeDisabled (el, disabled) {
+    if (disabled) {
+      $(el).attr('disabled', 'disabled')
+    } else {
+      $(el).removeAttr('disabled')
+    }
+
   }
 };
 

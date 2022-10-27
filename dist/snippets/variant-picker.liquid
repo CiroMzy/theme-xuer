@@ -1,10 +1,18 @@
 
 {%- if product.has_only_default_variant == false and product.available == true and product.variants.size > 1 -%}
-  <xuer-variant-picker class="custom-section xuer-radio-selector">
+  <xuer-variant-picker 
+    class="custom-section xuer-radio-selector" 
+    data-section-id="{{ section.id }}" 
+    data-url="{{ product.url }}"
+    data-update-url="false"
+  >
     {% for option in product.options_with_values %}
       {%- capture option_id -%}{{ section.id }}-{{ product.id }}-{{ option.name | handle }}-selector{%- endcapture -%}
-      <div class="xuer-option-item ">
-        <fieldset class="xuer-option-item_fieldset">
+      <div class="xuer-option-item " >
+        <fieldset 
+          class="xuer-option-item_fieldset"
+          data-checkbox-name="{{ option_id }}"
+        >
           <div class="xuer-option-item_label">
             <legend class="label">{{ option.name }}</legend>
           </div>
@@ -22,17 +30,20 @@
               >
               <label 
                 class="xuer-option-item_btn"
-                for="{{ option_id }}-opt-{{ forloop.index0 }}">
+                for="{{ option_id }}-opt-{{ forloop.index0 }}"
+                picker-button
+              >
                 <span class="xuer-option-item_btn_text">{{ value }}</span>
               </label>
             {%- endfor -%}
           </div>
         </fieldset>
       </div>
-
-      
     {% endfor %}
 
+    <script type="application/json">
+      {{ product.variants | json }}
+    </script>
   </xuer-variant-picker>
   
 {%- endif -%}

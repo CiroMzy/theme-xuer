@@ -303,6 +303,11 @@ a:hover,
 .xuer-radio-selector .xuer-option-item .xuer-option-item_btns .xuer-option-item_input:checked + .xuer-option-item_btn {
   border-color: #707173;
 }
+.xuer-radio-selector .xuer-option-item .xuer-option-item_btns .xuer-option-item_input.disabled + .xuer-option-item_btn {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.6);
+  position: relative;
+}
 /******* buttons *****/
 .xuer-button {
   cursor: pointer;
@@ -314,6 +319,11 @@ a:hover,
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 15px;
+}
+.xuer-button.disabled {
+  background: #999 !important;
+  color: #fff !important;
+  border-color: #999 !important;
 }
 .xuer-button.xuer-button_block {
   display: block;

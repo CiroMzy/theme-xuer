@@ -1,4 +1,48 @@
 
+theme.swipers = {}
+theme.event = {
+  dispatch: function(key, params) {
+    theme.event[key] && theme.event[key](params)
+  }
+}
+theme.ajax = {
+  post: function(url, data) {
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        headers: {
+          "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "accept": "text/javascript",
+        },
+        type: "POST",
+        url: url,
+        data: data,
+        dataType:'text',
+        success: function (data) {
+          resolve(JSON.parse(data))
+        },
+        error: function (err) {
+          reject(err)
+        }
+      })
+    })
+  }
+}
+$.fn.serializeObject = function() { 
+  var o = {}; 
+  var a = this.serializeArray(); 
+  $.each(a, function() { 
+    if (o[this.name]) { 
+      if (!o[this.name].push) { 
+        o[this.name] = [ o[this.name] ]; 
+      } 
+      o[this.name].push(this.value || ''); 
+    } else { 
+      o[this.name] = this.value || ''; 
+    } 
+  }); 
+  return o; 
+} 
+
 var BaseHTMLElement = class extends HTMLElement {
   constructor() {
     super();
@@ -10,24 +54,45 @@ var BaseHTMLElement = class extends HTMLElement {
   hideLoading() {}
   attributeChangedCallback() {}
   disconnectedCallback() {
-    if (this.curSlider && this.curSlider.disable) {
-      this.curSlider.disable()
-    }
   }
   initSwiper(options={}) {
-    var swiperId = $(this).data('swiper-container')
-    var swiperSelector = `#${swiperId}`
-    var datas = $(swiperSelector).data()
-    this.curSlider = new Swiper(`#${swiperId}`, {
-      loop: datas.swiperLoop,
-      autoplay: datas.swiperAutoplay,
-      speed: datas.swiperSpeed || 300,
-      effect: datas.swiperEffect || 'slide',
-      ...options
-    });
-    if (datas.swiperDisable && this.curSlider.disable) {
-      this.curSlider.disable()
+    var $swiperContainers = $(this).find('[swiper]')
+    if ($swiperContainers.length) {
+        $swiperContainers.each((idx, el) => {
+          var $swiperContainer = $(el)
+          var swiperId = $swiperContainer.attr('id')
+          var datas = $swiperContainer.data() || {}
+          var swiper = new Swiper(`#${swiperId}`, {
+            loop: datas.swiperLoop || false,
+            autoplay: datas.swiperAutoplay,
+            speed: datas.swiperSpeed || 300,
+            effect: datas.swiperEffect || 'slide',
+            ...options
+          });
+          theme.swipers[swiperId] = swiper
+      })
     }
+  }
+  changeClass(el, className, status, changeText) {
+    if (status) {
+      $(el).addClass(className)
+      if (changeText) {
+        $(el).html($(el).data('disableText'))
+      }
+    } else {
+      $(el).removeClass(className)
+      if (changeText) {
+        $(el).html($(el).data('activeText'))
+      }
+    }
+  }
+  changeDisabled (el, disabled) {
+    if (disabled) {
+      $(el).attr('disabled', 'disabled')
+    } else {
+      $(el).removeAttr('disabled')
+    }
+
   }
 };
 
@@ -50,6 +115,7 @@ theme.debounce = function (func, wait, callback) {
 		timeout = setTimeout(later, wait);
 	};
 };
+
 // AnnouncementBar
 var AnnouncementBar = class extends BaseHTMLElement {
   connectedCallback () {
@@ -169,6 +235,25 @@ window.customElements.define("xuer-drawer", Drawer);
 
 var FeaturedProduct = class extends BaseHTMLElement {
   connectedCallback() {
+    this.bindForm()
+  }
+  bindForm () {
+    this.forms = this.$container.find('[data-type="add-to-cart-form"]')
+    this.$form = $(this.form)
+    this.forms.each(function (idx,form) {
+      $(form).on('submit', function (e) {
+        e.preventDefault()
+        var data = $(this).serializeObject()
+
+        theme.ajax.post(`${theme.routes.cart_add_url}.js`, {
+          ...data,
+          quantity: "1",
+          sections: "cart-drawer"
+        })
+
+
+      })
+    })
   }
 };
 window.customElements.define("xuer-featured-product", FeaturedProduct);
@@ -247,6 +332,7 @@ var ProductSlide = class extends BaseHTMLElement {
   connectedCallback () {
     if (this.$container.is('[use-slide]')) {
       this.initSwiper()
+      this.bindSlideEvents()
     }
   }
   initSwiper () {
@@ -258,7 +344,8 @@ var ProductSlide = class extends BaseHTMLElement {
       slidesPerView: 4,
       watchSlidesProgress: true,
     });
-    new Swiper(`#${mainId}`, {
+
+    var swiperMain = new Swiper(`#${mainId}`, {
       spaceBetween: 10,
       autoHeight: true,
       navigation: {
@@ -269,6 +356,17 @@ var ProductSlide = class extends BaseHTMLElement {
         swiper: swiperThumb,
       },
     });
+
+    theme.swipers[thumbnailId] = swiperThumb
+    this.swiperThumb = swiperThumb
+    this.swiperMain = swiperMain
+  }
+  slideToIndex (index) {
+    this.swiperThumb.slideTo(index)
+    this.swiperMain.slideTo(index)
+  }
+  bindSlideEvents () {
+    theme.event[`product-slide-${this.dataset.sectionId}`] = this.slideToIndex.bind(this)
   }
 };
 window.customElements.define("xuer-product-slide", ProductSlide);
@@ -330,3 +428,121 @@ var Slideshow = class extends BaseHTMLElement {
 };
 window.customElements.define("xuer-slideshow", Slideshow);
 
+
+var VariantPicker = class extends BaseHTMLElement {
+  constructor() {
+    super();
+    this.selectedOptions = null;
+    this.variantData = null;
+  }
+  connectedCallback() {
+    var _this = this;
+		_this.variantChange()
+    $("[picker-button]").click(function () {
+      setTimeout(() => _this.variantChange());
+    });
+  }
+
+  variantChange() {
+    this.selectedOptions = this.getSelectedOptions();
+    this.variantData = this.getVariantData();
+    this.selectedVariant = this.getSelectedVariant();
+    this.setVariantStatus();
+		this.setAddToCartStatus()
+    this.setActiveMedia();
+    this.setActiveUrl();
+  }
+
+  getSelectedOptions() {
+    const fieldsets = Array.from(this.querySelectorAll("fieldset"));
+    return fieldsets.map((fieldset) => {
+      return Array.from(fieldset.querySelectorAll("input")).find(
+        (radio) => radio.checked
+      ).value;
+    });
+  }
+
+  getVariantData() {
+    return (
+      this.variantData ||
+      JSON.parse(this.querySelector('[type="application/json"]').textContent)
+    );
+  }
+
+  getSelectedVariant() {
+    return this.variantData.find((variant) => {
+      return !variant.options
+        .map((option, index) => {
+          return this.selectedOptions[index] === option;
+        })
+        .includes(false);
+    });
+  }
+
+  setVariantStatus() {
+    var _this = this;
+		var deeps = []
+    this.$container.find(".xuer-option-item_fieldset").each(function (idx, el) {
+			var name = this.dataset.checkboxName
+			var value = $(`input[name='${name}']:checked`).val()
+			deeps.push({
+				key:`option${idx+1}`, value
+			})
+      $(el).find(".xuer-option-item_input").each(function (i, e) {
+          var val = $(e).val();
+          const hasAvailable = _this.variantData.some(
+            (variant) => {
+							let hit = deeps.every(({key, value}, idx) => {
+								var curVal = value
+								if (idx === deeps.length - 1) {
+									curVal = val
+								}
+								return variant[key] === curVal && variant.available
+							})
+							return hit
+						}
+          );
+
+          _this.setClassToVariant({ el: e, hasAvailable });
+        });
+    });
+  }
+
+	setAddToCartStatus () {
+		var $addToCart = $(`#${this.dataset.sectionId}`).find('[add-to-cart]')
+		if (this.selectedVariant.available) {
+			$addToCart.removeClass('disabled').html(theme.language.product_add_to_cart)	
+		} else {
+			$addToCart.addClass('disabled').html(theme.language.product_variant_no_stock)	
+		}
+		var $value = $($addToCart.parent().siblings('[name="id"]'))
+		$value.val(this.selectedVariant.id)
+		this.changeDisabled($value, !this.selectedVariant.available)
+	}
+
+  setClassToVariant({ el, hasAvailable }) {
+		this.changeClass(el, 'disabled', !hasAvailable)
+  }
+
+  setActiveMedia() {
+    if (!this.selectedVariant || !this.selectedVariant.featured_media) return;
+
+    this.mediaId = `${this.dataset.sectionId}-${this.selectedVariant.featured_media.id}`;
+
+    var newMedia = document.querySelector(`[data-media-id="${this.mediaId}"]`);
+    if (!newMedia) return;
+
+    var slideIndex = $(newMedia).parent().find(".swiper-slide").index(newMedia);
+    theme.event[`product-slide-${this.dataset.sectionId}`](slideIndex);
+  }
+
+  setActiveUrl() {
+    if (!this.selectedVariant || this.dataset.updateUrl === "false") return;
+    window.history.replaceState(
+      {},
+      "",
+      `${this.dataset.url}?variant=${this.selectedVariant.id}`
+    );
+  }
+};
+window.customElements.define("xuer-variant-picker", VariantPicker);

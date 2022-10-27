@@ -12,9 +12,9 @@
 <xuer-announcement-bar
   id="id-{{ section.id }}" 
   class="announcement-bar padding-ver-1"
-  data-swiper-container="swiper-{{ section.id }}"
 >
   <div class="announcement-bar-list" 
+    swiper
     id="swiper-{{ section.id }}" 
     {% if single %}data-swiper-disable="true" {% endif %}
     data-swiper-loop="true"

@@ -29,6 +29,11 @@
       .xuer-option-item_input:checked+.xuer-option-item_btn {
         border-color: #707173;
       }
+      .xuer-option-item_input.disabled+.xuer-option-item_btn {
+        background: rgba(0,0,0,.05);
+        color: rgba(0,0,0,0.6);
+        position: relative;
+      }
     }
   }
 }
@@ -43,6 +48,11 @@
   border-radius: @radius;
   box-sizing: border-box;
   font-size: 15px;
+  &.disabled{
+    background: #999!important;
+    color: #fff!important;
+    border-color: #999!important;
+  }
   &.xuer-button_block {
     display: block;
     width: 100%;
