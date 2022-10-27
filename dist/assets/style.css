@@ -311,14 +311,14 @@ a:hover,
 /******* buttons *****/
 .xuer-button {
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 16px 32px;
   background-color: var(--button_fill_background_color);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
   box-sizing: border-box;
-  font-size: 15px;
+  font-size: 16px;
 }
 .xuer-button.disabled {
   background: #999 !important;
@@ -601,6 +601,24 @@ a:hover,
 }
 .header-wrapper .header-icons .header-icon:hover {
   color: var(--link_active_color);
+}
+.header-wrapper .icon-cart-container {
+  position: relative;
+}
+.header-wrapper .icon-cart-container .min-cart-count {
+  position: absolute;
+  top: -11px;
+  right: -15px;
+  padding: 3px;
+  font-size: 9px;
+  line-height: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  min-width: 15px;
+  text-align: center;
+  background: #171717;
+  color: #fff;
+  border-radius: 12px;
 }
 .header-wrapper .search-container {
   position: fixed;

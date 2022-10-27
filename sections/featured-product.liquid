@@ -98,12 +98,10 @@
                     </svg>
                   </div>
                 </button>
-                {%- if block.settings.show_dynamic_checkout -%}
-                  {{ form | payment_button }}
-                {%- endif -%}
+                {{ form | payment_button }}
               </div>
             {%- endform -%}
-          </product-form>
+          </div>
 
         {% when 'description' %}
           <div class="featured-product_row" >

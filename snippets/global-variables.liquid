@@ -62,6 +62,8 @@ var theme = theme || {}
 theme.routes = {
   predictive_search_url: '{{ routes.predictive_search_url }}',
   cart_add_url: '{{ routes.cart_add_url }}',
+  cart_add_url_js: '{{ routes.cart_add_url }}.js',
+  cart_url_js: '{{ routes.cart_url }}.js',
 }
 theme.language = {
   product_add_to_cart: {{ 'product.add_to_cart' | t | json }},

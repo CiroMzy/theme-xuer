@@ -9,11 +9,16 @@ var FeaturedProduct = class extends BaseHTMLElement {
       $(form).on('submit', function (e) {
         e.preventDefault()
         var data = $(this).serializeObject()
-
-        theme.ajax.post(`${theme.routes.cart_add_url}.js`, {
+        if (!data.id) {
+          return
+        }
+        theme.ajax.post(theme.routes.cart_add_url_js, {
           ...data,
           quantity: "1",
           sections: "cart-drawer"
+        }).then(res => {
+          console.log('res', res);
+          theme.event.dispatch('resetCartCount')
         })
 
 

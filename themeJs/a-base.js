@@ -25,8 +25,29 @@ theme.ajax = {
         }
       })
     })
+  },
+  get: function(url, params) {
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        headers: {
+          "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "accept": "text/javascript",
+        },
+        type: "GET",
+        url: url,
+        params: params,
+        dataType:'text',
+        success: function (data) {
+          resolve(JSON.parse(data))
+        },
+        error: function (err) {
+          reject(err)
+        }
+      })
+    })
   }
 }
+
 $.fn.serializeObject = function() { 
   var o = {}; 
   var a = this.serializeArray(); 

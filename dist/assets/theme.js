@@ -25,8 +25,29 @@ theme.ajax = {
         }
       })
     })
+  },
+  get: function(url, params) {
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        headers: {
+          "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "accept": "text/javascript",
+        },
+        type: "GET",
+        url: url,
+        params: params,
+        dataType:'text',
+        success: function (data) {
+          resolve(JSON.parse(data))
+        },
+        error: function (err) {
+          reject(err)
+        }
+      })
+    })
   }
 }
+
 $.fn.serializeObject = function() { 
   var o = {}; 
   var a = this.serializeArray(); 
@@ -244,11 +265,16 @@ var FeaturedProduct = class extends BaseHTMLElement {
       $(form).on('submit', function (e) {
         e.preventDefault()
         var data = $(this).serializeObject()
-
-        theme.ajax.post(`${theme.routes.cart_add_url}.js`, {
+        if (!data.id) {
+          return
+        }
+        theme.ajax.post(theme.routes.cart_add_url_js, {
           ...data,
           quantity: "1",
           sections: "cart-drawer"
+        }).then(res => {
+          console.log('res', res);
+          theme.event.dispatch('resetCartCount')
         })
 
 
@@ -326,6 +352,19 @@ var LocalizationForm = class extends BaseHTMLElement {
   }
 };
 window.customElements.define("xuer-localization-form", LocalizationForm);
+
+var MinCart = class extends BaseHTMLElement {
+  connectedCallback() {
+		theme.event.resetCartCount = this.resetCartCount.bind(this)
+		this.resetCartCount()
+  }
+	resetCartCount () {
+		theme.ajax.get(theme.routes.cart_url_js).then(res => {
+			$('[min-cart-count]').html(res.item_count)
+		})
+	}
+};
+window.customElements.define("xuer-min-cart", MinCart);
 
 // product-slide
 var ProductSlide = class extends BaseHTMLElement {
