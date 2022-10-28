@@ -76,6 +76,10 @@ var Drawer = class extends BaseHTMLElement {
         $(this).addClass('open')
         this.controller = new Search()
         break;
+      case 'min-cart':
+        this.insertHtml('mini-cart-tpl')
+        $(this).addClass('open')
+        break;
       case 'country':
         this.insertHtml('country-tpl')
         $(this).addClass('open')

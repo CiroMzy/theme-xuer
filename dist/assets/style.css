@@ -346,86 +346,46 @@ a:hover,
   color: var(--primary_color);
   border-color: var(--primary_color);
 }
-.xuer-radio-wrapper {
-  box-sizing: border-box;
-  margin: 0 8px 0 0;
-  padding: 0;
-  color: #000000d9;
-  font-size: 14px;
-  font-variant: tabular-nums;
-  line-height: 1.5715;
-  list-style: none;
-  font-feature-settings: "tnum";
-  position: relative;
-  display: inline-flex;
-  align-items: baseline;
-  cursor: pointer;
+.xuer_input.xuer_input_pure {
+  border: none;
+  box-shadow: none;
 }
-.xuer-radio-wrapper .xuer-radio {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  color: #000000d9;
-  font-size: 14px;
-  font-variant: tabular-nums;
-  line-height: 1.5715;
-  list-style: none;
-  font-feature-settings: "tnum";
-  position: relative;
-  top: 0.2em;
-  display: inline-block;
+.xuer_input.xuer_input_pure:focus-visible {
   outline: none;
+}
+/***** quantity selector *****/
+.quantity_container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 140px;
+  height: 48px;
+  border: 1px solid var(--border_color);
+  border-radius: 2px;
+}
+.quantity_container .quantity_button {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
-.xuer-radio-wrapper .xuer-radio .xuer-radio-input {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  cursor: pointer;
-  opacity: 0;
+.quantity_container .quantity_button svg {
+  width: 10px;
 }
-.xuer-radio-wrapper .xuer-radio .xuer-radio-inner {
-  position: relative;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 16px;
-  height: 16px;
-  background-color: #fff;
-  border: 1px solid #d9d9d9;
-  border-radius: 50%;
-  transition: all 0.3s;
+.quantity_container .quantity_input {
+  min-width: 46px;
+  display: inline-block;
+  text-align: center;
 }
-.xuer-radio-wrapper .xuer-radio .xuer-radio-inner::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: block;
-  width: 16px;
-  height: 16px;
-  margin-top: -8px;
-  margin-left: -8px;
-  background-color: var(--ant-primary-color);
-  border-top: 0;
-  border-left: 0;
-  border-radius: 16px;
-  transform: scale(0);
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
-  content: " ";
+.quantity_container.mid {
+  min-width: 84px;
+  height: 30px;
 }
-.xuer-radio-wrapper .xuer-radio-label {
-  padding-right: 8px;
-  padding-left: 8px;
-}
-.xuer-radio-wrapper.xuer-radio-wrapper-checked .xuer-radio .xuer-radio-inner {
-  border-color: var(--primary_color);
-}
-.xuer-radio-wrapper.xuer-radio-wrapper-checked .xuer-radio .xuer-radio-inner::after {
-  transform: scale(0.5);
-  opacity: 1;
-  transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
-  background-color: var(--primary_color);
+.quantity_container.mid .quantity_button {
+  width: 28px;
+  height: 28px;
 }
 /***************
 * header
@@ -950,6 +910,21 @@ a:hover,
 }
 .drawer-container .search-container #predictive-search-results .predictive-search__loading-state {
   display: none;
+}
+.drawer-container .mini-product_container {
+  display: flex;
+  justify-content: space-between;
+}
+.drawer-container .mini-product_container .mini-product_image_wrapper {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.drawer-container .mini-product_container .mini-product_image_wrapper img {
+  max-width: 100%;
+  max-height: 100%;
 }
 /**********************
 *       product

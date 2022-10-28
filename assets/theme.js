@@ -225,6 +225,10 @@ var Drawer = class extends BaseHTMLElement {
         $(this).addClass('open')
         this.controller = new Search()
         break;
+      case 'min-cart':
+        this.insertHtml('mini-cart-tpl')
+        $(this).addClass('open')
+        break;
       case 'country':
         this.insertHtml('country-tpl')
         $(this).addClass('open')
@@ -355,14 +359,45 @@ window.customElements.define("xuer-localization-form", LocalizationForm);
 
 var MinCart = class extends BaseHTMLElement {
   connectedCallback() {
-		theme.event.resetCartCount = this.resetCartCount.bind(this)
-		this.resetCartCount()
+    theme.event.resetCartCount = this.resetCartCount.bind(this);
+    this.resetCartCount();
   }
-	resetCartCount () {
-		theme.ajax.get(theme.routes.cart_url_js).then(res => {
-			$('[min-cart-count]').html(res.item_count)
-		})
-	}
+  resetCartCount() {
+    theme.ajax.get(theme.routes.cart_url_js).then((cart) => {
+      $("[min-cart-count]").html(cart.item_count);
+      this.cart = cart;
+      var html = this.createMiniCart();
+			console.log('html', html);
+			$('#mini-cart-tpl').html(html)
+    });
+  }
+
+  createMiniCart() {
+    var productHtml = this.createMinProductItems();
+
+		return `
+		<xuer-min-cart id="min-cart-container">
+			${productHtml}
+
+  </xuer-min-cart>
+		`
+  }
+
+  createMinProductItems() {
+    var productStr = "";
+    this.cart.items.forEach((product) => {
+      var tpl = $("#mini-product-tpl").html();
+      var $product = $(tpl);
+      $product.find(".mini-product_image").attr("src", product.image);
+      $product
+        .find(".mini-product_title")
+        .attr("href", product.url)
+        .html(product.product_title);
+			var productHtml = $product.prop("outerHTML")
+			productStr += productHtml
+    });
+		return productStr
+  }
 };
 window.customElements.define("xuer-min-cart", MinCart);
 
@@ -409,6 +444,68 @@ var ProductSlide = class extends BaseHTMLElement {
   }
 };
 window.customElements.define("xuer-product-slide", ProductSlide);
+
+var QuantitySelector = class extends BaseHTMLElement {
+  connectedCallback() {
+    this.$input = $(this.$container.find('input'))
+    this.bindInputEvents();
+    this.bindButtons()
+  }
+  bindInputEvents() {
+    var _this = this
+    this.$input.bind("input propertychange",function(event){
+      var val = _this.getCurInputVal()
+      _this.setInputVal(val)
+    });
+
+    this.$input.on('change', function () {
+      var val = _this.getCurInputVal()
+      if (!val) {
+        _this.setInputVal(1)
+      }
+    })
+  }
+
+  bindButtons () {
+    var _this = this
+    this.$container.find('.quantity_min').click(function() {
+      var val = _this.getCurInputVal()
+      var newVal = --val
+      _this.setInputVal(Math.max(newVal, 1))
+    })
+
+    this.$container.find('.quantity_plus').click(function() {
+      var val = _this.getCurInputVal()
+      var max = _this.$input.attr('max')
+      var newVal = ++val
+      
+      if (max && !isNaN(max) && (newVal > max)) {
+        newVal = max
+      }
+      _this.setInputVal(newVal)
+    })
+  }
+
+  setInputVal (val) {
+    this.$input.val(val)
+    this.$input.attr('size', `${val}`.length)
+  }
+
+  getCurInputVal () {
+    var val = this.$input.val()
+    if (!val) {
+      val = 1
+    }
+    var num = /^\d{0,}$/
+    if (!num.test(val)) {
+      var val = val.replace(/\D/g, '')
+    }
+    return Number(val)
+  }
+
+
+};
+window.customElements.define("xuer-quantity-selector", QuantitySelector);
 
 var Slideshow = class extends BaseHTMLElement {
   connectedCallback() {

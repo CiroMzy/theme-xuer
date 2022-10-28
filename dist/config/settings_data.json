@@ -7,6 +7,7 @@
       "background_color": "#000000",
       "link_color": "#000000",
       "link_active_color": "#02867f",
+      "border_color": "rgb(223, 223, 223)",
 
       "header_background_color": "#ffffff",
       "header_link_color": null,

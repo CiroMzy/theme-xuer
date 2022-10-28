@@ -18,6 +18,9 @@
     "unavailable":"Unavailable",
     "no_stock":"No stock"
   },
+  "cart": {
+    "min_cart_title": "Cart"
+  },
   
 
 

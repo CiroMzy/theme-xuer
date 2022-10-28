@@ -43,6 +43,12 @@
         "label": "Link active color"
       },
       {
+        "type": "color",
+        "id": "border_color",
+        "default": "rgb(223, 223, 223)",
+        "label": "Border color"
+      },
+      {
         "type": "header",
         "content": "Announcement bar"
       },
@@ -109,6 +115,8 @@
         "label": "Footer link hover color"
       },
 
+
+
       {
         "type": "header",
         "content": "Slideshow"
@@ -129,6 +137,8 @@
         "id": "slideshow_button_background_color",
         "label": "Slideshow button background color"
       },
+
+
 
       {
         "type": "header",
