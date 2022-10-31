@@ -4,7 +4,6 @@
       "title": "Search Products",
       "title_placeholder": "Search..."
     }
-
   },
   "localization": {
     "country_label": "Country/region",
@@ -19,7 +18,9 @@
     "no_stock":"No stock"
   },
   "cart": {
-    "min_cart_title": "Cart"
+    "min_cart_title": "Cart",
+    "cart_empty": "Your cart is empty",
+    "remove": "Remove"
   },
   
 

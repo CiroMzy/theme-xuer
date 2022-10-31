@@ -6,30 +6,50 @@
   </span>
 </xuer-min-cart>
 
-{% comment %} min-cart {% endcomment %}
-<template id="mini-cart-tpl" data-title="{{ 'cart.min_cart_title' | t }}">
-
-</template>
-
-
-{% comment %} min-product {% endcomment %}
-<template id="mini-product-tpl">
-  <div class="mini-product_container">
-    <div class="mini-product_image_wrapper">
-      <img loading="lazy" class="mini-product_image"/>
-    </div>
-    <div class="mini-product_main">
-      <a class="mini-product_title">
-      </a>
-      <div class="mini-product_options">
-      </div>
-      <div class="mini-product_bottom">
-        {% render 'quantity-selector', size: 'mid' %}
-      </div>
-    </div>
-    <div class="mini-cart_price">
-
-    </div>
-  </div>
-</template>
-
+{% schema %}
+{
+  "name": "Cart drawer",
+  "class": "shopify-section--mini-cart",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Free shipping notice can be configured in global cart settings."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_order_note",
+      "label": "Show order note",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_checkout_button",
+      "label": "Show checkout button",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "empty_button_link",
+      "label": "Empty button link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "header",
+      "content": "Cross-sell",
+      "info": "Dynamic recommendations are based on the items in your cart. They change and improve with time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_recommendations",
+      "label": "Show cart recommendations",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "recommendations_title",
+      "label": "Recommendations heading",
+      "default": "You may also like"
+    }
+  ]
+}
+{% endschema %}

@@ -1,140 +1,146 @@
-
-theme.swipers = {}
+theme.swipers = {};
 theme.event = {
-  dispatch: function(key, params) {
-    theme.event[key] && theme.event[key](params)
-  }
-}
+  dispatch: function (key, params) {
+    theme.event[key] && theme.event[key](params);
+  },
+};
 theme.ajax = {
-  post: function(url, data) {
+  post: function (url, data) {
     return new Promise((resolve, reject) => {
       $.ajax({
         headers: {
           "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-          "accept": "text/javascript",
+          accept: "text/javascript",
         },
         type: "POST",
         url: url,
         data: data,
-        dataType:'text',
+        dataType: "text",
         success: function (data) {
-          resolve(JSON.parse(data))
+          resolve(JSON.parse(data));
         },
         error: function (err) {
-          reject(err)
-        }
-      })
-    })
+          reject(err);
+        },
+      });
+    });
   },
-  get: function(url, params) {
+  get: function (url, params, headers = {}, oterConfig = {}) {
     return new Promise((resolve, reject) => {
       $.ajax({
         headers: {
           "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-          "accept": "text/javascript",
+          accept: "text/javascript",
+          ...headers,
         },
         type: "GET",
         url: url,
-        params: params,
-        dataType:'text',
+        data: params,
+        dataType: "text",
+        ...oterConfig,
         success: function (data) {
-          resolve(JSON.parse(data))
+          var res = null
+          try{
+            res = JSON.parse(data)
+          } catch(e) {
+            res = data
+          }
+          resolve(res)
         },
         error: function (err) {
-          reject(err)
-        }
-      })
-    })
-  }
-}
+          reject(err);
+        },
+      });
+    });
+  },
+};
 
-$.fn.serializeObject = function() { 
-  var o = {}; 
-  var a = this.serializeArray(); 
-  $.each(a, function() { 
-    if (o[this.name]) { 
-      if (!o[this.name].push) { 
-        o[this.name] = [ o[this.name] ]; 
-      } 
-      o[this.name].push(this.value || ''); 
-    } else { 
-      o[this.name] = this.value || ''; 
-    } 
-  }); 
-  return o; 
-} 
+$.fn.serializeObject = function () {
+  var o = {};
+  var a = this.serializeArray();
+  $.each(a, function () {
+    if (o[this.name]) {
+      if (!o[this.name].push) {
+        o[this.name] = [o[this.name]];
+      }
+      o[this.name].push(this.value || "");
+    } else {
+      o[this.name] = this.value || "";
+    }
+  });
+  return o;
+};
 
 var BaseHTMLElement = class extends HTMLElement {
   constructor() {
     super();
-    this.$container = $(this)
+    this.$container = $(this);
   }
   get rootDelegate() {}
   get delegate() {}
   loading() {}
   hideLoading() {}
   attributeChangedCallback() {}
-  disconnectedCallback() {
-  }
-  initSwiper(options={}) {
-    var $swiperContainers = $(this).find('[swiper]')
+  disconnectedCallback() {}
+  initSwiper(options = {}) {
+    var $swiperContainers = $(this).find("[swiper]");
     if ($swiperContainers.length) {
-        $swiperContainers.each((idx, el) => {
-          var $swiperContainer = $(el)
-          var swiperId = $swiperContainer.attr('id')
-          var datas = $swiperContainer.data() || {}
-          var swiper = new Swiper(`#${swiperId}`, {
-            loop: datas.swiperLoop || false,
-            autoplay: datas.swiperAutoplay,
-            speed: datas.swiperSpeed || 300,
-            effect: datas.swiperEffect || 'slide',
-            ...options
-          });
-          theme.swipers[swiperId] = swiper
-      })
+      $swiperContainers.each((idx, el) => {
+        var $swiperContainer = $(el);
+        var swiperId = $swiperContainer.attr("id");
+        var datas = $swiperContainer.data() || {};
+        var swiper = new Swiper(`#${swiperId}`, {
+          loop: datas.swiperLoop || false,
+          autoplay: datas.swiperAutoplay,
+          speed: datas.swiperSpeed || 300,
+          effect: datas.swiperEffect || "slide",
+          ...options,
+        });
+        theme.swipers[swiperId] = swiper;
+      });
     }
   }
   changeClass(el, className, status, changeText) {
     if (status) {
-      $(el).addClass(className)
+      $(el).addClass(className);
       if (changeText) {
-        $(el).html($(el).data('disableText'))
+        $(el).html($(el).data("disableText"));
       }
     } else {
-      $(el).removeClass(className)
+      $(el).removeClass(className);
       if (changeText) {
-        $(el).html($(el).data('activeText'))
+        $(el).html($(el).data("activeText"));
       }
     }
   }
-  changeDisabled (el, disabled) {
+  changeDisabled(el, disabled) {
     if (disabled) {
-      $(el).attr('disabled', 'disabled')
+      $(el).attr("disabled", "disabled");
     } else {
-      $(el).removeAttr('disabled')
+      $(el).removeAttr("disabled");
     }
-
   }
 };
 
 theme.debounce = function (func, wait, callback) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-      var result = func.apply(context, args)
+  var timeout;
+  return function () {
+    var context = this,
+      args = arguments;
+    var later = function () {
+      timeout = null;
+      var result = func.apply(context, args);
       if (result.then) {
-        result.then(res => {
-          callback && callback(res)
-        })
+        result.then((res) => {
+          callback && callback(res);
+        });
       } else {
-        callback && callback(res)
+        callback && callback(res);
       }
-		};
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-	};
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
 };
 
 // AnnouncementBar
@@ -357,49 +363,65 @@ var LocalizationForm = class extends BaseHTMLElement {
 };
 window.customElements.define("xuer-localization-form", LocalizationForm);
 
-var MinCart = class extends BaseHTMLElement {
+var MiniCartIcon = class extends BaseHTMLElement {
   connectedCallback() {
     theme.event.resetCartCount = this.resetCartCount.bind(this);
     this.resetCartCount();
   }
   resetCartCount() {
     theme.ajax.get(theme.routes.cart_url_js).then((cart) => {
-      $("[min-cart-count]").html(cart.item_count);
-      this.cart = cart;
-      var html = this.createMiniCart();
-			console.log('html', html);
-			$('#mini-cart-tpl').html(html)
+      this.$container.find('.min-cart-count').html(cart.item_count)
+      if (!cart.items.length) return;
+      var product = cart.items[0];
+      console.log("cart", cart);
+      this.setCartHtml(product.product_id)
     });
   }
-
-  createMiniCart() {
-    var productHtml = this.createMinProductItems();
-
-		return `
-		<xuer-min-cart id="min-cart-container">
-			${productHtml}
-
-  </xuer-min-cart>
-		`
-  }
-
-  createMinProductItems() {
-    var productStr = "";
-    this.cart.items.forEach((product) => {
-      var tpl = $("#mini-product-tpl").html();
-      var $product = $(tpl);
-      $product.find(".mini-product_image").attr("src", product.image);
-      $product
-        .find(".mini-product_title")
-        .attr("href", product.url)
-        .html(product.product_title);
-			var productHtml = $product.prop("outerHTML")
-			productStr += productHtml
-    });
-		return productStr
+  setCartHtml(productId) {
+    const url = `${theme.routes.product_recommendations_url}`;
+    theme.ajax.get(url,
+        {
+          product_id: productId,
+          limit: 10,
+          section_id: "mini-cart",
+        },
+        { accept: "*/*" }
+      )
+      .then((res) => {
+        $('#mini-cart-tpl').html(res)
+      });
   }
 };
-window.customElements.define("xuer-min-cart", MinCart);
+
+var MiniCart = class extends BaseHTMLElement {
+  connectedCallback() {
+    this.bindDelCart();
+  }
+
+  bindDelCart() {
+    var _this = this
+    this.$container.find('[mini-cart-remove]').click(function () {
+      var id = $(this).data('cartId')
+      _this.cartChange({ id, quantity:0, el: $(this)})
+    })
+  }
+
+  cartChange ({id, quantity, el}) {
+    theme.ajax.post(theme.routes.cart_change_url, {
+      id,
+      quantity
+    }).then(res => {
+      if (quantity === 0) {
+        var $parent = el.parents('[mini-product-item]')
+        $parent.remove()
+      }
+      console.log('res', res);
+    })
+  }
+};
+
+window.customElements.define("xuer-mini-cart", MiniCart);
+window.customElements.define("xuer-mini-cart-icon", MiniCartIcon);
 
 // product-slide
 var ProductSlide = class extends BaseHTMLElement {

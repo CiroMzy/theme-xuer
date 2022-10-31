@@ -1,4 +1,8 @@
-
+{%- if line_price -%}
+<div class="product-price-container line-price">
+  {{ product.final_price | money }}
+</div>
+{% else %}
 <div class="product-price-container">
   {%- if product.compare_at_price_min > product.price_min -%}
     <span class="price-comparing">
@@ -26,3 +30,4 @@
     </small>
   {%- endif -%}
 </div>
+{%- endif -%}

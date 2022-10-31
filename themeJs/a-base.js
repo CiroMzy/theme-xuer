@@ -1,138 +1,144 @@
-
-theme.swipers = {}
+theme.swipers = {};
 theme.event = {
-  dispatch: function(key, params) {
-    theme.event[key] && theme.event[key](params)
-  }
-}
+  dispatch: function (key, params) {
+    theme.event[key] && theme.event[key](params);
+  },
+};
 theme.ajax = {
-  post: function(url, data) {
+  post: function (url, data) {
     return new Promise((resolve, reject) => {
       $.ajax({
         headers: {
           "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-          "accept": "text/javascript",
+          accept: "text/javascript",
         },
         type: "POST",
         url: url,
         data: data,
-        dataType:'text',
+        dataType: "text",
         success: function (data) {
-          resolve(JSON.parse(data))
+          resolve(JSON.parse(data));
         },
         error: function (err) {
-          reject(err)
-        }
-      })
-    })
+          reject(err);
+        },
+      });
+    });
   },
-  get: function(url, params) {
+  get: function (url, params, headers = {}, oterConfig = {}) {
     return new Promise((resolve, reject) => {
       $.ajax({
         headers: {
           "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-          "accept": "text/javascript",
+          accept: "text/javascript",
+          ...headers,
         },
         type: "GET",
         url: url,
-        params: params,
-        dataType:'text',
+        data: params,
+        dataType: "text",
+        ...oterConfig,
         success: function (data) {
-          resolve(JSON.parse(data))
+          var res = null
+          try{
+            res = JSON.parse(data)
+          } catch(e) {
+            res = data
+          }
+          resolve(res)
         },
         error: function (err) {
-          reject(err)
-        }
-      })
-    })
-  }
-}
+          reject(err);
+        },
+      });
+    });
+  },
+};
 
-$.fn.serializeObject = function() { 
-  var o = {}; 
-  var a = this.serializeArray(); 
-  $.each(a, function() { 
-    if (o[this.name]) { 
-      if (!o[this.name].push) { 
-        o[this.name] = [ o[this.name] ]; 
-      } 
-      o[this.name].push(this.value || ''); 
-    } else { 
-      o[this.name] = this.value || ''; 
-    } 
-  }); 
-  return o; 
-} 
+$.fn.serializeObject = function () {
+  var o = {};
+  var a = this.serializeArray();
+  $.each(a, function () {
+    if (o[this.name]) {
+      if (!o[this.name].push) {
+        o[this.name] = [o[this.name]];
+      }
+      o[this.name].push(this.value || "");
+    } else {
+      o[this.name] = this.value || "";
+    }
+  });
+  return o;
+};
 
 var BaseHTMLElement = class extends HTMLElement {
   constructor() {
     super();
-    this.$container = $(this)
+    this.$container = $(this);
   }
   get rootDelegate() {}
   get delegate() {}
   loading() {}
   hideLoading() {}
   attributeChangedCallback() {}
-  disconnectedCallback() {
-  }
-  initSwiper(options={}) {
-    var $swiperContainers = $(this).find('[swiper]')
+  disconnectedCallback() {}
+  initSwiper(options = {}) {
+    var $swiperContainers = $(this).find("[swiper]");
     if ($swiperContainers.length) {
-        $swiperContainers.each((idx, el) => {
-          var $swiperContainer = $(el)
-          var swiperId = $swiperContainer.attr('id')
-          var datas = $swiperContainer.data() || {}
-          var swiper = new Swiper(`#${swiperId}`, {
-            loop: datas.swiperLoop || false,
-            autoplay: datas.swiperAutoplay,
-            speed: datas.swiperSpeed || 300,
-            effect: datas.swiperEffect || 'slide',
-            ...options
-          });
-          theme.swipers[swiperId] = swiper
-      })
+      $swiperContainers.each((idx, el) => {
+        var $swiperContainer = $(el);
+        var swiperId = $swiperContainer.attr("id");
+        var datas = $swiperContainer.data() || {};
+        var swiper = new Swiper(`#${swiperId}`, {
+          loop: datas.swiperLoop || false,
+          autoplay: datas.swiperAutoplay,
+          speed: datas.swiperSpeed || 300,
+          effect: datas.swiperEffect || "slide",
+          ...options,
+        });
+        theme.swipers[swiperId] = swiper;
+      });
     }
   }
   changeClass(el, className, status, changeText) {
     if (status) {
-      $(el).addClass(className)
+      $(el).addClass(className);
       if (changeText) {
-        $(el).html($(el).data('disableText'))
+        $(el).html($(el).data("disableText"));
       }
     } else {
-      $(el).removeClass(className)
+      $(el).removeClass(className);
       if (changeText) {
-        $(el).html($(el).data('activeText'))
+        $(el).html($(el).data("activeText"));
       }
     }
   }
-  changeDisabled (el, disabled) {
+  changeDisabled(el, disabled) {
     if (disabled) {
-      $(el).attr('disabled', 'disabled')
+      $(el).attr("disabled", "disabled");
     } else {
-      $(el).removeAttr('disabled')
+      $(el).removeAttr("disabled");
     }
-
   }
 };
 
 theme.debounce = function (func, wait, callback) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-      var result = func.apply(context, args)
+  var timeout;
+  return function () {
+    var context = this,
+      args = arguments;
+    var later = function () {
+      timeout = null;
+      var result = func.apply(context, args);
       if (result.then) {
-        result.then(res => {
-          callback && callback(res)
-        })
+        result.then((res) => {
+          callback && callback(res);
+        });
       } else {
-        callback && callback(res)
+        callback && callback(res);
       }
-		};
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-	};
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
 };
