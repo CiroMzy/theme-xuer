@@ -191,6 +191,25 @@ a:hover,
 }
 .xuer-image-wrapper {
   width: 100%;
+  position: relative;
+}
+.xuer-image-wrapper .loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  display: none;
+  background: rgba(0, 0, 0, 0.2);
+}
+.xuer-image-wrapper .loading svg {
+  width: 30px;
+}
+.xuer-image-wrapper[loading="true"] .loading {
+  display: flex;
 }
 .xuer-image-wrapper .xuer-image {
   position: absolute;
@@ -217,9 +236,6 @@ a:hover,
 .xuer-h2,
 .xuer-h3 {
   font-weight: 400;
-}
-.xuer-image-wrapper {
-  position: relative;
 }
 .xuer-line {
   margin-bottom: 8px;
@@ -258,6 +274,14 @@ a:hover,
     stroke-dasharray: 89,200;
     stroke-dashoffset: -124;
   }
+}
+.xuer-loading svg {
+  margin: auto;
+  animation: rotateInfinit 2s linear infinite;
+  transform-origin: center center;
+}
+.xuer-loading circle {
+  animation: rotateDash 1.5s ease-in-out infinite;
 }
 /**********
 * layout
@@ -809,14 +833,6 @@ a:hover,
 }
 .drawer-container .drawer-main .drawer-content-wrapper .drawer-loading.show {
   display: flex;
-}
-.drawer-container .drawer-main .drawer-content-wrapper .drawer-loading svg {
-  margin: auto;
-  animation: rotateInfinit 2s linear infinite;
-  transform-origin: center center;
-}
-.drawer-container .drawer-main .drawer-content-wrapper .drawer-loading circle {
-  animation: rotateDash 1.5s ease-in-out infinite;
 }
 .drawer-container .drawer-main .drawer-content-wrapper .drawer-content {
   flex: 1;

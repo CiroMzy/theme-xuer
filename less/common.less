@@ -42,6 +42,27 @@ a:hover, .link:hover{
 }
 .xuer-image-wrapper {
   width: 100%;
+  position: relative;
+  .loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    display: none;
+    background: rgba(0,0,0,0.2);
+    svg{
+      width: 30px;
+    }
+  }
+  &[loading="true"] {
+    .loading{
+      display: flex;
+    }
+  }
   .xuer-image {
     position: absolute;
     left: 0;
@@ -73,9 +94,6 @@ a:hover, .link:hover{
 
 .xuer-h1, .xuer-h2, .xuer-h3 {
   font-weight: 400;
-}
-.xuer-image-wrapper{
-  position: relative;
 }
 .xuer-line {
   margin-bottom: @distance;

@@ -1,7 +1,16 @@
 theme.swipers = {};
 theme.event = {
+  miniCartCountChange: null,
   dispatch: function (key, params) {
-    theme.event[key] && theme.event[key](params);
+    if (!theme.event[key]) return
+    var evt = theme.event[key]
+    if (Array.isArray(evt)) {
+      evt.forEach(fn => {
+        fn && fn(params)
+      })
+    } else {
+      evt && evt(params)
+    }
   },
 };
 theme.ajax = {
@@ -54,6 +63,13 @@ theme.ajax = {
     });
   },
 };
+
+theme.message = {
+  info: function ({message}) {
+    window.alert(message)
+
+  }
+}
 
 $.fn.serializeObject = function () {
   var o = {};

@@ -2,7 +2,7 @@
   <form id="mini-cart-form" action="{{ routes.cart_url }}" novalidate method="post">
     <input type="hidden" name="checkout">
       {%- for cartItem in cart.items -%}
-        <div class="mini-product_container" mini-product-item>
+        <div class="mini-product_container" mini-product-item data-cart-id="{{ cartItem.id }}">
           <div class="mini-product_image_wrapper">
             {% render 'image', image: cartItem.image %}
           </div>
@@ -16,14 +16,14 @@
               {% endfor %}
             </div>
             <div class="mini-product_bottom xuer-line">
-              {% render 'quantity-selector', size: 'mid', quantity: cartItem.quantity %}
+              {% render 'quantity-selector', size: 'mid', quantity: cartItem.quantity, trigger: 'mini-cart' %}
             </div>
-            <div class="mini-product_remove" mini-cart-remove data-cart-id="{{ cartItem.id }}">
+            <div class="mini-product_remove" mini-cart-remove >
               {{ 'cart.remove' | t }}
             </div>
           </div>
           <div class="mini-cart_price">
-            {% render 'price', product: cartItem.product, line_price: true %}
+            {% render 'price', product: cartItem, line_price: true %}
           </div>
         </div>
       {%- endfor -%}

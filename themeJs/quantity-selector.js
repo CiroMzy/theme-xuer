@@ -42,6 +42,12 @@ var QuantitySelector = class extends BaseHTMLElement {
   setInputVal (val) {
     this.$input.val(val)
     this.$input.attr('size', `${val}`.length)
+    if (this.$container.data('trigger') === 'mini-cart') {
+      theme.event.dispatch('miniCartCountChange', {
+        e: this.$input,
+        quantity: val
+      })
+    }
   }
 
   getCurInputVal () {
