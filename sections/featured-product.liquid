@@ -75,6 +75,9 @@
                 value="{{ product.selected_or_first_available_variant.id }}"
                 disabled
               >
+              <div class="xuer-line2">
+                {% render 'quantity-selector', quantity: 1, name: "quantity" %}
+              </div>
               <div class="product-form__buttons">
                 <button
                   type="submit"

@@ -5,6 +5,7 @@ var FeaturedProduct = class extends BaseHTMLElement {
   bindForm () {
     this.forms = this.$container.find('[data-type="add-to-cart-form"]')
     this.$form = $(this.form)
+    
     this.forms.each(function (idx,form) {
       $(form).on('submit', function (e) {
         e.preventDefault()
@@ -14,7 +15,7 @@ var FeaturedProduct = class extends BaseHTMLElement {
         }
         theme.ajax.post(theme.routes.cart_add_url_js, {
           ...data,
-          quantity: "1",
+          // quantity: "1",
           sections: "cart-drawer"
         }).then(res => {
           console.log('res', res);

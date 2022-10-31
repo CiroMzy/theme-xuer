@@ -240,6 +240,9 @@ a:hover,
 .xuer-line {
   margin-bottom: 8px;
 }
+.xuer-line2 {
+  margin-bottom: 16px;
+}
 @media screen and (min-width: 750px) {
   .desktop {
     display: block;
