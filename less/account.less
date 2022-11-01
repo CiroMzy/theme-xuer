@@ -8,6 +8,16 @@
   display: flex;
   align-items: center;
   padding: @distance;
+  &.xuer-form-error-multi {
+    display: block;
+    li{
+      display: flex;
+      align-items: center;
+      &+li{
+        margin-top: @distance;
+      }
+    }
+  }
   svg{
     width: 20px;
     margin-right: @distance;
@@ -15,11 +25,7 @@
 }
 
 /***** login *****/
-#account-login{
-  // display: block;
-}
-.account-login, .account-recovery {
-  // display: none;
+.account {
   .account-title {
     font-size: 48px;
     font-weight: 800;

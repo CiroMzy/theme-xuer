@@ -1101,35 +1101,39 @@ a:hover,
   align-items: center;
   padding: 8px;
 }
+.xuer-form-error-msg.xuer-form-error-multi {
+  display: block;
+}
+.xuer-form-error-msg.xuer-form-error-multi li {
+  display: flex;
+  align-items: center;
+}
+.xuer-form-error-msg.xuer-form-error-multi li + li {
+  margin-top: 8px;
+}
 .xuer-form-error-msg svg {
   width: 20px;
   margin-right: 8px;
 }
 /***** login *****/
-.account-login .account-title,
-.account-recovery .account-title {
+.account .account-title {
   font-size: 48px;
   font-weight: 800;
   text-align: center;
 }
-.account-login .account-description,
-.account-recovery .account-description {
+.account .account-description {
   text-align: center;
 }
-.account-login .account-form,
-.account-recovery .account-form {
+.account .account-form {
   width: 460px;
   margin: 0 auto;
 }
-.account-login .account-form .account-reset,
-.account-recovery .account-form .account-reset {
+.account .account-form .account-reset {
   display: block;
 }
-.account-login .create-account,
-.account-recovery .create-account {
+.account .create-account {
   text-align: center;
 }
-.account-login .create-account a,
-.account-recovery .create-account a {
+.account .create-account a {
   text-decoration: underline;
 }

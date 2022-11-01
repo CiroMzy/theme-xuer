@@ -35,7 +35,12 @@
     "login": "Login",
     "sign_in": "Sign in",
     "new_customer": "New customer?",
-    "create_account":"Create an account"
+    "create_an_account":"Create an account",
+    "create_account":"Create account",
+    "register":"Register",
+    "register_description": "Please fill in the fields below:",
+    "first_name": "First name",
+    "last_name": "Last name"
   },
   
 
