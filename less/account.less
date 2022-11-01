@@ -1,0 +1,44 @@
+@import url(./variables.less);
+/**********************
+* account
+*/
+.xuer-form-error-msg {
+  color: var(--error_color);
+  background-color: var(--error_background_color);
+  display: flex;
+  align-items: center;
+  padding: @distance;
+  svg{
+    width: 20px;
+    margin-right: @distance;
+  }
+}
+
+/***** login *****/
+#account-login{
+  // display: block;
+}
+.account-login, .account-recovery {
+  // display: none;
+  .account-title {
+    font-size: 48px;
+    font-weight: 800;
+    text-align: center;
+  }
+  .account-description {
+    text-align: center;
+  }
+  .account-form {
+    width: 460px;
+    margin: 0 auto;
+    .account-reset {
+      display: block;
+    }
+  }
+  .create-account {
+    text-align: center;
+    a{
+      text-decoration: underline;
+    }
+  }
+}

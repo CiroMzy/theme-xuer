@@ -1,0 +1,33 @@
+
+{% comment %}
+  Renders a radio
+
+  Accepts:
+  - id: {String} 
+  - type: {String} 
+  - name: {String} 
+  - label: {String} 
+  - required: {Boolean} 
+  - className: {String} 
+
+  Usage:
+  {% render 'form-radio', is_checked: true,value: 'red',name: 'color', label: 'color'   %}
+{% endcomment %}
+
+
+{%- liquid
+  assign type = type | default: 'text'
+-%}
+
+<xuer-form-input class="xuer-input_wrapper {{ className }}">
+  <input 
+    type="{{ type }}" 
+    id="{{ id }}" 
+    class="xuer-input" 
+    name="{{ name }}" 
+    required="required"
+    xuer-input
+    autocomplete="off" 
+  />
+  <label for="{{ id }}" class="xuer-input_label">{{ label | t }}</label>
+</xuer-form-input>

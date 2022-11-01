@@ -18,10 +18,24 @@
     "no_stock":"No stock"
   },
   "cart": {
+
     "min_cart_title": "Cart",
     "cart_empty": "Your cart is empty",
     "remove": "Remove",
     "checkout":"Check out"
+  },
+  "account": {
+    "login_title": "Login",
+    "login_description": "Please enter your e-mail and password:",
+    "recovery_title": "RECOVER PASSWORD",
+    "recovery_description": "Please enter your e-mail:",
+    "email": "E-mail",
+    "password": "Password",
+    "forget_password": "Forgot password?",
+    "login": "Login",
+    "sign_in": "Sign in",
+    "new_customer": "New customer?",
+    "create_account":"Create an account"
   },
   
 
@@ -32,6 +46,7 @@
   "general": {
     "close": "Close",
     "confirm": "Confirm",
+    "cancle": "Cancel",
 
 
 

@@ -1,0 +1,42 @@
+
+{% comment %}
+  Renders a radio
+
+  Accepts:
+  - text: {String}
+  - size: {String}
+  - is_outline: {Boolean} 
+  - className: {String} 
+  - is_block: {Boolean} 
+  - type: {String} 
+
+  Usage:
+  {% render 'form-radio', is_checked: true,value: 'red',name: 'color', label: 'color'   %}
+{% endcomment %}
+
+
+
+{%- liquid
+  assign type = type | default: 'text'
+  assign type_class = "xuer-button_fill"
+  assign size_class = "xuer-mid"
+
+  if is_block == true
+    assign block_class = "xuer-button_block"
+  endif
+  
+  if size == 'large'
+    assign size_class = 'xuer-large'
+  endif
+  if is_outline
+    assign type_class = "xuer-button_outline"
+  endif
+-%}
+<button 
+  class="xuer-button {{ type_class }} {{ size_class }} {{ className }} {{ block_class }}"
+  {% if type != blank %} 
+    type="{{ type }}"
+  {% endif %}
+>
+  {{ text | t }}
+</button>

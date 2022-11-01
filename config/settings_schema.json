@@ -49,6 +49,20 @@
         "label": "Border color"
       },
       {
+        "type": "color",
+        "id": "error_color",
+        "default": "rgb(223, 223, 223)",
+        "label": "Error color"
+      },
+      {
+        "type": "color",
+        "id": "error_background_color",
+        "default": "rgb(223, 223, 223)",
+        "label": "Error background color"
+      },
+
+
+      {
         "type": "header",
         "content": "Announcement bar"
       },
@@ -140,30 +154,6 @@
 
 
 
-      {
-        "type": "header",
-        "content": "Buttons"
-      },
-      {
-        "type": "color",
-        "id": "button_fill_text_color",
-        "label": "Button fill text color"
-      },
-      {
-        "type": "color",
-        "id": "button_fill_background_color",
-        "label": "Button fill background color"
-      },
-      {
-        "type": "color",
-        "id": "button_outline_text_color",
-        "label": "Button outline text color"
-      },
-      {
-        "type": "color",
-        "id": "button_outline_background_color",
-        "label": "Button outline background color"
-      },
 
 
 
@@ -266,9 +256,71 @@
       }
     ]
   },
+
   {
     "name": "Typography",
     "settings": [
+
+      {
+        "type": "header",
+        "content": "Form"
+      },
+      {
+        "type": "range",
+        "id": "form_input_height",
+        "min": 100,
+        "max": 10,
+        "step": 5,
+        "unit": "px",
+        "default": 45,
+        "label": "Form input height"
+      },
+
+
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "type": "color",
+        "id": "button_fill_text_color",
+        "label": "Button fill text color"
+      },
+      {
+        "type": "color",
+        "id": "button_fill_background_color",
+        "label": "Button fill background color"
+      },
+      {
+        "type": "color",
+        "id": "button_outline_text_color",
+        "label": "Button outline text color"
+      },
+      {
+        "type": "color",
+        "id": "button_outline_background_color",
+        "label": "Button outline background color"
+      },
+      {
+        "type": "color",
+        "id": "button_outline_border_color",
+        "label": "Button outline border color"
+      },
+      {
+        "type": "range",
+        "id": "button_border_radius",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "default": 0,
+        "label": "Button border radius"
+      },
+
+
+
+
+
       {
         "type": "checkbox",
         "id": "link_underline",

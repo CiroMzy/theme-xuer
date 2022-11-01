@@ -120,6 +120,42 @@
     }
   }
 }
+.xuer-input_wrapper{
+  height: 48px;
+  display: flex;
+  position: relative;
+  input{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: var(--form_input_height);
+    line-height: var(--form_input_height);
+    padding: 0 18px;
+    border-radius: var(--button_border_radius);
+    border: 1px solid var(--button_outline_border_color);
+    box-shadow: none;
+    background: transparent;
+    color: var(--form-input-color);
+    transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+    &:focus~.xuer-input_label, &.xuer-focus~.xuer-input_label{
+      transform: scale(.733) translateY(calc(-20px - .5em)) translate(3.665px);
+    }
+  }
+  .xuer-input_label {
+    position: absolute;
+    top: calc((var(--form_input_height) / 2) - 0.5em);
+    left: 12px;
+    padding: 0 5px;
+    pointer-events: none;
+    transform: translateY(0);
+    transform-origin: left top;
+    transition: transform .2s ease-in-out;
+    background: var(--button_outline_background_color);
+    color: rgba(var(--text_color_rgb),.7);
+    line-height: 1;
+    white-space: nowrap;
+  }
+}
 
 
 // .xuer-radio-wrapper {

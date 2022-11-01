@@ -126,9 +126,6 @@ table {
 :focus-visible {
   outline: var(--primary_color) auto 1px;
 }
-.custom-section {
-  display: block;
-}
 /**********************
 * common
 */
@@ -172,6 +169,9 @@ a:hover,
 }
 [hidden] {
   display: none;
+}
+.xuer-uppercase {
+  text-transform: uppercase;
 }
 .full-width-padding {
   padding-left: 32px;
@@ -238,6 +238,9 @@ a:hover,
 .xuer-h2,
 .xuer-h3 {
   font-weight: 400;
+}
+.custom-section {
+  display: block;
 }
 @media screen and (min-width: 750px) {
   .desktop {
@@ -435,6 +438,43 @@ a:hover,
 .quantity_container.mid .quantity_button {
   width: 28px;
   height: 28px;
+}
+.xuer-input_wrapper {
+  height: 48px;
+  display: flex;
+  position: relative;
+}
+.xuer-input_wrapper input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: var(--form_input_height);
+  line-height: var(--form_input_height);
+  padding: 0 18px;
+  border-radius: var(--button_border_radius);
+  border: 1px solid var(--button_outline_border_color);
+  box-shadow: none;
+  background: transparent;
+  color: var(--form-input-color);
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.xuer-input_wrapper input:focus ~ .xuer-input_label,
+.xuer-input_wrapper input.xuer-focus ~ .xuer-input_label {
+  transform: scale(0.733) translateY(calc(-20px - 0.5em)) translate(3.665px);
+}
+.xuer-input_wrapper .xuer-input_label {
+  position: absolute;
+  top: calc((var(--form_input_height) / 2) - 0.5em);
+  left: 12px;
+  padding: 0 5px;
+  pointer-events: none;
+  transform: translateY(0);
+  transform-origin: left top;
+  transition: transform 0.2s ease-in-out;
+  background: var(--button_outline_background_color);
+  color: rgba(var(--text_color_rgb), 0.7);
+  line-height: 1;
+  white-space: nowrap;
 }
 /***************
 * header
@@ -1050,4 +1090,46 @@ a:hover,
 }
 .featured-product .featured-product_blocks .featured-product_row {
   margin-bottom: 16px;
+}
+/**********************
+* account
+*/
+.xuer-form-error-msg {
+  color: var(--error_color);
+  background-color: var(--error_background_color);
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+.xuer-form-error-msg svg {
+  width: 20px;
+  margin-right: 8px;
+}
+/***** login *****/
+.account-login .account-title,
+.account-recovery .account-title {
+  font-size: 48px;
+  font-weight: 800;
+  text-align: center;
+}
+.account-login .account-description,
+.account-recovery .account-description {
+  text-align: center;
+}
+.account-login .account-form,
+.account-recovery .account-form {
+  width: 460px;
+  margin: 0 auto;
+}
+.account-login .account-form .account-reset,
+.account-recovery .account-form .account-reset {
+  display: block;
+}
+.account-login .create-account,
+.account-recovery .create-account {
+  text-align: center;
+}
+.account-login .create-account a,
+.account-recovery .create-account a {
+  text-decoration: underline;
 }
