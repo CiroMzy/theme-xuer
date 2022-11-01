@@ -20,7 +20,8 @@
   "cart": {
     "min_cart_title": "Cart",
     "cart_empty": "Your cart is empty",
-    "remove": "Remove"
+    "remove": "Remove",
+    "checkout":"Check out"
   },
   
 

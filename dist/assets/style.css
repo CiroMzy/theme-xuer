@@ -237,12 +237,6 @@ a:hover,
 .xuer-h3 {
   font-weight: 400;
 }
-.xuer-line {
-  margin-bottom: 8px;
-}
-.xuer-line2 {
-  margin-bottom: 16px;
-}
 @media screen and (min-width: 750px) {
   .desktop {
     display: block;
@@ -312,6 +306,12 @@ a:hover,
   flex: 0 0 75%;
   max-width: 75%;
 }
+.xuer-line {
+  margin-bottom: 8px;
+}
+.xuer-line2 {
+  margin-bottom: 16px;
+}
 /**********************
 * form
 */
@@ -363,6 +363,9 @@ a:hover,
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 16px;
+}
+.xuer-button.xuer-mid {
+  padding: 8px 16px;
 }
 .xuer-button.disabled {
   background: #999 !important;
