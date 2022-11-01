@@ -40,41 +40,43 @@ a:hover, .link:hover{
 .xuer-image {
   max-width: 100%;
 }
-.xuer-image-wrapper {
+.xuer-image-outer-wrapper {
   width: 100%;
-  position: relative;
-  .loading {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    display: none;
-    background: rgba(0,0,0,0.2);
-    svg{
-      width: 30px;
+  .xuer-image-wrapper {
+    position: relative;
+    .loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      display: none;
+      background: rgba(0,0,0,0.2);
+      svg{
+        width: 30px;
+      }
     }
-  }
-  &[loading="true"] {
-    .loading{
-      display: flex;
+    &[loading="true"] {
+      .loading{
+        display: flex;
+      }
     }
-  }
-  .xuer-image {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
-  .xuer-placeholder-image {
-    &.xuer-full svg{
+    .xuer-image {
+      position: absolute;
+      left: 0;
+      top: 0;
       width: 100%;
       height: 100%;
-      position: absolute;
+    }
+    .xuer-placeholder-image {
+      &.xuer-full svg{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
     }
   }
 }

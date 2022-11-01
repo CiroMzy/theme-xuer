@@ -12,26 +12,25 @@
   endif
 
 -%}
-
-<div class="xuer-image-wrapper" 
-  style="padding-top:{{ 1 | divided_by: local_aspect_ratio | times: 100 }}%"
-  xuer-image
->
-  <div class="loading xuer-loading">
-    <svg focusable="false" width="50" height="50" class="icon icon--spinner   " viewBox="25 25 50 50">
-      <circle cx="50" cy="50" r="20" fill="none" stroke="#282828" stroke-width="4"></circle>
-    </svg>
+<div class="xuer-image-outer-wrapper" style="width: {{ width }}px;">
+  <div class="xuer-image-wrapper" 
+    style="padding-top:{{ 1 | divided_by: local_aspect_ratio | times: 100 }}%"
+    xuer-image
+  >
+    <img 
+      {% render "image-attributes", 
+        image: image,
+        alt: img_alt, 
+        sizes: '400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800' 
+      %}
+      
+      loading="lazy" 
+      class="xuer-image {{ img_class }} {% if cover %}cover{% endif %}"
+    />
+    <div class="loading xuer-loading">
+      <svg focusable="false" width="50" height="50" class="icon icon--spinner   " viewBox="25 25 50 50">
+        <circle cx="50" cy="50" r="20" fill="none" stroke="#282828" stroke-width="4"></circle>
+      </svg>
+    </div>
   </div>
-  <img 
-    {% render "image-attributes", 
-      image: image,
-      alt: img_alt, 
-      sizes: '400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800' 
-    %}
-    
-    loading="lazy" 
-    class="xuer-image {{ img_class }} {% if cover %}cover{% endif %}"
-  />
-
-
 </div>
