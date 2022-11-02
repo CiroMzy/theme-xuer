@@ -328,6 +328,14 @@ $(function () {
       theme.drawer.open($(this).data('action-type'))
   })
 })
+var AddressSelect = class extends BaseHTMLElement {
+
+  connectedCallback() {
+  }
+
+};
+window.customElements.define("xuer-form-address-select", AddressSelect);
+
 // FormInput
 var FormInput = class extends BaseHTMLElement {
   connectedCallback () {

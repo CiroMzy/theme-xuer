@@ -402,13 +402,6 @@ a:hover,
   color: var(--primary_color);
   border-color: var(--primary_color);
 }
-.xuer_input.xuer_input_pure {
-  border: none;
-  box-shadow: none;
-}
-.xuer_input.xuer_input_pure:focus-visible {
-  outline: none;
-}
 /***** quantity selector *****/
 .quantity_container {
   display: inline-flex;
@@ -443,6 +436,7 @@ a:hover,
   width: 28px;
   height: 28px;
 }
+/***** input *****/
 .xuer-input_wrapper {
   height: 48px;
   display: flex;
@@ -454,7 +448,7 @@ a:hover,
   width: 100%;
   height: var(--form_input_height);
   line-height: var(--form_input_height);
-  padding: 0 18px;
+  padding: 0 16px;
   border-radius: var(--button_border_radius);
   border: 1px solid var(--button_outline_border_color);
   box-shadow: none;
@@ -467,6 +461,56 @@ a:hover,
   transform: scale(0.733) translateY(calc(-20px - 0.5em)) translate(3.665px);
 }
 .xuer-input_wrapper .xuer-input_label {
+  position: absolute;
+  top: calc((var(--form_input_height) / 2) - 0.5em);
+  left: 12px;
+  padding: 0 5px;
+  pointer-events: none;
+  transform: translateY(0);
+  transform-origin: left top;
+  transition: transform 0.2s ease-in-out;
+  background: var(--button_outline_background_color);
+  color: rgba(var(--text_color_rgb), 0.7);
+  line-height: 1;
+  white-space: nowrap;
+}
+.xuer_input.xuer_input_pure {
+  border: none;
+  box-shadow: none;
+}
+.xuer_input.xuer_input_pure:focus-visible {
+  outline: none;
+}
+/***** selector *****/
+.xuer-select_wrapper {
+  position: relative;
+}
+.xuer-select_wrapper .xuer-select {
+  -webkit-appearance: none;
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: var(--form_input_height);
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--button_outline_border_color);
+  border-radius: var(--button_border_radius);
+  cursor: pointer;
+}
+.xuer-select_wrapper .xuer-select:focus ~ .xuer-select_label,
+.xuer-select_wrapper .xuer-select.xuer-focus ~ .xuer-select_label {
+  transform: scale(0.733) translateY(calc(-20px - 0.5em)) translate(3.665px);
+}
+.xuer-select_wrapper svg {
+  position: absolute;
+  top: 0;
+  right: 16px;
+  width: 24px;
+  pointer-events: none;
+}
+.xuer-select_wrapper .xuer-select_label {
   position: absolute;
   top: calc((var(--form_input_height) / 2) - 0.5em);
   left: 12px;

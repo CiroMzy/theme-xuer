@@ -1,0 +1,30 @@
+
+{% comment %}
+  Renders a radio
+
+  Accepts:
+  - id: {String} 
+  - type: {String} 
+  - name: {String} 
+  - label: {String} 
+  - required: {Boolean} 
+  - className: {String} 
+
+  Usage:
+  {% render 'form-radio', is_checked: true,value: 'red',name: 'color', label: 'color'   %}
+{% endcomment %}
+
+
+<xuer-form-select>
+  <div class="xuer-select_wrapper {{ className }}">
+    <select 
+      class="xuer-select xuer-focus" 
+      name="{{ name }}" 
+      id="{{ id }}"
+    >
+      {{ all_country_option_tags }}
+    </select>
+    <label for="{{ id }}" class="xuer-select_label">{{ label | t }}</label>
+    {%- render 'icon', name: 'dawn' -%}
+</div>
+</xuer-form-select>

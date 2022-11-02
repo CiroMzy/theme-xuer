@@ -1,0 +1,21 @@
+
+{% comment %}
+  Renders a radio
+
+  Accepts:
+  - id: {String} 
+  - type: {String} 
+  - name: {String} 
+  - label: {String} 
+  - required: {Boolean} 
+  - className: {String} 
+
+  Usage:
+  {% render 'form-radio', is_checked: true,value: 'red',name: 'color', label: 'color'   %}
+{% endcomment %}
+
+
+<xuer-form-address-select>
+  {% render 'form-select', id: "address-new[country]", name: "address[country]", label: 'account.country', className: "xuer-line2" %}
+  {% render 'form-select', id: "address-new[province]", name: "address[province]", label: 'account.province', className: "xuer-line2" %}
+</xuer-form-address-select>

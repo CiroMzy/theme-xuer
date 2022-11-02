@@ -52,7 +52,9 @@
     "addresse2": "Addresses 2",
     "no_addresses": "You have not placed any addresses yet.",
     "add_addresses": "Add a new address",
-    "log_out": "Log out"
+    "log_out": "Log out",
+    "country": "Country/region",
+    "province": "Province"
   },
   
 
