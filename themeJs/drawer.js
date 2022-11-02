@@ -88,6 +88,11 @@ var Drawer = class extends BaseHTMLElement {
         this.insertHtml('language-tpl')
         $(this).addClass('open')
         break;
+      default:
+        this.insertHtml(type)
+        $(this).addClass('open')
+        break;
+
     }
     $(this).find('[drawer-main]').addClass('open')
     $('body').addClass('lock')
@@ -99,6 +104,7 @@ var Drawer = class extends BaseHTMLElement {
 
   insertHtml (tplId) {
     var $con = $(`#${tplId}`)
+    debugger
     this.html = $con.html()
     this.title = $con.data('title')
     $(this).find('[drawer-content]').html(this.html)

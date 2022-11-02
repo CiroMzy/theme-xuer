@@ -159,6 +159,12 @@ theme.debounce = function (func, wait, callback) {
   };
 };
 
+$(function() {
+  $('[drawer-open]').click(function() {
+    var type = $(this).data('action-type')      
+    theme.drawer.open(type)
+  })
+})
 // AnnouncementBar
 var AnnouncementBar = class extends BaseHTMLElement {
   connectedCallback () {
@@ -259,6 +265,11 @@ var Drawer = class extends BaseHTMLElement {
         this.insertHtml('language-tpl')
         $(this).addClass('open')
         break;
+      default:
+        this.insertHtml(type)
+        $(this).addClass('open')
+        break;
+
     }
     $(this).find('[drawer-main]').addClass('open')
     $('body').addClass('lock')
@@ -270,6 +281,7 @@ var Drawer = class extends BaseHTMLElement {
 
   insertHtml (tplId) {
     var $con = $(`#${tplId}`)
+    debugger
     this.html = $con.html()
     this.title = $con.data('title')
     $(this).find('[drawer-content]').html(this.html)
@@ -361,21 +373,6 @@ var HeaderMenu = class extends BaseHTMLElement {
 
 };
 window.customElements.define("xuer-header-menu", HeaderMenu);
-
-
-var Header = class extends BaseHTMLElement {
-  connectedCallback () {
-    this.bindMouseEvent()
-
-  }
-  bindMouseEvent () {
-    $('[drawer-open]').click(function() {
-      var type = $(this).data('action-type')      
-      theme.drawer.open(type)
-    })
-  }
-};
-window.customElements.define("xuer-header", Header);
 
 /*******
  * LocalizationForm

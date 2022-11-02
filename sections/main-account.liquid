@@ -1,9 +1,9 @@
 <div class="account account-main page_width">
   <aside class="account-main_aside">
     <div class="account-main_info">
-      <h1 class="account-main_user xuer-h4 xuer-line2">
+      <h2 class="account-main_user xuer-h4 xuer-line2">
         {{ customer.email }}
-      </h1>
+      </h2>
       <div  class="xuer-line2 account-main_logout xuer-underline">
         {% render 'icon', name: 'account' %}
         <a href="{{ routes.account_logout_url }}">
@@ -19,8 +19,9 @@
           </a>
         </li>
         <li class="account-menu_item address">
-          <a href="{{ routes.account_addresses_url}}">
+          <a href="{{ routes.account_addresses_url }}">
           {{ 'account.addresses' | t }}
+          </a>
         </li>
       </ul>
     </div>

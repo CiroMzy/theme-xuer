@@ -158,3 +158,10 @@ theme.debounce = function (func, wait, callback) {
     timeout = setTimeout(later, wait);
   };
 };
+
+$(function() {
+  $('[drawer-open]').click(function() {
+    var type = $(this).data('action-type')      
+    theme.drawer.open(type)
+  })
+})
