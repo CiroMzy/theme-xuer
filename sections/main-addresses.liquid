@@ -38,34 +38,9 @@
     </div>
   </main>
 </div>
-<xuer-address-form class="address-form">
-  {%- form 'customer_address', customer.new_address, class: 'form' -%}
-    {%- liquid
-      render 'form-error-msg', form: form, multi: true
-      render 'form-input', id: "address-new[first_name]", name: "address-new[first_name]", label: 'account.first_name', className: "xuer-line2"
-      render 'form-input', id: "address-new[last_name]", name: "address-new[last_name]", label: 'account.last_name', className: "xuer-line2"
-      render 'form-input', id: "address-new[company]", name: "address-new[company]", label: 'account.company', className: "xuer-line2"
-      render 'form-input', id: "address-new[phone]", name: "address-new[phone]", label: 'account.phone', className: "xuer-line2"
-      render 'form-input', id: "address-new[address1]", name: "address-new[address1]", label: 'account.addresse1', className: "xuer-line2"
-      render 'form-input', id: "address-new[address2]", name: "address-new[address2]", label: 'account.addresse2', className: "xuer-line2"
-      render 'form-input', id: "address-new[city]", name: "address-new[city]", label: 'account.city', className: "xuer-line2"
-      render 'form-input', id: "address-new[zip]", name: "address-new[zip]", label: 'account.zip', className: "xuer-line2"
-      render 'form-address-select'
-      render 'form-button', is_outline: true, text: 'account.add_addresses', className: 'xuer-line2', is_block: true, type: 'submit'
-    -%}
-
-    <div class="input input--checkbox">
-      <div class="checkbox-container">
-        <input type="checkbox" class="checkbox" name="address[default]" id="address-new[default]" value="0">
-        <label for="address-new[default]" class="text--subdued">{{ 'customer.addresses.set_default' | t }}</label>
-      </div>
-    </div>
-
-  {%- endform -%}
-</xuer-address-form>
 
 <template id="add-address-tpl" data-title="{{ 'account.add_addresses' | t }}">
-  <xuer-address-form class="address-form">
+  <xuer-address-form class="address-form drawer-padding-container ">
     {%- form 'customer_address', customer.new_address, class: 'form' -%}
       {%- liquid
         render 'form-error-msg', form: form, multi: true
@@ -77,35 +52,10 @@
         render 'form-input', id: "address-new[address2]", name: "address-new[address2]", label: 'account.addresse2', className: "xuer-line2"
         render 'form-input', id: "address-new[city]", name: "address-new[city]", label: 'account.city', className: "xuer-line2"
         render 'form-input', id: "address-new[zip]", name: "address-new[zip]", label: 'account.zip', className: "xuer-line2"
-        
+        render 'form-address-select'
+        render 'form-checkbox', id: 'address-new[default]', name: "address[default]", label: 'account.set_as_default', className: 'xuer-line2'
         render 'form-button', is_outline: true, text: 'account.add_addresses', className: 'xuer-line2', is_block: true, type: 'submit'
       -%}
-      
-        <div class="input">
-          <div class="select-wrapper is-filled">
-            <select is="country-selector" class="select" name="address[country]" id="address-new[country]" aria-owns="address-new-province-container">{{ all_country_option_tags }}</select>
-            {%- render 'icon' with 'chevron' -%}
-          </div>
-  
-          <label for="address-new[country]" class="input__label">{{ 'customer.addresses.country' | t }}</label>
-        </div>
-  
-        <div id="address-new-province-container" class="input" hidden>
-          <div class="select-wrapper is-filled">
-            <select class="select" name="address[province]" id="address-new[province]"></select>
-            {%- render 'icon' with 'chevron' -%}
-          </div>
-  
-          <label for="address-new[province]" class="input__label">{{ 'customer.addresses.province' | t }}</label>
-        </div>
-  
-      <div class="input input--checkbox">
-        <div class="checkbox-container">
-          <input type="checkbox" class="checkbox" name="address[default]" id="address-new[default]" value="0">
-          <label for="address-new[default]" class="text--subdued">{{ 'customer.addresses.set_default' | t }}</label>
-        </div>
-      </div>
-  
     {%- endform -%}
   </xuer-address-form>
 </template>

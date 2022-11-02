@@ -25,7 +25,9 @@
     id="{{ id }}" 
     class="xuer-input" 
     name="{{ name }}" 
-    required="required"
+    {% if required == true %}
+      required="required"
+    {% endif %}
     xuer-input
     autocomplete="off" 
   />

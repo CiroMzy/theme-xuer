@@ -104,7 +104,6 @@ var Drawer = class extends BaseHTMLElement {
 
   insertHtml (tplId) {
     var $con = $(`#${tplId}`)
-    debugger
     this.html = $con.html()
     this.title = $con.data('title')
     $(this).find('[drawer-content]').html(this.html)

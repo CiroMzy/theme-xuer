@@ -26,7 +26,12 @@ theme.ajax = {
         data: data,
         dataType: "text",
         success: function (data) {
-          resolve(JSON.parse(data));
+          try{
+            resolve(JSON.parse(data));
+          } catch{
+            resolve(data)
+          }
+          
         },
         error: function (err) {
           reject(err);
@@ -165,6 +170,28 @@ $(function() {
     theme.drawer.open(type)
   })
 })
+var AddressForm = class extends BaseHTMLElement {
+  connectedCallback() {
+    this.bindEvents()
+  }
+  bindEvents () {
+    this.$container.find('form').on('submit', function (e) {
+      e.preventDefault()
+      var data = $(this).serializeObject()
+      
+      theme.ajax.post(theme.routes.account_addresses_url, data).then(res => {
+        var html = $(res)
+        var tpl = html.find('#add-address-tpl')
+        console.log('tpl', tpl);
+        $('[drawer-content]').html(tpl.html())
+      })
+
+
+    })
+  }
+};
+window.customElements.define("xuer-address-form", AddressForm);
+
 // AnnouncementBar
 var AnnouncementBar = class extends BaseHTMLElement {
   connectedCallback () {
@@ -281,7 +308,6 @@ var Drawer = class extends BaseHTMLElement {
 
   insertHtml (tplId) {
     var $con = $(`#${tplId}`)
-    debugger
     this.html = $con.html()
     this.title = $con.data('title')
     $(this).find('[drawer-content]').html(this.html)
@@ -331,10 +357,48 @@ $(function () {
 var AddressSelect = class extends BaseHTMLElement {
 
   connectedCallback() {
+    this.$country = $(this.$container.find('[country]'))
+    this.$province = $(this.$container.find('[province]'))
+    this.resetProvince()
+    this.$country.find('select').on('change', () => {
+      this.resetProvince()
+    })
+  }
+  resetProvince () {
+    this.countryValue = this.$country.find('select').val()
+    this.provinceOptions = this.$country.find("option:selected").data("provinces")
+    if (this.provinceOptions.length) {
+      var optionHtml = this.createProvinceOptions(this.provinceOptions)
+      this.$province.show().find('select').html(optionHtml)
+    } else {
+      this.$province.hide().find('select').html("")
+    }
+  }
+  createProvinceOptions (list) {
+    var str = ``
+    list.forEach(pro => {
+      str += `<option value="${pro[0]}">${pro[1]}</option>`
+    })
+    return str
   }
 
 };
 window.customElements.define("xuer-form-address-select", AddressSelect);
+
+// FormCheckbox
+var FormCheckbox = class extends BaseHTMLElement {
+  connectedCallback () {
+    this.$input = $(this.$container.find('[xuer-input]'))
+    this.bindChange()
+  }
+  bindChange () {
+    this.$input.change(() => {
+      var val = this.$input.is(':checked') ? 1 : 0
+      this.$input.val(val)
+    });
+  }
+};
+window.customElements.define("xuer-form-checkbox", FormCheckbox);
 
 // FormInput
 var FormInput = class extends BaseHTMLElement {

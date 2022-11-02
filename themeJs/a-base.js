@@ -26,7 +26,12 @@ theme.ajax = {
         data: data,
         dataType: "text",
         success: function (data) {
-          resolve(JSON.parse(data));
+          try{
+            resolve(JSON.parse(data));
+          } catch{
+            resolve(data)
+          }
+          
         },
         error: function (err) {
           reject(err);

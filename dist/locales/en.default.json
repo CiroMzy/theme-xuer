@@ -54,7 +54,8 @@
     "add_addresses": "Add a new address",
     "log_out": "Log out",
     "country": "Country/region",
-    "province": "Province"
+    "province": "Province",
+    "set_as_default": "Set as default"
   },
   
 

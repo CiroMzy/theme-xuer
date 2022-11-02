@@ -140,6 +140,9 @@ table {
 .trans {
   transition: 0.3s ease all;
 }
+.fade-text-color {
+  color: rgba(var(--text_color_rgb), 0.6);
+}
 body {
   color: var(--text_color);
 }
@@ -523,6 +526,50 @@ a:hover,
   color: rgba(var(--text_color_rgb), 0.7);
   line-height: 1;
   white-space: nowrap;
+}
+/***** checkbox *****/
+.xuer-checkbox_wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.xuer-checkbox_wrapper input {
+  display: none;
+}
+.xuer-checkbox_wrapper .xuer-fake-rect {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid var(--primary_color);
+  position: relative;
+  cursor: pointer;
+}
+.xuer-checkbox_wrapper .xuer-fake-rect::before {
+  display: inline-block;
+  content: " ";
+  width: 12px;
+  border: 2px solid #fff;
+  height: 4px;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+  top: 3px;
+  left: 1px;
+  position: absolute;
+  opacity: 0;
+}
+.xuer-checkbox_wrapper input:checked + .xuer-fake-rect {
+  background: var(--primary_color);
+}
+.xuer-checkbox_wrapper input:checked + .xuer-fake-rect::before {
+  opacity: 1;
+  transform: all 0.5s;
+}
+.xuer-checkbox_wrapper .xuer-checkbox_label {
+  cursor: pointer;
+  padding-left: 8px;
+  color: rgba(var(--text_color_rgb), 0.6);
 }
 /***************
 * header
@@ -933,6 +980,13 @@ a:hover,
 .drawer-container .drawer-main .drawer-content-wrapper .drawer-content {
   flex: 1;
   overflow: hidden;
+}
+.drawer-container .drawer-main .drawer-content-wrapper .drawer-content .drawer-padding-container {
+  padding: 16px;
+  display: block;
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 .drawer-container .search-container {
   display: flex;
