@@ -242,6 +242,9 @@ a:hover,
 .custom-section {
   display: block;
 }
+.xuer-underline {
+  text-decoration: underline;
+}
 @media screen and (min-width: 750px) {
   .desktop {
     display: block;
@@ -1115,7 +1118,6 @@ a:hover,
   width: 20px;
   margin-right: 8px;
 }
-/***** login *****/
 .account .account-title {
   font-size: 48px;
   font-weight: 800;
@@ -1136,4 +1138,41 @@ a:hover,
 }
 .account .create-account a {
   text-decoration: underline;
+}
+.account-main {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 16px 0;
+}
+.account-main .account-main_aside {
+  width: 320px;
+}
+.account-main .account-main_aside .account-main_info .account-main_logout {
+  display: flex;
+  align-items: center;
+}
+.account-main .account-main_aside .account-main_info .account-main_logout a {
+  padding-left: 8px;
+}
+.account-main .account-main_aside .account-main_info .account-main_logout svg {
+  width: 15px;
+}
+.account-main .account-main_aside .account-menu .account-menu_item {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+}
+.account-main .account-main_aside .account-menu .account-menu_item a {
+  display: block;
+}
+.account-main .account-main_aside .account-menu .account-menu_item.active {
+  border-right: 2px solid var(--primary_color);
+  background-color: rgba(var(--primary_color_rgb), 0.03);
+}
+.account-main .account-main_main {
+  flex: 1;
+  padding-left: 16px;
 }

@@ -24,7 +24,6 @@
   }
 }
 
-/***** login *****/
 .account {
   .account-title {
     font-size: 48px;
@@ -46,5 +45,49 @@
     a{
       text-decoration: underline;
     }
+  }
+}
+
+.account-main {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: @distance2 0;
+
+  .account-main_aside {
+    width: 320px;
+    .account-main_info {
+      .account-main_logout {
+        display: flex;
+        align-items: center;
+        a{
+          padding-left: @distance;
+        }
+        svg{
+          width: 15px;
+        }
+      }
+    }
+    .account-menu {
+      .account-menu_item{
+        height: 40px;
+        line-height: 40px;
+        padding-left: @distance2;
+        border-bottom: 1px solid rgba(0,0,0,.06);
+        cursor: pointer;
+        a{
+          display: block;
+        }
+        &.active{
+          border-right:2px solid var(--primary_color);
+          background-color: rgba(var(--primary_color_rgb), 0.03);
+        }
+
+      }
+    }
+  }
+  .account-main_main {
+    flex: 1;
+    padding-left: @distance2;
   }
 }
