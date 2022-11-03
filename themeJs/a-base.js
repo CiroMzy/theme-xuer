@@ -141,6 +141,12 @@ var BaseHTMLElement = class extends HTMLElement {
       $(el).removeAttr("disabled");
     }
   }
+  isDisable (el) {
+    if ($(el).attr('loading') == "true") {
+      return true
+    }
+    return false
+  }
 };
 
 theme.debounce = function (func, wait, callback) {

@@ -48,13 +48,9 @@
   border-radius: @radius;
   box-sizing: border-box;
   font-size: 16px;
+  position: relative;
   &.xuer-mid {
     padding: @distance @distance2;
-  }
-  &.disabled{
-    background: #999!important;
-    color: #fff!important;
-    border-color: #999!important;
   }
   &.xuer-button_block {
     display: block;
@@ -68,6 +64,11 @@
       background-color: var(--button_fill_text_color);
       color: var(--button_fill_background_color);
     }
+    &.disabled, &[loading=true]{
+      background: rgba(var(--button_fill_background_color_rgb), 0.1)!important;
+      color: rgba(var(--button_fill_text_color_rgb),.6) !important;
+      border-color: rgba(var(--button_fill_background_color_rgb), 0.1)!important;
+    }
   }
   &.xuer-button_outline{
     background-color: var(--button_outline_background_color);
@@ -76,6 +77,40 @@
     &:hover{
       color: var(--primary_color);
       border-color: var(--primary_color);
+    }
+    &.disabled, &[loading=true]{
+      background: rgba(var(--button_outline_background_color), 0.1)!important;
+      color: rgba(var(--button_outline_text_color),.6) !important;
+      border-color: rgba(var(--button_outline_background_color), 0.1)!important;
+    }
+  }
+  .xuer-button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 20px;
+    .xuer-loading {
+      display: none;
+      padding-right: @distance;
+      svg{
+        width: 20px;
+      }
+    }
+  }
+  &[loading=true]{
+    .xuer-loading{
+      display: inline-flex !important;
+      align-items: center;
+    }
+    &::after{
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      // background-color: rgba(0,0,0,0.3);
     }
   }
 }

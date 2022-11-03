@@ -29,13 +29,30 @@
   <main class="account-main_main">
     <h1 class="account-main_title xuer-h1">
       {{ 'account.addresses' | t }}
+      ({{ customer.addresses_count }})
     </h1>
     <p class="account-main_info xuer-line2">
-      {{ 'account.no_orders' | t }}
+      {{ 'account.no_addresses' | t }}
     </p>
+    <p>
+      {{ customer.default_address | format_address }}
+    </p>
+
+
+
     <div class="add-address" drawer-open data-action-type="add-address-tpl">
       {% render 'form-button', text: 'account.add_addresses', className: 'xuer-line2' %}
     </div>
+    {%- paginate customer.addresses by 5 -%}
+      <ul role="list">
+        {%- for address in customer.addresses -%}
+          <li data-address>
+            {{ address | format_address }}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endpaginate -%}
+
   </main>
 </div>
 
