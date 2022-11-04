@@ -206,6 +206,22 @@ var AddressForm = class extends BaseHTMLElement {
 };
 window.customElements.define("xuer-address-form", AddressForm);
 
+var AddressList = class extends BaseHTMLElement {
+  connectedCallback() {
+    this.addressList = this.addressList || JSON.parse(this.querySelector('[type="application/json"]').textContent)
+    console.log('this.addressList', this.addressList);
+    this.bindEdit()
+  }
+  bindEdit () {
+    this.$container.find('[address-edit]').click(function () {
+      var id = $(this).data('addressId')
+      console.log('id',id);
+      
+    })
+  }
+};
+window.customElements.define("xuer-address-list", AddressList);
+
 // AnnouncementBar
 var AnnouncementBar = class extends BaseHTMLElement {
   connectedCallback () {

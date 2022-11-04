@@ -97,5 +97,24 @@
       align-items: center;
       justify-content: center;
     }
+    .main-address_list {
+      margin-bottom: @distance4;
+      .main-address_item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: @distance2 0;
+        border-bottom: 1px solid var(--text_border_color);
+        .ant-list-item-meta-title {
+          font-size: 14px;
+        }
+        .address-item_info {
+          color: var(--text_color_fade);
+          font-size: 14px;
+          line-height: 1;
+          margin-top: @distance;
+        }
+      }
+    }
   }
 }

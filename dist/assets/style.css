@@ -379,6 +379,11 @@ a:hover,
 .xuer-button.xuer-mid {
   padding: 8px 16px;
 }
+.xuer-button.xuer-mini {
+  padding: 8px;
+  font-size: 12px;
+  line-height: 1;
+}
 .xuer-button.xuer-button_block {
   display: block;
   width: 100%;
@@ -388,7 +393,11 @@ a:hover,
   color: var(--button_fill_text_color);
   border: 1px solid var(--button_fill_background_color);
 }
-.xuer-button.xuer-button_fill:hover {
+.xuer-button.xuer-button_fill svg {
+  color: var(--button_fill_text_color);
+}
+.xuer-button.xuer-button_fill:hover,
+.xuer-button.xuer-button_fill.active {
   background-color: var(--button_fill_text_color);
   color: var(--button_fill_background_color);
 }
@@ -403,7 +412,11 @@ a:hover,
   border: 1px solid var(--button_outline_text_color);
   color: var(--button_outline_text_color);
 }
-.xuer-button.xuer-button_outline:hover {
+.xuer-button.xuer-button_outline svg {
+  color: var(--button_outline_text_color);
+}
+.xuer-button.xuer-button_outline:hover,
+.xuer-button.xuer-button_outline.active {
   color: var(--primary_color);
   border-color: var(--primary_color);
 }
@@ -412,6 +425,14 @@ a:hover,
   background: rgba(var(--button_outline_background_color), 0.1) !important;
   color: rgba(var(--button_outline_text_color), 0.6) !important;
   border-color: rgba(var(--button_outline_background_color), 0.1) !important;
+}
+.xuer-button.xuer-button_link {
+  color: var(--link_active_color);
+  display: inline-block;
+  background: none;
+}
+.xuer-button.xuer-button_link:hover {
+  text-decoration: underline;
 }
 .xuer-button .xuer-button-content {
   display: flex;
@@ -1317,4 +1338,44 @@ a:hover,
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.account-main .account-main_main .main-address_list {
+  margin-bottom: 32px;
+}
+.account-main .account-main_main .main-address_list .main-address_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--text_border_color);
+}
+.account-main .account-main_main .main-address_list .main-address_item .ant-list-item-meta-title {
+  font-size: 14px;
+}
+.account-main .account-main_main .main-address_list .main-address_item .address-item_info {
+  color: var(--text_color_fade);
+  font-size: 14px;
+  line-height: 1;
+  margin-top: 8px;
+}
+/**********************
+* paginate
+*/
+.xuer-pagination .xuer-pagination-item {
+  display: inline-block;
+  min-width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  vertical-align: middle;
+  list-style: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.xuer-pagination .xuer-pagination-item + .xuer-pagination-item {
+  margin-left: 8px;
+}
+.xuer-pagination .xuer-pagination-item.xuer-pagination-item_icon svg {
+  width: 12px;
 }

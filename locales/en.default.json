@@ -55,6 +55,8 @@
     "log_out": "Log out",
     "country": "Country/region",
     "province": "Province",
+    "address_default": "Default address",
+    "delete_address_confirm": "Are you sure you wish to delete this address?",
     "set_as_default": "Set as default"
   },
   
@@ -67,6 +69,8 @@
     "close": "Close",
     "confirm": "Confirm",
     "cancle": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
 
 
 

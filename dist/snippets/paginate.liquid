@@ -1,0 +1,30 @@
+
+{%- if paginate.pages > 1 -%}
+  {%- if paginate.parts.size > 0 -%}
+      <ul class="xuer-pagination" role="navigation" >
+        {%- if paginate.previous -%}
+          <li class="xuer-pagination-item xuer-pagination-item_icon" >
+            <a href="{{ paginate.previous.url }}" class="xuer-button xuer-button_outline xuer-mini ">
+              {% render 'icon', name: 'arrow-left-line' %}
+            </a>
+          </li>
+        {%- endif -%}
+
+        {%- for part in paginate.parts -%}
+          <li class="xuer-pagination-item">
+            <a  href="{{ part.url }}"  class="xuer-button xuer-button_outline xuer-mini {% if part.title == paginate.current_page %} active {% endif %}" >
+              {{ part.title }}
+            </a>
+          </li>
+        {%- endfor -%}
+
+        {%- if paginate.next -%}
+          <li class="xuer-pagination-item xuer-pagination-item_icon">
+            <a href="{{ paginate.next.url }}"  class="xuer-button xuer-button_outline xuer-mini ">
+              {% render 'icon', name: 'arrow-right-line' %}
+            </a>
+          </li>
+        {%- endif -%}
+      </ul>
+  {%- endif -%}
+{%- endif -%}
