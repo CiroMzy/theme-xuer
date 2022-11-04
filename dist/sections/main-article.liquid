@@ -77,7 +77,7 @@
                     <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
                   </div>
                   <button class="share-button__close hidden no-js-hidden">
-                    {% render 'icon-close' %}
+                    {% render 'icon', name: 'close' %}
                     <span class="visually-hidden">{{ 'general.share.close' | t }}</span>
                   </button>
                   <button class="share-button__copy no-js-hidden">
@@ -94,7 +94,7 @@
 
   <div class="article-template__back element-margin-top center">
     <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
-      <span class="icon-wrap">{% render 'icon-arrow' %}</span>
+      <span class="icon-wrap">{% render 'icon', name: 'arrow' %}</span>
       {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
     </a>
   </div>

@@ -15,7 +15,7 @@
     {%- liquid
       if section.settings.menu_alignment == 'left' 
         if section.settings.menu == blank and section.settings.enable_search
-          render 'icon-search'
+          render 'icon', name: 'search'
         else
           render 'header-menu', section: section.settings, blocks: section.blocks
         endif

@@ -404,7 +404,7 @@
                     <span class="visually-hidden">
                       {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
                     </span>
-                    {% render 'icon-plus' %}
+                    {% render 'icon', name: 'plus' %}
                   </button>
                 </quantity-input>
               </div>
@@ -457,7 +457,7 @@
                       <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
                     </div>
                     <button class="share-button__close hidden no-js-hidden">
-                      {% render 'icon-close' %}
+                      {% render 'icon', name: 'close' %}
                       <span class="visually-hidden">{{ 'general.share.close' | t }}</span>
                     </button>
                     <button class="share-button__copy no-js-hidden">
@@ -786,7 +786,7 @@
         {%- endfor -%}
         <a href="{{ product.url }}" class="link product__view-details animate-arrow">
           {{ 'products.product.view_full_details' | t }}
-          {% render 'icon-arrow' %}
+          {% render 'icon', name: 'arrow' %}
         </a>
       </div>
     </div>
@@ -1012,7 +1012,7 @@
         class="product-media-modal__toggle"
         aria-label="{{ 'accessibility.close' | t }}"
       >
-        {% render 'icon-close' %}
+        {% render 'icon', name: 'close' %}
       </button>
 
       <div
@@ -1061,7 +1061,7 @@
           class="product-popup-modal__toggle"
           aria-label="{{ 'accessibility.close' | t }}"
         >
-          {% render 'icon-close' %}
+          {% render 'icon', name: 'close' %}
         </button>
         <div class="product-popup-modal__content-info">
           <h1 class="h2">{{ block.settings.page.title }}</h1>
