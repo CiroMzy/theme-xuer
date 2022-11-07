@@ -9,6 +9,7 @@
   - label: {String} 
   - required: {Boolean} 
   - className: {String} 
+  - value: {String} 
 
   Usage:
   {% render 'form-radio', is_checked: true,value: 'red',name: 'color', label: 'color'   %}
@@ -30,6 +31,7 @@
     {% endif %}
     xuer-input
     autocomplete="off" 
+    value="{{ value }}"
   />
   <label for="{{ id }}" class="xuer-input_label">{{ label | t }}</label>
 </xuer-form-input>

@@ -88,6 +88,13 @@ var Drawer = class extends BaseHTMLElement {
         this.insertHtml('language-tpl')
         $(this).addClass('open')
         break;
+      case 'custom':
+        var title = $(`#${params.id}`).data('custom-title')
+        var html = params.html
+        $(this).find('[drawer-content]').html(html)
+        $(this).find('.title').html(title)
+        $(this).addClass('open')
+        break;
       default:
         this.insertHtml(type)
         $(this).addClass('open')

@@ -4,6 +4,11 @@ var FormInput = class extends BaseHTMLElement {
     this.$input = $(this.$container.find('[xuer-input]'))
     this.focusClass = 'xuer-focus'
     this.bindChange()
+    this.init()
+  }
+  init () {
+    var val = this.getCurInputVal()
+    this.troggleFocus(val)
   }
   bindChange () {
     var _this = this

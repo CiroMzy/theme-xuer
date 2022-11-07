@@ -591,6 +591,17 @@ a:hover,
 .xuer-checkbox_wrapper input {
   display: none;
 }
+.xuer-checkbox_wrapper .xuer-checkbox {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
 .xuer-checkbox_wrapper .xuer-fake-rect {
   display: inline-block;
   width: 16px;
@@ -599,6 +610,7 @@ a:hover,
   border: 1px solid var(--primary_color);
   position: relative;
   cursor: pointer;
+  pointer-events: none;
 }
 .xuer-checkbox_wrapper .xuer-fake-rect::before {
   display: inline-block;

@@ -76,34 +76,60 @@
                   {{ 'general.delete' | t }}
                 </span>
               </div>
+              <template 
+                id="add-address-tpl-{{ address.id }}" 
+                data-title="{{ 'account.edit_addresses' | t }}"
+              >
+                <xuer-address-form class="address-form drawer-padding-container " data-edit="true" data-address-id="{{ address.id }}">
+                  {%- form 'customer_address', address, class: 'form' -%}
+                    {%- liquid
+                      assign default_address = '0'
+                      if address.id == customer.default_address.id
+                        assign default_address = '1'
+                      endif
+                      render 'form-error-msg', form: form, multi: true
+                      render 'form-input', id: "address[first_name]", name: "address[first_name]", label: 'account.first_name', className: "xuer-line2", value: address.first_name
+                      render 'form-input', id: "address[last_name]", name: "address[last_name]", label: 'account.last_name', className: "xuer-line2", value: address.last_name
+                      render 'form-input', id: "address[company]", name: "address[company]", label: 'account.company', className: "xuer-line2", value: address.company
+                      render 'form-input', id: "address[phone]", name: "address[phone]", label: 'account.phone', className: "xuer-line2", value: address.phone
+                      render 'form-input', id: "address[address1]", name: "address[address1]", label: 'account.addresse1', className: "xuer-line2", value: address.address1
+                      render 'form-input', id: "address[address2]", name: "address[address2]", label: 'account.addresse2', className: "xuer-line2", value: address.address2
+                      render 'form-input', id: "address[city]", name: "address[city]", label: 'account.city', className: "xuer-line2", value: address.city
+                      render 'form-input', id: "address[zip]", name: "address[zip]", label: 'account.zip', className: "xuer-line2", value: address.zip
+                      render 'form-address-select', country: address.country, province: address.province
+                      render 'form-checkbox', id: 'address[default]', name: "address[default]", label: 'account.set_as_default', className: 'xuer-line2', value: default_address
+                      render 'form-button', is_outline: true, text: 'general.confirm', className: 'xuer-line2', is_block: true, type: 'submit'
+                    -%}
+                  {%- endform -%}
+                </xuer-address-form>
+              </template>
             </li>
           {%- endfor -%}
         </ul>
-
-        <script type="application/json" >
-          {{ customer.addresses | json }}
-        </script>
       </xuer-address-list>
       {% render 'paginate', paginate: paginate %}
     {%- endpaginate -%}
   </main>
 </div>
 
-<template id="add-address-tpl" data-title="{{ 'account.add_addresses' | t }}">
+<template 
+  id="add-address-tpl" 
+  data-title="{{ 'account.add_addresses' | t }}"
+>
   <xuer-address-form class="address-form drawer-padding-container ">
     {%- form 'customer_address', customer.new_address, class: 'form' -%}
       {%- liquid
         render 'form-error-msg', form: form, multi: true
-        render 'form-input', id: "address-new[first_name]", name: "address-new[first_name]", label: 'account.first_name', className: "xuer-line2"
-        render 'form-input', id: "address-new[last_name]", name: "address-new[last_name]", label: 'account.last_name', className: "xuer-line2"
-        render 'form-input', id: "address-new[company]", name: "address-new[company]", label: 'account.company', className: "xuer-line2"
-        render 'form-input', id: "address-new[phone]", name: "address-new[phone]", label: 'account.phone', className: "xuer-line2"
-        render 'form-input', id: "address-new[address1]", name: "address-new[address1]", label: 'account.addresse1', className: "xuer-line2"
-        render 'form-input', id: "address-new[address2]", name: "address-new[address2]", label: 'account.addresse2', className: "xuer-line2"
-        render 'form-input', id: "address-new[city]", name: "address-new[city]", label: 'account.city', className: "xuer-line2"
-        render 'form-input', id: "address-new[zip]", name: "address-new[zip]", label: 'account.zip', className: "xuer-line2"
+        render 'form-input', id: "address[first_name]", name: "address[first_name]", label: 'account.first_name', className: "xuer-line2"
+        render 'form-input', id: "address[last_name]", name: "address[last_name]", label: 'account.last_name', className: "xuer-line2"
+        render 'form-input', id: "address[company]", name: "address[company]", label: 'account.company', className: "xuer-line2"
+        render 'form-input', id: "address[phone]", name: "address[phone]", label: 'account.phone', className: "xuer-line2"
+        render 'form-input', id: "address[address1]", name: "address[address1]", label: 'account.addresse1', className: "xuer-line2"
+        render 'form-input', id: "address[address2]", name: "address[address2]", label: 'account.addresse2', className: "xuer-line2"
+        render 'form-input', id: "address[city]", name: "address[city]", label: 'account.city', className: "xuer-line2"
+        render 'form-input', id: "address[zip]", name: "address[zip]", label: 'account.zip', className: "xuer-line2"
         render 'form-address-select'
-        render 'form-checkbox', id: 'address-new[default]', name: "address[default]", label: 'account.set_as_default', className: 'xuer-line2'
+        render 'form-checkbox', id: 'address[default]', name: "address[default]", label: 'account.set_as_default', className: 'xuer-line2'
         render 'form-button', is_outline: true, text: 'account.add_addresses', className: 'xuer-line2', is_block: true, type: 'submit'
       -%}
     {%- endform -%}

@@ -190,8 +190,15 @@ var AddressForm = class extends BaseHTMLElement {
       }
       var data = $(this).serializeObject()
       $(btn).attr('loading', true)
+
+      var requestUrl = theme.routes.account_addresses_url
+      var datas = _this.$container.data()
+      if (datas.edit && datas.addressId) {
+        requestUrl = `${requestUrl}/${datas.addressId}`
+        data._method = 'put'
+      }
       
-      theme.ajax.post(theme.routes.account_addresses_url, data).then(res => {
+      theme.ajax.post(requestUrl, data).then(res => {
         var html = $(res)
         var tpl = html.find('#add-address-tpl')
         var tplHtml = tpl.html()
@@ -208,16 +215,32 @@ window.customElements.define("xuer-address-form", AddressForm);
 
 var AddressList = class extends BaseHTMLElement {
   connectedCallback() {
-    this.addressList = this.addressList || JSON.parse(this.querySelector('[type="application/json"]').textContent)
-    console.log('this.addressList', this.addressList);
+    this.$addressTpl = $($('#add-address-tpl').html())
     this.bindEdit()
+    this.bindDelete()
   }
   bindEdit () {
     this.$container.find('[address-edit]').click(function () {
       var id = $(this).data('addressId')
-      console.log('id',id);
-      
+      if (!id) {
+        return
+      }
+      theme.drawer.open(`add-address-tpl-${id}`)
     })
+  }
+  bindDelete () {
+    this.$container.find('[address-delete]').click(function () {
+      var id = $(this).data('addressId')
+      if (!id) {
+        return
+      }
+      theme.ajax.post(`${theme.routes.account_addresses_url}/${id}`, {
+        _method: 'delete'
+      }).then(() => {
+        window.location.reload()
+      })
+    })
+    
   }
 };
 window.customElements.define("xuer-address-list", AddressList);
@@ -322,6 +345,13 @@ var Drawer = class extends BaseHTMLElement {
         this.insertHtml('language-tpl')
         $(this).addClass('open')
         break;
+      case 'custom':
+        var title = $(`#${params.id}`).data('custom-title')
+        var html = params.html
+        $(this).find('[drawer-content]').html(html)
+        $(this).find('.title').html(title)
+        $(this).addClass('open')
+        break;
       default:
         this.insertHtml(type)
         $(this).addClass('open')
@@ -389,7 +419,7 @@ var AddressSelect = class extends BaseHTMLElement {
   connectedCallback() {
     this.$country = $(this.$container.find('[country]'))
     this.$province = $(this.$container.find('[province]'))
-    this.resetProvince()
+    setTimeout(() => this.resetProvince())
     this.$country.find('select').on('change', () => {
       this.resetProvince()
     })
@@ -397,17 +427,19 @@ var AddressSelect = class extends BaseHTMLElement {
   resetProvince () {
     this.countryValue = this.$country.find('select').val()
     this.provinceOptions = this.$country.find("option:selected").data("provinces")
+    var selectedProvice = this.$province.find('select').data('value')
     if (this.provinceOptions.length) {
-      var optionHtml = this.createProvinceOptions(this.provinceOptions)
+      var optionHtml = this.createProvinceOptions(this.provinceOptions, selectedProvice)
       this.$province.show().find('select').html(optionHtml)
     } else {
       this.$province.hide().find('select').html("")
     }
   }
-  createProvinceOptions (list) {
+  createProvinceOptions (list, selectedVal) {
     var str = ``
     list.forEach(pro => {
-      str += `<option value="${pro[0]}">${pro[1]}</option>`
+      var selected = selectedVal === pro[0] ? 'selected' : ''
+      str += `<option value="${pro[0]}" ${selected}>${pro[1]}</option>`
     })
     return str
   }
@@ -436,6 +468,11 @@ var FormInput = class extends BaseHTMLElement {
     this.$input = $(this.$container.find('[xuer-input]'))
     this.focusClass = 'xuer-focus'
     this.bindChange()
+    this.init()
+  }
+  init () {
+    var val = this.getCurInputVal()
+    this.troggleFocus(val)
   }
   bindChange () {
     var _this = this
@@ -460,6 +497,18 @@ var FormInput = class extends BaseHTMLElement {
   }
 };
 window.customElements.define("xuer-form-input", FormInput);
+
+var FormSelect = class extends BaseHTMLElement {
+
+  connectedCallback() {
+    this.resetSelected()
+  }
+  resetSelected () {
+    var value = this.$container.find('[xuer-select]').data('value')
+    this.$container.find(`option[value='${value}']`).prop('selected', true)
+  }
+};
+window.customElements.define("xuer-form-select", FormSelect);
 
 var HeaderMenu = class extends BaseHTMLElement {
   connectedCallback () {
@@ -510,6 +559,14 @@ var LocalizationForm = class extends BaseHTMLElement {
 };
 window.customElements.define("xuer-localization-form", LocalizationForm);
 
+
+var Message = class {
+
+};
+
+var Modal = class {
+  
+}
 var MiniCartIcon = class extends BaseHTMLElement {
   connectedCallback() {
     theme.event.resetCartCount = this.resetCartCount.bind(this);

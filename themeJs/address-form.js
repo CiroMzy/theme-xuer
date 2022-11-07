@@ -12,8 +12,15 @@ var AddressForm = class extends BaseHTMLElement {
       }
       var data = $(this).serializeObject()
       $(btn).attr('loading', true)
+
+      var requestUrl = theme.routes.account_addresses_url
+      var datas = _this.$container.data()
+      if (datas.edit && datas.addressId) {
+        requestUrl = `${requestUrl}/${datas.addressId}`
+        data._method = 'put'
+      }
       
-      theme.ajax.post(theme.routes.account_addresses_url, data).then(res => {
+      theme.ajax.post(requestUrl, data).then(res => {
         var html = $(res)
         var tpl = html.find('#add-address-tpl')
         var tplHtml = tpl.html()

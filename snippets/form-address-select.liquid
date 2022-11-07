@@ -8,6 +8,8 @@
   - label: {String} 
   - required: {Boolean} 
   - className: {String} 
+  - country: {String} 
+  - province: {String} 
 
 {% endcomment %}
 
@@ -15,10 +17,11 @@
 <xuer-form-address-select>
   {% render 
     'form-select', 
-    id: "address-new[country]", name: "address[country]", 
+    id: "address[country]", name: "address[country]", 
     label: 'account.country', className: "xuer-line2", 
     attr: 'country',
-    options: all_country_option_tags
+    options: all_country_option_tags,
+    value: country
   %}
-  {% render 'form-select', id: "address-new[province]", name: "address[province]", label: 'account.province', className: "xuer-line2", attr: 'province' %}
+  {% render 'form-select', id: "address[province]", name: "address[province]", label: 'account.province', className: "xuer-line2", attr: 'province', value: province %}
 </xuer-form-address-select>

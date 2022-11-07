@@ -10,6 +10,7 @@
   - className: {String} 
   - attr: {String} 
   - options: {Html} 
+  - value: {String} 
 
 {% endcomment %}
 
@@ -20,6 +21,8 @@
       class="xuer-select xuer-focus" 
       name="{{ name }}" 
       id="{{ id }}"
+      data-value="{{ value }}"
+      xuer-select
     >
       {{ options }}
     </select>
