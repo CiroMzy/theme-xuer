@@ -69,12 +69,6 @@ theme.ajax = {
   },
 };
 
-theme.message = {
-  info: function ({message}) {
-    window.alert(message)
-
-  }
-}
 
 $.fn.serializeObject = function () {
   var o = {};

@@ -53,6 +53,7 @@
     "no_addresses": "You have not placed any addresses yet.",
     "add_addresses": "Add a new address",
     "edit_addresses": "Edit address",
+    "delete_addresses_confirm": "Are you sure you wish to delete this address?",
     "log_out": "Log out",
     "country": "Country/region",
     "province": "Province",

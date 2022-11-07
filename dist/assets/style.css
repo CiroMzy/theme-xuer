@@ -375,6 +375,7 @@ a:hover,
   box-sizing: border-box;
   font-size: 16px;
   position: relative;
+  display: inline-block;
 }
 .xuer-button.xuer-mid {
   padding: 8px 16px;
@@ -1390,4 +1391,52 @@ a:hover,
 }
 .xuer-pagination .xuer-pagination-item.xuer-pagination-item_icon svg {
   width: 12px;
+}
+/**********************
+* message
+*/
+/***** modal *****/
+.xuer-modal-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+.xuer-modal-root .xuer-modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.xuer-modal-root .xuer-modal-content {
+  display: block;
+  background-color: #fff;
+  font-size: 14px;
+  padding: 24px;
+  z-index: 1;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+}
+.xuer-modal-root .xuer-modal-content .xuer-modal-title {
+  display: block;
+  overflow: hidden;
+  color: #000000d9;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.xuer-modal-root .xuer-modal-content .xuer-modal-main {
+  font-size: 14px;
+  padding: 24px 0;
+}
+.xuer-modal-root .xuer-modal-content .xuer-modal-buttons {
+  margin-top: 24px;
+  text-align: right;
 }

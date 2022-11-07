@@ -14,18 +14,23 @@ var AddressList = class extends BaseHTMLElement {
     })
   }
   bindDelete () {
+    var _this = this
     this.$container.find('[address-delete]').click(function () {
       var id = $(this).data('addressId')
       if (!id) {
         return
       }
-      theme.ajax.post(`${theme.routes.account_addresses_url}/${id}`, {
-        _method: 'delete'
-      }).then(() => {
-        window.location.reload()
-      })
+      if (window.confirm(theme.language.delete_addresses_confirm)) {
+        _this.onDelete(id)
+      }
     })
-    
+  }
+  onDelete (id) {
+    theme.ajax.post(`${theme.routes.account_addresses_url}/${id}`, {
+      _method: 'delete'
+    }).then(() => {
+      window.location.reload()
+    })
   }
 };
 window.customElements.define("xuer-address-list", AddressList);

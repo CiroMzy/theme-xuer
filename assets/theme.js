@@ -1,3 +1,10 @@
+
+var Message = class {
+
+};
+
+
+
 theme.swipers = {};
 theme.event = {
   miniCartCountChange: null,
@@ -69,12 +76,6 @@ theme.ajax = {
   },
 };
 
-theme.message = {
-  info: function ({message}) {
-    window.alert(message)
-
-  }
-}
 
 $.fn.serializeObject = function () {
   var o = {};
@@ -176,84 +177,6 @@ $(function() {
     theme.drawer.open(type)
   })
 })
-var AddressForm = class extends BaseHTMLElement {
-  connectedCallback() {
-    this.bindEvents()
-  }
-  bindEvents () {
-    var _this = this
-    this.$container.find('form').on('submit', function (e) {
-      e.preventDefault()
-      var btn = _this.$container.find('.xuer-button')
-      if (_this.isDisable(btn)) {
-        return
-      }
-      var data = $(this).serializeObject()
-      $(btn).attr('loading', true)
-
-      var requestUrl = theme.routes.account_addresses_url
-      var datas = _this.$container.data()
-      if (datas.edit && datas.addressId) {
-        requestUrl = `${requestUrl}/${datas.addressId}`
-        data._method = 'put'
-      }
-      
-      theme.ajax.post(requestUrl, data).then(res => {
-        var html = $(res)
-        var tpl = html.find('#add-address-tpl')
-        var tplHtml = tpl.html()
-        if (tplHtml.indexOf('xuer-form-error-msg') > -1) {
-          $('[drawer-content]').html(tplHtml)
-        } else {
-          window.location.reload()
-        }
-      })
-    })
-  }
-};
-window.customElements.define("xuer-address-form", AddressForm);
-
-var AddressList = class extends BaseHTMLElement {
-  connectedCallback() {
-    this.$addressTpl = $($('#add-address-tpl').html())
-    this.bindEdit()
-    this.bindDelete()
-  }
-  bindEdit () {
-    this.$container.find('[address-edit]').click(function () {
-      var id = $(this).data('addressId')
-      if (!id) {
-        return
-      }
-      theme.drawer.open(`add-address-tpl-${id}`)
-    })
-  }
-  bindDelete () {
-    this.$container.find('[address-delete]').click(function () {
-      var id = $(this).data('addressId')
-      if (!id) {
-        return
-      }
-      theme.ajax.post(`${theme.routes.account_addresses_url}/${id}`, {
-        _method: 'delete'
-      }).then(() => {
-        window.location.reload()
-      })
-    })
-    
-  }
-};
-window.customElements.define("xuer-address-list", AddressList);
-
-// AnnouncementBar
-var AnnouncementBar = class extends BaseHTMLElement {
-  connectedCallback () {
-    this.initSwiper({
-      grabCursor : true,
-    })
-  }
-};
-window.customElements.define("xuer-announcement-bar", AnnouncementBar);
 
 var Search = class{
   constructor(){
@@ -377,6 +300,90 @@ var Drawer = class extends BaseHTMLElement {
  
 };
 window.customElements.define("xuer-drawer", Drawer);
+
+var AddressForm = class extends BaseHTMLElement {
+  connectedCallback() {
+    this.bindEvents()
+  }
+  bindEvents () {
+    var _this = this
+    this.$container.find('form').on('submit', function (e) {
+      e.preventDefault()
+      var btn = _this.$container.find('.xuer-button')
+      if (_this.isDisable(btn)) {
+        return
+      }
+      var data = $(this).serializeObject()
+      $(btn).attr('loading', true)
+
+      var requestUrl = theme.routes.account_addresses_url
+      var datas = _this.$container.data()
+      if (datas.edit && datas.addressId) {
+        requestUrl = `${requestUrl}/${datas.addressId}`
+        data._method = 'put'
+      }
+      
+      theme.ajax.post(requestUrl, data).then(res => {
+        var html = $(res)
+        var tpl = html.find('#add-address-tpl')
+        var tplHtml = tpl.html()
+        if (tplHtml.indexOf('xuer-form-error-msg') > -1) {
+          $('[drawer-content]').html(tplHtml)
+        } else {
+          window.location.reload()
+        }
+      })
+    })
+  }
+};
+window.customElements.define("xuer-address-form", AddressForm);
+
+var AddressList = class extends BaseHTMLElement {
+  connectedCallback() {
+    this.$addressTpl = $($('#add-address-tpl').html())
+    this.bindEdit()
+    this.bindDelete()
+  }
+  bindEdit () {
+    this.$container.find('[address-edit]').click(function () {
+      var id = $(this).data('addressId')
+      if (!id) {
+        return
+      }
+      theme.drawer.open(`add-address-tpl-${id}`)
+    })
+  }
+  bindDelete () {
+    var _this = this
+    this.$container.find('[address-delete]').click(function () {
+      var id = $(this).data('addressId')
+      if (!id) {
+        return
+      }
+      if (window.confirm(theme.language.delete_addresses_confirm)) {
+        _this.onDelete(id)
+      }
+    })
+  }
+  onDelete (id) {
+    theme.ajax.post(`${theme.routes.account_addresses_url}/${id}`, {
+      _method: 'delete'
+    }).then(() => {
+      window.location.reload()
+    })
+  }
+};
+window.customElements.define("xuer-address-list", AddressList);
+
+// AnnouncementBar
+var AnnouncementBar = class extends BaseHTMLElement {
+  connectedCallback () {
+    this.initSwiper({
+      grabCursor : true,
+    })
+  }
+};
+window.customElements.define("xuer-announcement-bar", AnnouncementBar);
 
 var FeaturedProduct = class extends BaseHTMLElement {
   connectedCallback() {
@@ -559,14 +566,6 @@ var LocalizationForm = class extends BaseHTMLElement {
 };
 window.customElements.define("xuer-localization-form", LocalizationForm);
 
-
-var Message = class {
-
-};
-
-var Modal = class {
-  
-}
 var MiniCartIcon = class extends BaseHTMLElement {
   connectedCallback() {
     theme.event.resetCartCount = this.resetCartCount.bind(this);
@@ -813,7 +812,6 @@ var Slideshow = class extends BaseHTMLElement {
   }
 };
 window.customElements.define("xuer-slideshow", Slideshow);
-
 
 var VariantPicker = class extends BaseHTMLElement {
   constructor() {
