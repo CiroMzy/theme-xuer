@@ -89,3 +89,19 @@ theme.language = {
 }
 </script>
 
+
+<template id="xuer-message-tpl" >
+  <div class="xuer-message-container" id="xuer-message-container">
+    <div class="xuer-message-content">
+      <div class="xuer-message-main">
+        <span class="xuer-message-icon xuer-loading" xuer-icon-loading >
+          {% render 'icon', name: 'loading' %}
+        </span>
+        <span class="xuer-message-icon xuer-error" xuer-icon-error>
+          {% render 'icon', name: 'error' %}
+        </span>
+        <span class="xuer-message-text"></span>
+      </div>
+    </div>
+  </div>
+</template>

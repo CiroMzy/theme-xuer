@@ -13,8 +13,8 @@ function styles() {
 function concatJs() {
   const jsFiles = [
     "message",
-    "base",
     "tools",
+    "base",
     "drawer",
     "address-form",
     "address-list",

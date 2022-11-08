@@ -1,8 +1,33 @@
 
 var Message = class {
+  constructor() {
+    this.init()
+  }
+  init () {
+    var html = $('#xuer-message-tpl').html()
+    $('body').append(html)
+    this.$container = $('#xuer-message-container')
+  }
+
+  loading({ content, timeout=0 }) {
+    this.$container.find('.xuer-message-text').html(content)
+    this.$container.addClass('loading')
+    this.timeoutHandler(timeout)
+  }
+  timeoutHandler () {
+    if (timeout === 0) {
+      return
+    }
+    setTimeout(() => {
+      this.end()
+
+    }, timeout)
+  }
+  end () {
+    this.$container.removeClass('loading')
+  }
 
 };
-
 
 
 theme.swipers = {};
@@ -76,7 +101,33 @@ theme.ajax = {
   },
 };
 
+theme.debounce = function (func, wait, callback) {
+  var timeout;
+  return function () {
+    var context = this,
+      args = arguments;
+    var later = function () {
+      timeout = null;
+      var result = func.apply(context, args);
+      if (result.then) {
+        result.then((res) => {
+          callback && callback(res);
+        });
+      } else {
+        callback && callback(res);
+      }
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
 
+theme.message = new Message()
+setTimeout(() => {
+  theme.message.loading({
+    content: 'loading ing'
+  })
+}, 2000)
 $.fn.serializeObject = function () {
   var o = {};
   var a = this.serializeArray();
@@ -150,34 +201,12 @@ var BaseHTMLElement = class extends HTMLElement {
   }
 };
 
-theme.debounce = function (func, wait, callback) {
-  var timeout;
-  return function () {
-    var context = this,
-      args = arguments;
-    var later = function () {
-      timeout = null;
-      var result = func.apply(context, args);
-      if (result.then) {
-        result.then((res) => {
-          callback && callback(res);
-        });
-      } else {
-        callback && callback(res);
-      }
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-};
-
 $(function() {
   $('[drawer-open]').click(function() {
     var type = $(this).data('action-type')      
     theme.drawer.open(type)
   })
 })
-
 var Search = class{
   constructor(){
     this.$container = $('[drawer-content-wrapper]')

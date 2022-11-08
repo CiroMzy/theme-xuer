@@ -2,53 +2,57 @@
 /**********************
 * message
 */
-
-/***** modal *****/
-
-.xuer-modal-root {
+.xuer-message-container {
+  box-sizing: border-box;
+  margin: 0;
+  padding: @distance;
+  color: var(--text_color);
+  font-size: 14px;
+  line-height: 1.5;
+  list-style: none;
   position: fixed;
-  top: 0;
+  top: @distance;
   left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 99;
-  .xuer-modal-mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.2);
+  z-index: 1010;
+  width: 100%;
+  pointer-events: none;
+  .flex-center;
+  transform: translateY(-300px);
+  opacity: 0;
+  transition: .3s ease-in transform;
+  &.loading {
+    transform: translateY(0);
+    opacity: 1;
+    .xuer-message-content .xuer-message-main .xuer-loading {
+      display: flex;
+    }
   }
-  .xuer-modal-content {
-    display: block;
-    background-color: #fff;
-    font-size: 14px;
-    padding: 24px;
-    z-index: 1;
-    border-radius: 4px;
-    box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
-    .xuer-modal-title {
-      display: block;
-      overflow: hidden;
-      color: #000000d9;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 1.4;
-    }
-    .xuer-modal-main {
-      font-size: 14px;
-      padding: 24px 0;
-    }
-    .xuer-modal-buttons {
-      margin-top: 24px;
-      text-align: right;
 
+  .xuer-message-content {
+    display: inline-block;
+    padding: @distance @distance2 ;
+    background: #fff;
+    border-radius: @borderRds;
+    box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%), 0 9px 28px 8px rgb(0 0 0 / 5%);
+    pointer-events: all;
+    .xuer-message-main {
+      display: flex;
+      align-items: center;
+      .xuer-message-icon {
+        position: relative;
+        top: 0;
+        margin-right: @distance;
+        width: @distance2;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        &.xuer-loading {
+          color: var(--primary_color);
+        }
+        &.xuer-error {
+          color: var(--error_color);
+        }
+      }
     }
   }
-  
 }
-
