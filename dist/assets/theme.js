@@ -1,34 +1,59 @@
-
 var Message = class {
   constructor() {
-    this.init()
+    this.init();
+    this.datas = {};
+    this.timer = null;
   }
-  init () {
-    var html = $('#xuer-message-tpl').html()
-    $('body').append(html)
-    this.$container = $('#xuer-message-container')
+  init() {
+    var html = $("#xuer-message-tpl").html();
+    $("body").append(html);
+    this.$container = $("#xuer-message-container");
+    this.datas = this.$container.find(".xuer-message-text").data();
   }
 
-  loading({ content, timeout=0 }) {
-    this.$container.find('.xuer-message-text').html(content)
-    this.$container.addClass('loading')
-    this.timeoutHandler(timeout)
+  loading(params) {
+    this.show({
+      ...params,
+      className: "loading",
+      content: params.content | this.datas.loading,
+    });
   }
-  timeoutHandler () {
+
+  success(params) {
+    this.show({
+      ...params,
+      className: "success",
+      content: params.content | this.datas.success,
+    });
+  }
+
+  error(params) {
+    this.show({
+      ...params,
+      className: "success",
+      content: params.content | this.datas.error,
+    });
+  }
+
+  show({ content, className, timeout }) {
+    this.$container.find(".xuer-message-text").html(content);
+    this.$container.addClass(`${className} show`);
+    this.timeoutHandler(timeout);
+  }
+
+  timeoutHandler(timeout = 3000) {
+    this.timer && clearTimeout(this.timer);
     if (timeout === 0) {
-      return
+      return;
     }
-    setTimeout(() => {
-      this.end()
-
-    }, timeout)
+    this.timer = setTimeout(() => {
+      this.hide();
+    }, timeout);
   }
-  end () {
-    this.$container.removeClass('loading')
+  hide() {
+    this.$container.removeClass("loading show success error");
   }
-
 };
-
 
 theme.swipers = {};
 theme.event = {
@@ -67,6 +92,7 @@ theme.ajax = {
         },
         error: function (err) {
           reject(err);
+          theme.message.error()
         },
       });
     });
@@ -123,11 +149,6 @@ theme.debounce = function (func, wait, callback) {
 };
 
 theme.message = new Message()
-setTimeout(() => {
-  theme.message.loading({
-    content: 'loading ing'
-  })
-}, 2000)
 $.fn.serializeObject = function () {
   var o = {};
   var a = this.serializeArray();

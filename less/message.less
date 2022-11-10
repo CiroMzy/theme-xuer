@@ -20,11 +20,23 @@
   transform: translateY(-300px);
   opacity: 0;
   transition: .3s ease-in transform;
-  &.loading {
+  &.show {
     transform: translateY(0);
     opacity: 1;
-    .xuer-message-content .xuer-message-main .xuer-loading {
-      display: flex;
+    &.loading{
+      .xuer-message-content .xuer-message-main .xuer-loading {
+        display: flex;
+      }
+    }
+    &.success{
+      .xuer-message-content .xuer-message-main .xuer-success {
+        display: flex;
+      }
+    }
+    &.error{
+      .xuer-message-content .xuer-message-main .xuer-error {
+        display: flex;
+      }
     }
   }
 

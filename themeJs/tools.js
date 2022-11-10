@@ -35,6 +35,7 @@ theme.ajax = {
         },
         error: function (err) {
           reject(err);
+          theme.message.error()
         },
       });
     });
@@ -91,11 +92,6 @@ theme.debounce = function (func, wait, callback) {
 };
 
 theme.message = new Message()
-setTimeout(() => {
-  theme.message.loading({
-    content: 'loading ing'
-  })
-}, 2000)
 $.fn.serializeObject = function () {
   var o = {};
   var a = this.serializeArray();

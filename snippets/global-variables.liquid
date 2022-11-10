@@ -100,7 +100,15 @@ theme.language = {
         <span class="xuer-message-icon xuer-error" xuer-icon-error>
           {% render 'icon', name: 'error' %}
         </span>
-        <span class="xuer-message-text"></span>
+        <span class="xuer-message-icon xuer-success" xuer-icon-error>
+          {% render 'icon', name: 'success' %}
+        </span>
+        <span 
+          class="xuer-message-text"
+          data-loading="{{ 'general.loading' | t }}"
+          data-success="{{ 'general.success' | t }}"
+          data-error="{{ 'general.error' | t }}"
+        ></span>
       </div>
     </div>
   </div>

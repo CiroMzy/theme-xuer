@@ -73,6 +73,9 @@
     "cancle": "Cancel",
     "delete": "Delete",
     "edit": "Edit",
+    "loading": "Loading...",
+    "success": "success",
+    "error": "Error",
 
 
 

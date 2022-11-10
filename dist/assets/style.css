@@ -1421,11 +1421,17 @@ a:hover,
   opacity: 0;
   transition: 0.3s ease-in transform;
 }
-.xuer-message-container.loading {
+.xuer-message-container.show {
   transform: translateY(0);
   opacity: 1;
 }
-.xuer-message-container.loading .xuer-message-content .xuer-message-main .xuer-loading {
+.xuer-message-container.show.loading .xuer-message-content .xuer-message-main .xuer-loading {
+  display: flex;
+}
+.xuer-message-container.show.success .xuer-message-content .xuer-message-main .xuer-success {
+  display: flex;
+}
+.xuer-message-container.show.error .xuer-message-content .xuer-message-main .xuer-error {
   display: flex;
 }
 .xuer-message-container .xuer-message-content {
