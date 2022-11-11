@@ -12,6 +12,7 @@ var Slideshow = class extends BaseHTMLElement {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev',
 			},
+			allowTouchMove: false,
 			on: {
 				transitionStart: function () {
 					lock = true; //锁住按钮

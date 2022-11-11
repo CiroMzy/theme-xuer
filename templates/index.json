@@ -47,15 +47,13 @@
         "1320fd99-fbf5-4e57-917b-49906cd755cb"
       ],
       "settings": {
-        "section_height": "adapt",
+        "section_height": "medium",
         "height_desktop": 600,
         "height_mobile": 460,
         "mobile_text_under": false,
-        "effect": "fade",
         "show_arrow": true,
         "show_dots": false,
-        "autoplay": true,
-        "autoplay_speed": 7
+        "arrorw_dots_color": "#ffffff"
       }
     },
     "a59215dc-dfc6-401c-b473-d5903993fd0c": {
@@ -103,7 +101,7 @@
     }
   },
   "order": [
-    "a59215dc-dfc6-401c-b473-d5903993fd0c",
-    "166416263949705a88"
+    "166416263949705a88",
+    "a59215dc-dfc6-401c-b473-d5903993fd0c"
   ]
 }

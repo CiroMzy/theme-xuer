@@ -60,3 +60,25 @@ table {
 :focus-visible {
   outline: var(--primary_color) auto 1px;
 }
+.swiper-button-next, .swiper-button-prev {
+  background-image:none;
+  width: 50px;
+  height: 50px;
+  margin-top: -30px;
+  color: var(--text_color);
+  transition: .3s ease all;
+}
+.swiper-button-prev {
+  padding-left: 8px;
+  &:hover{
+    padding-left: 0;
+    padding-right: 8px;
+  }
+}
+.swiper-button-next {
+  padding-right: 8px;
+  &:hover{
+    padding-right: 0;
+    padding-left: 8px;
+  }
+}

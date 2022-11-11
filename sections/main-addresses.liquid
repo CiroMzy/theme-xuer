@@ -98,7 +98,7 @@
                       render 'form-input', id: "address[zip]", name: "address[zip]", label: 'account.zip', className: "xuer-line2", value: address.zip
                       render 'form-address-select', country: address.country, province: address.province
                       render 'form-checkbox', id: 'address[default]', name: "address[default]", label: 'account.set_as_default', className: 'xuer-line2', value: default_address
-                      render 'form-button', is_outline: true, text: 'general.confirm', className: 'xuer-line2', is_block: true, type: 'submit'
+                      render 'form-button', text: 'general.confirm', className: 'xuer-line2', is_block: true, type: 'submit'
                     -%}
                   {%- endform -%}
                 </xuer-address-form>
@@ -130,7 +130,7 @@
         render 'form-input', id: "address[zip]", name: "address[zip]", label: 'account.zip', className: "xuer-line2"
         render 'form-address-select'
         render 'form-checkbox', id: 'address[default]', name: "address[default]", label: 'account.set_as_default', className: 'xuer-line2'
-        render 'form-button', is_outline: true, text: 'account.add_addresses', className: 'xuer-line2', is_block: true, type: 'submit'
+        render 'form-button', text: 'account.add_addresses', className: 'xuer-line2', is_block: true, type: 'submit'
       -%}
     {%- endform -%}
   </xuer-address-form>

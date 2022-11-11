@@ -7,8 +7,13 @@
   endfor
 -%}
 
-<xuer-slideshow class="slideshow custom-section" data-swiper-container="swiper-{{ section.id }}" id="section-{{ section.id }}">
-  <div id="swiper-{{ section.id }}" class="swiper-container" style="background: {{ main_background_color }}">
+<xuer-slideshow class="slideshow custom-section" id="section-{{ section.id }}">
+  <div
+    swiper
+    id="swiper-{{ section.id }}" 
+    class="swiper-container" 
+    style="background: {{ main_background_color }}"
+  >
     <div class="swiper-wrapper">
       {%- for block in section.blocks -%}
         <div 
@@ -43,9 +48,7 @@
               {% if block.settings.link != blank %}
                 <a href="{{ block.settings.link }}">  
               {% endif %}
-                  <div class="slideshow-content_button xuer-button {{ block.settings.button_type }}">
-                    {{ block.settings.button_label }}
-                  </div>
+                {% render 'form-button', label: block.settings.button_label, className: 'slideshow-content_button' %}
               {% if block.settings.link != blank %}
                 </a>
               {% endif %}
@@ -55,8 +58,12 @@
       {%- endfor -%}
     </div>
 
-		<div class="swiper-button-prev"></div>
-		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev" style="color: {{ section.settings.arrorw_dots_color }}">
+      {% render 'icon', name: 'arrow-left-line' %}
+    </div>
+		<div class="swiper-button-next" style="color: {{ section.settings.arrorw_dots_color }}">
+      {% render 'icon', name: 'arrow-right-line' %}
+    </div>
   </div>
 </xuer-slideshow>
 {% schema %}
@@ -124,26 +131,6 @@
       "default": false
     },
     {
-      "id": "effect",
-      "type": "select",
-      "label": "Effect",
-      "default": "fade",
-      "options": [
-        {
-          "value": "fade",
-          "label": "Fade"
-        },
-        {
-          "value": "cube",
-          "label": "Cube"
-        },
-        {
-          "value": "flip",
-          "label": "Flip"
-        }
-      ]
-    },
-    {
       "id": "show_arrow",
       "type": "checkbox",
       "label": "Show arrow",
@@ -156,20 +143,10 @@
       "default": false
     },
     {
-      "id": "autoplay",
-      "type": "checkbox",
-      "label": "Auto play slides",
-      "default": true
-    },
-    {
-      "type": "range",
-      "id": "autoplay_speed",
-      "min": 1,
-      "max": 20,
-      "step": 1,
-      "unit": "s",
-      "label": "Change slides every",
-      "default": 7
+      "type": "color",
+      "id": "arrorw_dots_color",
+      "label": "Arrow and dots color",
+      "default": "#ffffff"
     }
   ],
   "blocks": [
@@ -205,22 +182,6 @@
           "id": "button_label",
           "default": "Button label",
           "label": "Button label"
-        },
-        {
-          "type": "select",
-          "id": "button_type",
-          "options": [
-            {
-              "value": "xuer-button_outline",
-              "label": "Outline"
-            },
-            {
-              "value": "xuer-button_fill",
-              "label": "Filled"
-            }
-          ],
-          "default": "xuer-button_fill",
-          "label": "Button type"
         },
         {
           "type": "color",

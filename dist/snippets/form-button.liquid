@@ -4,6 +4,7 @@
 
   Accepts:
   - text: {String}
+  - label: {String}
   - size: {String}
   - is_outline: {Boolean} 
   - className: {String} 
@@ -18,22 +19,14 @@
 
 {%- liquid
   assign type = type | default: 'text'
-  assign type_class = "xuer-button_fill"
-  assign size_class = "xuer-mid"
+  assign size_class = size
 
   if is_block == true
     assign block_class = "xuer-button_block"
   endif
-  
-  if size == 'large'
-    assign size_class = 'xuer-large'
-  endif
-  if is_outline
-    assign type_class = "xuer-button_outline"
-  endif
 -%}
 <button 
-  class="xuer-button {{ type_class }} {{ size_class }} {{ className }} {{ block_class }}"
+  class="xuer-button  {{ size_class }} {{ className }} {{ block_class }}"
   {% if type != blank %} 
     type="{{ type }}"
   {% endif %}
@@ -41,5 +34,6 @@
   <div class="xuer-button-content">
     {% render 'icon', name: 'loading' %}
     {{ text | t }}
+    {{ label }}
   </div>
 </button>
