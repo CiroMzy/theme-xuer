@@ -17,12 +17,12 @@ body.lock{
   user-select:none;
 }
 a, .link{
-  color: var(--link_color);
-  text-decoration: var(--link_decoration);
+  color: var(--text_color);
+  text-decoration: none;
   cursor: pointer;
 }
 a:hover, .link:hover{
-  color: var(--link_active_color);
+  opacity: 0.7;
 }
 [hidden] {
   display: none;
@@ -59,7 +59,7 @@ a:hover, .link:hover{
       justify-content: center;
       z-index: 2;
       display: none;
-      background: rgba(0,0,0,0.2);
+      background: var(--black_fade_background);
       svg{
         width: 30px;
       }

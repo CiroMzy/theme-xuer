@@ -8,7 +8,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background: #00000063;
+  background: @black-background-fade;
   z-index: 100;
   opacity: 0;
   visibility: hidden;
@@ -34,7 +34,7 @@
     z-index: 1;
     float: right;
     width: 480px;
-    background: #fff;
+    background: @white-background;
     height: 100%;
     transform: translateX(100%);
     transition: .3s;
@@ -72,7 +72,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: #fff;
+        background: @white-background;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -101,7 +101,7 @@
     height: 100%;
     .search-input {
       margin: @distance2;
-      background: rgba(0,0,0,.02);
+      background: @black-background-fade;
       border-radius: 3px;
       padding: 0;
       height: @distance5;
@@ -151,13 +151,13 @@
       .predictive-search__item {
         display: flex;
         &:hover{
-          box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+          box-shadow: 0 0 20px @black-background-fade;
           background-color: none;
         }
         padding: @distance @distance2;
         margin: @distance2;
         .trans;
-        box-shadow: 0 0 5px rgb(0 0 0 / 5%);
+        box-shadow: 0 0 5px @black-background-fade;
         .trans;
         img{
           width: 100px;
@@ -182,15 +182,15 @@
         button{
           padding: @distance2;
           border: none;
-          border-top: 1px solid rgba(0, 0, 0, 0.1);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          border-top: 1px solid var(--text_border_color);
+          border-bottom: 1px solid var(--text_border_color);
           outline: none;
           display: flex;
           justify-content: space-between;
           cursor: pointer;
           margin: 0 @distance2;
           display: block;
-          background: rgba(0, 0, 0, 0.01);
+          background: @black-background-fade;
           flex: 1;
           &:hover{
             background: none;
@@ -210,18 +210,7 @@
       }
     }
   }
-  /**** drawer localization ****/
-  .localization-container {
-    .xuer-list-selector {
-      .form-selected {
-
-      }
-      .localization-select-item {
-        
-      }
-      
-    }
-  }
+  
   #mini-cart-container {
     padding: @distance2;
     display: block;

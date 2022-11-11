@@ -9,6 +9,9 @@
 
 @borderRds: 4px;
 @borderRds-min: 2px;
+@white-background: #ffffff;
+@black-background-fade: rgba(0,0,0,0.2);
+
 .clearfix() {
   &::before {
     display: table;
@@ -42,14 +45,7 @@
 .trans{
   transition: 0.3s ease all;
 }
-.link(@color, @colorAct) {
-  a{
-    color: @color;
-    &:hover{
-      color: @colorAct;
-    }
-  }
-}
+
 .fade-text-color {
-  color: rgba(var(--text_color_rgb), 0.6);
+  color: var(--text_color_fade);
 }
