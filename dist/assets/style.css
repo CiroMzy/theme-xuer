@@ -652,8 +652,7 @@ a:hover,
   background-color: var(--header_background_color);
   position: relative;
   display: flex;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  box-shadow: 0 1px 3px #e2e2e2;
 }
 .header-wrapper a {
   text-decoration: none;
@@ -713,6 +712,7 @@ a:hover,
   opacity: 1;
   visibility: visible;
   margin-top: 0px;
+  border: 1px solid #e2e2e2;
 }
 .header-wrapper .header-menu-warpper .menu-menu .menu-item.wide .sub-menu-1 {
   left: 0;
