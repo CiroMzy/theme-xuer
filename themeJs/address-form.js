@@ -11,7 +11,7 @@ var AddressForm = class extends BaseHTMLElement {
         return
       }
       var data = $(this).serializeObject()
-      $(btn).attr('loading', true)
+      _this.setLoading(btn)
 
       var requestUrl = theme.routes.account_addresses_url
       var datas = _this.$container.data()

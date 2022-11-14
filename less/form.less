@@ -54,11 +54,30 @@
   color: var(--primary_button_text_color);
   border: none;
   box-shadow: none;
+  .trans;
+  &.default{
+    background-color: var(--background_color);
+    border: 1px solid var(--border_color);
+    color: var(--text_color);
+    svg{
+      color: var(--text_color);
+    }
+  }
+  &:hover, &.active{
+    background-color: var(--primary_button_background_color_fade);
+    color: var(--primary_button_text_color);
+    border-color: var(--primary_button_background_color);
+    svg{
+      color: var(--primary_button_text_color);
+    }
+  }
   &.xuer-animate-popup {
     .xuer-button-animate-popup;
   }
   &.mini {
     padding: @distance;
+    height: 32px;
+    display: flex;
   }
   &.xuer-button_block {
     display: block;
@@ -155,11 +174,14 @@
     border-radius: var(--button_border_radius);
     border: 1px solid var(--border_color);
     box-shadow: none;
-    background: transparent;
+    background-color: var(--background_color);
     color: var(--text_color);
     transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
     &:focus~.xuer-input_label, &.xuer-focus~.xuer-input_label{
       transform: scale(.733) translateY(calc(-20px - .5em)) translate(3.665px);
+    }
+    &:-internal-autofill-selected {
+      background-color: var(--background_color);
     }
   }
   .xuer-input_label {
@@ -172,6 +194,7 @@
     transform-origin: left top;
     transition: transform .2s ease-in-out;
     color: var(--text_color_fade);
+    background: var(--background_color);
     line-height: 1;
     white-space: nowrap;
   }
@@ -223,7 +246,7 @@
     transform: translateY(0);
     transform-origin: left top;
     transition: transform .2s ease-in-out;
-    background: var(--primary_button_background_color);
+    background: var(--background_color);
     color: var(--text_color_fade);
     line-height: 1;
     white-space: nowrap;
