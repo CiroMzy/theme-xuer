@@ -135,20 +135,6 @@ table {
   color: var(--text_color);
   transition: 0.3s ease all;
 }
-.swiper-button-prev {
-  padding-left: 8px;
-}
-.swiper-button-prev:hover {
-  padding-left: 0;
-  padding-right: 8px;
-}
-.swiper-button-next {
-  padding-right: 8px;
-}
-.swiper-button-next:hover {
-  padding-right: 0;
-  padding-left: 8px;
-}
 .shopify-payment-button__button {
   padding: 8px 16px !important;
   line-height: 20px !important;
@@ -1065,6 +1051,54 @@ a:hover,
 }
 .slideshow .swiper-slide .slideshow-content .slideshow-content_subheading {
   margin: 24px 24px 24px 0;
+}
+.slideshow .swiper-button {
+  width: 60px;
+  height: 30px;
+  margin-top: -15px;
+  /* SVG animations */
+}
+.slideshow .swiper-button.swiper-button-prev svg g {
+  transform: rotate(180deg);
+  transform-origin: center;
+}
+.slideshow .swiper-button svg {
+  height: 30px;
+}
+.slideshow .swiper-button path.one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+  opacity: 0.5;
+}
+.slideshow .swiper-button path.two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+  opacity: 0.8;
+}
+.slideshow .swiper-button path.three {
+  opacity: 1;
+}
+.slideshow .swiper-button:hover path.three {
+  animation: color_anim 1s infinite 0.2s;
+}
+.slideshow .swiper-button:hover path.one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+.slideshow .swiper-button:hover path.two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+  50% {
+    fill: var(--primary_color);
+  }
+  100% {
+    fill: white;
+  }
 }
 /**********************
 * drawer

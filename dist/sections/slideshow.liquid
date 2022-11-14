@@ -58,11 +58,11 @@
       {%- endfor -%}
     </div>
 
-		<div class="swiper-button-prev" style="color: {{ section.settings.arrorw_dots_color }}">
-      {% render 'icon', name: 'arrow-left-line' %}
+		<div class="swiper-button-prev swiper-button" style="color: {{ section.settings.arrorw_dots_color }}">
+      {% render 'icon', name: 'arrow-left-animate' %}
     </div>
-		<div class="swiper-button-next" style="color: {{ section.settings.arrorw_dots_color }}">
-      {% render 'icon', name: 'arrow-right-line' %}
+		<div class="swiper-button-next swiper-button" style="color: {{ section.settings.arrorw_dots_color }}">
+      {% render 'icon', name: 'arrow-right-animate' %}
     </div>
   </div>
 </xuer-slideshow>
@@ -141,12 +141,6 @@
       "type": "checkbox",
       "label": "Show dots",
       "default": false
-    },
-    {
-      "type": "color",
-      "id": "arrorw_dots_color",
-      "label": "Arrow and dots color",
-      "default": "#ffffff"
     }
   ],
   "blocks": [
