@@ -14,7 +14,7 @@ theme.event = {
   },
 };
 theme.ajax = {
-  post: function (url, data) {
+  post: function (url, data, message) {
     return new Promise((resolve, reject) => {
       $.ajax({
         headers: {
@@ -31,7 +31,7 @@ theme.ajax = {
           } catch{
             resolve(data)
           }
-          
+          message && theme.message.success()
         },
         error: function (err) {
           reject(err);

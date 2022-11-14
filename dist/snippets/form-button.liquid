@@ -10,6 +10,7 @@
   - className: {String} 
   - is_block: {Boolean} 
   - type: {String} 
+  - attrs: {String}
 
   Usage:
   {% render 'form-radio', is_checked: true,value: 'red',name: 'color', label: 'color'   %}
@@ -30,10 +31,12 @@
   {% if type != blank %} 
     type="{{ type }}"
   {% endif %}
+  {{ attrs }}
 >
   <div class="xuer-button-content">
     {% render 'icon', name: 'loading' %}
-    {{ text | t }}
-    {{ label }}
+    <span xuer-button-text >
+      {{ text | t }} {{ label }}
+    </span>
   </div>
 </button>

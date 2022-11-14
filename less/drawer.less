@@ -46,8 +46,9 @@
       justify-content: space-between;
       .padding-horizontal(2);
       align-items: center;
-      height: 60px;
+      height: @drawer-title-height;
       color: var(--text_color_fade);
+      box-shadow: @header-box-shoadow;
       .close {
         width: 20px;
         height: 20px;
@@ -55,10 +56,8 @@
       }
     }
     .drawer-content-wrapper{
-      display: flex;
-      flex-direction: column;
       flex: 1;
-      overflow: hidden;
+      overflow-y: auto;
       position: relative;
       .drawer-main {
         display: block;

@@ -1,8 +1,8 @@
 var Message = class {
   constructor() {
-    this.init();
     this.datas = {};
     this.timer = null;
+    this.init();
   }
   init() {
     var html = $("#xuer-message-tpl").html();
@@ -11,7 +11,7 @@ var Message = class {
     this.datas = this.$container.find(".xuer-message-text").data();
   }
 
-  loading(params) {
+  loading(params = {}) {
     this.show({
       ...params,
       className: "loading",
@@ -19,15 +19,15 @@ var Message = class {
     });
   }
 
-  success(params) {
+  success(params = {}) {
     this.show({
       ...params,
       className: "success",
-      content: params.content | this.datas.success,
+      content: params.content || this.datas.success,
     });
   }
 
-  error(params) {
+  error(params = {}) {
     this.show({
       ...params,
       className: "success",

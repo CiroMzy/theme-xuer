@@ -1,30 +1,34 @@
 var FeaturedProduct = class extends BaseHTMLElement {
   connectedCallback() {
-    this.bindForm()
+    this.bindForm();
   }
-  bindForm () {
-    this.forms = this.$container.find('[data-type="add-to-cart-form"]')
-    this.$form = $(this.form)
-    
-    this.forms.each(function (idx,form) {
-      $(form).on('submit', function (e) {
-        e.preventDefault()
-        var data = $(this).serializeObject()
+  bindForm() {
+    this.forms = this.$container.find('[data-type="add-to-cart-form"]');
+    this.$form = $(this.form);
+    const _this = this
+    this.forms.each(function (idx, form) {
+      $(form).on("submit", function (e) {
+        e.preventDefault();
+        var data = $(this).serializeObject();
         if (!data.id) {
-          return
+          return;
         }
-        theme.ajax.post(theme.routes.cart_add_url_js, {
-          ...data,
-          // quantity: "1",
-          sections: "cart-drawer"
-        }).then(res => {
-          console.log('res', res);
-          theme.event.dispatch('resetCartCount')
-        })
-
-
-      })
-    })
+        var $btn = _this.$container.find('[add-to-cart]')
+        _this.setLoading($btn)
+        theme.ajax
+          .post(theme.routes.cart_add_url_js, {
+            ...data,
+            // quantity: "1",
+            sections: "cart-drawer",
+          }, true)
+          .then((res) => {
+            console.log("res", res);
+            theme.event.dispatch("resetCartCount");
+          }).finally(() => {
+            _this.setUnLoading($btn)
+          });
+      });
+    });
   }
 };
 window.customElements.define("xuer-featured-product", FeaturedProduct);

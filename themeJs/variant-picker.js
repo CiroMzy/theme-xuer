@@ -80,9 +80,9 @@ var VariantPicker = class extends BaseHTMLElement {
 	setAddToCartStatus () {
 		var $addToCart = $(`#${this.dataset.sectionId}`).find('[add-to-cart]')
 		if (this.selectedVariant.available) {
-			$addToCart.removeClass('disabled').html(theme.language.product_add_to_cart)	
+			$addToCart.removeClass('disabled').find('[xuer-button-text]').html(theme.language.product_add_to_cart)	
 		} else {
-			$addToCart.addClass('disabled').html(theme.language.product_variant_no_stock)	
+			$addToCart.addClass('disabled').find('[xuer-button-text]').html(theme.language.product_variant_no_stock)	
 		}
 		var $value = $($addToCart.parent().siblings('[name="id"]'))
 		$value.val(this.selectedVariant.id)

@@ -1,8 +1,8 @@
 var Message = class {
   constructor() {
-    this.init();
     this.datas = {};
     this.timer = null;
+    this.init();
   }
   init() {
     var html = $("#xuer-message-tpl").html();
@@ -11,7 +11,7 @@ var Message = class {
     this.datas = this.$container.find(".xuer-message-text").data();
   }
 
-  loading(params) {
+  loading(params = {}) {
     this.show({
       ...params,
       className: "loading",
@@ -19,15 +19,15 @@ var Message = class {
     });
   }
 
-  success(params) {
+  success(params = {}) {
     this.show({
       ...params,
       className: "success",
-      content: params.content | this.datas.success,
+      content: params.content || this.datas.success,
     });
   }
 
-  error(params) {
+  error(params = {}) {
     this.show({
       ...params,
       className: "success",
@@ -71,7 +71,7 @@ theme.event = {
   },
 };
 theme.ajax = {
-  post: function (url, data) {
+  post: function (url, data, message) {
     return new Promise((resolve, reject) => {
       $.ajax({
         headers: {
@@ -88,7 +88,7 @@ theme.ajax = {
           } catch{
             resolve(data)
           }
-          
+          message && theme.message.success()
         },
         error: function (err) {
           reject(err);
@@ -219,6 +219,12 @@ var BaseHTMLElement = class extends HTMLElement {
       return true
     }
     return false
+  }
+  setLoading(el) {
+    $(el).attr('loading', true)
+  }
+  setUnLoading(el) {
+    $(el).attr('loading', false)
   }
 };
 
@@ -437,31 +443,35 @@ window.customElements.define("xuer-announcement-bar", AnnouncementBar);
 
 var FeaturedProduct = class extends BaseHTMLElement {
   connectedCallback() {
-    this.bindForm()
+    this.bindForm();
   }
-  bindForm () {
-    this.forms = this.$container.find('[data-type="add-to-cart-form"]')
-    this.$form = $(this.form)
-    
-    this.forms.each(function (idx,form) {
-      $(form).on('submit', function (e) {
-        e.preventDefault()
-        var data = $(this).serializeObject()
+  bindForm() {
+    this.forms = this.$container.find('[data-type="add-to-cart-form"]');
+    this.$form = $(this.form);
+    const _this = this
+    this.forms.each(function (idx, form) {
+      $(form).on("submit", function (e) {
+        e.preventDefault();
+        var data = $(this).serializeObject();
         if (!data.id) {
-          return
+          return;
         }
-        theme.ajax.post(theme.routes.cart_add_url_js, {
-          ...data,
-          // quantity: "1",
-          sections: "cart-drawer"
-        }).then(res => {
-          console.log('res', res);
-          theme.event.dispatch('resetCartCount')
-        })
-
-
-      })
-    })
+        var $btn = _this.$container.find('[add-to-cart]')
+        _this.setLoading($btn)
+        theme.ajax
+          .post(theme.routes.cart_add_url_js, {
+            ...data,
+            // quantity: "1",
+            sections: "cart-drawer",
+          }, true)
+          .then((res) => {
+            console.log("res", res);
+            theme.event.dispatch("resetCartCount");
+          }).finally(() => {
+            _this.setUnLoading($btn)
+          });
+      });
+    });
   }
 };
 window.customElements.define("xuer-featured-product", FeaturedProduct);
@@ -946,9 +956,9 @@ var VariantPicker = class extends BaseHTMLElement {
 	setAddToCartStatus () {
 		var $addToCart = $(`#${this.dataset.sectionId}`).find('[add-to-cart]')
 		if (this.selectedVariant.available) {
-			$addToCart.removeClass('disabled').html(theme.language.product_add_to_cart)	
+			$addToCart.removeClass('disabled').find('[xuer-button-text]').html(theme.language.product_add_to_cart)	
 		} else {
-			$addToCart.addClass('disabled').html(theme.language.product_variant_no_stock)	
+			$addToCart.addClass('disabled').find('[xuer-button-text]').html(theme.language.product_variant_no_stock)	
 		}
 		var $value = $($addToCart.parent().siblings('[name="id"]'))
 		$value.val(this.selectedVariant.id)

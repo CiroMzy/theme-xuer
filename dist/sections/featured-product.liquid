@@ -79,28 +79,14 @@
                 {% render 'quantity-selector', quantity: 1, name: "quantity" %}
               </div>
               <div class="product-form__buttons">
-                <button
-                  type="submit"
-                  name="add"
-                  class="xuer-button xuer-button_outline xuer-button_block featured-product_row" 
-                  add-to-cart
-                >
-                  <span>
-                    {{ 'product.add_to_cart' | t }}
-                  </span>
-                  <div class="loading-overlay__spinner hidden">
-                    <svg
-                      aria-hidden="true"
-                      focusable="false"
-                      role="presentation"
-                      class="spinner"
-                      viewBox="0 0 66 66"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                    </svg>
-                  </div>
-                </button>
+                {% render 
+                  'form-button', 
+                  text: 'product.add_to_cart', 
+                  className: 'featured-product_row', 
+                  is_block: true, 
+                  type: 'submit',
+                  attrs: "add-to-cart"
+                %}
                 {{ form | payment_button }}
               </div>
             {%- endform -%}

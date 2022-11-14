@@ -29,27 +29,24 @@
     animation: rotateDash 1.5s ease-in-out infinite;
   }
 }
-.xuer-button-animate {
-  overflow: hidden;
+.xuer-button-animate-popup {
   position: relative;
   &::after{
-    background: #fff;
     content: "";
-    height: 155px;
-    left: -75px;
-    opacity: 0.2;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
     position: absolute;
-    top: -50px;
-    transform: rotate(35deg);
-    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-    width: 50px;
-    z-index: 1;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+    background-color: var(--primary_button_background_color);
   }
   &:hover{
-    text-decoration: none;
     &::after{
-      left: 120%;
-      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+      transform: scaleX(1.2) scaleY(1.4);
+      opacity: 0;
     }
   }
 }

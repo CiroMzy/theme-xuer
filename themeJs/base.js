@@ -54,6 +54,12 @@ var BaseHTMLElement = class extends HTMLElement {
     }
     return false
   }
+  setLoading(el) {
+    $(el).attr('loading', true)
+  }
+  setUnLoading(el) {
+    $(el).attr('loading', false)
+  }
 };
 
 $(function() {

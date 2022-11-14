@@ -28,15 +28,16 @@
         </div>
       {%- endfor -%}
       <form action="{{ routes.cart_url }}" method="post" id="cart-notification-form">
-        <button
-          type="submit"
-          name="checkout"
-          class="xuer-button xuer-button_outline xuer-button_block xuer-mid " 
-          add-to-cart
-        >
-          <span>{{ 'cart.checkout' | t }}</span>
-          <span class="mini-cart-total">({{ cart.total_price | money }})</span>
-        </button>
+        {% assign label = cart.total_price | money | prepend: '(' | append : ')' %}
+        {% render 
+          'form-button', 
+          text: 'cart.checkout',
+          label: label, 
+          className: 'slideshow-content_button xuer-animate-popup' 
+          attrs: 'add-to-cart name="checkout" ',
+          type: 'submit',
+          is_block: true
+        %}
       </form>
   </form>
 </xuer-mini-cart>
