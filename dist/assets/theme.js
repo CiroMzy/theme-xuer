@@ -629,7 +629,6 @@ window.customElements.define("xuer-localization-form", LocalizationForm);
 var MiniCartIcon = class extends BaseHTMLElement {
   connectedCallback() {
     theme.event.resetCartCount = this.resetCartCount.bind(this);
-    this.resetCartCount();
   }
   resetCartCount(updateToDrawer) {
     theme.ajax.get(theme.routes.cart_url_js).then((cart) => {
