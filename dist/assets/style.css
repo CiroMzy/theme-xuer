@@ -472,6 +472,19 @@ a:hover,
 .xuer-button.default svg {
   color: var(--text_color);
 }
+.xuer-button.clean {
+  background-color: var(--background_color);
+  border: none;
+  color: var(--text_color);
+  padding: 0;
+}
+.xuer-button.clean svg {
+  color: var(--text_color);
+}
+.xuer-button.clean:hover {
+  background-color: var(--background_color);
+  color: var(--text_color);
+}
 .xuer-button:hover,
 .xuer-button.active {
   background-color: var(--primary_button_background_color_fade);
@@ -587,6 +600,9 @@ a:hover,
   display: flex;
   position: relative;
 }
+.xuer-input_wrapper[submit-button] input {
+  padding-right: 50px;
+}
 .xuer-input_wrapper input {
   -webkit-appearance: none;
   appearance: none;
@@ -621,6 +637,16 @@ a:hover,
   background: var(--background_color);
   line-height: 1;
   white-space: nowrap;
+}
+.xuer-input_wrapper .xuer-input_submit {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  width: 30px;
+  padding-right: 8px;
+  cursor: pointer;
+  bottom: 2px;
+  box-sizing: content-box;
 }
 .xuer_input.xuer_input_pure {
   border: none;
@@ -996,6 +1022,9 @@ a:hover,
 }
 .site-footer .footer-block-container .xuer-h4 {
   margin-bottom: 8px;
+}
+.site-footer :focus-visible {
+  outline: none;
 }
 /**********************
 * slideshow

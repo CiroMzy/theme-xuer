@@ -1,0 +1,8 @@
+
+{{ form.posted_successfully | json }}
+{%- if form.posted_successfully? -%}
+  <div class="xuer-form-error-msg xuer-line">
+    {% render 'icon', name: 'success' %}
+    {{ message | t }}
+  </div>
+{%- endif -%}

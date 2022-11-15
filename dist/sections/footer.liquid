@@ -2,6 +2,9 @@
 #section-{{ section.id }} {
   --footer_background_color: {{ section.settings.footer_background_color }};  
   --footer_text_color: {{ section.settings.footer_text_color }};
+  --background_color:  {{ section.settings.footer_background_color }};
+  --text_color:  {{ section.settings.footer_text_color }};
+  --text_color_fade: rgba({{ settings.footer_text_color.red }}, {{ settings.footer_text_color.green }}, {{ settings.footer_text_color.blue }}, 0.6) ;
 }
 {% endstyle %}
 <footer class="site-footer " id="section-{{ section.id }}">
@@ -68,12 +71,22 @@
                 <div class="footer-block newsletter">
                   {{ block_title }}
                   {%- if block.settings.newsletter_info != blank -%}
-                    <div class="newsletter-content">
+                    <div class="newsletter-content xuer-line2">
                       {{ block.settings.newsletter_info }}
                     </div>
                   {%- endif -%}
                   <div class="footer-subscribe-form">
-                    ==
+                    {%- form 'customer', id: 'footer-newsletter', class: 'form' -%}
+                      <input type="hidden" name="contact[tags]" value="newsletter">
+                      {%- liquid
+                        render 'form-input', id: "contact[email]", name: "contact[email]", label: 'newsletter.label', className: "xuer-line", submit_button: true
+                        if form.posted_successfully?
+                          render 'form-success-msg', form: form, message: 'newsletter.success'
+                        else
+                          render 'form-error-msg', form: form, multi: true
+                        endif                        
+                      -%}
+                    {%- endform -%}
                   </div>
                 </div>
               {%- when 'company_info' -%}

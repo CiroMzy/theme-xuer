@@ -64,6 +64,19 @@
       color: var(--text_color);
     }
   }
+  &.clean{
+    background-color: var(--background_color);
+    border: none;
+    color: var(--text_color);
+    padding: 0;
+    svg{
+      color: var(--text_color);
+    }
+    &:hover{
+      background-color: var(--background_color);
+      color: var(--text_color);
+    }
+  }
   &:hover, &.active{
     background-color: var(--primary_button_background_color_fade);
     color: var(--primary_button_text_color);
@@ -165,6 +178,11 @@
   height: 48px;
   display: flex;
   position: relative;
+  &[submit-button] {
+    input{
+      padding-right: 50px;
+    }
+  }
   input{
     -webkit-appearance: none;
     appearance: none;
@@ -198,6 +216,16 @@
     background: var(--background_color);
     line-height: 1;
     white-space: nowrap;
+  }
+  .xuer-input_submit {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    width: 30px;
+    padding-right: @distance;
+    cursor: pointer;
+    bottom: 2px;
+    box-sizing: content-box;
   }
 }
 .xuer_input {
