@@ -169,8 +169,8 @@
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
-    height: var(--form_input_height);
-    line-height: var(--form_input_height);
+    height: @form-input-height;
+    line-height: @form-input-height;
     padding: 0 @distance2;
     border-radius: var(--button_border_radius);
     border: 1px solid var(--border_color);
@@ -187,7 +187,7 @@
   }
   .xuer-input_label {
     position: absolute;
-    top: calc((var(--form_input_height) / 2) - 0.5em);
+    top: calc((@form-inputheight) / 2) - 0.5em);
     left: 12px;
     padding: 0 5px;
     pointer-events: none;
@@ -221,7 +221,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 @distance2;
-    height: var(--form_input_height);
+    height: @form-input-height;
     width: 100%;
     background: transparent;
     border: 1px solid var(--border_color);
@@ -240,7 +240,7 @@
   }
   .xuer-select_label {
     position: absolute;
-    top: calc((var(--form_input_height) / 2) - 0.5em);
+    top: calc((@form-inputheight) / 2) - 0.5em);
     left: 12px;
     padding: 0 5px;
     pointer-events: none;

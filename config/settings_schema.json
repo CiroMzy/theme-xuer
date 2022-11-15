@@ -34,12 +34,6 @@
       },
       {
         "type": "color",
-        "id": "error_color2",
-        "default": "#d9363e",
-        "label": "Body2 text"
-      },
-      {
-        "type": "color",
         "id": "background_color",
         "default": "#ffffff",
         "label": "Background"
@@ -62,8 +56,6 @@
         "default": "#d9363e",
         "label": "Error color"
       },
-
-
       {
         "type": "header",
         "content": "Buttons"
@@ -91,193 +83,6 @@
         "id": "secondary_button_text_color",
         "default": "#282828",
         "label": "Secondary button text color"
-      },
-
-      
-
-
-
-
-
-
-
-      {
-        "type": "header",
-        "content": "Announcement bar"
-      },
-      {
-        "type": "color",
-        "id": "announcement_text_color",
-        "default": "#212121",
-        "label": "Announcement text color"
-      },
-      {
-        "type": "color",
-        "id": "announcement_background_color",
-        "default": "#ffffff",
-        "label": "Announcement background color"
-      },
-      {
-        "type": "color",
-        "id": "announcement_link_color",
-        "default": "#212121",
-        "label": "Announcement link color"
-      },
-      {
-        "type": "color",
-        "id": "announcement_link_active_color",
-        "default": "#000000",
-        "label": "Announcement link active color"
-      },
-
-
-      
-      {
-        "type": "header",
-        "content": "Header"
-      },
-
-      {
-        "type": "header",
-        "content": "Footer"
-      },
-      {
-        "type": "color",
-        "id": "footer_background_color",
-        "default": "#000000",
-        "label": "Footer background color"
-      },
-      {
-        "type": "color",
-        "id": "footer_text_color",
-        "default": "#ffffff",
-        "label": "Footer text color"
-      },
-      {
-        "type": "color",
-        "id": "footer_link_hover_color",
-        "default": "#02867f",
-        "label": "Footer link hover color"
-      },
-
-
-
-      {
-        "type": "header",
-        "content": "Slideshow"
-      },
-      {
-        "type": "color",
-        "id": "slideshow_text_color",
-        "default": "#ffffff",
-        "label": "Slideshow text color"
-      },
-      {
-        "type": "color",
-        "id": "slideshow_button_color",
-        "label": "Slideshow button color"
-      },
-      {
-        "type": "color",
-        "id": "slideshow_button_background_color",
-        "label": "Slideshow button background color"
-      },
-
-
-
-
-
-
-
-
-
-
-      {
-        "type": "color",
-        "id": "accent_color",
-        "default": "#9d1339",
-        "label": "Accent color"
-      },
-      {
-        "type": "color",
-        "id": "inverse_color",
-        "default": "#FFFFFF",
-        "label": "Accent color"
-      },
-
-
-
-
-
-      {
-        "type": "color",
-        "id": "colors_solid_button_labels",
-        "default": "#FFFFFF",
-        "label": "t:settings_schema.colors.settings.colors_solid_button_labels.label",
-        "info": "t:settings_schema.colors.settings.colors_solid_button_labels.info"
-      },
-      {
-        "type": "color",
-        "id": "colors_accent_1",
-        "default": "#121212",
-        "label": "t:settings_schema.colors.settings.colors_accent_1.label",
-        "info": "t:settings_schema.colors.settings.colors_accent_1.info"
-      },
-      {
-        "id": "gradient_accent_1",
-        "type": "color_background",
-        "label": "t:settings_schema.colors.settings.gradient_accent_1.label"
-      },
-      {
-        "type": "color",
-        "id": "colors_accent_2",
-        "default": "#334FB4",
-        "label": "t:settings_schema.colors.settings.colors_accent_2.label"
-      },
-      {
-        "id": "gradient_accent_2",
-        "type": "color_background",
-        "label": "t:settings_schema.colors.settings.gradient_accent_2.label"
-      },
-      {
-        "type": "header",
-        "content": "t:settings_schema.colors.settings.header__2.content"
-      },
-      {
-        "type": "color",
-        "id": "colors_text",
-        "default": "#121212",
-        "label": "t:settings_schema.colors.settings.colors_text.label",
-        "info": "t:settings_schema.colors.settings.colors_text.info"
-      },
-      {
-        "type": "color",
-        "id": "colors_outline_button_labels",
-        "default": "#121212",
-        "label": "t:settings_schema.colors.settings.colors_outline_button_labels.label",
-        "info": "t:settings_schema.colors.settings.colors_outline_button_labels.info"
-      },
-      {
-        "type": "color",
-        "id": "colors_background_1",
-        "default": "#FFFFFF",
-        "label": "t:settings_schema.colors.settings.colors_background_1.label"
-      },
-      {
-        "id": "gradient_background_1",
-        "type": "color_background",
-        "label": "t:settings_schema.colors.settings.gradient_background_1.label"
-      },
-      {
-        "type": "color",
-        "id": "colors_background_2",
-        "default": "#F3F3F3",
-        "label": "t:settings_schema.colors.settings.colors_background_2.label"
-      },
-      {
-        "id": "gradient_background_2",
-        "type": "color_background",
-        "label": "t:settings_schema.colors.settings.gradient_background_2.label"
       }
     ]
   },
@@ -288,17 +93,29 @@
 
       {
         "type": "header",
-        "content": "Form"
+        "content": "Fonts"
       },
       {
-        "type": "range",
-        "id": "form_input_height",
-        "min": 10,
-        "max": 100,
-        "step": 5,
-        "unit": "px",
-        "default": 45,
-        "label": "Form input height"
+        "type": "font_picker",
+        "id": "type_heading_font",
+        "label": "Headings",
+        "default": "cardo_n4"
+      },
+      {
+        "type": "checkbox",
+        "id": "capitalize_headings",
+        "label": "Capitalize headings",
+        "default": false
+      },
+      {
+        "type": "font_picker",
+        "id": "type_base_font",
+        "label": "Body & buttons",
+        "default": "lato_n4"
+      },
+      {
+        "type": "header",
+        "content": "Sizes"
       },
 
 

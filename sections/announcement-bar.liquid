@@ -6,7 +6,10 @@
 -%}
 {% style %}
 #id-{{ section.id }} {
-  --announcement-font-size: {{ section.settings.font_size }}px;
+  --announcement-font-size: {{ section.settings.announcement_font_size }}px;  
+  --announcement_background_color: {{ section.settings.announcement_background_color }};
+  --announcement_text_color: {{ section.settings.announcement_text_color }};
+  --announcement_link_color: {{ section.settings.announcement_link_color }};
 }
 {% endstyle %}
 <xuer-announcement-bar
@@ -42,29 +45,29 @@
 </xuer-announcement-bar>
 {% schema %}
 {
-  "name": "t:sections.announcement-bar.name",
+  "name": "announcement-bar",
   "settings": [
     {
       "type": "color",
       "id": "announcement_text_color",
       "default": "#212121",
-      "label": "Announcement text color"
+      "label": "Text color"
     },
     {
       "type": "color",
       "id": "announcement_background_color",
       "default": "#ffffff",
-      "label": "Announcement background color"
+      "label": "Background color"
     },
     {
       "type": "color",
       "id": "announcement_link_color",
       "default": "#990000",
-      "label": "Announcement link color"
+      "label": "Link color"
     },
     {
       "type": "range",
-      "id": "font_size",
+      "id": "announcement_font_size",
       "min": 12,
       "max": 20,
       "step": 1,

@@ -14,24 +14,10 @@
       "secondary_button_background_color": "#405de6",
       "secondary_button_text_color": "#ffffff",
 
-
-      
-
-
-      
-
-      "header_background_color": "#ffffff",
-      "header_link_color": "#000000",
-      "announcement_background_color": "#02867f",
-      "announcement_text_color": "#ffffff",
-      "announcement_link_color": "#990000",
-
-      "slideshow_text_color": "#ffffff",
       "button_border_radius": 4,
 
 
 
-      "form_input_height": 45,
 
 
 
@@ -45,24 +31,6 @@
 
 
 
-
-
-
-      "link_underline": false,
-      "accent_color": "#9d1339",
-      "inverse_color": "#FFFFFF",
-
-      "colors_solid_button_labels": "#ffffff",
-      "colors_accent_1": "#121212",
-      "gradient_accent_1": "",
-      "colors_accent_2": "#334fb4",
-      "gradient_accent_2": "",
-      "colors_text": "#121212",
-      "colors_outline_button_labels": "#121212",
-      "colors_background_1": "#ffffff",
-      "gradient_background_1": "",
-      "colors_background_2": "#f3f3f3",
-      "gradient_background_2": "",
       "type_header_font": "assistant_n4",
       "heading_scale": 100,
       "type_body_font": "assistant_n4",
@@ -173,9 +141,10 @@
       "sections": {
         "announcement-bar": {
           "settings": {
-            "background_color": "#000000",
-            "text_color": "#ffffff",
-            "font_size": 14
+            "announcement_background_color": "#02867f",
+            "announcement_text_color": "#ffffff",
+            "announcement_link_color": "#990000",
+            "announcement_font_size": 14
           },
           "blocks": {
             "1478526632861": {
@@ -222,8 +191,10 @@
           ],
           "settings": {
             "logo": null,
-            "background_color": "#02867f",
-            "link_color": "#000000",
+            "header_background_color": "#ffffff",
+            "header_link_color": "#000000",
+
+            
             "desktop_logo_width": 120,
             "mobile_logo_img_width_int": 130,
             "logo_h1": true,
@@ -249,10 +220,42 @@
         "footer": {
           "type": "footer",
           "blocks": {
+            "5e5ee608-66d6-4bcb-b45e-6f92f3a125a5": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Quick links",
+                "menu": "footer"
+              }
+            },
+            "617603ef-a2b3-4590-a505-9ec7d6bd72d5": {
+              "type": "company_info",
+              "settings": {
+                "heading": "Contact Information",
+                "company_info_address": "1635 Franklin Street Montgomery, Near Sherwood Mall. AL 36104",
+                "company_info_email": "info@abc.com",
+                "company_info_phone": "+1-202-555-1234"
+              }
+            },
+            "344df9ec-1d1e-40b8-8da2-6547905a1d96": {
+              "type": "newsletter",
+              "settings": {
+                "heading": "Newsletter",
+                "newsletter_info": "Sign Up to our Newsletter to get the latest news and offers."
+              }
+            }
           },
           "block_order": [
+            "5e5ee608-66d6-4bcb-b45e-6f92f3a125a5",
+            "617603ef-a2b3-4590-a505-9ec7d6bd72d5",
+            "344df9ec-1d1e-40b8-8da2-6547905a1d96"
           ],
           "settings": {
+            "logo_image_width": 150,
+            "footer_describe": "Build any site you can imagine with no coding skills. We make websites are the number one ranked design, build and marketing team.",
+            "show_country_selector": true,
+            "show_language_selector": true,
+            "footer_background_color": "#000000",
+            "footer_text_color": "#ffffff"
           }
         },
         "main-password-header": {

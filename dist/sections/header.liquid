@@ -8,6 +8,9 @@
   {%- else -%}
     position: relative;
   {%- endif -%}
+
+  --header_background_color: {{ section.settings.header_background_color }};  
+  --header_link_color: {{ section.settings.header_link_color }};
 }
 {% endstyle %}
 <xuer-header class="header-wrapper  full-width-padding">
@@ -41,7 +44,7 @@
   "settings": [
     {
       "type": "image_picker",
-      "id": "logo",
+      "id": "header_logo",
       "label": "Logo",
       "info": "520 x 200px (recommended)"
     },

@@ -1,5 +1,10 @@
-
-<footer class="site-footer " >
+{% style %}
+#section-{{ section.id }} {
+  --footer_background_color: {{ section.settings.footer_background_color }};  
+  --footer_text_color: {{ section.settings.footer_text_color }};
+}
+{% endstyle %}
+<footer class="site-footer " id="section-{{ section.id }}">
   <div class="xuer-row page_width">
     <div class="xuer-col col-3">
       <div class="footer-base">
@@ -140,6 +145,18 @@
       "id": "show_language_selector",
       "label": "Enable language selector",
       "default": true
+    },
+    {
+      "type": "color",
+      "id": "footer_background_color",
+      "default": "#000000",
+      "label": "Footer background color"
+    },
+    {
+      "type": "color",
+      "id": "footer_text_color",
+      "default": "#ffffff",
+      "label": "Footer text color"
     }
   ],
   "max_blocks": 6,

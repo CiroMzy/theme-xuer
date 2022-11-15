@@ -1,5 +1,5 @@
 /**********************
-* font-size.less
+* font and color
 */
 @font1: 38px;
 @font2: 30px;
@@ -9,9 +9,15 @@
 @font6: 14px;
 @font7: 12px;
 
-
+body {
+  color: var(--text_color);
+}
 .xuer-h1, .xuer-h2, .xuer-h3, .xuer-h4, .xuer-h5 {
   font-weight: 600;
+  color: var(--heading_color);
+  a {
+    color: var(--heading_color);
+  }
 }
 .xuer-h1{
   font-size: @font1;
