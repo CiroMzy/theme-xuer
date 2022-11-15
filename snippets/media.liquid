@@ -2,7 +2,7 @@
 {% case media.media_type %}
   {% when 'image' %}
     <div class="media-image media-item ">
-      {% render 'image', image: media.preview_image, min_aspect_ratio: min_aspect_ratio %}
+      {% render 'image', image: media.preview_image, min_aspect_ratio: min_aspect_ratio, sizes: sizes %}
     </div>
   {% when 'external_video', 'video' %}
     ====== video =====

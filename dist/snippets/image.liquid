@@ -11,7 +11,25 @@
     assign local_aspect_ratio = image.aspect_ratio | at_least: min_aspect_ratio
   endif
 
+  assign srcset_arr = srcset_arr | default: '180, 220, 300, 360, 460, 540, 720, 900, 1080, 1296, 1512, 1728, 2048'
+  assign array_sizes = srcset_arr | remove: ' ' | split: ','
+  
+  assign src_list = ''
+  
+  for size in array_sizes
+    assign size_str = size | append: 'w'
+    assign image_url_str = image | image_url: width: size, crop: crop
+    
+    assign full_url = image_url_str | append: ' ' | append: size_str
+    
+    assign src_list = src_list | append: full_url
+    if  forloop.last == false
+      assign src_list = src_list | append: ','
+    endif
+  endfor
+
 -%}
+
 <div class="xuer-image-outer-wrapper" 
   {% if width != blank %}
     style="width: {{ width }}px;"  
@@ -22,12 +40,12 @@
     xuer-image
   >
     <img 
-      {% render "image-attributes", 
-        image: image,
-        alt: img_alt, 
-        sizes: '400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800' 
-      %}
-      
+      {% if sizes_only %}
+        {{ src_list }}
+      {% else %}
+        height="{{ image.height }}" width="{{ image.width }}" alt="{{ alt | default: image.alt | escape }}" src="{{ image | image_url: biggest_size_descriptor, crop: crop }}" srcset="{{ src_list }}"
+      {% endif %}
+      sizes="{{ sizes }}"
       loading="lazy" 
       class="xuer-image {{ img_class }} {% if cover %}cover{% endif %}"
     />

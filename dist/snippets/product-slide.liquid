@@ -11,7 +11,7 @@
     <div class="swiper-wrapper">
       {%- for media in product.media -%}
         <div class="swiper-slide">
-          {% render 'media', media: media, min_aspect_ratio: min_aspect_ratio %}
+          {% render 'media', media: media, min_aspect_ratio: min_aspect_ratio, sizes: "33vw" %}
         </div>
       {%- endfor -%}
     </div>
@@ -25,7 +25,7 @@
       <div class="swiper-wrapper">
         {%- for media in product.media -%}
           <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}" >
-            {% render 'media', media: media, min_aspect_ratio: min_aspect_ratio %}
+            {% render 'media', media: media, min_aspect_ratio: min_aspect_ratio, sizes: "10vw" %}
           </div>
         {%- endfor -%}
       </div>

@@ -266,7 +266,7 @@ a:hover,
   justify-content: center;
   z-index: 2;
   display: none;
-  background: var(--black_fade_background);
+  background: rgba(0, 0, 0, 0.05);
 }
 .xuer-image-outer-wrapper .xuer-image-wrapper .loading svg {
   width: 30px;
