@@ -12,7 +12,11 @@
   endif
 
 -%}
-<div class="xuer-image-outer-wrapper" style="width: {{ width }}px;">
+<div class="xuer-image-outer-wrapper" 
+  {% if width != blank %}
+    style="width: {{ width }}px;"  
+  {% endif %}
+>
   <div class="xuer-image-wrapper" 
     style="padding-top:{{ 1 | divided_by: local_aspect_ratio | times: 100 }}%"
     xuer-image

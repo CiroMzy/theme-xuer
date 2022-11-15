@@ -1145,7 +1145,7 @@ a:hover,
   flex-direction: column;
 }
 .drawer-container .drawer-main .drawer-header {
-  border-bottom: 1px solid var(--text_border_color);
+  border-bottom: 1px solid var(--border_color);
   display: flex;
   justify-content: space-between;
   padding-left: 16px;
@@ -1209,7 +1209,7 @@ a:hover,
   padding: 0;
   height: 40px;
   position: relative;
-  border: 1px solid var(--text_border_color);
+  border: 1px solid var(--border_color);
 }
 .drawer-container .search-container .search-input input {
   width: 100%;
@@ -1281,8 +1281,8 @@ a:hover,
 .drawer-container .search-container #predictive-search-results .predictive-search__list-item button {
   padding: 16px;
   border: none;
-  border-top: 1px solid var(--text_border_color);
-  border-bottom: 1px solid var(--text_border_color);
+  border-top: 1px solid var(--border_color);
+  border-bottom: 1px solid var(--border_color);
   outline: none;
   display: flex;
   justify-content: space-between;
@@ -1360,6 +1360,22 @@ a:hover,
   color: var(--text_color_fade);
   text-decoration: line-through;
 }
+/******* product-section *******/
+.product-section {
+  display: flex;
+  margin-bottom: 30px;
+}
+.product-section .product_slide {
+  width: 45%;
+}
+.product-section .product_blocks {
+  width: 50%;
+  box-sizing: border-box;
+  padding-left: 24px;
+}
+.product-section .product_blocks .product_row {
+  margin-bottom: 16px;
+}
 /**********************
 *       product-slide
 **********************/
@@ -1383,24 +1399,6 @@ a:hover,
 }
 .product-slide .product-slide_thumbnail .swiper-slide.swiper-slide-thumb-active::after {
   opacity: 1;
-}
-/**********************
-* featured-product
-*/
-.featured-product {
-  display: flex;
-  margin-bottom: 30px;
-}
-.featured-product .featured-product_slide {
-  width: 45%;
-}
-.featured-product .featured-product_blocks {
-  width: 50%;
-  box-sizing: border-box;
-  padding-left: 24px;
-}
-.featured-product .featured-product_blocks .featured-product_row {
-  margin-bottom: 16px;
 }
 /**********************
 * account

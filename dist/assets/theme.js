@@ -461,11 +461,9 @@ var FeaturedProduct = class extends BaseHTMLElement {
         theme.ajax
           .post(theme.routes.cart_add_url_js, {
             ...data,
-            // quantity: "1",
             sections: "cart-drawer",
           }, true)
           .then((res) => {
-            console.log("res", res);
             theme.event.dispatch("resetCartCount");
           }).finally(() => {
             _this.setUnLoading($btn)
