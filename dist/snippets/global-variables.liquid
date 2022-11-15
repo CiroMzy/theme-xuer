@@ -1,10 +1,16 @@
+
 {% style %}
 
+{{ settings.type_header_font | font_face: font_display: 'swap' }}
+{{ settings.type_base_font | font_face: type_base_font: 'swap' }}
 :root {
+  /* font-family */
+  --font-heading-family: {{ settings.type_header_font.family }};
+  --font-base-family: {{ settings.type_base_font.family }};
+
   /***********
   * colors
   */
-  
   --primary_color: {{ settings.primary_color }};
   --primary_color_rgb: {{ settings.primary_color.red }}, {{ settings.primary_color.green }}, {{ settings.primary_color.blue }};
   --primary_color_fade: rgba({{ settings.primary_color.red }}, {{ settings.primary_color.green }}, {{ settings.primary_color.blue }}, 0.03);
@@ -15,6 +21,8 @@
   --error_color:{{ settings.error_color }};
   --error_color_fade: rgba({{ settings.error_color.red }}, {{ settings.text_color.green }}, {{ settings.text_color.blue }}, 0.05);
   --background_color:{{ settings.background_color }};
+  --heading_color:{{ settings.heading_color }};
+  --text_color:{{ settings.text_color }};
 
   /* Bottons */
   --primary_button_background_color: {{ settings.primary_button_background_color }};
@@ -52,3 +60,4 @@ theme.language = {
   delete_addresses_confirm: {{ 'account.delete_addresses_confirm' | t | json }},
 }
 </script>
+

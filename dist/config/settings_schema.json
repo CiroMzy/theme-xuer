@@ -96,9 +96,9 @@
       },
       {
         "type": "font_picker",
-        "id": "type_heading_font",
+        "id": "type_header_font",
         "label": "Headings",
-        "default": "cardo_n4"
+        "default": "zurich_extended_n8"
       },
       {
         "type": "checkbox",
@@ -111,14 +111,6 @@
         "id": "type_base_font",
         "label": "Body & buttons",
         "default": "lato_n4"
-      },
-      {
-        "type": "header",
-        "content": "Sizes"
-      },
-      {
-        "type": "header",
-        "content": "Buttons"
       }
     ]
   },
@@ -144,6 +136,17 @@
         "unit": "px",
         "default": 0,
         "label": "Button border radius"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Image",
+        "info": "96 x 96px .png recommended"
       }
     ]
   }

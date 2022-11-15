@@ -2,28 +2,15 @@
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
     <title>
-      {% if page_title == blank %}
-          {{ shop.name }}
-      {% else %}
-          {{ page_title }}
-      {% endif %}
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
   </title>
     {% render 'meta-tags' %}
     {% render 'global-variables' %}
+    {% render 'global-links' %}
 
-    <link rel="canonical" href="{{ canonical_url }}">
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.shopify.com" crossorigin>
-    <link rel="preconnect" href="https://monorail-edge.shopifysvc.com">
-    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-    
-    
-    {%- if settings.favicon != blank -%}
-      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
-    {%- endif -%} 
-
-    {{ 'vendor.css' | asset_url | stylesheet_tag }}
-    {{ 'style.css' | asset_url | stylesheet_tag }}
     {{ content_for_header }}
 
     <script>
