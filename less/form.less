@@ -26,6 +26,8 @@
         margin: @distance;
         border-radius: @borderRds;
         cursor: pointer;
+        box-sizing: border-box;
+        height: @distance5;
       }
       .xuer-option-item_input:checked+.xuer-option-item_btn {
         border-color: var(--primary_button_background_color);
@@ -77,6 +79,18 @@
       color: var(--text_color);
     }
   }
+  &.disabled{
+    background-color: @disabled-button-background;
+    color: @disabled-button-color;
+    &:hover{
+      background-color: @disabled-button-background !important;
+      color: @disabled-button-color !important;
+      svg{
+        background-color: @disabled-button-background !important;
+        color: @disabled-button-color !important;
+      }
+    }
+  }
   &:hover, &.active{
     background-color: var(--primary_button_background_color_fade);
     color: var(--primary_button_text_color);
@@ -113,7 +127,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 20px;
+    line-height: @distance3;
     .xuer-loading {
       display: none;
       padding-right: @distance;
@@ -145,12 +159,13 @@
   align-items: center;
   justify-content: space-between;
   min-width: 140px;
-  height: 48px;
+  height: 40px;
   border: 1px solid var(--border_color);
   border-radius: @borderRds-min;
+  box-sizing: border-box;
   .quantity_button {
-    width: 46px;
-    height: 46px;
+    width: 38px;
+    height: 38px;
     .flex-center;
     cursor: pointer;
     svg{
@@ -158,7 +173,7 @@
     }
   }
   .quantity_input {
-    min-width: 46px;
+    min-width: 38px;
     display: inline-block;
     text-align: center;
   }
@@ -175,7 +190,7 @@
 
 /***** input *****/
 .xuer-input_wrapper{
-  height: 48px;
+  height: @distance5;
   display: flex;
   position: relative;
   &[submit-button] {
@@ -197,7 +212,7 @@
     color: var(--text_color);
     transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
     &:focus~.xuer-input_label, &.xuer-focus~.xuer-input_label{
-      transform: scale(.733) translateY(calc(-20px - .5em)) translate(3.665px);
+      transform: scale(.733) translateY(calc(-18px - .5em)) translate(3.665px);
     }
     &:-internal-autofill-selected {
       background-color: var(--background_color);

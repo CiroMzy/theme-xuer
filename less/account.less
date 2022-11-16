@@ -25,8 +25,10 @@
 }
 
 .account {
+  margin: @distance4 auto;
   .account-title {
     text-align: center;
+    margin-bottom: @distance3;
   }
   .account-description {
     text-align: center;
@@ -48,9 +50,10 @@
 
 .account-main {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
   padding: @distance2 0;
+  
 
   .account-main_aside {
     width: 320px;
@@ -68,8 +71,8 @@
     }
     .account-menu {
       .account-menu_item{
-        height: 40px;
-        line-height: 40px;
+        height: @distance5;
+        line-height: @distance5;
         padding-left: @distance2;
         border-bottom: 1px solid var(--border_color);
         cursor: pointer;
@@ -86,9 +89,19 @@
   }
   .account-main_main {
     flex: 1;
-    padding-left: @distance2;
+    padding-left: @distance5;
     .account-main_title, .account-main_info {
       text-align: center;
+    }
+    .account-main_content,.account-main_empty {
+      min-height: 240px;
+      display: block;
+    }
+    .account-main_empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
     .add-address {
       display: flex;

@@ -14,7 +14,7 @@
     <div class="account-menu">
       <ul>
         <li class="account-menu_item orders ">
-          <a href="{{ routes.customer_url }}">
+          <a href="{{ routes.account_url }}">
           {{ 'account.orders' | t }}
           </a>
         </li>
@@ -27,88 +27,92 @@
     </div>
   </aside>
   <main class="account-main_main">
-    <h1 class="account-main_title xuer-h1">
+    <h1 class="account-main_title xuer-h1 xuer-line2 xuer-uppercase">
       {{ 'account.addresses' | t }}
       ({{ customer.addresses_count }})
     </h1>
-    <p class="account-main_info xuer-line2">
-      {{ 'account.no_addresses' | t }}
-    </p>
-
-    <div class="add-address" drawer-open data-action-type="add-address-tpl">
-      {% render 'form-button', text: 'account.add_addresses', className: 'xuer-line2' %}
-    </div>
-
-    {%- paginate customer.addresses by 5 -%}
-      <xuer-address-list>
-        <ul class="main-address_list">
-          {%- for address in customer.addresses -%}
-            <li data-address class="main-address_item">
-              <div class="main-address_item_main">
-                <h4 class="address-item_title">
-                  {{ address.street }}
-                  {% if address == customer.default_address %}
-                    <span class="default_address note">({{ 'account.address_default' | t }})</span>
-                  {% endif %}
-                </h4>
-                <div class="address-item_info">
-                  <span>{{ address.first_name }} {{ address.last_name }}</span>
-                  <span>{{ address.company }}</span>
-                  <span>{{ address.street }}</span>
-                  <span>{{ address.city }} {% if address.province_code %}, {{ address.province_code }}{% endif %}</span>
-                  <span>{{ address.country }} {{ address.zip }}</span>
-                  <span>{{ address.phone }}</span>
+    {% if customer.addresses_count < 1 %}
+      <div class="account-main_empty">
+        <p class="account-main_info xuer-line2">
+          {{ 'account.no_addresses' | t }}
+        </p>
+        <div class="add-address" drawer-open data-action-type="add-address-tpl">
+          {% render 'form-button', text: 'account.add_addresses', className: 'xuer-line2' %}
+        </div>
+      </div>
+    {% else %}
+      {%- paginate customer.addresses by 5 -%}
+        <xuer-address-list class="account-main_content">
+          <ul class="main-address_list">
+            {%- for address in customer.addresses -%}
+              <li data-address class="main-address_item">
+                <div class="main-address_item_main">
+                  <h4 class="address-item_title">
+                    {{ address.street }}
+                    {% if address == customer.default_address %}
+                      <span class="default_address note">({{ 'account.address_default' | t }})</span>
+                    {% endif %}
+                  </h4>
+                  <div class="address-item_info">
+                    <span>{{ address.first_name }} {{ address.last_name }}</span>
+                    <span>{{ address.company }}</span>
+                    <span>{{ address.street }}</span>
+                    <span>{{ address.city }} {% if address.province_code %}, {{ address.province_code }}{% endif %}</span>
+                    <span>{{ address.country }} {{ address.zip }}</span>
+                    <span>{{ address.phone }}</span>
+                  </div>
                 </div>
-              </div>
-              <div class="address-item_actions">
-                <span 
-                  class="address-item_btn xuer-button xuer-button_link xuer-mini"
-                  address-edit
-                  data-address-id="{{ address.id }}"
+                <div class="address-item_actions">
+                  <span 
+                    class="address-item_btn xuer-button xuer-button_link xuer-mini"
+                    address-edit
+                    data-address-id="{{ address.id }}"
+                  >
+                    {{ 'general.edit' | t }}
+                  </span>
+                  <span 
+                    class="address-item_btn xuer-button xuer-button_link xuer-mini"
+                    address-delete
+                    data-address-id="{{ address.id }}"
+                  >
+                    {{ 'general.delete' | t }}
+                  </span>
+                </div>
+                <template 
+                  id="add-address-tpl-{{ address.id }}" 
+                  data-title="{{ 'account.edit_addresses' | t }}"
                 >
-                  {{ 'general.edit' | t }}
-                </span>
-                <span 
-                  class="address-item_btn xuer-button xuer-button_link xuer-mini"
-                  address-delete
-                  data-address-id="{{ address.id }}"
-                >
-                  {{ 'general.delete' | t }}
-                </span>
-              </div>
-              <template 
-                id="add-address-tpl-{{ address.id }}" 
-                data-title="{{ 'account.edit_addresses' | t }}"
-              >
-                <xuer-address-form class="address-form drawer-padding-container " data-edit="true" data-address-id="{{ address.id }}">
-                  {%- form 'customer_address', address, class: 'form' -%}
-                    {%- liquid
-                      assign default_address = '0'
-                      if address.id == customer.default_address.id
-                        assign default_address = '1'
-                      endif
-                      render 'form-error-msg', form: form, multi: true
-                      render 'form-input', id: "address[first_name]", name: "address[first_name]", label: 'account.first_name', className: "xuer-line2", value: address.first_name
-                      render 'form-input', id: "address[last_name]", name: "address[last_name]", label: 'account.last_name', className: "xuer-line2", value: address.last_name
-                      render 'form-input', id: "address[company]", name: "address[company]", label: 'account.company', className: "xuer-line2", value: address.company
-                      render 'form-input', id: "address[phone]", name: "address[phone]", label: 'account.phone', className: "xuer-line2", value: address.phone
-                      render 'form-input', id: "address[address1]", name: "address[address1]", label: 'account.addresse1', className: "xuer-line2", value: address.address1
-                      render 'form-input', id: "address[address2]", name: "address[address2]", label: 'account.addresse2', className: "xuer-line2", value: address.address2
-                      render 'form-input', id: "address[city]", name: "address[city]", label: 'account.city', className: "xuer-line2", value: address.city
-                      render 'form-input', id: "address[zip]", name: "address[zip]", label: 'account.zip', className: "xuer-line2", value: address.zip
-                      render 'form-address-select', country: address.country, province: address.province
-                      render 'form-checkbox', id: 'address[default]', name: "address[default]", label: 'account.set_as_default', className: 'xuer-line2', value: default_address
-                      render 'form-button', text: 'general.confirm', className: 'xuer-line2', is_block: true, type: 'submit'
-                    -%}
-                  {%- endform -%}
-                </xuer-address-form>
-              </template>
-            </li>
-          {%- endfor -%}
-        </ul>
-      </xuer-address-list>
-      {% render 'paginate', paginate: paginate %}
-    {%- endpaginate -%}
+                  <xuer-address-form class="address-form drawer-padding-container " data-edit="true" data-address-id="{{ address.id }}">
+                    {%- form 'customer_address', address, class: 'form' -%}
+                      {%- liquid
+                        assign default_address = '0'
+                        if address.id == customer.default_address.id
+                          assign default_address = '1'
+                        endif
+                        render 'form-error-msg', form: form, multi: true
+                        render 'form-input', id: "address[first_name]", name: "address[first_name]", label: 'account.first_name', className: "xuer-line2", value: address.first_name
+                        render 'form-input', id: "address[last_name]", name: "address[last_name]", label: 'account.last_name', className: "xuer-line2", value: address.last_name
+                        render 'form-input', id: "address[company]", name: "address[company]", label: 'account.company', className: "xuer-line2", value: address.company
+                        render 'form-input', id: "address[phone]", name: "address[phone]", label: 'account.phone', className: "xuer-line2", value: address.phone
+                        render 'form-input', id: "address[address1]", name: "address[address1]", label: 'account.addresse1', className: "xuer-line2", value: address.address1
+                        render 'form-input', id: "address[address2]", name: "address[address2]", label: 'account.addresse2', className: "xuer-line2", value: address.address2
+                        render 'form-input', id: "address[city]", name: "address[city]", label: 'account.city', className: "xuer-line2", value: address.city
+                        render 'form-input', id: "address[zip]", name: "address[zip]", label: 'account.zip', className: "xuer-line2", value: address.zip
+                        render 'form-address-select', country: address.country, province: address.province
+                        render 'form-checkbox', id: 'address[default]', name: "address[default]", label: 'account.set_as_default', className: 'xuer-line2', value: default_address
+                        render 'form-button', text: 'general.confirm', className: 'xuer-line2', is_block: true, type: 'submit'
+                      -%}
+                    {%- endform -%}
+                  </xuer-address-form>
+                </template>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </xuer-address-list>
+        {% render 'paginate', paginate: paginate %}
+      {%- endpaginate -%}
+    {% endif %}
+
   </main>
 </div>
 

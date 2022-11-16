@@ -17,7 +17,7 @@ CUSTOMER LONIN
         render 'form-input', id: "customer[password]", type: "password", name: "customer[password]", label: 'account.password', required: true, className: "xuer-line2"
       -%}
       <a href="#recover" class="account-reset xuer-line2"> {{ 'account.forget_password' | t }} </a>
-      {% render 'form-button', text: 'account.login', className: 'xuer-line2', is_block: true, type: 'submit' %}
+      {% render 'form-button', text: 'account.login', className: 'xuer-line2', is_block: true, type: 'submit', uppercase: true %}
     {%- endform -%}
     <div class="create-account xuer-line2">
       <span>{{ 'account.new_customer' | t }}</span>
@@ -41,7 +41,7 @@ CUSTOMER RECOVERY
       {%- liquid
         render 'form-error-msg', form: form
         render 'form-input', id: "customer[email]", type: "email", name: "customer[email]", label: 'account.email', required: true, className: "xuer-line2"
-        render 'form-button', text: 'account.login', className: 'xuer-line2', is_block: true, type: 'submit'
+        render 'form-button', text: 'account.login', className: 'xuer-line2', is_block: true, type: 'submit', uppercase: true
       -%}
     {%- endform -%}
     <a  href="{{ routes.account_login_url }}" class="account-reset xuer-line2">

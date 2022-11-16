@@ -136,7 +136,7 @@ table {
 }
 .shopify-payment-button__button {
   padding: 8px 16px !important;
-  line-height: 20px !important;
+  line-height: 24px !important;
   font-size: 14px !important;
   background-color: var(--secondary_button_background_color) !important;
   color: var(--secondary_button_text_color) !important;
@@ -436,6 +436,8 @@ a:not(.xuer-button_wrapper):hover,
   margin: 8px;
   border-radius: 4px;
   cursor: pointer;
+  box-sizing: border-box;
+  height: 40px;
 }
 .xuer-radio-selector .xuer-option-item .xuer-option-item_btns .xuer-option-item_input:checked + .xuer-option-item_btn {
   border-color: var(--primary_button_background_color);
@@ -484,6 +486,18 @@ a:not(.xuer-button_wrapper):hover,
 .xuer-button.clean:hover {
   background-color: var(--background_color);
   color: var(--text_color);
+}
+.xuer-button.disabled {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+.xuer-button.disabled:hover {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  color: #ffffff !important;
+}
+.xuer-button.disabled:hover svg {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  color: #ffffff !important;
 }
 .xuer-button:hover,
 .xuer-button.active {
@@ -538,7 +552,7 @@ a:not(.xuer-button_wrapper):hover,
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 20px;
+  line-height: 24px;
 }
 .xuer-button .xuer-button-content .xuer-loading {
   display: none;
@@ -566,13 +580,14 @@ a:not(.xuer-button_wrapper):hover,
   align-items: center;
   justify-content: space-between;
   min-width: 140px;
-  height: 48px;
+  height: 40px;
   border: 1px solid var(--border_color);
   border-radius: 2px;
+  box-sizing: border-box;
 }
 .quantity_container .quantity_button {
-  width: 46px;
-  height: 46px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -582,7 +597,7 @@ a:not(.xuer-button_wrapper):hover,
   width: 10px;
 }
 .quantity_container .quantity_input {
-  min-width: 46px;
+  min-width: 38px;
   display: inline-block;
   text-align: center;
 }
@@ -596,7 +611,7 @@ a:not(.xuer-button_wrapper):hover,
 }
 /***** input *****/
 .xuer-input_wrapper {
-  height: 48px;
+  height: 40px;
   display: flex;
   position: relative;
 }
@@ -607,8 +622,8 @@ a:not(.xuer-button_wrapper):hover,
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 45px;
-  line-height: 45px;
+  height: 40px;
+  line-height: 40px;
   padding: 0 16px;
   border-radius: var(--button_border_radius);
   border: 1px solid var(--border_color);
@@ -619,14 +634,14 @@ a:not(.xuer-button_wrapper):hover,
 }
 .xuer-input_wrapper input:focus ~ .xuer-input_label,
 .xuer-input_wrapper input.xuer-focus ~ .xuer-input_label {
-  transform: scale(0.733) translateY(calc(-20px - 0.5em)) translate(3.665px);
+  transform: scale(0.733) translateY(calc(-18px - 0.5em)) translate(3.665px);
 }
 .xuer-input_wrapper input:-internal-autofill-selected {
   background-color: var(--background_color);
 }
 .xuer-input_wrapper .xuer-input_label {
   position: absolute;
-  top: calc(45px / 2 - 0.5em);
+  top: calc(40px / 2 - 0.5em);
   left: 12px;
   padding: 0 5px;
   pointer-events: none;
@@ -672,7 +687,7 @@ a:not(.xuer-button_wrapper):hover,
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  height: 45px;
+  height: 40px;
   width: 100%;
   background: transparent;
   border: 1px solid var(--border_color);
@@ -692,7 +707,7 @@ a:not(.xuer-button_wrapper):hover,
 }
 .xuer-select_wrapper .xuer-select_label {
   position: absolute;
-  top: calc(45px / 2 - 0.5em);
+  top: calc(40px / 2 - 0.5em);
   left: 12px;
   padding: 0 5px;
   pointer-events: none;
@@ -1361,8 +1376,12 @@ a:not(.xuer-button_wrapper):hover,
   width: 20px;
   margin-right: 8px;
 }
+.account {
+  margin: 32px auto;
+}
 .account .account-title {
   text-align: center;
+  margin-bottom: 24px;
 }
 .account .account-description {
   text-align: center;
@@ -1382,7 +1401,7 @@ a:not(.xuer-button_wrapper):hover,
 }
 .account-main {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
   padding: 16px 0;
 }
@@ -1415,11 +1434,22 @@ a:not(.xuer-button_wrapper):hover,
 }
 .account-main .account-main_main {
   flex: 1;
-  padding-left: 16px;
+  padding-left: 40px;
 }
 .account-main .account-main_main .account-main_title,
 .account-main .account-main_main .account-main_info {
   text-align: center;
+}
+.account-main .account-main_main .account-main_content,
+.account-main .account-main_main .account-main_empty {
+  min-height: 240px;
+  display: block;
+}
+.account-main .account-main_main .account-main_empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .account-main .account-main_main .add-address {
   display: flex;
@@ -1682,11 +1712,15 @@ a:not(.xuer-button_wrapper):hover,
   padding-right: 8px;
 }
 #mini-cart-container .empty-cart {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  top: 0;
+  bottom: 0;
   position: absolute;
+  box-sizing: border-box;
+  left: 0;
+  right: 0;
+  text-align: center;
 }

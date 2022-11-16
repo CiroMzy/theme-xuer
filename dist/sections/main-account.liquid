@@ -27,12 +27,21 @@
     </div>
   </aside>
   <main class="account-main_main">
-    <h1 class="account-main_title">
+    <h1 class="account-main_title xuer-line2 xuer-uppercase">
       {{ 'account.orders' | t }}
     </h1>
-    <p class="account-main_info">
-      {{ 'account.no_orders' | t }}
-    </p>
+    
+    {% if customer.addresses_count < 1 %}
+      <div class="account-main_empty">
+        <p class="account-main_info xuer-line2">
+          {{ 'account.no_orders' | t }}
+        </p>
+        <div class="add-address" drawer-open data-action-type="add-address-tpl">
+          {% render 'form-button', text: 'cart.start_shopping', uppercase: true, link: routes.all_products_collection_url %}
+        </div>
+      </div>
+    {% else %}
+    {% endif %}
     <p>
       订单数据：{{ customer.orders | json }}
     </p>

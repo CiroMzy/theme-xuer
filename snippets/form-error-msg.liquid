@@ -2,7 +2,7 @@
 
 {%- if form.errors -%}
   {% if multi == true %}
-    <ul class="xuer-form-error-msg xuer-line xuer-form-error-multi"> 
+    <ul class="xuer-form-error-msg xuer-line2 xuer-form-error-multi"> 
       {%- for field in form.errors -%}
         <li>
           {% render 'icon', name: 'error' %}
@@ -16,7 +16,7 @@
       {%- endfor -%}
     </ul>
   {% else %}
-    <div class="xuer-form-error-msg xuer-line">
+    <div class="xuer-form-error-msg xuer-line2">
       {% render 'icon', name: 'error' %}
       {{ form.errors.messages['form'] }}
     </div>
