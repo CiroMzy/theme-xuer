@@ -9,6 +9,7 @@
   - is_outline: {Boolean} 
   - className: {String} 
   - is_block: {Boolean} 
+  - uppercase: {Boolean} 
   - type: {String} 
   - attrs: {String}
 
@@ -25,18 +26,29 @@
   if is_block == true
     assign block_class = "xuer-button_block"
   endif
+
+  if uppercase == true
+    assign uppercase_class = "xuer-uppercase"
+  endif
+
 -%}
-<button 
-  class="xuer-button  {{ size_class }} {{ className }} {{ block_class }}"
-  {% if type != blank %} 
-    type="{{ type }}"
-  {% endif %}
-  {{ attrs }}
->
-  <div class="xuer-button-content">
-    {% render 'icon', name: 'loading' %}
-    <span xuer-button-text >
-      {{ text | t }} {{ label }}
-    </span>
-  </div>
-</button>
+{% if link != blank %}
+<a href="{{ link }}" class="xuer-button_wrapper">
+{% endif %}
+  <button 
+    class="xuer-button  {{ size_class }} {{ className }} {{ block_class }} {{ uppercase_class }}"
+    {% if type != blank %} 
+      type="{{ type }}"
+    {% endif %}
+    {{ attrs }}
+  >
+    <div class="xuer-button-content">
+      {% render 'icon', name: 'loading' %}
+      <span xuer-button-text >
+        {{ text | t }} {{ label }}
+      </span>
+    </div>
+  </button>
+{% if link != blank %}
+</a>
+{% endif %}

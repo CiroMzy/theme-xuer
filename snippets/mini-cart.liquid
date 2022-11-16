@@ -1,0 +1,52 @@
+<xuer-mini-cart id="mini-cart-container">
+  {% if cart.item_count > 0 %}
+    <form id="mini-cart-form" action="{{ routes.cart_url }}" novalidate method="post">
+      <input type="hidden" name="checkout">
+        {%- for cartItem in cart.items -%}
+          <div class="mini-product_container xuer-line2" mini-product-item data-cart-id="{{ cartItem.id }}">
+            <div class="mini-product_image_wrapper">
+              {% render 'image', image: cartItem.image %}
+            </div>
+            <div class="mini-product_main">
+              <a class="mini-product_title xuer-line">
+                {{ cartItem.title }}
+              </a>
+              <div class="mini-product_options xuer-line">
+                {% for opt in cartItem.options_with_values %}
+                  <span class="mini-product-item">{{ opt.value }}</span>
+                {% endfor %}
+              </div>
+              <div class="mini-product_bottom xuer-line">
+                {% render 'quantity-selector', size: 'mid', quantity: cartItem.quantity, trigger: 'mini-cart' %}
+              </div>
+              <div class="mini-product_remove" mini-cart-remove >
+                {{ 'cart.remove' | t }}
+              </div>
+            </div>
+            <div class="mini-cart_price">
+              {% render 'price', product: cartItem, line_price: true %}
+            </div>
+          </div>
+        {%- endfor -%}
+  
+        <form action="{{ routes.cart_url }}" method="post" id="cart-notification-form">
+          {% assign label = cart.total_price | money | prepend: '(' | append : ')' %}
+          {% render 
+            'form-button', 
+            text: 'cart.checkout',
+            label: label, 
+            className: 'slideshow-content_button' 
+            attrs: 'add-to-cart name="checkout" ',
+            type: 'submit',
+            is_block: true
+          %}
+        </form>
+    </form>
+  {% else %}
+    <div class="empty-cart">
+      <span class="empty-cart_text xuer-line2">{{ 'cart.cart_empty' | t }}</span>
+      {% render 'form-button', text: 'cart.start_shopping', uppercase: true, link: routes.all_products_collection_url %}
+    </div>
+  {% endif %}
+  
+</xuer-mini-cart>  

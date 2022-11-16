@@ -18,11 +18,11 @@
     "no_stock":"No stock"
   },
   "cart": {
-
     "min_cart_title": "Cart",
     "cart_empty": "Your cart is empty",
     "remove": "Remove",
-    "checkout":"Check out"
+    "checkout":"Check out",
+    "start_shopping":"Start shopping"
   },
   "account": {
     "login_title": "Login",

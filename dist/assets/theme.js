@@ -229,6 +229,26 @@ var BaseHTMLElement = class extends HTMLElement {
   setUnLoading(el) {
     $(el).attr('loading', false)
   }
+  getSectionHtml (sectionName) {
+    return new Promise((resolve, reject) => {
+      const url = `${theme.routes.root_url}`;
+      theme.ajax
+        .get(
+          url,
+          {
+            sections: sectionName,
+          },
+          {
+            headers: {
+              accept: "*/*",
+            },
+          }
+        )
+        .then((res) => {
+          resolve(res)
+        });
+    })
+  }
 };
 
 $(function() {
@@ -547,38 +567,18 @@ window.customElements.define("xuer-localization-form", LocalizationForm);
 var MiniCartIcon = class extends BaseHTMLElement {
   connectedCallback() {
     theme.event.resetCartCount = this.resetCartCount.bind(this);
-    this.resetCartCount();
   }
   resetCartCount(updateToDrawer) {
     theme.ajax.get(theme.routes.cart_url_js).then((cart) => {
       this.$container.find(".min-cart-count").html(cart.item_count);
-      if (!cart.items.length) return;
-      var product = cart.items[0];
-      this.setCartHtml(product.product_id, updateToDrawer);
-    });
-  }
-  setCartHtml(productId, updateToDrawer) {
-    const url = `${theme.routes.product_recommendations_url}`;
-    theme.ajax
-      .get(
-        url,
-        {
-          product_id: productId,
-          limit: 10,
-          section_id: "mini-cart",
-        },
-        {
-          headers: {
-            accept: "*/*",
-          },
-        }
-      )
-      .then((res) => {
-        $("#mini-cart-tpl").html(res);
+      this.getSectionHtml("mini-cart").then(res => {
+        const mini_cart_html = res['mini-cart']
+        $("#mini-cart-tpl").html(mini_cart_html);
         if (updateToDrawer) {
-          $("[drawer-content]").html(res);
+          $("[drawer-content]").html(mini_cart_html);
         }
-      });
+      })
+    });
   }
 };
 

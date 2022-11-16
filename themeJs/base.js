@@ -60,6 +60,26 @@ var BaseHTMLElement = class extends HTMLElement {
   setUnLoading(el) {
     $(el).attr('loading', false)
   }
+  getSectionHtml (sectionName) {
+    return new Promise((resolve, reject) => {
+      const url = `${theme.routes.root_url}`;
+      theme.ajax
+        .get(
+          url,
+          {
+            sections: sectionName,
+          },
+          {
+            headers: {
+              accept: "*/*",
+            },
+          }
+        )
+        .then((res) => {
+          resolve(res)
+        });
+    })
+  }
 };
 
 $(function() {

@@ -40,7 +40,6 @@
 }
 
 {% endstyle %}
-
 <script>
 var theme = theme || {}
 theme.routes = {
@@ -51,6 +50,7 @@ theme.routes = {
   product_recommendations_url: {{ routes.product_recommendations_url | json }},
   cart_change_url: {{ routes.cart_change_url | json }},
   account_addresses_url: {{ routes.account_addresses_url | json }},
+  root_url: {{ routes.root_url | json }},
 }
 theme.language = {
   product_add_to_cart: {{ 'product.add_to_cart' | t | json }},
