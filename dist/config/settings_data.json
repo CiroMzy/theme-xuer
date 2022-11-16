@@ -74,14 +74,14 @@
           ],
           "settings": {
             "header_logo": "shopify:\/\/shop_images\/logo.png",
-            "desktop_logo_width": 85,
+            "desktop_logo_width": 205,
             "mobile_logo_width": 120,
             "enable_sticky": true,
             "enable_search": true,
             "menu": "multi-menu",
             "menu_alignment": "center",
             "header_background_color": "#0de6b3",
-            "header_link_color": "#e8f1c4"
+            "header_link_color": "#0248a1"
           }
         },
         "footer": {
