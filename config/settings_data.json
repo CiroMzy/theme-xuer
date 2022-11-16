@@ -24,9 +24,9 @@
       "sections": {
         "announcement-bar": {
           "settings": {
-            "announcement_background_color": "#02867f",
-            "announcement_text_color": "#ffffff",
-            "announcement_link_color": "#990000",
+            "announcement_text_color": "#282828",
+            "announcement_background_color": "#f3fe35",
+            "announcement_link_color": "#282828",
             "announcement_font_size": 14
           },
           "blocks": {
@@ -80,8 +80,8 @@
             "enable_search": true,
             "menu": "multi-menu",
             "menu_alignment": "left",
-            "header_background_color": "#0de6b3",
-            "header_link_color": "#0248a1"
+            "header_background_color": "#282828",
+            "header_link_color": "#ffffff"
           }
         },
         "footer": {
