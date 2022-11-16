@@ -40,17 +40,29 @@
     xuer-image
   >
     <img 
-      {% if sizes_only %}
-        {{ src_list }}
-      {% else %}
-        height="{{ image.height }}" width="{{ image.width }}" alt="{{ alt | default: image.alt | escape }}" src="{{ image | image_url: biggest_size_descriptor, crop: crop }}" srcset="{{ src_list }}"
+      {% if width != blank %}
+        height="{{ width | divided_by: local_aspect_ratio | ceil }}" 
+        width="{{ width }}"
       {% endif %}
+      alt="{{ alt | default: image.alt | escape }}" 
+      src="{{ image | image_url: biggest_size_descriptor, crop: crop }}" 
+      srcset="{{ src_list }}"
+
+      srcset="{% if image.width >= 288 %}{{ image | image_url: width: 288 }} 288w,{% endif %}
+      {% if image.width >= 576 %}{{ image | image_url: width: 576 }} 576w,{% endif %}
+      {% if image.width >= 550 %}{{ image | image_url: width: 550 }} 550w,{% endif %}
+      {% if image.width >= 1100 %}{{ image | image_url: width: 1100 }} 1100w,{% endif %}
+      {{ image | image_url }} {{ image.width }}w"
       sizes="{{ sizes }}"
       loading="lazy" 
       class="xuer-image {{ img_class }} {% if cover %}cover{% endif %}"
     />
+    {% if enable_loading %}
+      {% render 'icon', name: 'loading' %}
+      
+    {% endif %}
     <div class="loading xuer-loading">
-      <svg focusable="false" width="50" height="50" class="icon icon--spinner   " viewBox="25 25 50 50">
+      <svg focusable="false" width="50" height="50" class="icon icon--spinner " viewBox="25 25 50 50">
         <circle cx="50" cy="50" r="20" fill="none" stroke="#282828" stroke-width="4"></circle>
       </svg>
     </div>

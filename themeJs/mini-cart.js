@@ -21,12 +21,16 @@ var MiniCartIcon = class extends BaseHTMLElement {
           limit: 10,
           section_id: "mini-cart",
         },
-        { accept: "*/*" }
+        {
+          headers: {
+            accept: "*/*",
+          },
+        }
       )
       .then((res) => {
         $("#mini-cart-tpl").html(res);
         if (updateToDrawer) {
-          $('[drawer-content]').html(res)
+          $("[drawer-content]").html(res);
         }
       });
   }
@@ -46,7 +50,7 @@ var MiniCart = class extends BaseHTMLElement {
   }
 
   quantityChange({ quantity, e }) {
-    this.cartChange({ quantity, el: e })
+    this.cartChange({ quantity, el: e });
   }
 
   bindDelCart() {
@@ -58,17 +62,17 @@ var MiniCart = class extends BaseHTMLElement {
 
   cartChange({ quantity, el }) {
     var id = this.getProductItemId(el);
-    var $parent = this.getProductItemId(el, true)
-    var $img = $($parent.find('[xuer-image]'))
-    $img.attr('loading', true)
+    var $parent = this.getProductItemId(el, true);
+    var $img = $($parent.find("[xuer-image]"));
+    $img.attr("loading", true);
     theme.ajax
       .post(theme.routes.cart_change_url, {
         id,
         quantity,
       })
       .then(() => {
-        $img.attr('loading', false)
-        theme.event.dispatch('resetCartCount', true)
+        $img.attr("loading", false);
+        theme.event.dispatch("resetCartCount", true);
       });
   }
 };

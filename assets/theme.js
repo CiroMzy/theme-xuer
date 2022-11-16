@@ -71,17 +71,20 @@ theme.event = {
   },
 };
 theme.ajax = {
-  post: function (url, data, message) {
+  post: function (url, data, config={}) {
     return new Promise((resolve, reject) => {
+      var { message=false, dataType = 'text', headers={} } = config
+      console.log('headers', headers);
       $.ajax({
         headers: {
           "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
           accept: "text/javascript",
+          ...headers
         },
         type: "POST",
         url: url,
         data: data,
-        dataType: "text",
+        dataType: dataType,
         success: function (data) {
           try{
             resolve(JSON.parse(data));
@@ -97,7 +100,8 @@ theme.ajax = {
       });
     });
   },
-  get: function (url, params, headers = {}, oterConfig = {}) {
+  get: function (url, params, config = {}) {
+    var { dataType = 'text', headers={} } = config
     return new Promise((resolve, reject) => {
       $.ajax({
         headers: {
@@ -108,8 +112,7 @@ theme.ajax = {
         type: "GET",
         url: url,
         data: params,
-        dataType: "text",
-        ...oterConfig,
+        dataType,
         success: function (data) {
           var res = null
           try{
@@ -234,66 +237,10 @@ $(function() {
     theme.drawer.open(type)
   })
 })
-var Search = class{
-  constructor(){
-    this.$container = $('[drawer-content-wrapper]')
-    this.init()
-  }
-  init () {
-    this.bindSearch()
-  }
-
-  searchProduct(val) {
-    return new Promise(resolve => {
-      if (!val) {
-        resolve('')
-        return
-      }
-      $.ajax({
-        url: theme.routes.predictive_search_url,
-        data: {
-          "q": val,
-          "section_id": "predictive-search",
-          "resources": {
-            "type": "product",
-            "limit": 10,
-            "options": {
-              "unavailable_products": "last",
-              "fields": "title,body,product_type,variants.title,vendor"
-            } 
-          } 
-        },
-        dataType: 'html',
-        success: function success(response) {
-          resolve(response)
-        },
-        error: function error(response) {
-          console.log('Error fetching results');
-        } 
-      });
-    })
-  }
-
-  bindSearch() {
-    var _this = this
-    this.debounceSearchProduct = theme.debounce(_this.searchProduct, 500, _this.insertSearchResult.bind(_this));
-    this.$container.find('.search').bind("input propertychange", function(){
-      _this.$container.find('[drawer-loading]').addClass('show')
-      _this.debounceSearchProduct($(this).val())
-    })
-  }
-
-  insertSearchResult(res) {
-    this.$container.find('[search-result]').html(res)
-    this.$container.find('[drawer-loading]').removeClass('show')
-  }
-}
-
 
 var Drawer = class extends BaseHTMLElement {
   connectedCallback () {
     theme.drawer = this
-    this.searchTplId = 'search-tpl'
     this.$container = $(this)
     this.bindMouseEvent()
     this.controller = null
@@ -305,44 +252,15 @@ var Drawer = class extends BaseHTMLElement {
       _this.close()
     })
   }
-  open(type, params) {
-    switch(type) {
-      case 'search':
-        this.insertHtml(this.searchTplId)
-        $(this).addClass('open')
-        this.controller = new Search()
-        break;
-      case 'min-cart':
-        this.insertHtml('mini-cart-tpl')
-        $(this).addClass('open')
-        break;
-      case 'country':
-        this.insertHtml('country-tpl')
-        $(this).addClass('open')
-        break;
-      case 'language':
-        this.insertHtml('language-tpl')
-        $(this).addClass('open')
-        break;
-      case 'custom':
-        var title = $(`#${params.id}`).data('custom-title')
-        var html = params.html
-        $(this).find('[drawer-content]').html(html)
-        $(this).find('.title').html(title)
-        $(this).addClass('open')
-        break;
-      default:
-        this.insertHtml(type)
-        $(this).addClass('open')
-        break;
-
-    }
-    $(this).find('[drawer-main]').addClass('open')
+  open(type) {
+    this.insertHtml(type)
+    $(this).addClass('open')
+    $(this).find('[drawer-main]').addClass(`open ${this.drawerType}`)
     $('body').addClass('lock')
   }
   close () {
     $('body').removeClass('lock')
-    this.$container.removeClass('open')
+    this.$container.removeClass(`open ${this.drawerType}`)
   }
 
   insertHtml (tplId) {
@@ -462,7 +380,9 @@ var FeaturedProduct = class extends BaseHTMLElement {
           .post(theme.routes.cart_add_url_js, {
             ...data,
             sections: "cart-drawer",
-          }, true)
+          }, {
+            message: true
+          })
           .then((res) => {
             theme.event.dispatch("resetCartCount");
           }).finally(() => {
@@ -647,12 +567,16 @@ var MiniCartIcon = class extends BaseHTMLElement {
           limit: 10,
           section_id: "mini-cart",
         },
-        { accept: "*/*" }
+        {
+          headers: {
+            accept: "*/*",
+          },
+        }
       )
       .then((res) => {
         $("#mini-cart-tpl").html(res);
         if (updateToDrawer) {
-          $('[drawer-content]').html(res)
+          $("[drawer-content]").html(res);
         }
       });
   }
@@ -672,7 +596,7 @@ var MiniCart = class extends BaseHTMLElement {
   }
 
   quantityChange({ quantity, e }) {
-    this.cartChange({ quantity, el: e })
+    this.cartChange({ quantity, el: e });
   }
 
   bindDelCart() {
@@ -684,17 +608,17 @@ var MiniCart = class extends BaseHTMLElement {
 
   cartChange({ quantity, el }) {
     var id = this.getProductItemId(el);
-    var $parent = this.getProductItemId(el, true)
-    var $img = $($parent.find('[xuer-image]'))
-    $img.attr('loading', true)
+    var $parent = this.getProductItemId(el, true);
+    var $img = $($parent.find("[xuer-image]"));
+    $img.attr("loading", true);
     theme.ajax
       .post(theme.routes.cart_change_url, {
         id,
         quantity,
       })
       .then(() => {
-        $img.attr('loading', false)
-        theme.event.dispatch('resetCartCount', true)
+        $img.attr("loading", false);
+        theme.event.dispatch("resetCartCount", true);
       });
   }
 };
@@ -989,3 +913,60 @@ var VariantPicker = class extends BaseHTMLElement {
   }
 };
 window.customElements.define("xuer-variant-picker", VariantPicker);
+
+
+var DrawerSrarch = class extends BaseHTMLElement {
+  connectedCallback () {
+    this.bindSearch()
+    
+  }
+  searchProduct(val) {
+    return new Promise(resolve => {
+      if (!val) {
+        resolve('')
+        return
+      }
+      this.$container.find('[search-loading]').addClass('show')
+      theme.ajax.get(theme.routes.predictive_search_url, {
+        "q": val,
+        "section_id": "predictive-search",
+        "resources": {
+          "type": "product",
+          "limit": 10,
+          "options": {
+            "unavailable_products": "last",
+            "fields": "title,body,product_type,variants.title,vendor"
+          } 
+        } 
+      }, {
+        headers: {
+          'Content-Type': null,
+          "accept": "text/html, */*; q=0.01"
+        },
+        dataType: 'html'
+      }).then(res => {
+        resolve(res)
+      }).catch(() => {
+        console.log('Error fetching results');
+      }).finally(() => {
+        this.$container.find('[search-loading]').removeClass('show')
+      })
+    })
+  }
+
+  bindSearch() {
+    var _this = this
+    this.debounceSearchProduct = theme.debounce(_this.searchProduct, 500, _this.insertSearchResult.bind(_this));
+    console.log(this.$container.find('.search input'));
+    this.$container.find('.search input').bind("input propertychange", function(){
+      _this.$container.find('[drawer-loading]').addClass('show')
+      _this.debounceSearchProduct($(this).val())
+    })
+  }
+
+  insertSearchResult(res) {
+    this.$container.find('[search-result]').html(res)
+  }
+ 
+};
+window.customElements.define("xuer-drawer-search", DrawerSrarch);

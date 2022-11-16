@@ -9,6 +9,7 @@
   - label: {String} 
   - required: {Boolean} 
   - submit_button: {Boolean} 
+  - submit_button_icon: {String} 
   - className: {String} 
   - value: {String} 
 
@@ -19,6 +20,7 @@
 
 {%- liquid
   assign type = type | default: 'text'
+  assign submit_button_icon = submit_button_icon | default: 'arrow-right-line'
 -%}
 
 <xuer-form-input class="xuer-input_wrapper {{ className }}" {% if submit_button == true %} submit-button {% endif %}>
@@ -36,7 +38,7 @@
   <label for="{{ id }}" class="xuer-input_label">{{ label | t }}</label>
   {% if submit_button == true %}
     <button class="xuer-input_submit xuer-button clean" type="submit">
-      {% render 'icon', name: 'arrow-right-line' %}
+      {% render 'icon', name: submit_button_icon %}
     </button>
   {% endif %}
 </xuer-form-input>

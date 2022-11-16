@@ -14,17 +14,20 @@ theme.event = {
   },
 };
 theme.ajax = {
-  post: function (url, data, message) {
+  post: function (url, data, config={}) {
     return new Promise((resolve, reject) => {
+      var { message=false, dataType = 'text', headers={} } = config
+      console.log('headers', headers);
       $.ajax({
         headers: {
           "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
           accept: "text/javascript",
+          ...headers
         },
         type: "POST",
         url: url,
         data: data,
-        dataType: "text",
+        dataType: dataType,
         success: function (data) {
           try{
             resolve(JSON.parse(data));
@@ -40,7 +43,8 @@ theme.ajax = {
       });
     });
   },
-  get: function (url, params, headers = {}, oterConfig = {}) {
+  get: function (url, params, config = {}) {
+    var { dataType = 'text', headers={} } = config
     return new Promise((resolve, reject) => {
       $.ajax({
         headers: {
@@ -51,8 +55,7 @@ theme.ajax = {
         type: "GET",
         url: url,
         data: params,
-        dataType: "text",
-        ...oterConfig,
+        dataType,
         success: function (data) {
           var res = null
           try{

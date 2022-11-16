@@ -19,7 +19,9 @@ var FeaturedProduct = class extends BaseHTMLElement {
           .post(theme.routes.cart_add_url_js, {
             ...data,
             sections: "cart-drawer",
-          }, true)
+          }, {
+            message: true
+          })
           .then((res) => {
             theme.event.dispatch("resetCartCount");
           }).finally(() => {

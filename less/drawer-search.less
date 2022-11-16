@@ -1,0 +1,118 @@
+@import url(./variables.less);
+/**********************
+* drawer-search
+*/
+  /**** drawer search ****/
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .search-input {
+      margin: @distance2;
+      padding: 0;
+      position: relative;
+      .search-submit{
+        position: absolute;
+        right: 12px;
+        top: 0;
+        height: 100%;
+        width: @distance4;
+        color: var(--text_color_fade);
+        .flex-center;
+        height: 100%;
+        svg{
+          width: @distance3;
+          height: @distance3;
+        }
+      }
+    }
+    .search-suggest-wrapper{
+      flex: 1;
+      overflow-y: auto;
+      padding-bottom: @distance2;
+      overscroll-behavior: contain;
+      .shopify-section {
+        &>span{
+          display: none;
+        }
+      }
+    }
+    #predictive-search-results{
+      #predictive-search-products {
+        display: none;
+      }
+      .predictive-search__item {
+        display: flex;
+        &:hover{
+          box-shadow: 0 0 20px @black-background-fade2;
+          background-color: none;
+          opacity: 1;
+        }
+        padding: @distance @distance2;
+        margin: @distance2;
+        .trans;
+        box-shadow: 0 0 5px @black-background-fade2;
+        .trans;
+        img{
+          width: 100px;
+          height: auto;
+          max-height: 300px;
+        }
+        .predictive-search__item-content {
+          flex: 1;
+          padding-left: @distance2;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          .predictive-search__item-heading{
+            margin-bottom: @distance;
+          }
+        }
+      }
+      .predictive-search__list-item {
+        .xuer-image-wrapper {
+          width: 100px;
+        }
+        button{
+          padding: @distance2;
+          border: none;
+          border-top: 1px solid var(--border_color);
+          border-bottom: 1px solid var(--border_color);
+          outline: none;
+          display: flex;
+          justify-content: space-between;
+          cursor: pointer;
+          margin: 0 @distance2;
+          display: block;
+          background: @black-background-fade;
+          flex: 1;
+          &:hover{
+            background: none;
+          }
+          svg{
+            width: @distance2;
+          }
+        }
+      }
+      #predictive-search-option-search-keywords {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .predictive-search__loading-state {
+        display: none;
+      }
+    }
+    .search-loading {
+      display: none;
+      position: fixed;
+      top: 140px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      &.show {
+        display: flex;
+      }
+    }
+  }

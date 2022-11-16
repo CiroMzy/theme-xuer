@@ -76,6 +76,7 @@
     "loading": "Loading...",
     "success": "success",
     "error": "Error",
+    "search": "Search",
 
 
 
@@ -119,9 +120,6 @@
       "page": "Page {{ number }}",
       "next": "Next page",
       "previous": "Previous page"
-    },
-    "search": {
-      "search": "Search"
     },
     "cart": {
       "view": "View my cart ({{ count }})",

@@ -32,6 +32,7 @@ function concatJs() {
     "quantity-selector",
     "slideshow",
     "variant-picker",
+    "drawer-search",
   ];
 
   const computedSrc = jsFiles.map((i) => `themeJs/${i}.js`);
