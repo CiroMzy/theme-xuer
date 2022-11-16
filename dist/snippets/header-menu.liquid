@@ -1,9 +1,9 @@
 
 <xuer-header-menu class="header-menu-warpper">
-  {%- if section.menu != blank -%}
+  {%- if section_settings.menu != blank -%}
     <nav class="menu-menu">
       <ul>
-        {%- for link in section.menu.links -%}
+        {%- for link in section_settings.menu.links -%}
           {%- liquid
             assign wide_mode = false
             if link.levels >= 2

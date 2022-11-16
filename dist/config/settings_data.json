@@ -73,31 +73,15 @@
             "94193147-55d2-49ac-84fa-1004fe724378"
           ],
           "settings": {
-            "logo": null,
-            "header_background_color": "#ffffff",
-            "header_link_color": "#000000",
-
-            
-            "desktop_logo_width": 120,
-            "mobile_logo_img_width_int": 130,
-            "logo_h1": true,
+            "header_logo": "shopify:\/\/shop_images\/woman-and-two-children-stand-in-a-gold-colored-field.jpg",
+            "desktop_logo_width": 80,
+            "mobile_logo_width": 120,
             "enable_sticky": true,
-            "enable_transparent": false,
-            "transparent_color": "#ffffff",
-            "transparent_logo": "shopify:\/\/shop_images\/Upstream_Booklet_Composition_cropped_2-1440x960.jpg",
-            "menu": "multi-menu",
-            "menu_linklist_mobile": "",
-            "menu_layout": "inline-menu-center",
-            "nav_featured_link": "Sale",
-            "enable_mobile_promo_carousel": true,
-            "enable_nav_mob_products": false,
-            "nav_mob_products_title": "Best Sellers",
-            "nav_mob_products_collection": "",
             "enable_search": true,
-            "search_suggestions_title": "",
-            "search_suggestions_menu": "",
-            "icon_strategy": "icons_only",
-            "cart_icon": "bag"
+            "menu": "multi-menu",
+            "menu_alignment": "left",
+            "header_background_color": "#ffffff",
+            "header_link_color": "#000000"
           }
         },
         "footer": {

@@ -13,22 +13,28 @@
   --header_link_color: {{ section.settings.header_link_color }};
 }
 {% endstyle %}
+
+{%- capture search_button -%}
+<div class="header-icon" drawer-open data-action-type="search">
+  {% render 'icon', name: 'search' %}
+</div>
+{%- endcapture -%}
 <xuer-header class="header-wrapper  full-width-padding">
   <div class="page_width header-main">
     {%- liquid
       if section.settings.menu_alignment == 'left' 
         if section.settings.menu == blank and section.settings.enable_search
-          render 'icon', name: 'search'
+          echo search_button
         else
-          render 'header-menu', section: section.settings, blocks: section.blocks
+          render 'header-menu', section_settings: section.settings, blocks: section.blocks
         endif
-        render 'header-logo', section: section.settings
+        render 'header-logo', section_settings: section.settings
         render 'header-icons', enable_search: section.settings.enable_search and section.settings.menu != blank
       endif
   
       if section.settings.menu_alignment == 'center' 
-        render 'header-logo', section: section.settings
-        render 'header-menu', section: section.settings, blocks: section.blocks
+        render 'header-logo', section_settings: section.settings
+        render 'header-menu', section_settings: section.settings, blocks: section.blocks
         render 'header-icons', enable_search: section.settings.enable_search
       endif
     -%}
