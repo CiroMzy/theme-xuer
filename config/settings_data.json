@@ -6,6 +6,7 @@
       "heading_color": "#282828",
       "text_color": "#282828",
       "background_color": "#ffffff",
+      "secondary_background_color": "#F5F5F5",
       "border_color": "#e2e2e2",
       "success_color": "#52c41a",
       "error_color": "#d9363e",
@@ -18,6 +19,7 @@
       "type_header_font": "zurich_extended_n8",
       "capitalize_headings": false,
       "type_base_font": "lato_n4",
+      "heading_text_transform": "uppercase",
       
       "page_width": 1200,
       
