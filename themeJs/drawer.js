@@ -16,12 +16,16 @@ var Drawer = class extends BaseHTMLElement {
   open(type) {
     this.insertHtml(type)
     $(this).addClass('open')
-    $(this).find('[drawer-main]').addClass(`open ${this.drawerType}`)
+    $(this).find('[xuer-header]').addClass('xuer-animate_fadeInUp')
+    $(this).find('[drawer-content]').addClass('xuer-animate_fadeInUp')
     $('body').addClass('lock')
   }
   close () {
     $('body').removeClass('lock')
     this.$container.removeClass(`open ${this.drawerType}`)
+    this.$container.find('[xuer-header]').removeClass('xuer-animate_fadeInUp')
+    this.$container.find('[drawer-content]').removeClass('xuer-animate_fadeInUp')
+    
   }
 
   insertHtml (tplId) {

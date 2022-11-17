@@ -41,8 +41,8 @@
       "settings": {
         "title": "Collections",
         "show_collection_title": true,
-        "display_type": "selected",
-        "collections_per_page": 3,
+        "display_type": "all",
+        "collections_per_page": 21,
         "overlay_opacity": 20
       }
     }
