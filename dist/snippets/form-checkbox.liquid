@@ -5,6 +5,7 @@
   - id: {String} 
   - name: {String} 
   - label: {String} 
+  - text: {String} 
   - className: {String} 
 
 {% endcomment %}
@@ -20,6 +21,8 @@
     {%- if val == 1 -%} checked="true" {%- endif -%}
     >
     <div class="xuer-fake-rect"></div>
-    <label for="{{ id }}" class="xuer-checkbox_label">{{ label | t }}</label>
+    <label for="{{ id }}" class="xuer-checkbox_label">
+      {{ label | t }} {{ text }}
+    </label>
   </div>
 </xuer-form-checkbox>

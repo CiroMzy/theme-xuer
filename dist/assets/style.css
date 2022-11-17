@@ -824,9 +824,6 @@ a.xuer-image-enlarge:hover {
   align-items: center;
   position: relative;
 }
-.xuer-checkbox_wrapper input {
-  display: none;
-}
 .xuer-checkbox_wrapper .xuer-checkbox {
   position: absolute;
   left: 0;
@@ -873,6 +870,42 @@ a.xuer-image-enlarge:hover {
   cursor: pointer;
   padding-left: 8px;
   color: var(--text_color_fade);
+}
+/**********************
+* collapse
+*/
+.xuer-collapse {
+  max-width: 300px;
+  display: block;
+}
+.xuer-collapse .xuer-collapse_item {
+  border-top: 1px solid var(--border_color);
+  border-bottom: 1px solid var(--border_color);
+}
+.xuer-collapse .xuer-collapse_item .xuer-collapse_item-title {
+  font-size: 16px;
+  padding: 24px 0;
+  position: relative;
+}
+.xuer-collapse .xuer-collapse_item .xuer-collapse_item-title .xuer-collapse_item-arrow {
+  position: absolute;
+  right: 8px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.xuer-collapse .xuer-collapse_item .xuer-collapse_item-title .xuer-collapse_item-arrow svg {
+  width: 16px;
+}
+.xuer-collapse .xuer-collapse_item .xuer-collapse_item-main {
+  height: 0;
+  overflow: hidden;
+  transform: 0.3s ease height;
+}
+.xuer-collapse .xuer-collapse_item.open .xuer-collapse_item-main {
+  height: auto;
 }
 /***************
 * header
@@ -1847,4 +1880,22 @@ a.xuer-image-enlarge:hover {
 */
 .xuer-page_second-banner .banner-container {
   height: 300px;
+}
+/**********************
+* main-collections
+*/
+.main-product {
+  display: flex;
+  margin-bottom: 30px;
+}
+.main-product .main-product_slide {
+  width: 45%;
+}
+.main-product .main-product_blocks {
+  width: 50%;
+  box-sizing: border-box;
+  padding-left: 24px;
+}
+.main-product .main-product_blocks .main-product_row {
+  margin-bottom: 16px;
 }

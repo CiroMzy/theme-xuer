@@ -1,0 +1,38 @@
+@import url(./variables.less);
+/**********************
+* collapse
+*/
+.xuer-collapse {
+  max-width: 300px;
+  display: block;
+  .xuer-collapse_item {
+    border-top: 1px solid var(--border_color);
+    border-bottom: 1px solid var(--border_color);
+    .xuer-collapse_item-title {
+      font-size: 16px;
+      padding: @distance3 0;
+      position: relative;
+      .xuer-collapse_item-arrow {
+        position: absolute;
+        right: @distance;
+        top: 0;
+        height: 100%;
+        .flex-center;
+        svg{
+          width: 16px;
+        }
+      }
+    }
+    .xuer-collapse_item-main {
+      height: 0;
+      overflow: hidden;
+      transform: 0.3s ease height;
+    }
+    &.open {
+      .xuer-collapse_item-main {
+        height: auto;
+      }
+    }
+  }
+
+}

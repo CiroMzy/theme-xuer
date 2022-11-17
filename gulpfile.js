@@ -15,6 +15,7 @@ function concatJs() {
     "message",
     "tools",
     "base",
+    "collapse",
     "drawer",
     "address-form",
     "address-list",
