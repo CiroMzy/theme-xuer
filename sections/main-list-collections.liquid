@@ -1,6 +1,3 @@
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
-
 <div class="page_width main-list-collections ">
   {% if section.settings.title != blank %}
     <h1 class="xuer-h1 xuer-page-title ">{{ section.settings.title }}</h1>
@@ -25,12 +22,12 @@
               assign collection_image = item.settings.image | default: collection.featured_image
             endif
           -%}
-          <a href="{{ collection.url }}" class="list-collections__item xuer-image-enlarge">
+          <a href="{{ collection.url }}" class="list-collections__item xuer-image-enlarge xuer-overlay_wrapper">
             {% render 'image', image: collection_image, sizes: '25vw', default_image: 'no_image' %}
             {%- if section.settings.show_collection_title -%}
-              <div class="list-collections__item-content">
-                <div class="list-collections_item-cover" style="opacity: {{ section.settings.overlay_opacity }}%"></div>
-                <h2 class="list-collection__item-title xuer-h2">{{ collection.title }}</h2>
+              <div class="xuer-overlay">
+                <div class="xuer-overlay_cover" style="opacity: {{ section.settings.overlay_opacity }}%;;background-color: {{ section.settings.overlay_color }};"></div>
+                <h2 class="xuer-overlay_title xuer-h2" style="color: {{ section.settings.title_color }}">{{ collection.title }}</h2>
               </div>
             {%- endif -%}
           </a>
@@ -87,6 +84,18 @@
       "default": 30
     },
     {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
       "type": "range",
       "id": "overlay_opacity",
       "label": "Overlay opacity",
@@ -94,7 +103,7 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "default": 30
+      "default": 20
     }
   ],
   "blocks": [

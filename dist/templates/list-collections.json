@@ -40,10 +40,12 @@
       ],
       "settings": {
         "title": "Collections",
+        "title_color": "#ffffff",
         "show_collection_title": true,
         "display_type": "all",
         "collections_per_page": 21,
-        "overlay_opacity": 20
+        "overlay_opacity": 20,
+        "overlay_color": "#000000"
       }
     }
   },

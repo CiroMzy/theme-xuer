@@ -41,6 +41,25 @@ a, .link{
 }
 .xuer-image-outer-wrapper {
   width: 100%;
+  &.is_cover {
+    .xuer-image-wrapper {
+      padding-top: 0 !important;
+      height: 100%;
+      .xuer-image {
+        position: relative;
+        object-fit: cover;
+      }
+    }
+    .no-image {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg{
+        height: 100%;
+      }
+    }
+  }
   .no-image {
     padding: @distance2;
     svg{

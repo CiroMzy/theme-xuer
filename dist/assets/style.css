@@ -250,6 +250,23 @@ a,
 .xuer-image-outer-wrapper {
   width: 100%;
 }
+.xuer-image-outer-wrapper.is_cover .xuer-image-wrapper {
+  padding-top: 0 !important;
+  height: 100%;
+}
+.xuer-image-outer-wrapper.is_cover .xuer-image-wrapper .xuer-image {
+  position: relative;
+  object-fit: cover;
+}
+.xuer-image-outer-wrapper.is_cover .no-image {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.xuer-image-outer-wrapper.is_cover .no-image svg {
+  height: 100%;
+}
 .xuer-image-outer-wrapper .no-image {
   padding: 16px;
 }
@@ -462,6 +479,30 @@ a.xuer-image-enlarge:hover {
 .xuer-page-main .xuer-pagination {
   margin-top: 24px;
   text-align: center;
+}
+.xuer-overlay_wrapper {
+  position: relative;
+}
+.xuer-overlay_wrapper .xuer-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.xuer-overlay_wrapper .xuer-overlay .xuer-overlay_cover {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.xuer-overlay_wrapper .xuer-overlay .xuer-overlay_title {
+  position: relative;
+  z-index: 2;
 }
 /**********************
 * form
@@ -1800,29 +1841,10 @@ a.xuer-image-enlarge:hover {
 }
 .main-list-collections .list-collections_list .list-collections__item {
   background-color: var(--secondary_background_color);
-  position: relative;
 }
-.main-list-collections .list-collections_list .list-collections__item .list-collections__item-content {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.main-list-collections .list-collections_list .list-collections__item .list-collections__item-content .list-collections_item-cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000000;
-}
-.main-list-collections .list-collections_list .list-collections__item .list-collections__item-content .list-collection__item-title {
-  text-align: center;
-  color: #fff;
-  z-index: 0;
-  position: relative;
+/**********************
+* second-banner
+*/
+.xuer-page_second-banner .banner-container {
+  height: 300px;
 }
