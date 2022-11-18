@@ -58,6 +58,7 @@ var Message = class {
 theme.swipers = {};
 theme.event = {
   miniCartCountChange: null,
+  priceRangeChange: null,
   dispatch: function (key, params) {
     if (!theme.event[key]) return
     var evt = theme.event[key]
@@ -127,7 +128,7 @@ theme.ajax = {
         },
       });
     });
-  },
+  }
 };
 
 theme.debounce = function (func, wait, callback) {
@@ -332,6 +333,7 @@ window.customElements.define("xuer-drawer", Drawer);
 var PriceRange = class extends BaseHTMLElement {
   connectedCallback () {
     this.datas = this.$container.data()
+    this.debounceUpdate = theme.debounce(this.debounceUpdateHandler, 500);
     this.bindMouseEvent()
   }
   bindMouseEvent () {
@@ -341,7 +343,7 @@ var PriceRange = class extends BaseHTMLElement {
       step: 1,
       scale: [],
       format: '%s',
-      width: 300,
+      width: 280,
       showLabels: false,
       showScale: false,
       isRange : true,
@@ -350,8 +352,18 @@ var PriceRange = class extends BaseHTMLElement {
   }
   onPriceChange (e) {
     var prices = e.split(',')
-    this.$container.find('.price-start').html(prices[0])
-    this.$container.find('.price-end').html(prices[1])
+    this.startPrice = prices[0]
+    this.endPrice = prices[1]
+    this.$container.find('.price-start').html(this.startPrice)
+    this.$container.find('.price-end').html(this.endPrice)
+    this.debounceUpdate({startPrice:this.startPrice, endPrice:this.endPrice })
+    
+  }
+  debounceUpdateHandler (params) {
+    return new Promise(resolve => {
+      theme.event.dispatch('priceRangeChange', params)
+      resolve()
+    })
   }
 };
 window.customElements.define("xuer-price-range", PriceRange);
@@ -439,6 +451,46 @@ var AnnouncementBar = class extends BaseHTMLElement {
   }
 };
 window.customElements.define("xuer-announcement-bar", AnnouncementBar);
+
+/*******
+ * product-filters
+ */
+
+var ProductFilters = class extends BaseHTMLElement {
+  connectedCallback () {
+    this.sectionId = this.$container.data('sectionId')
+    this.bindEvent()
+  }
+  bindEvent () {
+    theme.event.priceRangeChange = this.updatePageFilters.bind(this);
+  }
+  updatePageFilters (params) {
+    this.startPrice = params.startPrice
+    this.endPrice = params.endPrice
+    var formData = this.getFormData()
+    this.getCollectionPage(formData).then(html => {
+      console.log('html', html);
+    })
+  }
+  getFormData () {
+    var formEl = this.$container.find('[product-filters-form]')
+    var formData = $(formEl).serializeObject()
+    formData['filter.v.price.gte'] = this.startPrice
+    formData['filter.v.price.lte'] = this.endPrice
+    formData['section_id'] = this.sectionId
+    formData['sort_by'] = 'best-selling'
+    return formData
+  }
+
+  getCollectionPage (data) {
+    return new Promise(resolve => {
+      theme.ajax.get(window.location.pathname, data, {headers:{accept: '*/*'}}).then((res) => {
+        resolve(res)
+      });
+    })
+  }
+};
+window.customElements.define("xuer-product-filters", ProductFilters);
 
 var FeaturedProduct = class extends BaseHTMLElement {
   connectedCallback() {

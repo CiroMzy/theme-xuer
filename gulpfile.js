@@ -21,6 +21,7 @@ function concatJs() {
     "address-form",
     "address-list",
     "announcement-bar",
+    "product-filters",
     "featured-product",
     "footer",
     "form-address-select",

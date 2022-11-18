@@ -1,6 +1,7 @@
 theme.swipers = {};
 theme.event = {
   miniCartCountChange: null,
+  priceRangeChange: null,
   dispatch: function (key, params) {
     if (!theme.event[key]) return
     var evt = theme.event[key]
@@ -70,7 +71,7 @@ theme.ajax = {
         },
       });
     });
-  },
+  }
 };
 
 theme.debounce = function (func, wait, callback) {

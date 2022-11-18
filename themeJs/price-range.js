@@ -5,6 +5,7 @@
 var PriceRange = class extends BaseHTMLElement {
   connectedCallback () {
     this.datas = this.$container.data()
+    this.debounceUpdate = theme.debounce(this.debounceUpdateHandler, 500);
     this.bindMouseEvent()
   }
   bindMouseEvent () {
@@ -14,7 +15,7 @@ var PriceRange = class extends BaseHTMLElement {
       step: 1,
       scale: [],
       format: '%s',
-      width: 300,
+      width: 280,
       showLabels: false,
       showScale: false,
       isRange : true,
@@ -23,8 +24,18 @@ var PriceRange = class extends BaseHTMLElement {
   }
   onPriceChange (e) {
     var prices = e.split(',')
-    this.$container.find('.price-start').html(prices[0])
-    this.$container.find('.price-end').html(prices[1])
+    this.startPrice = prices[0]
+    this.endPrice = prices[1]
+    this.$container.find('.price-start').html(this.startPrice)
+    this.$container.find('.price-end').html(this.endPrice)
+    this.debounceUpdate({startPrice:this.startPrice, endPrice:this.endPrice })
+    
+  }
+  debounceUpdateHandler (params) {
+    return new Promise(resolve => {
+      theme.event.dispatch('priceRangeChange', params)
+      resolve()
+    })
   }
 };
 window.customElements.define("xuer-price-range", PriceRange);

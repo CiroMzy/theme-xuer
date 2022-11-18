@@ -17,8 +17,8 @@
   * https://github.com/nitinhayaran/jRange/blob/master/LICENSE
  */
  .slider-container {
-  width: 300px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 280px;
+  margin: 0 auto;
 }
 .slider-container .back-bar {
   height: 10px;

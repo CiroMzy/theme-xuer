@@ -1,15 +1,10 @@
 
-{% render 'form-price-range', 
-  value_start: '20', 
-  value_end: '60',
-  range_start: '5',
-  range_end: '120'
-%}
+
 
 {% comment %}
 - filters: Liquid 'collection.filters' or 'search.filters' object
 {% endcomment %}
-<div class="product-filters_container">
+<xuer-product-filters class="product-filters_container" data-section-id="{{ section.id }}">
   <div class="product-filters_selected">
     <ul class="no-bullets tag-list tag-list--active-tags">
       {%- for filter in filters -%}
@@ -21,7 +16,7 @@
       {%- endfor -%}
     </ul>
   </div>
-  <form class="product-filters_form">
+  <form class="product-filters_form" product-filters-form >
     <xuer-collapse class="xuer-collapse">
       {%- for filter in filters -%}
         <div class="xuer-collapse_item" xuer-collapse-item>
@@ -33,25 +28,33 @@
           </div>
           <div class="xuer-collapse_item-main" xuer-collapse-main >
             <div class="xuer-collapse_item-content xuer-animated " xuer-collapse-content >
-              {%- for filter_value in filter.values -%}
-                <div class="xuer-collapse_item-selector">
-                  {%- liquid
-                    assign count_str = filter_value.count | prepend: '(' | append: ')'
-                    assign label_str = filter_value.label | escape | append: count_str
-                    render 'form-checkbox', id: filter_value.param_name, name: filter_value.param_name, text: label_str, className: "xuer-line2", value: filter_value.value 
-                  -%}
-                </div>
-              {%- endfor -%}
+              {%- case filter.type -%}
+                {%- when 'list' -%}
+                  {%- for filter_value in filter.values -%}
+                    <div class="xuer-collapse_item-selector">
+                      {%- liquid
+                        assign count_str = filter_value.count | prepend: '(' | append: ')'
+                        assign label_str = filter_value.label | escape | append: count_str
+                        render 'form-checkbox', id: filter_value.param_name, name: filter_value.param_name, text: label_str, className: "xuer-line2", value: filter_value.value 
+                      -%}
+                    </div>
+                  {%- endfor -%}
+                {%- when 'price_range'-%}
+                  {% render 'form-price-range', 
+                    value_start: '20', 
+                    value_end: '60',
+                    range_start: '5',
+                    range_end: '120'
+                  %}
+              {%- endcase -%}
             </div>
-            ==
-            -
           </div>
         </div>
       {%- endfor -%}
     
     </xuer-collapse>
   </form>
-</div>
+</xuer-product-filters>
 
 
 
