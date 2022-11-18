@@ -886,12 +886,14 @@ a.xuer-image-enlarge:hover {
   font-size: 16px;
   padding: 24px 0;
   position: relative;
+  cursor: pointer;
 }
 .xuer-collapse .xuer-collapse_item .xuer-collapse_item-title .xuer-collapse_item-arrow {
   position: absolute;
   right: 8px;
   top: 0;
   height: 100%;
+  transition: 0.3s ease all;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -902,10 +904,15 @@ a.xuer-image-enlarge:hover {
 .xuer-collapse .xuer-collapse_item .xuer-collapse_item-main {
   height: 0;
   overflow: hidden;
-  transform: 0.3s ease height;
+  transition: 0.3s ease height;
+  display: block;
 }
-.xuer-collapse .xuer-collapse_item.open .xuer-collapse_item-main {
-  height: auto;
+.xuer-collapse .xuer-collapse_item .xuer-collapse_item-main .xuer-collapse_item-content {
+  padding-bottom: 16px;
+}
+.xuer-collapse .xuer-collapse_item.open .xuer-collapse_item-title .xuer-collapse_item-arrow {
+  transform: rotate(180deg);
+  transform-origin: center;
 }
 /***************
 * header

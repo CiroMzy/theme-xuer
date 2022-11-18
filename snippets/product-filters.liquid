@@ -16,23 +16,25 @@
   <form class="product-filters_form">
     <xuer-collapse class="xuer-collapse">
       {%- for filter in filters -%}
-        <div class="xuer-collapse_item">
-          <div class="xuer-collapse_item-title" data-collapsible-id="{{ filter.label }}">
+        <div class="xuer-collapse_item" xuer-collapse-item>
+          <div class="xuer-collapse_item-title" xuer-collapse-title data-collapsible-id="{{ filter.label }}">
             <span>{{ filter.label | escape }}</span>
             <div class="xuer-collapse_item-arrow">
               {% render 'icon', name: 'arrow-up' %}
             </div>
           </div>
-          <div class="xuer-collapse_item-main">
-            {%- for filter_value in filter.values -%}
-              <div class="xuer-collapse_item-selector">
-                {%- liquid
-                  assign count_str = filter_value.count | prepend: '(' | append: ')'
-                  assign label_str = filter_value.label | escape | append: count_str
-                  render 'form-checkbox', id: filter_value.param_name, name: filter_value.param_name, text: label_str, className: "xuer-line2", value: filter_value.value 
-                -%}
-              </div>
-            {%- endfor -%}
+          <div class="xuer-collapse_item-main" xuer-collapse-main >
+            <div class="xuer-collapse_item-content xuer-animated " xuer-collapse-content >
+              {%- for filter_value in filter.values -%}
+                <div class="xuer-collapse_item-selector">
+                  {%- liquid
+                    assign count_str = filter_value.count | prepend: '(' | append: ')'
+                    assign label_str = filter_value.label | escape | append: count_str
+                    render 'form-checkbox', id: filter_value.param_name, name: filter_value.param_name, text: label_str, className: "xuer-line2", value: filter_value.value 
+                  -%}
+                </div>
+              {%- endfor -%}
+            </div>
             ==
             -
           </div>

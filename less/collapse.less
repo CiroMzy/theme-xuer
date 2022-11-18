@@ -12,11 +12,13 @@
       font-size: 16px;
       padding: @distance3 0;
       position: relative;
+      cursor: pointer;
       .xuer-collapse_item-arrow {
         position: absolute;
         right: @distance;
         top: 0;
         height: 100%;
+        .trans;
         .flex-center;
         svg{
           width: 16px;
@@ -26,11 +28,18 @@
     .xuer-collapse_item-main {
       height: 0;
       overflow: hidden;
-      transform: 0.3s ease height;
+      transition: 0.3s ease height;
+      display: block;
+      .xuer-collapse_item-content {
+        padding-bottom: @distance2;
+      }
     }
     &.open {
-      .xuer-collapse_item-main {
-        height: auto;
+      .xuer-collapse_item-title {
+        .xuer-collapse_item-arrow {
+          transform: rotate(180deg);
+          transform-origin: center;
+        }
       }
     }
   }

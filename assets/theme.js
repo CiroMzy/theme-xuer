@@ -263,12 +263,17 @@ var Collapse = class extends BaseHTMLElement {
     this.bindEvents()
   }
   bindEvents () {
-    this.$container.find('.xuer-collapse_item').each(function(idx, el) {
+    this.$container.find('[xuer-collapse-item]').each(function(idx, el) {
       var $item = $(el)
-      $(el).find('.xuer-collapse_item-title').click(function () {
+      $(el).find('[xuer-collapse-title]').click(function () {
         if ($item.hasClass('open')) {
+          $item.find('[xuer-collapse-main]').height(0)
+          $item.find('[xuer-collapse-content]').removeClass('xuer-animate_fadeInUp')
           $item.removeClass('open')
         } else {
+          var height = $item.find('[xuer-collapse-content]').outerHeight()
+          $item.find('[xuer-collapse-main]').height(height)
+          $item.find('[xuer-collapse-content]').addClass('xuer-animate_fadeInUp')
           $item.addClass('open')
         }
       })
