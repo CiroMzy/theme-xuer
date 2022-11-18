@@ -871,6 +871,20 @@ a.xuer-image-enlarge:hover {
   padding-left: 8px;
   color: var(--text_color_fade);
 }
+/***** price-range *****/
+.xuer-price-range_container {
+  display: block;
+}
+.xuer-price-range_container .price-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 24px;
+  padding-bottom: 8px;
+}
+.xuer-price-range_container .back-bar .selected-bar {
+  background: var(--primary_color);
+}
 /**********************
 * collapse
 */
@@ -1855,6 +1869,9 @@ a.xuer-image-enlarge:hover {
 /**********************
 * main-collections
 */
+.collection-aside {
+  width: 300px;
+}
 .main-product {
   display: flex;
   margin-bottom: 30px;

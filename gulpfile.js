@@ -17,6 +17,7 @@ function concatJs() {
     "base",
     "collapse",
     "drawer",
+    "price-range",
     "address-form",
     "address-list",
     "announcement-bar",
