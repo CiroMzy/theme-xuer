@@ -1,6 +1,7 @@
 var QuantitySelector = class extends BaseHTMLElement {
   connectedCallback() {
     this.$input = $(this.$container.find('input'))
+    this.debounceUpdate = theme.debounce(this.debounceUpdateHandler);
     this.bindInputEvents();
     this.bindButtons()
   }
@@ -43,11 +44,18 @@ var QuantitySelector = class extends BaseHTMLElement {
     this.$input.val(val)
     this.$input.attr('size', `${val}`.length)
     if (this.$container.data('trigger') === 'mini-cart') {
-      theme.event.dispatch('miniCartCountChange', {
+      this.debounceUpdate({
         e: this.$input,
         quantity: val
       })
     }
+  }
+
+  debounceUpdateHandler (params) {
+    return new Promise(resolve => {
+      theme.event.dispatch('miniCartCountChange', params)
+      resolve()
+    })
   }
 
   getCurInputVal () {

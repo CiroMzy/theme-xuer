@@ -131,7 +131,7 @@ theme.ajax = {
   }
 };
 
-theme.debounce = function (func, wait, callback) {
+theme.debounce = function (func, wait = 800, callback) {
   var timeout;
   return function () {
     var context = this,
@@ -333,7 +333,7 @@ window.customElements.define("xuer-drawer", Drawer);
 var PriceRange = class extends BaseHTMLElement {
   connectedCallback () {
     this.datas = this.$container.data()
-    this.debounceUpdate = theme.debounce(this.debounceUpdateHandler, 500);
+    this.debounceUpdate = theme.debounce(this.debounceUpdateHandler);
     this.bindMouseEvent()
   }
   bindMouseEvent () {
@@ -786,6 +786,7 @@ window.customElements.define("xuer-product-slide", ProductSlide);
 var QuantitySelector = class extends BaseHTMLElement {
   connectedCallback() {
     this.$input = $(this.$container.find('input'))
+    this.debounceUpdate = theme.debounce(this.debounceUpdateHandler);
     this.bindInputEvents();
     this.bindButtons()
   }
@@ -828,11 +829,18 @@ var QuantitySelector = class extends BaseHTMLElement {
     this.$input.val(val)
     this.$input.attr('size', `${val}`.length)
     if (this.$container.data('trigger') === 'mini-cart') {
-      theme.event.dispatch('miniCartCountChange', {
+      this.debounceUpdate({
         e: this.$input,
         quantity: val
       })
     }
+  }
+
+  debounceUpdateHandler (params) {
+    return new Promise(resolve => {
+      theme.event.dispatch('miniCartCountChange', params)
+      resolve()
+    })
   }
 
   getCurInputVal () {
@@ -1069,7 +1077,7 @@ var DrawerSrarch = class extends BaseHTMLElement {
 
   bindSearch() {
     var _this = this
-    this.debounceSearchProduct = theme.debounce(_this.searchProduct, 500, _this.insertSearchResult.bind(_this));
+    this.debounceSearchProduct = theme.debounce(_this.searchProduct, 800, _this.insertSearchResult.bind(_this));
     console.log(this.$container.find('.search input'));
     this.$container.find('.search input').bind("input propertychange", function(){
       _this.$container.find('[drawer-loading]').addClass('show')

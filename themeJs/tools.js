@@ -74,7 +74,7 @@ theme.ajax = {
   }
 };
 
-theme.debounce = function (func, wait, callback) {
+theme.debounce = function (func, wait = 800, callback) {
   var timeout;
   return function () {
     var context = this,

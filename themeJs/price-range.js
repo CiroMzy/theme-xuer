@@ -5,7 +5,7 @@
 var PriceRange = class extends BaseHTMLElement {
   connectedCallback () {
     this.datas = this.$container.data()
-    this.debounceUpdate = theme.debounce(this.debounceUpdateHandler, 500);
+    this.debounceUpdate = theme.debounce(this.debounceUpdateHandler);
     this.bindMouseEvent()
   }
   bindMouseEvent () {

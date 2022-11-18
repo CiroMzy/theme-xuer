@@ -40,7 +40,7 @@ var DrawerSrarch = class extends BaseHTMLElement {
 
   bindSearch() {
     var _this = this
-    this.debounceSearchProduct = theme.debounce(_this.searchProduct, 500, _this.insertSearchResult.bind(_this));
+    this.debounceSearchProduct = theme.debounce(_this.searchProduct, 800, _this.insertSearchResult.bind(_this));
     console.log(this.$container.find('.search input'));
     this.$container.find('.search input').bind("input propertychange", function(){
       _this.$container.find('[drawer-loading]').addClass('show')
