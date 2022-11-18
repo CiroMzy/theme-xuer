@@ -3,10 +3,9 @@
     "banner": {
       "type": "main-collection-banner",
       "settings": {
+        "show_collection_banner": true,
         "show_collection_title": true,
-        "show_collection_image": false,
         "text_color": "#ffffff",
-        "overlay_color": "#000000",
         "overlay_opacity": 30
       }
     },

@@ -21,7 +21,7 @@
       {%- for filter in filters -%}
         <div class="xuer-collapse_item" xuer-collapse-item>
           <div class="xuer-collapse_item-title" xuer-collapse-title data-collapsible-id="{{ filter.label }}">
-            <span>{{ filter.label | escape }}</span>
+            <span class="xuer-h5">{{ filter.label | escape }}</span>
             <div class="xuer-collapse_item-arrow">
               {% render 'icon', name: 'arrow-up' %}
             </div>
