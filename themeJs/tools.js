@@ -2,6 +2,7 @@ theme.swipers = {};
 theme.event = {
   miniCartCountChange: null,
   priceRangeChange: null,
+  formChange: [],
   dispatch: function (key, params) {
     if (!theme.event[key]) return
     var evt = theme.event[key]

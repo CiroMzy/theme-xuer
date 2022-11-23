@@ -59,6 +59,7 @@ theme.swipers = {};
 theme.event = {
   miniCartCountChange: null,
   priceRangeChange: null,
+  formChange: [],
   dispatch: function (key, params) {
     if (!theme.event[key]) return
     var evt = theme.event[key]
@@ -355,13 +356,15 @@ var PriceRange = class extends BaseHTMLElement {
     this.startPrice = prices[0]
     this.endPrice = prices[1]
     this.$container.find('.price-start').html(this.startPrice)
+    this.$container.find('[price_gte]').val(this.startPrice)
     this.$container.find('.price-end').html(this.endPrice)
+    this.$container.find('[price_lte]').val(this.endPrice)
     this.debounceUpdate({startPrice:this.startPrice, endPrice:this.endPrice })
     
   }
   debounceUpdateHandler (params) {
     return new Promise(resolve => {
-      theme.event.dispatch('priceRangeChange', params)
+      theme.event.dispatch("formChange");
       resolve()
     })
   }
@@ -457,37 +460,36 @@ window.customElements.define("xuer-announcement-bar", AnnouncementBar);
  */
 
 var ProductFilters = class extends BaseHTMLElement {
-  connectedCallback () {
-    this.sectionId = this.$container.data('sectionId')
-    this.bindEvent()
+  connectedCallback() {
+    this.sectionId = this.$container.data("sectionId");
+    theme.event.formChange.push(this.updatePageFilters.bind(this));
   }
-  bindEvent () {
-    theme.event.priceRangeChange = this.updatePageFilters.bind(this);
+  updatePageFilters() {
+    var formData = this.getFormData();
+    var searchParamsAsString = new URLSearchParams(formData).toString();
+    var href = `${window.location.pathname}?${searchParamsAsString}`;
+    history.replaceState({}, "", href);
+    this.getCollectionPage({ ...formData, section_id: this.sectionId }).then(
+      (html) => {
+        console.log("html", html);
+      }
+    );
   }
-  updatePageFilters (params) {
-    this.startPrice = params.startPrice
-    this.endPrice = params.endPrice
-    var formData = this.getFormData()
-    this.getCollectionPage(formData).then(html => {
-      console.log('html', html);
-    })
-  }
-  getFormData () {
-    var formEl = this.$container.find('[product-filters-form]')
-    var formData = $(formEl).serializeObject()
-    formData['filter.v.price.gte'] = this.startPrice
-    formData['filter.v.price.lte'] = this.endPrice
-    formData['section_id'] = this.sectionId
-    formData['sort_by'] = 'best-selling'
-    return formData
+  getFormData() {
+    var formEl = this.$container.find("[product-filters-form]");
+    var formData = $(formEl).serializeObject();
+    formData["sort_by"] = "best-selling";
+    return formData;
   }
 
-  getCollectionPage (data) {
-    return new Promise(resolve => {
-      theme.ajax.get(window.location.pathname, data, {headers:{accept: '*/*'}}).then((res) => {
-        resolve(res)
-      });
-    })
+  getCollectionPage(data) {
+    return new Promise((resolve) => {
+      theme.ajax
+        .get(window.location.pathname, data, { headers: { accept: "*/*" } })
+        .then((res) => {
+          resolve(res);
+        });
+    });
   }
 };
 window.customElements.define("xuer-product-filters", ProductFilters);
@@ -569,12 +571,16 @@ window.customElements.define("xuer-form-address-select", AddressSelect);
 var FormCheckbox = class extends BaseHTMLElement {
   connectedCallback () {
     this.$input = $(this.$container.find('[xuer-checkbox]'))
-    this.bindChange()
+    this.changeValue = this.$container.attr('change_value')
+    this.bindChange()  
   }
   bindChange () {
     this.$input.change(() => {
-      var val = this.$input.is(':checked') ? 1 : 0
-      this.$input.val(val)
+      theme.event.dispatch("formChange");
+      if (this.changeValue == 'true') {
+        var val = this.$input.is(':checked') ? 1 : 0
+        this.$input.val(val)
+      }
     });
   }
 };

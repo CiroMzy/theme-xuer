@@ -27,13 +27,15 @@ var PriceRange = class extends BaseHTMLElement {
     this.startPrice = prices[0]
     this.endPrice = prices[1]
     this.$container.find('.price-start').html(this.startPrice)
+    this.$container.find('[price_gte]').val(this.startPrice)
     this.$container.find('.price-end').html(this.endPrice)
+    this.$container.find('[price_lte]').val(this.endPrice)
     this.debounceUpdate({startPrice:this.startPrice, endPrice:this.endPrice })
     
   }
   debounceUpdateHandler (params) {
     return new Promise(resolve => {
-      theme.event.dispatch('priceRangeChange', params)
+      theme.event.dispatch("formChange");
       resolve()
     })
   }

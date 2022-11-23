@@ -929,6 +929,9 @@ a.xuer-image-enlarge:hover {
   transform: rotate(180deg);
   transform-origin: center;
 }
+.xuer-collapse .xuer-collapse_item.open .xuer-collapse_item-main {
+  height: auto;
+}
 /***************
 * header
 */

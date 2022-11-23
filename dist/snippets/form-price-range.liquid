@@ -11,5 +11,7 @@
     <span class="price-price_content">{{ cart.currency.symbol }}<span class="price-start">{{ value_start }}</span></span>
     <span class="price-price_content">{{ cart.currency.symbol }}<span class="price-end">{{ value_end }}</span></span>
   </div>
+  <input type="hidden" price_gte name="filter.v.price.gte" value="{{ value_start }}" />
+  <input type="hidden" price_lte name="filter.v.price.lte" value="{{ value_end }}" />
   <input class="range-slider" type="hidden" value="{{ value_start }},{{ value_end }}"/>
 </xuer-price-range>
