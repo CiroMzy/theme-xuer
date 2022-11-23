@@ -12,23 +12,23 @@ var ProductFilters = class extends BaseHTMLElement {
     var searchParamsAsString = new URLSearchParams(formData).toString();
     var href = `${window.location.pathname}?${searchParamsAsString}`;
     history.replaceState({}, "", href);
-    this.getCollectionPage({ ...formData, section_id: this.sectionId }).then(
+    this.getCollectionPage(`${href}&section_id=${this.sectionId}`).then(
       (html) => {
         console.log("html", html);
       }
     );
   }
   getFormData() {
-    var formEl = this.$container.find("[product-filters-form]");
-    var formData = $(formEl).serializeObject();
-    formData["sort_by"] = "best-selling";
+    const formEl = this.$container.find("[product-filters-form]");
+    const formData = new FormData(formEl[0]);
+    formData.append("sort_by", "best-selling");
     return formData;
   }
 
-  getCollectionPage(data) {
+  getCollectionPage(href) {
     return new Promise((resolve) => {
       theme.ajax
-        .get(window.location.pathname, data, { headers: { accept: "*/*" } })
+        .get(href, {}, { headers: { accept: "*/*" } })
         .then((res) => {
           resolve(res);
         });

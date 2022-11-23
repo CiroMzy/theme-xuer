@@ -7,6 +7,7 @@
   - label: {String} 
   - text: {String} 
   - change_value: {String} 
+  - checked: {Boolean} 
   - className: {String} 
 
 {% endcomment %}
@@ -20,11 +21,10 @@
     assign change_value_local = false
   endif
 -%}
-
 <xuer-form-checkbox change_value="{{ change_value_local }}">
   <div class="xuer-checkbox_wrapper  {{ className }}">
     <input type="checkbox" class="xuer-checkbox" xuer-checkbox name="{{ name }}" id="{{ id }}" value="{{ val }}"
-    {%- if val == 1 -%} checked="true" {%- endif -%}
+    {%- if checked -%} checked="true" {%- endif -%}
     >
     <div class="xuer-fake-rect"></div>
     <label for="{{ id }}" class="xuer-checkbox_label">
