@@ -1,9 +1,20 @@
 <div class="main-collections page_width">
   <aside class="collection-aside">
     {% render 'product-filters', filters: collection.filters %}
-
   </aside>
+  <main class="collection-main">
+    {%- if collection.products_count > 0 -%}
+      {%- paginate collection.products by section.settings.products_per_page -%}
+      
+        {%- for product in collection.products -%}
+          {%- render 'product-item', product: product -%}
+        {%- endfor -%}
 
+        {%- render 'pagination', paginate: paginate -%}
+      {%- endpaginate -%}
+
+    {%- endif -%}
+  </main>
 </div>
 
 {% schema %}
