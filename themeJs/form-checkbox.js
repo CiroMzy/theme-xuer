@@ -1,7 +1,7 @@
 // FormCheckbox
 var FormCheckbox = class extends BaseHTMLElement {
   connectedCallback () {
-    this.$input = $(this.$container.find('[xuer-input]'))
+    this.$input = $(this.$container.find('[xuer-checkbox]'))
     this.bindChange()
   }
   bindChange () {

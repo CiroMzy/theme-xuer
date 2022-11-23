@@ -35,7 +35,8 @@
                       {%- liquid
                         assign count_str = filter_value.count | prepend: '(' | append: ')'
                         assign label_str = filter_value.label | escape | append: count_str
-                        render 'form-checkbox', id: filter_value.param_name, name: filter_value.param_name, text: label_str, className: "xuer-line2", value: filter_value.value 
+                        assign checkbox_id = filter_value.param_name | append: forloop.index
+                        render 'form-checkbox', id: checkbox_id, name: filter_value.param_name, text: label_str, className: "xuer-line2", value: filter_value.value 
                       -%}
                     </div>
                   {%- endfor -%}
