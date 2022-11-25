@@ -12,6 +12,7 @@ var BaseHTMLElement = class extends HTMLElement {
   disconnectedCallback() {}
   initSwiper(options = {}) {
     var $swiperContainers = $(this).find("[swiper]");
+    var _this = this
     if ($swiperContainers.length) {
       $swiperContainers.each((idx, el) => {
         var $swiperContainer = $(el);
@@ -22,8 +23,13 @@ var BaseHTMLElement = class extends HTMLElement {
           autoplay: datas.swiperAutoplay,
           speed: datas.swiperSpeed || 300,
           effect: datas.swiperEffect || "slide",
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
           ...options,
         });
+        _this.swiper = swiper
         theme.swipers[swiperId] = swiper;
       });
     }

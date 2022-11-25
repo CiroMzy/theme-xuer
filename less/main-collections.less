@@ -2,25 +2,26 @@
 /**********************
 * main-collections
 */
-.collection-aside {
-  width: 300px;
-}
-.main-product {
-  display: flex;
-  margin-bottom: 30px;
+.main-collections {
+  // display: flex;
+  padding: @distance5 0;
+  box-sizing: border-box;
+  .clearfix;
 
-  .main-product_slide {
-    width: 45%;
+  .collection-aside {
+    width: 300px;
+    float: left;
   }
-  .main-product_blocks {
-    width: 50%;
+  .collection-main{
+    float: left;
+    padding-left: @distance5;
     box-sizing: border-box;
-    padding-left: @distance3;
-    .main-product_row {
-      margin-bottom: @distance2;
-    }
+    width: calc(100% - 300px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit,calc(100% / 3 - @distance3 * 2 / 3));
+    grid-gap: @distance3;
+
   }
+  
 
 }
-
-

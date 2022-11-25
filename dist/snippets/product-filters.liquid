@@ -1,6 +1,4 @@
 
-
-
 {% comment %}
 - filters: Liquid 'collection.filters' or 'search.filters' object
 {% endcomment %}
@@ -41,11 +39,16 @@
                     </div>
                   {%- endfor -%}
                 {%- when 'price_range'-%}
+                  {%- liquid
+                    assign min_value = filter.min_value.value | divided_by: 100.0 | default: 0 | ceil
+                    assign max_value = filter.max_value.value | divided_by: 100.0 | default: filter.range_max | ceil
+                    assign range_max = filter.range_max | ceil
+                  -%}
                   {% render 'form-price-range', 
-                    value_start: '20', 
-                    value_end: '60',
-                    range_start: '5',
-                    range_end: '120'
+                    value_start: min_value, 
+                    value_end: max_value,
+                    range_start: 0,
+                    range_end: range_max
                   %}
               {%- endcase -%}
             </div>

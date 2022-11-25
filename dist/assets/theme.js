@@ -59,7 +59,7 @@ theme.swipers = {};
 theme.event = {
   miniCartCountChange: null,
   priceRangeChange: null,
-  formChange: [],
+  formChange: null,
   dispatch: function (key, params) {
     if (!theme.event[key]) return
     var evt = theme.event[key]
@@ -183,6 +183,7 @@ var BaseHTMLElement = class extends HTMLElement {
   disconnectedCallback() {}
   initSwiper(options = {}) {
     var $swiperContainers = $(this).find("[swiper]");
+    var _this = this
     if ($swiperContainers.length) {
       $swiperContainers.each((idx, el) => {
         var $swiperContainer = $(el);
@@ -193,8 +194,13 @@ var BaseHTMLElement = class extends HTMLElement {
           autoplay: datas.swiperAutoplay,
           speed: datas.swiperSpeed || 300,
           effect: datas.swiperEffect || "slide",
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
           ...options,
         });
+        _this.swiper = swiper
         theme.swipers[swiperId] = swiper;
       });
     }
@@ -334,6 +340,7 @@ window.customElements.define("xuer-drawer", Drawer);
 var PriceRange = class extends BaseHTMLElement {
   connectedCallback () {
     this.datas = this.$container.data()
+    console.log('datas', this.datas);
     this.debounceUpdate = theme.debounce(this.debounceUpdateHandler);
     this.bindMouseEvent()
   }
@@ -462,7 +469,7 @@ window.customElements.define("xuer-announcement-bar", AnnouncementBar);
 var ProductFilters = class extends BaseHTMLElement {
   connectedCallback() {
     this.sectionId = this.$container.data("sectionId");
-    theme.event.formChange.push(this.updatePageFilters.bind(this));
+    theme.event.formChange = this.updatePageFilters.bind(this)
   }
   updatePageFilters() {
     var formData = this.getFormData();
@@ -471,9 +478,26 @@ var ProductFilters = class extends BaseHTMLElement {
     history.replaceState({}, "", href);
     this.getCollectionPage(`${href}&section_id=${this.sectionId}`).then(
       (html) => {
-        console.log("html", html);
+        this.resetHtmlToDom(html)
       }
     );
+  }
+  resetHtmlToDom (html) {
+    var $resultHtml = $(html)
+    var mainHtml = $resultHtml.find('[collection-main]').html()
+    var $main = $('[collection-main]')
+    $main.html(mainHtml)
+    var $asideHtml = $($resultHtml.find('[collection-aside]').html())
+    var $aside = $('[collection-aside]')
+    $aside.find('[xuer-collapse-item]').each((i, el) => {
+      var $elTarget = $asideHtml.find('[xuer-collapse-item]').eq(i)
+      if ($(el).hasClass('open')) {
+        $elTarget.addClass('open')
+      } else {
+        $elTarget.removeClass('open')
+      }
+    })
+    $aside.html($asideHtml)
   }
   getFormData() {
     const formEl = this.$container.find("[product-filters-form]");
@@ -1097,3 +1121,14 @@ var DrawerSrarch = class extends BaseHTMLElement {
  
 };
 window.customElements.define("xuer-drawer-search", DrawerSrarch);
+
+/*******
+ * product-item
+ */
+
+var ProductItem = class extends BaseHTMLElement {
+  connectedCallback () {
+    this.initSwiper()
+  }
+};
+window.customElements.define("xuer-product-item", ProductItem);

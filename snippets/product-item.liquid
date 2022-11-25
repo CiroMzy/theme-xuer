@@ -1,7 +1,37 @@
-<product-item>
+{%- liquid
+  assign product_images = product.media | where: 'media_type', 'image'
+  assign cheapest_variant = product.variants | sort: 'price' | first
+-%}
 
-  {{ product | json }}
+<xuer-product-item class="custom-section product-item-container" >
+  <div class="product-image-wrapper">
+    <div class="product-image-show">
+      {%- render 'image', image: product.media.first.preview_image, alt: product.media.first.preview_image.alt -%}
+    </div>
+    <div class="product-image-hover">
+      <div
+        swiper
+        id="swiper-{{ section.id }}-{{ product.id }}" 
+        class="swiper-container" 
+        data-swiper-loop="true"
+        data-swiper-effect="fade"
+      >
+        <div class="swiper-wrapper">
+      {%- for image in product_images offset: 1 -%}
+            <div class="swiper-slide">
+              {%- render 'image', image: image, alt: image.alt -%}
+            </div>
+          {%- endfor -%}
+        </div>
+        <div class="swiper-button-prev swiper-button">
+          {% render 'icon', name: 'arrow-left-line' %}
+        </div>
+        <div class="swiper-button-next swiper-button">
+          {% render 'icon', name: 'arrow-right-line' %}
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-
-</product-item>
+</xuer-product-item>

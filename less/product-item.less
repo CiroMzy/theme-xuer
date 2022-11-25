@@ -1,0 +1,35 @@
+@import url(./variables.less);
+/**********************
+* product-item
+*/
+
+.product-item-container {
+  .product-image-wrapper {
+    position: relative;
+    .product-image-hover {
+      .pos-full;
+      // opacity: 0;
+
+      .product-image-hover_item {
+        .pos-full;
+      }
+      .arrow {
+        position: absolute;
+        z-index: 2;
+        width: 32px;
+        height: 35px;
+        top: 50%;
+        margin-top: -27px;
+        left: 0;
+        background: var(--primary_button_background_color_fade);
+        color: var(--primary_button_text_color);
+        cursor: pointer;
+        &.right-arrow {
+          left: auto;
+          right: 0;
+        }
+      }
+    }
+  }
+  
+}
