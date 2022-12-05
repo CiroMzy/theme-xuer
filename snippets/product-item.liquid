@@ -8,29 +8,14 @@
     <div class="product-image-show">
       {%- render 'image', image: product.media.first.preview_image, alt: product.media.first.preview_image.alt -%}
     </div>
-    <div class="product-image-hover">
-      <div
-        swiper
-        id="swiper-{{ section.id }}-{{ product.id }}" 
-        class="swiper-container" 
-        data-swiper-loop="true"
-        data-swiper-effect="fade"
-      >
-        <div class="swiper-wrapper">
-      {%- for image in product_images offset: 1 -%}
-            <div class="swiper-slide">
-              {%- render 'image', image: image, alt: image.alt -%}
-            </div>
-          {%- endfor -%}
+    {% comment %} <div class="product-image-hover">
+      {%- for image in product_images -%}
+        <div class="product-image-hover_img">
+          {%- render 'image', image: image, alt: image.alt -%}
         </div>
-        <div class="swiper-button-prev swiper-button">
-          {% render 'icon', name: 'arrow-left-line' %}
-        </div>
-        <div class="swiper-button-next swiper-button">
-          {% render 'icon', name: 'arrow-right-line' %}
-        </div>
-      </div>
-    </div>
+      {%- endfor -%}
+    </div> {% endcomment %}
+    
   </div>
 
 

@@ -144,6 +144,10 @@ table {
 .shopify-payment-button__button:hover {
   background-color: var(--secondary_button_background_color_fade) !important;
 }
+.xuer-button-style {
+  color: var(--primary_button_text_color);
+  background-color: var(--primary_button_background_color);
+}
 /**********************
 * font and color
 */
@@ -1912,12 +1916,20 @@ a.xuer-image-enlarge:hover {
 .product-item-container .product-image-wrapper {
   position: relative;
 }
+.product-item-container .product-image-wrapper .swiper-container {
+  height: 100%;
+}
+.product-item-container .product-image-wrapper:hover .product-image-hover {
+  opacity: 1;
+}
 .product-item-container .product-image-wrapper .product-image-hover {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  opacity: 1;
+  transition: 0.3s ease all;
 }
 .product-item-container .product-image-wrapper .product-image-hover .product-image-hover_item {
   position: absolute;
@@ -1941,4 +1953,8 @@ a.xuer-image-enlarge:hover {
 .product-item-container .product-image-wrapper .product-image-hover .arrow.right-arrow {
   left: auto;
   right: 0;
+}
+.product-item-container .product-image-wrapper .product-image-hover .xuer-button-style {
+  width: 25px;
+  height: 25px;
 }

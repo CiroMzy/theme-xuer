@@ -6,9 +6,18 @@
 .product-item-container {
   .product-image-wrapper {
     position: relative;
+    .swiper-container {
+      height: 100%;
+    }
+    &:hover{
+      .product-image-hover{
+        opacity: 1;
+      }  
+    }
     .product-image-hover {
       .pos-full;
-      // opacity: 0;
+      opacity: 1;
+      .trans;
 
       .product-image-hover_item {
         .pos-full;
@@ -28,6 +37,10 @@
           left: auto;
           right: 0;
         }
+      }
+      .xuer-button-style {
+        width: 25px;
+        height: 25px;
       }
     }
   }
