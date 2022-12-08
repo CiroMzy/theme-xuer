@@ -415,25 +415,6 @@ a,
 .xuer-loading circle {
   animation: rotateDash 1.5s ease-in-out infinite;
 }
-.xuer-button-animate-popup {
-  position: relative;
-}
-.xuer-button-animate-popup::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
-  background-color: var(--primary_button_background_color);
-}
-.xuer-button-animate-popup:hover::after {
-  transform: scaleX(1.2) scaleY(1.4);
-  opacity: 0;
-}
 a:not(.xuer-button_wrapper):hover,
 .link:not(.xuer-button_wrapper):hover {
   opacity: 0.7;
@@ -584,6 +565,7 @@ a.xuer-image-enlarge:hover {
   cursor: pointer;
   padding: 8px 16px;
   background-color: var(--primary_button_background_color);
+  border: 1px solid var(--primary_button_background_color);
   align-items: center;
   justify-content: center;
   border-radius: var(--button_border_radius);
@@ -591,10 +573,17 @@ a.xuer-image-enlarge:hover {
   position: relative;
   display: inline-block;
   color: var(--primary_button_text_color);
-  border: none;
   box-shadow: none;
   font-size: 14px;
   transition: 0.3s ease all;
+}
+.xuer-button:hover {
+  background-color: var(--primary_button_text_color);
+  color: var(--primary_button_background_color);
+  border-color: var(--primary_button_background_color);
+}
+.xuer-button:hover svg {
+  color: var(--primary_button_background_color);
 }
 .xuer-button.default {
   background-color: var(--background_color);
@@ -628,35 +617,6 @@ a.xuer-image-enlarge:hover {
 .xuer-button.disabled:hover svg {
   background-color: rgba(0, 0, 0, 0.3) !important;
   color: #ffffff !important;
-}
-.xuer-button:hover,
-.xuer-button.active {
-  background-color: var(--primary_button_background_color_fade);
-  color: var(--primary_button_text_color);
-  border-color: var(--primary_button_background_color);
-}
-.xuer-button:hover svg,
-.xuer-button.active svg {
-  color: var(--primary_button_text_color);
-}
-.xuer-button.xuer-animate-popup {
-  position: relative;
-}
-.xuer-button.xuer-animate-popup::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
-  background-color: var(--primary_button_background_color);
-}
-.xuer-button.xuer-animate-popup:hover::after {
-  transform: scaleX(1.2) scaleY(1.4);
-  opacity: 0;
 }
 .xuer-button.mini {
   padding: 8px;

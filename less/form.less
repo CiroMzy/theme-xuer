@@ -47,6 +47,7 @@
   cursor: pointer;
   padding: @distance @distance2;
   background-color: var(--primary_button_background_color);
+  border: 1px solid var(--primary_button_background_color);
   align-items: center;
   justify-content: center;
   border-radius: var(--button_border_radius);
@@ -54,10 +55,17 @@
   position: relative;
   display: inline-block;
   color: var(--primary_button_text_color);
-  border: none;
   box-shadow: none;
   font-size: 14px;
   .trans;
+  &:hover{
+    background-color: var(--primary_button_text_color);
+    color: var(--primary_button_background_color);
+    border-color: var(--primary_button_background_color);
+    svg{
+      color: var(--primary_button_background_color);
+    }
+  }
   &.default{
     background-color: var(--background_color);
     border: 1px solid var(--border_color);
@@ -90,17 +98,6 @@
         color: @disabled-button-color !important;
       }
     }
-  }
-  &:hover, &.active{
-    background-color: var(--primary_button_background_color_fade);
-    color: var(--primary_button_text_color);
-    border-color: var(--primary_button_background_color);
-    svg{
-      color: var(--primary_button_text_color);
-    }
-  }
-  &.xuer-animate-popup {
-    .xuer-button-animate-popup;
   }
   &.mini {
     padding: @distance;
