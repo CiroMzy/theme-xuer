@@ -9,6 +9,9 @@
     <h1 class="account-main_title xuer-line2 xuer-uppercase">
       {{ 'account.order' | t: name: order.name }}
     </h1>
+    <div class="xuer-line4">
+      <a href="{{ routes.account_url }}">{{ 'account.return' | t }}</a>
+    </div>
     <h3 class="xuer-line2 ">{{ 'account.date_html' | t: date: order_date }}</h3>
     <div class="account-main_address xuer-row xuer-line4">
       <div class="account-main_address-left xuer-col col-6">
