@@ -20,6 +20,10 @@
       flex: 0 0 33.3%;
       max-width: 33.3%;
     }
+    &.col-6{
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
     &.col-9{
       flex: 0 0 75%;
       max-width: 75%;
@@ -32,6 +36,10 @@
 }
 .xuer-line2 {
   margin-bottom: @distance2;
+}
+
+.xuer-line4 {
+  margin-bottom: @distance4;
 }
 
 .xuer-page-title {
@@ -66,5 +74,16 @@
       position: relative;
       z-index: 2;
     }
+  }
+}
+.xuer-table{
+  width: 100%;
+  text-align: left;
+  th{
+    font-weight: bold;
+  }
+  td,th{
+    padding: @distance 0;
+    border-bottom: 1px solid var(--border_color);
   }
 }

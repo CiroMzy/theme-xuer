@@ -1,0 +1,48 @@
+
+{% comment %}
+  Render order table
+  Accepts:
+  - orders: {Array} customer.orders
+  Usage:
+  {% render 'order-table', orders: customer.orders   %}
+{% endcomment %}
+
+
+<table class="order-list">
+  <thead>
+    <tr>
+      <th >{{ 'account.order' | t }}</th>
+      <th >{{ 'account.date' | t }}</th>
+      <th >{{ 'account.payment_status' | t }}</th>
+      <th >{{ 'account.fulfillment_status' | t }}</th>
+      <th >{{ 'account.total' | t }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order in customer.orders %}
+      <tr>
+        <td  class="order-list_id">
+          {{ order.name | link_to: order.customer_url }}
+        </td>
+        <td>
+          {{ order.created_at | date: '%d. %B, %Y' }}
+        </td>
+        <td>
+          {{ order.financial_status_label }}
+        </td>
+        <td>
+          {{ order.fulfillment_status_label }}
+        </td>
+        <td>
+          <span class="total">
+            {%- if settings.cart_currency_code_enabled -%}
+              {{- order.total_price | money_with_currency -}}
+            {%- else -%}
+              {{- order.total_price | money -}}
+            {%- endif -%}
+          </span>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

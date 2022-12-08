@@ -470,6 +470,10 @@ a.xuer-image-enlarge:hover {
   flex: 0 0 33.3%;
   max-width: 33.3%;
 }
+.xuer-row .xuer-col.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
 .xuer-row .xuer-col.col-9 {
   flex: 0 0 75%;
   max-width: 75%;
@@ -479,6 +483,9 @@ a.xuer-image-enlarge:hover {
 }
 .xuer-line2 {
   margin-bottom: 16px;
+}
+.xuer-line4 {
+  margin-bottom: 32px;
 }
 .xuer-page-title {
   margin: 64px auto;
@@ -515,6 +522,18 @@ a.xuer-image-enlarge:hover {
 .xuer-overlay_wrapper .xuer-overlay .xuer-overlay_title {
   position: relative;
   z-index: 2;
+}
+.xuer-table {
+  width: 100%;
+  text-align: left;
+}
+.xuer-table th {
+  font-weight: bold;
+}
+.xuer-table td,
+.xuer-table th {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border_color);
 }
 /**********************
 * form
@@ -1610,6 +1629,26 @@ a.xuer-image-enlarge:hover {
   font-size: 14px;
   line-height: 1;
   margin-top: 8px;
+}
+.account-main .account-main_main .order-list {
+  width: 100%;
+}
+.account-main .account-main_main .order-list tr {
+  border-bottom: 1px solid var(--border_color);
+}
+.account-main .account-main_main .order-list th {
+  font-weight: bold;
+}
+.account-main .account-main_main .order-list th,
+.account-main .account-main_main .order-list td {
+  padding: 24px;
+  text-align: left;
+}
+.account-main .account-main_main .order-list .order-list_id a {
+  color: var(--primary_color);
+}
+.account-main .account-main_address .account-main_address-left {
+  padding-left: 0;
 }
 /**********************
 * paginate
