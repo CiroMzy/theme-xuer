@@ -634,6 +634,7 @@ a.xuer-image-enlarge:hover {
   color: var(--text_color);
   display: inline-block;
   background: none;
+  border: none !important;
 }
 .xuer-button.xuer-button_link:hover {
   text-decoration: underline;
