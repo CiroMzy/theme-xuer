@@ -38,6 +38,7 @@ function concatJs() {
     "variant-picker",
     "drawer-search",
     "product-item",
+    "video",
   ];
 
   const computedSrc = jsFiles.map((i) => `themeJs/${i}.js`);

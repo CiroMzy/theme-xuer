@@ -1,0 +1,42 @@
+@import url(./variables.less);
+/**********************
+* video
+*/
+.xuer-video-container{
+  position: relative;
+  min-height: 100px;
+  color: var(--text_color);
+  .xuer-video_content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h4, h2 {
+      color: var(--text_color);
+    }
+    h2{
+      font-size: var(--desktop_heading_text_size);
+    }
+  }
+}
+
+.xuer-video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  background-color: black;
+  iframe{
+    .pos-full;
+    width: 100%;
+    height: 100%;
+    transform: translatey(-25%);
+  }
+}

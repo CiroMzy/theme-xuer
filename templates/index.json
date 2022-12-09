@@ -1,5 +1,21 @@
 {
   "sections": {
+    "eb4dc3d8-d52b-49d5-b28e-f00716d557d6": {
+      "type": "video",
+      "settings": {
+        "subheading": "Tell your story",
+        "title": "Video heading",
+        "text": "<p>Use a video to get a customer's attention<\/p>",
+        "image": "shopify:\/\/shop_images\/img2.jpg",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "full_width": true,
+        "autoplay": false,
+        "text_color": "#ffffff",
+        "section_height_desktop": 500,
+        "desktop_heading_text_size": 58,
+        "video_ratio": 57
+      }
+    },
     "166416263949705a88": {
       "type": "slideshow",
       "blocks": {
@@ -113,6 +129,7 @@
     }
   },
   "order": [
+    "eb4dc3d8-d52b-49d5-b28e-f00716d557d6",
     "166416263949705a88",
     "a59215dc-dfc6-401c-b473-d5903993fd0c",
     "96e1597a-9eff-4810-bedb-8a1f7663d566"

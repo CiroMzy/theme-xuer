@@ -3,13 +3,17 @@ var BaseHTMLElement = class extends HTMLElement {
   constructor() {
     super();
     this.$container = $(this);
+    this.resizeEvt = null
   }
   get rootDelegate() {}
   get delegate() {}
   loading() {}
   hideLoading() {}
   attributeChangedCallback() {}
-  disconnectedCallback() {}
+  connectedCallback() {}
+  disconnectedCallback() {
+    this.removeResizeListener()
+  }
   initSwiper(options = {}) {
     var $swiperContainers = $(this).find("[swiper]");
     var _this = this
@@ -85,6 +89,18 @@ var BaseHTMLElement = class extends HTMLElement {
           resolve(res)
         });
     })
+  }
+  addResizeListener (fn) {
+    const _this = this
+    window.addEventListener('resize', function(event) {
+      if (fn) {
+        _this.resizeEvt = fn
+        fn(event)
+      }
+    }, true);
+  }
+  removeResizeListener () {
+    this.resizeEvt && window.removeEventListener('resize', this.resizeEvt)
   }
 };
 
