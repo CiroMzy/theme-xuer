@@ -98,10 +98,23 @@
       "settings": {
         "product": "测试商品"
       }
+    },
+    "96e1597a-9eff-4810-bedb-8a1f7663d566": {
+      "type": "image-with-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/img2.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "title": "Image with text",
+        "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
+        "button_label": "Read more",
+        "button_link": "shopify:\/\/collections\/all"
+      }
     }
   },
   "order": [
     "166416263949705a88",
-    "a59215dc-dfc6-401c-b473-d5903993fd0c"
+    "a59215dc-dfc6-401c-b473-d5903993fd0c",
+    "96e1597a-9eff-4810-bedb-8a1f7663d566"
   ]
 }

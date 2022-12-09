@@ -6,12 +6,24 @@
 .xuer-row{
   display: flex;
   flex-wrap: wrap;
+  &.xuer-vertical-center {
+    align-items: center;
+  }
   .xuer-col {
     position: relative;
     width: 100%;
     padding-right: @distance;
     padding-left: @distance;
     box-sizing: border-box;
+    &.xuer-col-left {
+      padding-left: 0;
+    }
+    &.xuer-col-right {
+      padding-right: 0;
+    }
+    &.xuer-flex-1 {
+      flex: 1;
+    }
     &.col-3{
       flex: 0 0 25%;
       max-width: 25%;

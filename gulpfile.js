@@ -14,6 +14,7 @@ function concatJs() {
   const jsFiles = [
     "message",
     "tools",
+    "animate",
     "base",
     "collapse",
     "drawer",
