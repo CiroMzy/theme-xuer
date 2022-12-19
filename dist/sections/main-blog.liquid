@@ -5,14 +5,16 @@
 
     <div class="main-blog_main xuer-row">
       {%- for article in blog.articles -%}
-        {%- render 'article',
+        {%- 
+          render 'article',
+          article: article, 
           classes: "article xuer-col col-4  xuer-image-enlarge",
-          article: article,
-          media_aspect_ratio: section.settings.image_ratio,
-          show_image: section.settings.show_image,
+          index: forloop.index,
+          aspect_ratio: section.settings.image_ratio,
+          show_excerpt: section.settings.show_excerpt,
           show_date: section.settings.show_date,
           show_author: section.settings.show_author,
-          show_excerpt: true 
+          show_date: section.settings.show_date
         -%}
       {%- endfor -%}
     </div>
@@ -41,22 +43,6 @@
       "id": "show_page_title",
       "label": "Show page title",
       "default": true
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "label": "Layout",
-      "default": "columns",
-      "options": [
-        {
-          "label": "List",
-          "value": "list"
-        },
-        {
-          "label": "Grid",
-          "value": "columns"
-        }
-      ]
     },
     {
       "type": "checkbox",
