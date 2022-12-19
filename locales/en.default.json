@@ -81,7 +81,8 @@
     "blog_post_empty": "You don't have any articles yet! Once you've written one, it will show up here.",
     "blog_title": "You article title",
     "blog_excerpt": "A blog can be used to talk about new product launches, tips, or other news you want to share with your customers.",
-    "blog_author": "Author name"
+    "blog_author": "Author name",
+    "rich_text_page_empty": "Your page is empty"
   },
   "general": {
     "close": "Close",

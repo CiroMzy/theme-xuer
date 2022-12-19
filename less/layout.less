@@ -1,4 +1,5 @@
 @import url(./variables.less);
+@import url(./font-color.less);
 
 /**********
 * layout
@@ -88,6 +89,17 @@
     }
   }
 }
+table {
+  width: 100%;
+  text-align: left;
+  th{
+    font-weight: bold;
+  }
+  td,th{
+    padding: @distance;
+    border: 1px solid var(--border_color);
+  }
+}
 .xuer-table{
   width: 100%;
   text-align: left;
@@ -103,8 +115,20 @@
 .xuer-section-title {
   text-align: center;
   padding: @distance2 0 @distance4;
+  font-size: @font3;
 }
 .xuer-section-empty-info {
   text-align: center;
   padding: @distance2 0 @distance4;
+}
+.xuer-align {
+  &.center{
+    text-align: center;
+  }
+  &.left{
+    text-align: left;
+  }
+  &.right{
+    text-align: right;
+  }
 }

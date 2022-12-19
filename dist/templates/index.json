@@ -1,5 +1,44 @@
 {
   "sections": {
+    "3e588abd-0eab-45e4-ac52-2cd264c93ae9": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16697861570810__3e588abd-0eab-45e4-ac52-2cd264c93ae9-167143469420a6ae63-0": {
+          "type": "heading",
+          "settings": {
+            "title": "Rich text"
+          }
+        },
+        "template--16697861570810__3e588abd-0eab-45e4-ac52-2cd264c93ae9-167143469420a6ae63-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Use this text to share information about your brand with your customers. Desc<\/strong>ribe a product, share announcements, or welcome customers to your store.<\/p>"
+          }
+        },
+        "template--16697861570810__3e588abd-0eab-45e4-ac52-2cd264c93ae9-167143469420a6ae63-2": {
+          "type": "button",
+          "settings": {
+            "link": "shopify:\/\/collections\/all",
+            "button_label": "Button"
+          }
+        },
+        "3d49876b-9e37-4864-9fcf-7261f00202f1": {
+          "type": "page",
+          "settings": {
+            "page_text": "news"
+          }
+        }
+      },
+      "block_order": [
+        "template--16697861570810__3e588abd-0eab-45e4-ac52-2cd264c93ae9-167143469420a6ae63-0",
+        "template--16697861570810__3e588abd-0eab-45e4-ac52-2cd264c93ae9-167143469420a6ae63-1",
+        "template--16697861570810__3e588abd-0eab-45e4-ac52-2cd264c93ae9-167143469420a6ae63-2",
+        "3d49876b-9e37-4864-9fcf-7261f00202f1"
+      ],
+      "settings": {
+        "align_text": "center"
+      }
+    },
     "18fe2233-8d95-4586-a266-93aa02f06c35": {
       "type": "blog-posts",
       "settings": {
@@ -142,6 +181,7 @@
     }
   },
   "order": [
+    "3e588abd-0eab-45e4-ac52-2cd264c93ae9",
     "18fe2233-8d95-4586-a266-93aa02f06c35",
     "eb4dc3d8-d52b-49d5-b28e-f00716d557d6",
     "166416263949705a88",

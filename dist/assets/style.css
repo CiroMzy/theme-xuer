@@ -535,6 +535,18 @@ a.xuer-image-enlarge:hover {
   position: relative;
   z-index: 2;
 }
+table {
+  width: 100%;
+  text-align: left;
+}
+table th {
+  font-weight: bold;
+}
+table td,
+table th {
+  padding: 8px;
+  border: 1px solid var(--border_color);
+}
 .xuer-table {
   width: 100%;
   text-align: left;
@@ -550,10 +562,20 @@ a.xuer-image-enlarge:hover {
 .xuer-section-title {
   text-align: center;
   padding: 16px 0 32px;
+  font-size: 24px;
 }
 .xuer-section-empty-info {
   text-align: center;
   padding: 16px 0 32px;
+}
+.xuer-align.center {
+  text-align: center;
+}
+.xuer-align.left {
+  text-align: left;
+}
+.xuer-align.right {
+  text-align: right;
 }
 /**********************
 * form

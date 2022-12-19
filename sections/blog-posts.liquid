@@ -1,11 +1,11 @@
 {%- assign blog = blogs[section.settings.blog] -%}
-<section class="page_width blog-posts">
+<section class="page_width blog-posts xuer-animated xuer-animated-opacity" xuer-animated>
   {% if section.settings.title != blank %}
-    <h2 class="xuer-section-title">{{ section.settings.title }}</h2>
+    <h2 class="xuer-h2 xuer-section-title">{{ section.settings.title }}</h2>
   {% endif %}
   
   {% if section.settings.blog == blank %}
-    <div class="article-list xuer-row xuer-animated xuer-animated-opacity"  xuer-animated>
+    <div class="article-list xuer-row "  >
       {% for i in (1..section.settings.articles_count) %}
       <div class="article xuer-col col-4 ">
         <div class="article-main">
