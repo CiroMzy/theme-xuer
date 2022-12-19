@@ -502,6 +502,7 @@ a.xuer-image-enlarge:hover {
 .xuer-page-title {
   margin: 64px auto;
   text-align: center;
+  font-size: 24px;
 }
 .xuer-page-main {
   padding: 8px 0 64px;
@@ -1675,6 +1676,9 @@ table th {
 /**********************
 * paginate
 */
+.xuer-pagination.xuer-center {
+  text-align: center;
+}
 .xuer-pagination .xuer-pagination-item {
   display: inline-block;
   min-width: 32px;
@@ -2070,17 +2074,17 @@ table th {
 /**********************
 * blog-post
 */
-.blog-posts .article {
+.xuer-article_item {
   margin-bottom: 24px;
 }
-.blog-posts .article-main_title {
+.xuer-article_item .article-main_title {
   padding: 8px 0;
 }
-.blog-posts .atticle-main_excerpt {
+.xuer-article_item .atticle-main_excerpt {
   margin-bottom: 8px;
   font-size: 15px;
   line-height: 1.5;
 }
-.blog-posts .article-main_create {
+.xuer-article_item .article-main_create {
   font-size: 12px;
 }

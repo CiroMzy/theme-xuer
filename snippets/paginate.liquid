@@ -1,7 +1,7 @@
 
 {%- if paginate.pages > 1 -%}
   {%- if paginate.parts.size > 0 -%}
-      <ul class="xuer-pagination" role="navigation" >
+      <ul class="xuer-pagination {% if center %} xuer-center {% endif %}" role="navigation" >
         {%- if paginate.previous -%}
           <li class="xuer-pagination-item xuer-pagination-item_icon" >
             <a href="{{ paginate.previous.url }}" class="xuer-button mini default">

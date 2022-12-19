@@ -1,0 +1,65 @@
+
+{% if is_empty %}
+  <div class="xuer-article_item {{ classes }} ">
+    <div class="article-main">
+      <div class="article-main_image">
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-background' }}
+      </div>
+      <div class="article-main_info">
+        <h3 class="article-main_title xuer-h5">
+          {{ 'sections.blog_title' | t }}
+        </h3>
+        {%- if show_excerpt -%}
+          <p class="atticle-main_excerpt">
+            {{ 'sections.blog_excerpt' | t }}
+          </p>
+        {%- endif -%}
+        <div class="article-main_create">
+          {% if show_date %}
+            {{ 'now' | date: '%d. %B, %Y' }}
+          {% endif %}
+          {% if show_author %}
+            {% if show_date %}&mdash;{% endif %}
+            <span class="author">{{ 'sections.blog_author' | t }}</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% else %}
+  <div class="xuer-article_item {{ classes }}">
+    <div class="article-main">
+      <div class="article-main_image">
+        {% 
+          render 'image', 
+          image: article.image, 
+          aspect_ratio: aspect_ratio, 
+          object_fit: 'cover',
+          sizes: '33vw'
+        %}
+      </div>
+      <div class="article-main_info">
+        <h3 class="article-main_title xuer-h4"><a href="{{ article.url }}">{{ article.title | escape }}</a></h3>
+        {%- if show_excerpt -%}
+          <p class="atticle-main_excerpt">
+            {%- if article.excerpt.size > 0 -%}
+              {{ article.excerpt }}
+            {%- else -%}
+              {{ article.content | strip_html | truncatewords: 30 }}
+            {%- endif -%}
+          </p>
+        {%- endif -%}
+        <div class="article-main_create">
+          {% if show_date %}
+            {{ article.published_at | date: '%d. %B, %Y' }}
+          {% endif %}
+          {% if show_author %}
+            {% if show_date %}&mdash;{% endif %}
+            <span class="author">{{ article.author }}</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+

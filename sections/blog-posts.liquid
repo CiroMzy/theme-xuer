@@ -7,32 +7,19 @@
   {% if section.settings.blog == blank %}
     <div class="article-list xuer-row "  >
       {% for i in (1..section.settings.articles_count) %}
-      <div class="article xuer-col col-4 ">
-        <div class="article-main">
-          <div class="article-main_image">
-            {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-background' }}
-          </div>
-          <div class="article-main_info">
-            <h3 class="article-main_title xuer-h5">
-              {{ 'sections.blog_title' | t }}
-            </h3>
-            {%- if section.settings.show_excerpt -%}
-              <p class="atticle-main_excerpt">
-                {{ 'sections.blog_excerpt' | t }}
-              </p>
-            {%- endif -%}
-            <div class="article-main_create">
-              {% if section.settings.show_date %}
-                {{ 'now' | date: '%d. %B, %Y' }}
-              {% endif %}
-              {% if section.settings.show_author %}
-                {% if section.settings.show_date %}&mdash;{% endif %}
-                <span class="author">{{ 'sections.blog_author' | t }}</span>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      </div>
+        {% 
+          render 'article',
+          article: article, 
+          classes: "article xuer-col col-4  xuer-image-enlarge",
+          layout: 'gird',
+          index: forloop.index,
+          is_empty: true,
+          show_excerpt: section.settings.show_excerpt,
+          show_date: section.settings.show_date,
+          show_author: section.settings.show_author,
+          show_date: section.settings.show_date,
+
+        %}
       {% endfor %}
     </div>
   {% elsif blog.articles.size == 0 %}
@@ -40,40 +27,18 @@
   {% else %}
   <div class="article-list xuer-row xuer-animated xuer-animated-opacity"  xuer-animated>
     {% for article in blog.articles limit: section.settings.articles_count %}
-    <div class="article xuer-col col-4  xuer-image-enlarge ">
-      <div class="article-main">
-        <div class="article-main_image">
-          {% 
-            render 'image', 
-            image: article.image, 
-            aspect_ratio: section.settings.image_ratio, 
-            object_fit: 'cover',
-            sizes: '33vw'
-          %}
-        </div>
-        <div class="article-main_info">
-          <h3 class="article-main_title xuer-h4"><a href="{{ article.url }}">{{ article.title | escape }}</a></h3>
-          {%- if section.settings.show_excerpt -%}
-            <p class="atticle-main_excerpt">
-              {%- if article.excerpt.size > 0 -%}
-                {{ article.excerpt }}
-              {%- else -%}
-                {{ article.content | strip_html | truncatewords: 30 }}
-              {%- endif -%}
-            </p>
-          {%- endif -%}
-          <div class="article-main_create">
-            {% if section.settings.show_date %}
-              {{ article.published_at | date: '%d. %B, %Y' }}
-            {% endif %}
-            {% if section.settings.show_author %}
-              {% if section.settings.show_date %}&mdash;{% endif %}
-              <span class="author">{{ article.author }}</span>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    </div>
+      {% 
+        render 'article',
+        article: article, 
+        classes: "article xuer-col col-4  xuer-image-enlarge",
+        layout: 'gird',
+        index: forloop.index,
+        aspect_ratio: section.settings.image_ratio,
+        show_excerpt: section.settings.show_excerpt,
+        show_date: section.settings.show_date,
+        show_author: section.settings.show_author,
+        show_date: section.settings.show_date,
+      %}
     {% endfor %}
   </div>
   {% endif %}
@@ -89,12 +54,6 @@
       "label": "Blog"
     },
     {
-      "type": "text",
-      "id": "title",
-      "label": "Heading",
-      "default": "Blog posts"
-    },
-    {
       "type": "range",
       "id": "articles_count",
       "label": "Blog posts to show",
@@ -102,6 +61,12 @@
       "max": 12,
       "step": 3,
       "default": 3
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Blog posts"
     },
     {
       "type": "checkbox",
