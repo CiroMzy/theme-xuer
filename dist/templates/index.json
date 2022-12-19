@@ -1,5 +1,18 @@
 {
   "sections": {
+    "18fe2233-8d95-4586-a266-93aa02f06c35": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "news",
+        "title": "Blog posts12",
+        "articles_count": 6,
+        "show_category": true,
+        "show_author": true,
+        "show_date": true,
+        "show_excerpt": true,
+        "image_ratio": "1.78"
+      }
+    },
     "eb4dc3d8-d52b-49d5-b28e-f00716d557d6": {
       "type": "video",
       "settings": {
@@ -129,6 +142,7 @@
     }
   },
   "order": [
+    "18fe2233-8d95-4586-a266-93aa02f06c35",
     "eb4dc3d8-d52b-49d5-b28e-f00716d557d6",
     "166416263949705a88",
     "a59215dc-dfc6-401c-b473-d5903993fd0c",

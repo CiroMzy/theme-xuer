@@ -13,7 +13,6 @@ theme.initAnimate = function () {
               setTimeout(() => {
                 let $target = $(entry.target)
                 let animateClass = $target.attr('xuer-animated') || defaultAnimateClass
-                console.log('animateClass', animateClass);
                 $(entry.target).addClass(animateClass)
               }, 200);
               observer.unobserve(entry.target);

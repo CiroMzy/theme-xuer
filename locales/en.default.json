@@ -77,8 +77,12 @@
     "tax": "Tax",
     "return": "Return to Account Details"
   },
-
-
+  "sections": {
+    "blog_post_empty": "You don't have any articles yet! Once you've written one, it will show up here.",
+    "blog_title": "You article title",
+    "blog_excerpt": "A blog can be used to talk about new product launches, tips, or other news you want to share with your customers.",
+    "blog_author": "Author name"
+  },
   "general": {
     "close": "Close",
     "confirm": "Confirm",
@@ -315,79 +319,6 @@
     "404": {
       "title": "Page not found",
       "subtext": "404"
-    }
-  },
-  "sections": {
-    "header": {
-      "announcement": "Announcement",
-      "menu": "Menu",
-      "cart_count": {
-        "one": "{{ count }} item",
-        "other": "{{ count }} items"
-      }
-    },
-    "cart": {
-      "title": "Your cart",
-      "caption": "Cart items",
-      "remove_title": "Remove {{ title }}",
-      "subtotal": "Subtotal",
-      "new_subtotal": "New subtotal",
-      "note": "Order special instructions",
-      "checkout": "Check out",
-      "empty": "Your cart is empty",
-      "cart_error": "There was an error while updating your cart. Please try again.",
-      "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
-      "taxes_and_shipping_policy_at_checkout_html": "Taxes and <a href=\"{{ link }}\">shipping</a> calculated at checkout",
-      "taxes_included_but_shipping_at_checkout": "Tax included and shipping calculated at checkout",
-      "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
-      "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout",
-      "headings": {
-        "product": "Product",
-        "price": "Price",
-        "total": "Total",
-        "quantity": "Quantity",
-        "image": "Product image"
-      },
-      "update": "Update",
-      "login": {
-        "title": "Have an account?",
-        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Log in</a> to check out faster."
-      }
-    },
-    "footer": {
-      "payment": "Payment methods"
-    },
-    "featured_blog": {
-      "view_all": "View all",
-      "onboarding_title": "Blog post",
-      "onboarding_content": "Give your customers a summary of your blog post"
-    },
-    "featured_collection": {
-      "view_all": "View all",
-      "view_all_label": "View all products in the {{ collection_name }} collection"
-    },
-    "collection_list": {
-      "view_all": "View all"
-    },
-    "collection_template": {
-      "empty": "No products found",
-      "title": "Collection",
-      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">remove all</a>"
-    },
-    "video": {
-      "load_video": "Load video: {{ description }}"
-    },
-    "slideshow": {
-      "load_slide": "Load slide",
-      "previous_slideshow": "Previous slide",
-      "next_slideshow": "Next slide",
-      "pause_slideshow": "Pause slideshow",
-      "play_slideshow": "Play slideshow",
-      "carousel": "Carousel",
-      "slide": "Slide"
-    },
-    "page": {
-      "title": "Page title"
     }
   },
   "customer": {
