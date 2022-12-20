@@ -112,11 +112,24 @@
   svg{
     color: var(--primary_button_text_color);
   }
+  .xuer-button-icon{
+    width: @distance3;
+    height: @distance3;
+    display: flex;
+    align-items: center;
+    padding-right: @distance;
+  }
+  &.xuer-button_left {
+    padding-left: 0;
+  }
   &.xuer-button_link {
     color: var(--text_color);
     display: inline-block;
     background: none;
     border: none !important;
+    svg{
+      color: var(--text_color);
+    }
     &:hover{
       text-decoration: underline;
     }

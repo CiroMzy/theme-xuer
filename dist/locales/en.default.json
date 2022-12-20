@@ -82,7 +82,8 @@
     "blog_title": "You article title",
     "blog_excerpt": "A blog can be used to talk about new product launches, tips, or other news you want to share with your customers.",
     "blog_author": "Author name",
-    "rich_text_page_empty": "Your page is empty"
+    "rich_text_page_empty": "Your page is empty",
+    "main_article_empty": "Your blog is empty"
   },
   "general": {
     "close": "Close",
@@ -94,6 +95,8 @@
     "success": "success",
     "error": "Error",
     "search": "Search",
+    "back_to_home": "Back to home",
+    "back_to_news": "Back to news",
 
 
 

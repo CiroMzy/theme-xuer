@@ -44,7 +44,9 @@
     {{ attrs }}
   >
     <div class="xuer-button-content">
-      {% render 'icon', name: 'loading' %}
+      {% if icon %}
+        <span class="xuer-button-icon">{% render 'icon', name: icon %}</span>
+      {% endif %}
       <span xuer-button-text >
         {{ text | t }} {{ label }}
       </span>

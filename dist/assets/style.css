@@ -404,6 +404,26 @@ a,
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
 }
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.xuer-animate_fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
 .xuer-animate_delay1 {
   -webkit-animation-delay: 0.15s;
   animation-delay: 0.15s;
@@ -503,6 +523,12 @@ a.xuer-image-enlarge:hover {
   margin: 64px auto;
   text-align: center;
   font-size: 24px;
+}
+.xuer-page-subtitle {
+  text-align: center;
+  margin-top: -24px;
+  margin-bottom: 16px;
+  font-size: 14px;
 }
 .xuer-page-main {
   padding: 8px 0 64px;
@@ -692,11 +718,24 @@ table th {
 .xuer-button svg {
   color: var(--primary_button_text_color);
 }
+.xuer-button .xuer-button-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  padding-right: 8px;
+}
+.xuer-button.xuer-button_left {
+  padding-left: 0;
+}
 .xuer-button.xuer-button_link {
   color: var(--text_color);
   display: inline-block;
   background: none;
   border: none !important;
+}
+.xuer-button.xuer-button_link svg {
+  color: var(--text_color);
 }
 .xuer-button.xuer-button_link:hover {
   text-decoration: underline;
