@@ -989,6 +989,9 @@ table th {
   border-top: 1px solid var(--border_color);
   border-bottom: 1px solid var(--border_color);
 }
+.xuer-collapse .xuer-collapse_item + .xuer-collapse_item {
+  border-top: none;
+}
 .xuer-collapse .xuer-collapse_item .xuer-collapse_item-title {
   font-size: 16px;
   padding: 24px 0;
@@ -1007,6 +1010,7 @@ table th {
 }
 .xuer-collapse .xuer-collapse_item .xuer-collapse_item-title .xuer-collapse_item-arrow svg {
   width: 16px;
+  color: var(--heading_color);
 }
 .xuer-collapse .xuer-collapse_item .xuer-collapse_item-main {
   height: 0;
@@ -1023,6 +1027,12 @@ table th {
 }
 .xuer-collapse .xuer-collapse_item.open .xuer-collapse_item-main {
   height: auto;
+}
+.collapse .xuer-collapse {
+  max-width: 100%;
+}
+.collapse .xuer-collapse .collapse_paragraph {
+  margin: 16px 0;
 }
 /***************
 * header

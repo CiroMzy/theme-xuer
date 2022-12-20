@@ -1,5 +1,39 @@
 {
   "sections": {
+    "955c29a7-b180-4b32-8f1d-4384b1884822": {
+      "type": "collapse",
+      "blocks": {
+        "template--16697861570810__955c29a7-b180-4b32-8f1d-4384b1884822-16715157880498165e-0": {
+          "type": "collapse_item",
+          "settings": {
+            "title": "Question",
+            "answer": "<p>Answer Answer Answer Answer Answer Answer Answer Answer Answer Answer Answer Answer Answer Answer <\/p>"
+          }
+        },
+        "template--16697861570810__955c29a7-b180-4b32-8f1d-4384b1884822-16715157880498165e-1": {
+          "type": "collapse_item",
+          "settings": {
+            "title": "Question",
+            "answer": "<p>Answer<\/p>"
+          }
+        },
+        "a31c89de-0fc1-425b-9a67-71ec275b94dd": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Paragraph adafsa afasf<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--16697861570810__955c29a7-b180-4b32-8f1d-4384b1884822-16715157880498165e-0",
+        "template--16697861570810__955c29a7-b180-4b32-8f1d-4384b1884822-16715157880498165e-1",
+        "a31c89de-0fc1-425b-9a67-71ec275b94dd"
+      ],
+      "settings": {
+        "title": "Collapsible title",
+        "expand_by_default": false
+      }
+    },
     "3e588abd-0eab-45e4-ac52-2cd264c93ae9": {
       "type": "rich-text",
       "blocks": {
@@ -181,6 +215,7 @@
     }
   },
   "order": [
+    "955c29a7-b180-4b32-8f1d-4384b1884822",
     "3e588abd-0eab-45e4-ac52-2cd264c93ae9",
     "18fe2233-8d95-4586-a266-93aa02f06c35",
     "eb4dc3d8-d52b-49d5-b28e-f00716d557d6",

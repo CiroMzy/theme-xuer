@@ -8,6 +8,9 @@
   .xuer-collapse_item {
     border-top: 1px solid var(--border_color);
     border-bottom: 1px solid var(--border_color);
+    &+.xuer-collapse_item{
+      border-top: none;
+    }
     .xuer-collapse_item-title {
       font-size: 16px;
       padding: @distance3 0;
@@ -21,7 +24,8 @@
         .trans;
         .flex-center;
         svg{
-          width: 16px;
+          width: @distance2;
+          color: var(--heading_color);
         }
       }
     }
@@ -46,5 +50,10 @@
       }
     }
   }
-
+}
+.collapse .xuer-collapse {
+  max-width: 100%;
+  .collapse_paragraph {
+    margin: @distance2 0;
+  }
 }

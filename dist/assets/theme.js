@@ -326,8 +326,10 @@ var Collapse = class extends BaseHTMLElement {
   bindEvents () {
     this.$container.find('[xuer-collapse-item]').each(function(idx, el) {
       var $item = $(el)
-      var initHeight = $item.find('[xuer-collapse-content]').outerHeight()
-      $item.find('[xuer-collapse-main]').height(initHeight)
+      if ($item.hasClass('open')) {
+        var initHeight = $item.find('[xuer-collapse-content]').outerHeight()
+        $item.find('[xuer-collapse-main]').height(initHeight)
+      }
       
       $(el).find('[xuer-collapse-title]').click(function () {
         if ($item.hasClass('open')) {
