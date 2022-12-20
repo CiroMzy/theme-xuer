@@ -149,7 +149,7 @@ table {
   background-color: var(--primary_button_background_color);
 }
 .placeholder-background {
-  background-color: darkgray;
+  background-color: #f5f5f5;
 }
 /**********************
 * font and color
@@ -454,8 +454,8 @@ a,
 .xuer-loading circle {
   animation: rotateDash 1.5s ease-in-out infinite;
 }
-a:not(.xuer-button_wrapper):hover,
-.link:not(.xuer-button_wrapper):hover {
+a:not(.xuer-button_wrapper):not(.xuer-link_keep):hover,
+.link:not(.xuer-button_wrapper):not(.xuer-link_keep):hover {
   opacity: 0.7;
 }
 a.xuer-image-enlarge:hover {
@@ -561,6 +561,7 @@ a.xuer-image-enlarge:hover {
 .xuer-overlay_wrapper .xuer-overlay .xuer-overlay_title {
   position: relative;
   z-index: 2;
+  color: #ffffff;
 }
 table {
   width: 100%;
@@ -603,6 +604,26 @@ table th {
 }
 .xuer-align.right {
   text-align: right;
+}
+xuer-list {
+  display: grid;
+  grid-gap: 24px;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, calc(100% / var(--section-grid-column-count) - 24px * (var(--section-grid-column-count) - 1) / var(--section-grid-column-count)));
+  overflow: hidden;
+}
+xuer-list xuer-list-item [xuer-list-item-image_placeholder] {
+  height: 0;
+  position: relative;
+}
+xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 /**********************
 * form

@@ -1,0 +1,30 @@
+{%- liquid
+  assign collection_image = image | default: collection.featured_image
+-%}
+
+<xuer-list-item class="collection-item xuer-image-enlarge {{ classes }} xuer-overlay_wrapper" >
+  <a href="{{ collection.url }}" class="xuer-link_keep">
+    <div class="collection-item_image" >
+      {%- if collection_image -%}
+        {% 
+          render 'image', 
+          image: collection_image, 
+          aspect_ratio: aspect_ratio, 
+          object_fit: 'cover',
+          sizes: '33vw'
+        %}
+      {%- else -%}
+        <div xuer-list-item-image_placeholder style="padding-top:{{ 1 | divided_by: aspect_ratio | times: 100 }}%">
+          {%- capture collection_image -%}collection-{{ index | modulo: 5 | plus: 1 }}{%- endcapture -%}
+          {{- collection_image | placeholder_svg_tag: 'list-collections__item-image placeholder-background' -}}
+        </div>
+      {%- endif -%}
+    </div>
+    {% if title != blank %}
+      <div class="xuer-overlay">
+        <div class="xuer-overlay_cover" style="opacity: {{ overlay_opacity }}%;"></div>
+        <h2 class="xuer-overlay_title xuer-h2 xuer-animate_fadeInUp xuer-animated" >{{ title }}</h2>
+      </div>
+    {% endif %}
+  </a>
+</xuer-list-item>

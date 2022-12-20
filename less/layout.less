@@ -93,6 +93,7 @@
     .xuer-overlay_title {
       position: relative;
       z-index: 2;
+      color: #ffffff;
     }
   }
 }
@@ -137,5 +138,23 @@ table {
   }
   &.right{
     text-align: right;
+  }
+}
+xuer-list{
+  display: grid;
+  grid-gap: @distance3;
+  gap: @distance3;
+  grid-template-columns: repeat(auto-fit,calc(100% / var(--section-grid-column-count) - @distance3 * (var(--section-grid-column-count) - 1) / var(--section-grid-column-count)));
+  overflow: hidden;
+  xuer-list-item {
+    [xuer-list-item-image_placeholder]{
+      height: 0;
+      position: relative;
+      svg{
+        height: 100%;
+        width: 100%;
+        .pos-full;
+      }
+    }
   }
 }
