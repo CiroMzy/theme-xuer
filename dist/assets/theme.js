@@ -236,8 +236,8 @@ var BaseHTMLElement = class extends HTMLElement {
           speed: datas.swiperSpeed || 300,
           effect: datas.swiperEffect || "slide",
           navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: `#${swiperId} .swiper-button-next`,
+            prevEl: `#${swiperId} .swiper-button-prev`,
           },
           ...options,
         });
