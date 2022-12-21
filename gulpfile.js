@@ -39,6 +39,7 @@ function concatJs() {
     "drawer-search",
     "product-item",
     "video",
+    "time-line",
   ];
 
   const computedSrc = jsFiles.map((i) => `themeJs/${i}.js`);

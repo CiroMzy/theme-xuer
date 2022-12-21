@@ -1,0 +1,88 @@
+<xuer-time-line class="time-line">
+  {% if section.settings.title != blank %}
+    <h2 class="xuer-h2 xuer-section-title">{{ section.settings.title }}</h2>
+  {% endif %}
+  <div swiper id="swiper-{{ section.id }}" class="page_width time-line_swiper swiper">
+    <div class="swiper-wrapper">
+      {%- for block in section.blocks -%}
+        <div class="swiper-slide" 
+          data-title="{{ block.settings.block_title }}"
+          data-content="{{ block.settings.block_content }}"
+        >
+          <div class="time-line_slide-content">
+            <div class="title">{{ block.settings.block_title }}</div>
+            <span class="time-line_icon"></span>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+    <div class="swiper-button-next">
+      {% render 'icon', name: 'arrow-right-line' %}
+    </div>
+    <div class="swiper-button-prev">
+      {% render 'icon', name: 'arrow-left-line' %}
+    </div>
+  </div>
+  <div class="time-line_main">
+    <div class="time-line_title"></div>
+    <div class="time-line_content"></div>
+  </div>
+</xuer-time-line>
+{% schema %}
+{
+  "name": "Time line",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Your history"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "history_blocks",
+      "name": "History block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_title",
+          "default": "1995~1997",
+          "label": "Block heading"
+        },
+        {
+          "type": "richtext",
+          "id": "block_content",
+          "default": "<p>Individual Economic Era：In 1995, we invested 10 million to build the plant, in order to prepare for the expansion and construction of steel structure processing plant.In the same year, ABC Steel Group was was established to process pressed products and set up branch in Zhengzhou. The main products:color coated roll, galvanized roll.</p>",
+          "label": "Block content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Time line",
+      "blocks": [
+        {
+          "type": "history_blocks"
+        },
+        {
+          "type": "history_blocks"
+        },
+        {
+          "type": "history_blocks"
+        },
+        {
+          "type": "history_blocks"
+        },
+        {
+          "type": "history_blocks"
+        },
+        {
+          "type": "history_blocks"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

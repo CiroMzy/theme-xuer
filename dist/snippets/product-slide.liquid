@@ -7,7 +7,7 @@
 -%}
 
 <xuer-product-slide class="product-slide custom-section" {% if use_slide %} use-slide{% endif %} data-section-id="{{ section.id }}">
-  <div class="swiper-container product-slide_main" swiper swiper-main id="product-slide-main-{{ section.id }}">
+  <div class="swiper product-slide_main" swiper swiper-main id="product-slide-main-{{ section.id }}">
     <div class="swiper-wrapper">
       {%- for media in product.media -%}
         <div class="swiper-slide">
@@ -21,7 +21,7 @@
     {% endif %}
   </div>
   {% if use_slide %}
-    <div class="swiper-container product-slide_thumbnail" swiper swiper-thumbnail id="product-slide-thumbnail-{{ section.id }}">
+    <div class="swiper product-slide_thumbnail" swiper swiper-thumbnail id="product-slide-thumbnail-{{ section.id }}">
       <div class="swiper-wrapper">
         {%- for media in product.media -%}
           <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}" >

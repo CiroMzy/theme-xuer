@@ -1,0 +1,72 @@
+@import url(./variables.less);
+@import url(./animate.less);
+/**********************
+* time-line
+*/
+.time-line_swiper {
+  position: relative;
+  padding: 30px 0 10px;
+  width: calc(100% - 100px);
+  margin: 0 auto;
+  &::after{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    z-index: -1;
+    width: 100% ;
+    height: 3px;
+    background-color: var(--primary_color);
+    margin-top: -2px;
+  }
+  .time-line_slide-content {
+    height: 50px;
+    .time-line_icon {
+      position: absolute;
+      left: 50%;
+      bottom: 3px;
+      width: 18px;
+      height: 18px;
+      background-color: #fff;
+      margin-left: -9px;
+      border: 2px solid var(--primary_color);
+      border-radius: 50%;
+    }
+    .title{
+      position: absolute;
+      bottom: 27px;
+      width: 100%;
+      font-size: 18px;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+  .swiper-slide-active {
+    .time-line_icon {
+      border-color: var(--primary_color);
+      background: var(--primary_color);
+      transition: all 0.5s;
+    }
+  }
+}
+.time-line{
+  .time-line_main {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    padding-top: 70px;
+    .time-line_title{
+      width: 190px;
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+    .time-line_content {
+      width: calc(100% - 190px);
+      font-size: 18px;
+      line-height: 2;
+      padding-left: 20px;
+    }
+  }
+}
