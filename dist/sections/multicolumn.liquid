@@ -2,9 +2,9 @@
   {% if section.settings.title != blank %}
     <h2 class="xuer-h2 xuer-section-title">{{ section.settings.title }}</h2>
   {% endif %}
-  <xuer-list class="collection-list_main page_width  xuer-list-grid-{{ section.settings.columns_per_row }}">
+  <xuer-list class="collection-list_main page_width xuer-list-grid-{{ section.settings.columns_per_row }}">
     {%- for block in section.blocks -%}
-      <xuer-list-item class="xuer-list-item">
+      <xuer-list-item class="xuer-list-item" xuer-animated="xuer-animate_fadeIn" >
         {% if section.settings.enable_image %}
           <div class="text-column__image lightly-spaced-row xuer-line2">
             {%- 
