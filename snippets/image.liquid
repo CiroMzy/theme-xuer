@@ -63,7 +63,7 @@
     endif
   endfor
 -%}
-<div class="xuer-image-outer-wrapper {{ image_wrapper_class }} {% if is_cover %} is_cover {% endif %} {% if is_inbox %} is_inbox {% endif %}"
+<div class="xuer-image-outer-wrapper {{ image_wrapper_class }} {% if is_cover %} is_cover {% endif %} {% if is_inbox %} is_inbox {% endif %} {% if image == blank %} is_placeholder {% endif %}"
   style="{{ wrapper_style }}"
 >
   <div class="xuer-image-wrapper"

@@ -89,7 +89,18 @@
         "id": "secondary_button_text_color",
         "default": "#282828",
         "label": "Secondary button text color"
+      },
+      {
+        "type": "header",
+        "content": "Section alternate colors"
+      },
+      {
+        "type": "color",
+        "id": "section_background_color",
+        "default": "#F7F1F0",
+        "label": "Section background color"
       }
+
     ]
   },
 
@@ -162,6 +173,16 @@
         "unit": "px",
         "default": 0,
         "label": "Button border radius"
+      },
+      {
+        "type": "range",
+        "id": "section_space",
+        "min": 8,
+        "max": 64,
+        "step": 8,
+        "default": 24,
+        "unit": "px",
+        "label": "Section space"
       }
     ]
   },
