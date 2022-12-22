@@ -1,5 +1,5 @@
 {%- assign blog = blogs[section.settings.blog] -%}
-<section class="page_width blog-posts xuer-animated xuer-animated-opacity" xuer-animated>
+<section class="page_width blog-posts xuer-animated " xuer-animated>
   {% if section.settings.title != blank %}
     <h2 class="xuer-h2 xuer-section-title">{{ section.settings.title }}</h2>
   {% endif %}
@@ -25,7 +25,7 @@
   {% elsif blog.articles.size == 0 %}
     <p class="xuer-section-empty-info">{{ 'sections.blog_post_empty' | t }}</p>
   {% else %}
-  <div class="article-list xuer-row xuer-animated xuer-animated-opacity"  xuer-animated>
+  <div class="article-list xuer-row xuer-animated "  xuer-animated>
     {% for article in blog.articles limit: section.settings.articles_count %}
       {% 
         render 'article',

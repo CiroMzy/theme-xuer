@@ -49,7 +49,10 @@
                         <li class="menu-level-2 menu-item custom-menu-item">
                           <a href="{% if block.settings.link != blank %} {{block.settings.link}}{% else %}javascript:; {% endif %}">
                             <div class="custom-menu-item-img">
-                              {%- render 'image', image: block.settings.image -%}
+                              {%- 
+                                render 'image', 
+                                image: block.settings.image
+                              -%}
                             </div>
                             <div class="custom-menu-item-title">{{ block.settings.title }}</div>
                           </a>

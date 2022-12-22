@@ -6,7 +6,10 @@
 <xuer-product-item class="custom-section product-item-container" >
   <div class="product-image-wrapper">
     <div class="product-image-show">
-      {%- render 'image', image: product.media.first.preview_image, alt: product.media.first.preview_image.alt -%}
+      {%- 
+        render 'image', 
+        image: product.media.first.preview_image
+      -%}
     </div>
     {% comment %} <div class="product-image-hover">
       {%- for image in product_images -%}

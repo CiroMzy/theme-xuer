@@ -1,12 +1,15 @@
 
 {% if section.settings.show_featured_image %}
   <div class="xuer-page_second-banner ">
-    <div class="banner-container xuer-overlay_wrapper xuer-animated xuer-animated-opacity " xuer-animated="xuer-animate_fadeIn">
+    <div class="banner-container xuer-overlay_wrapper xuer-animated " xuer-animated="xuer-animate_fadeIn"
+      style="height: {{ section.settings.featured_image_height }}px"
+    >
       {% 
         render 'image', 
         image: article.image,
-        height: section.settings.featured_image_height, 
-        image_type: 'cover' 
+        height: section.settings.featured_image_height,
+        is_cover: true,
+        sizes: '100vw'
       %}
     </div>
   </div>

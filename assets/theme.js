@@ -1250,7 +1250,6 @@ var Timeline = class extends BaseHTMLElement {
   connectedCallback() {
     const _this = this
     this.initSwiper({
-      loop: true,
       breakpoints: {
         1200: { slidesPerView: 5 },
         992: { slidesPerView: 4 },

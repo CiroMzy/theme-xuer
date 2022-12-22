@@ -1,3 +1,24 @@
+{% comment %}
+
+  Accepts:
+  - width: {Number} 
+  - max_width: {Number} 
+  - min_aspect_ratio: {Number} 
+  - aspect_ratio: {Number} 
+  - height: {Number}
+  - is_cover: {Boolean}
+  - is_inbox: {Boolean}
+  - enable_loading: {Boolean}
+  - image_wrapper_class: {String}
+  - alt: {String}
+  - sizes: {String}
+
+
+  
+
+{% endcomment %}
+
+
 {%- liquid
 
   if max_width
@@ -9,10 +30,23 @@
   if aspect_ratio != blank
     assign local_aspect_ratio = aspect_ratio
   else
-    assign local_aspect_ratio = image.aspect_ratio | at_least: min_aspect_ratio
+    if image != blank
+      assign local_aspect_ratio = image.aspect_ratio | at_least: min_aspect_ratio
+    else
+      assign local_aspect_ratio = 1
+    endif
+  endif
+  assign wrapper_style = ''
+  if width != blank
+    assign wrapper_style_width = width | prepend: 'width:' | append: 'px;'
+    assign wrapper_style = wrapper_style | append: wrapper_style_width
+  endif
+  if height != blank
+    assign wrapper_style_height = height | prepend: 'height:' | append: 'px;'
+    assign wrapper_style = wrapper_style | append: wrapper_style_height
   endif
 
-  assign srcset_arr = srcset_arr | default: '180, 220, 300, 360, 460, 540, 720, 900, 1080, 1296, 1512, 1728, 2048'
+  assign srcset_arr = '180, 220, 300, 360, 460, 540, 720, 900, 1080, 1296, 1512, 1728, 2048'
   assign array_sizes = srcset_arr | remove: ' ' | split: ','
   
   assign src_list = ''
@@ -28,58 +62,37 @@
       assign src_list = src_list | append: ','
     endif
   endfor
-
-
-  if height != blank and image_type == 'cover'
-    assign is_cover = true
-  endif
-    
-
 -%}
-
-<div class="xuer-image-outer-wrapper {{ object_fit }} {{ image_wrapper_class }} {% if is_cover %} is_cover {% endif %}"
-  {% if width != blank %}
-    style="width: {{ width }}px;"  
-  {% endif %}
-
-  {% if height != blank %}
-    style="height: {{ height }}px;"  
-  {% endif %}
+<div class="xuer-image-outer-wrapper {{ image_wrapper_class }} {% if is_cover %} is_cover {% endif %} {% if is_inbox %} is_inbox {% endif %}"
+  style="{{ wrapper_style }}"
 >
-  {% if image == blank %}
-    {% if placeholder != blank %}
-      {{ 'image' | placeholder_svg_tag: placeholder }}  
-    {% endif %}
-  {% else %}
-  <div class="xuer-image-wrapper" 
+  <div class="xuer-image-wrapper"
     style="padding-top:{{ 1 | divided_by: local_aspect_ratio | times: 100 }}%"
     xuer-image
   >
-    <img 
-      {% if width != blank %}
-        height="{{ width | divided_by: local_aspect_ratio | ceil }}" 
-        width="{{ width }}"
+    {% if image == blank %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-background' }}
+    {% else %}
+      <img 
+        style="{{ wrapper_style }}"
+        alt="{{ alt | default: image.alt | escape }}" 
+        srcset="{{ src_list }}"
+        srcset="{% if image.width >= 288 %}{{ image | image_url: width: 288 }} 288w,{% endif %}
+        {% if image.width >= 576 %}{{ image | image_url: width: 576 }} 576w,{% endif %}
+        {% if image.width >= 550 %}{{ image | image_url: width: 550 }} 550w,{% endif %}
+        {% if image.width >= 1100 %}{{ image | image_url: width: 1100 }} 1100w,{% endif %}
+        {{ image | image_url }} {{ image.width }}w"
+        {% if sizes != blank %}
+          sizes="{{ sizes }}"
+        {% else %}
+          sizes="100vw"
+        {% endif %}
+        loading="lazy" 
+        class="xuer-image {{ img_class }} {% if cover %}cover{% endif %}"
+        />
+      {% if enable_loading %}
+        {% render 'icon', name: 'loading' %}
       {% endif %}
-      alt="{{ alt | default: image.alt | escape }}" 
-      src="{{ image | image_url: biggest_size_descriptor, crop: crop }}" 
-      srcset="{{ src_list }}"
-
-      srcset="{% if image.width >= 288 %}{{ image | image_url: width: 288 }} 288w,{% endif %}
-      {% if image.width >= 576 %}{{ image | image_url: width: 576 }} 576w,{% endif %}
-      {% if image.width >= 550 %}{{ image | image_url: width: 550 }} 550w,{% endif %}
-      {% if image.width >= 1100 %}{{ image | image_url: width: 1100 }} 1100w,{% endif %}
-      {{ image | image_url }} {{ image.width }}w"
-      {% if sizes != blank %}
-        sizes="{{ sizes }}"
-      {% else %}
-        sizes="100vw"
-      {% endif %}
-      loading="lazy" 
-      class="xuer-image {{ img_class }} {% if cover %}cover{% endif %}"
-      />
-    {% if enable_loading %}
-      {% render 'icon', name: 'loading' %}
     {% endif %}
   </div>
-  {% endif %}
 </div>

@@ -5,7 +5,11 @@
         {%- for cartItem in cart.items -%}
           <div class="mini-product_container xuer-line2" mini-product-item data-cart-id="{{ cartItem.id }}">
             <div class="mini-product_image_wrapper">
-              {% render 'image', image: cartItem.image, enable_loading: true %}
+              {% 
+                render 'image', 
+                image: cartItem.image, 
+                enable_loading: true 
+              %}
             </div>
             <div class="mini-product_main">
               <a class="mini-product_title xuer-line">

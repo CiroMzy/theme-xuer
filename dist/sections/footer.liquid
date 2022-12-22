@@ -13,7 +13,12 @@
       <div class="footer-base">
         {%- if section.settings.logo_image != blank -%}
           <div class="footer-logo">
-            {%- render 'image', image: section.settings.logo_image, width: section.settings.logo_image_width -%}
+            {%- 
+              render 'image', 
+              image: section.settings.logo_image, 
+              width: section.settings.logo_image_width,
+              sizes: '20vw'
+            -%}
           </div>
         {%- endif -%}
         {%- if section.settings.footer_describe != blank -%}

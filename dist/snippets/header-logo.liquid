@@ -6,10 +6,22 @@
       {%- if section_settings.header_logo != blank -%}
         {%- assign logo_alt = section_settings.header_logo.alt | default: shop.name | escape -%}
         <div class="img-wrapper header-logo desktop ">
-          {%- render 'image', image: section_settings.header_logo, width: section_settings.desktop_logo_width, max_width: 300, alt: logo_alt -%}
+          {%- 
+            render 'image', 
+            image: section_settings.header_logo, 
+            width: section_settings.desktop_logo_width, 
+            max_width: 300, 
+            alt: logo_alt 
+            -%}
         </div>
         <div class="img-wrapper header-logo mobile ">
-          {%- render 'image', image: section_settings.header_logo, width: section_settings.mobile_logo_width, max_width: 300, alt: logo_alt -%}
+          {%- 
+            render 'image', 
+            image: section_settings.header_logo, 
+            width: section_settings.mobile_logo_width, 
+            max_width: 300, 
+            alt: logo_alt 
+          -%}
         </div>
       {%- else -%}
         <span>

@@ -119,7 +119,8 @@
             "344df9ec-1d1e-40b8-8da2-6547905a1d96"
           ],
           "settings": {
-            "logo_image_width": 150,
+            "logo_image_width": 250,
+            "logo_image": "shopify:\/\/shop_images\/img2.jpg",
             "footer_describe": "Build any site you can imagine with no coding skills. We make websites are the number one ranked design, build and marketing team.",
             "show_country_selector": true,
             "show_language_selector": true,

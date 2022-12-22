@@ -1,7 +1,14 @@
 {% if section.settings.show_collection_banner %}
 <div class="xuer-page_second-banner main-collection-banner">
-  <div class="banner-container xuer-overlay_wrapper">
-    {% render 'image', image: collection.image, height: 300, image_type: 'cover' %}
+  <div class="banner-container xuer-overlay_wrapper"
+    style="height: {{ section.settings.collection_banner_height }}px"
+  >
+    {% 
+      render 'image', 
+      image: collection.image, 
+      height: section.settings.collection_banner_height, 
+      is_cover: 'cover'
+    %}
     {%- if section.settings.show_collection_title -%}
       <div class="page_width">
         <div class="xuer-overlay">
@@ -24,6 +31,15 @@
       "id": "show_collection_banner",
       "label": "Show collection banner",
       "default": true
+    },
+    {
+      "type": "range",
+      "id": "collection_banner_height",
+      "label": "Collection banner height",
+      "min": 100,
+      "max": 600,
+      "step": 50,
+      "default": 300
     },
     {
       "type": "checkbox",

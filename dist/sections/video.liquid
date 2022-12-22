@@ -8,7 +8,7 @@
 
 <div class="xuer-video-container {% if section.settings.full_width == false %} page_width {% endif %} " id="xuer-video-{{ section.id }}">
   {% if section.settings.subheading != blank or section.settings.title != blank or section.settings.text != blank %}
-    <div class="xuer-video_content xuer-animated xuer-animated-opacity" xuer-animated>
+    <div class="xuer-video_content xuer-animated " xuer-animated>
       <h4 class="xuer-video_subheading xuer-line2">
           {{ section.settings.subheading | escape }}
       </h4>
@@ -23,7 +23,12 @@
     data-provider="{{ section.settings.video_url.type }}"
     data-video-ratio="{{ section.settings.video_ratio }}"
   >
-    {% render 'image', image: section.settings.image, image_wrapper_class: "video-placehlder", is_cover: true %}
+    {% 
+      render 'image', 
+      image: section.settings.image, 
+      image_wrapper_class: "video-placehlder", 
+      is_cover: true 
+    %}
 
     <template>
       {%- if section.settings.video_url.type == 'youtube' -%}

@@ -4,7 +4,7 @@
   {% endif %}
   <div class="xuer-page-main">
     {%- paginate collections by section.settings.collections_per_page -%}
-      <div class="list-collections_list">
+      <xuer-list class="list-collections_list">
         {%- liquid
           if section.settings.display_type == 'all'
             assign collections_list = collections
@@ -22,17 +22,26 @@
               assign collection_image = item.settings.image | default: collection.featured_image
             endif
           -%}
-          <a href="{{ collection.url }}" class="list-collections__item xuer-image-enlarge xuer-overlay_wrapper">
-            {% render 'image', image: collection_image, sizes: '25vw', default_image: 'no_image' %}
-            {%- if section.settings.show_collection_title -%}
-              <div class="xuer-overlay">
-                <div class="xuer-overlay_cover" style="opacity: {{ section.settings.overlay_opacity }}%;;background-color: {{ section.settings.overlay_color }};"></div>
-                <h2 class="xuer-overlay_title xuer-h2" style="color: {{ section.settings.title_color }}">{{ collection.title }}</h2>
-              </div>
-            {%- endif -%}
-          </a>
+          <xuer-list-item>
+            <a href="{{ collection.url }}" class="list-collections__item xuer-image-enlarge xuer-overlay_wrapper xuer-link_keep">
+              {% 
+                render 'image', 
+                image: collection_image, 
+                sizes: '25vw', 
+                is_cover: true,
+                aspect_ratio: section.settings.aspect_ratio
+              %}
+              {%- if section.settings.show_collection_title -%}
+                <div class="xuer-overlay">
+                  <div class="xuer-overlay_cover" style="opacity: {{ section.settings.overlay_opacity }}%;"></div>
+                  <h2 class="xuer-overlay_title xuer-h2" style="color: {{ section.settings.title_color }}">{{ collection.title }}</h2>
+                </div>
+              {%- endif -%}
+            </a>
+          </xuer-list-item>
         {%- endfor -%}
-      </div>
+
+      </xuer-list-item>
       {% if section.settings.display_type == 'all' %}
         {% render 'paginate', paginate: paginate %}
       {% endif %}
@@ -90,12 +99,6 @@
       "default": "#ffffff"
     },
     {
-      "type": "color",
-      "id": "overlay_color",
-      "label": "Overlay color",
-      "default": "#000000"
-    },
-    {
       "type": "range",
       "id": "overlay_opacity",
       "label": "Overlay opacity",
@@ -104,6 +107,34 @@
       "step": 1,
       "unit": "%",
       "default": 20
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Image ratio",
+      "options": [
+        {
+          "value": "",
+          "label": "Auto"
+        },
+        {
+          "value": "0.67",
+          "label": "Portrait (2:3)"
+        },
+        {
+          "value": "1.0",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "1.33",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "1.78",
+          "label": "Wide (16:9)"
+        }
+      ],
+      "default": "1.0"
     }
   ],
   "blocks": [
