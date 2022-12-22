@@ -1,11 +1,11 @@
 
-<div class="ligo-list {{ section.settings.use_section_space }} {{ section.settings.use_alt_color }}">
+<div class="ligo-list xuer-shopify-section {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}">
   {% if section.settings.title != blank %}
-    <h2 class="xuer-h2 xuer-section-title">{{ section.settings.title }}</h2>
+    <h2 class="xuer-h2 xuer-section-title" xuer-animated >{{ section.settings.title }}</h2>
   {% endif %}
   {%- if section.blocks.size > 0 -%}
 
-    <xuer-list class="logo-list-main page_width xuer-list-grid-6">      
+    <xuer-list class="logo-list-main page_width xuer-list-grid-6 xuer-animate_delay2" xuer-animated>      
       {%- for block in section.blocks -%}
         <xuer-list-item class="xuer-image-enlarge">
           {%- if block.settings.link != blank -%}

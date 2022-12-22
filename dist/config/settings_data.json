@@ -24,6 +24,7 @@
       "heading_text_transform": "uppercase",
       
       "page_width": 1200,
+      "section_space": 24,
       
       "sections": {
         "announcement-bar": {

@@ -642,6 +642,15 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
   right: 0;
   bottom: 0;
 }
+.xuer-shopify-section {
+  padding: 24px 0;
+}
+.use_section_space {
+  margin-top: var(--section_space);
+}
+.use_alt_color {
+  background-color: var(--section_background_color);
+}
 /**********************
 * form
 */
