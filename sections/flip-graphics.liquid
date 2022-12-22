@@ -1,0 +1,161 @@
+<div class="flip-graphics xuer-shopify-section {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}">
+  <div class="flip-graphics_header page_width xuer-line4">
+    <div class="flip-graphics_header-left">
+      <h2 class="xuer-h2 xuer-section-title">{{ section.settings.title }}</h2>
+    </div>
+    <div class="flip-graphics_header-right">
+      <div class="xuer-text">
+        {{ section.settings.content }}
+      </div>
+    </div>
+  </div>
+  <xuer-list class="flip-graphics_main xuer-list-grid-4 page_width">
+    {% for block in section.blocks %}
+      <xuer-list-item class="flip-graphics_main-item">
+        <div class="flip-graphics_content flip-graphics_front">
+          <div class="flip-graphics_front-inner">
+            <div class="flip-graphics_front-icon xuer-line2">
+              {%- 
+                render 'image', 
+                image: block.settings.image,
+                sizes: '20vw',
+                height: section.settings.image_height,
+                in_box: true,
+                fix_height: true
+              -%}
+            </div>
+            {% if block.settings.title != blank %}
+              <h4 class="flip-graphics_front-title xuer-line2 xuer-h4">
+                {{ block.settings.title }}
+              </h4>
+            {% endif %}
+            {% if block.settings.title != blank %}
+              <div class="flip-graphics_front-content xuer-text xuer-line2">
+                {{ block.settings.content }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="flip-graphics_content flip-graphics_back">
+          <div class="flip-graphics_back-inner">
+            {% if block.settings.button_label != blank %}
+              {% if block.settings.link != blank %}
+                <a href="{{ block.settings.link }}" class="xuer-link_keep">  
+              {% endif %}
+                {% 
+                  render 'form-button', 
+                  label: block.settings.button_label, 
+                  className: 'xuer-button-animate-slide' 
+                %}
+              {% if block.settings.link != blank %}
+                </a>
+              {% endif %}
+            {% endif %}
+          </div>
+        </div>
+      </xuer-list-item>
+
+      
+    {% endfor %}
+  </xuer-list>
+</div>
+{% schema %}
+{
+  "name": "Flip graphics",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Optimal Manufacturing Solutions"
+    },
+    {
+      "type": "text",
+      "id": "content",
+      "default": "Donec pulvinar tellus egetmagna aliquet ultricies. nec eleifend sem convallis vitae. soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Sed sagittis sodales lobortis. Curabitur in eleifend turpis, id vehicula odio.",
+      "label": "Content"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 40,
+      "max": 150,
+      "step": 5,
+      "default": 50,
+      "unit": "px",
+      "label": "Image height"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_alt_color",
+      "label": "Use alternate section color",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "use_section_space",
+      "label": "Use section space",
+      "default": true
+    }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "flip_block",
+      "name": "Flip block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Target Your Audience",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "content",
+          "default": "Lorem ipsum dolor amet, websites that will make you more successful.",
+          "label": "Content"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flip graphics",
+      "blocks": [
+        {
+          "type": "flip_block"
+        },
+        {
+          "type": "flip_block"
+        },
+        {
+          "type": "flip_block"
+        },
+        {
+          "type": "flip_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+  
+    

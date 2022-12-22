@@ -8,6 +8,7 @@
   - height: {Number}
   - is_cover: {Boolean}
   - is_inbox: {Boolean}
+  - fix_height: {Boolean}
   - enable_loading: {Boolean}
   - image_wrapper_class: {String}
   - alt: {String}
@@ -63,7 +64,7 @@
     endif
   endfor
 -%}
-<div class="xuer-image-outer-wrapper {{ image_wrapper_class }} {% if is_cover %} is_cover {% endif %} {% if is_inbox %} is_inbox {% endif %} {% if image == blank %} is_placeholder {% endif %}"
+<div class="xuer-image-outer-wrapper {{ image_wrapper_class }} {% if is_cover %} is_cover {% endif %} {% if is_inbox %} is_inbox {% endif %} {% if image == blank %} is_placeholder {% endif %} {% if fix_height %} fix_height {% endif %}"
   style="{{ wrapper_style }}"
 >
   <div class="xuer-image-wrapper"

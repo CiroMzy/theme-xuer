@@ -58,7 +58,17 @@ a, .link{
         object-fit: contain;
       }
     }
-    
+  }
+  &.fix_height {
+    .xuer-image-wrapper {
+      padding-top: 0 !important;
+      height: 100%;
+      .xuer-image, .placeholder-svg {
+        width: auto;
+        position: static;
+        object-fit: contain;
+      }
+    }
   }
   &.is_cover {
     .xuer-image-wrapper {

@@ -148,7 +148,6 @@ xuer-list{
   grid-gap: @distance3;
   gap: @distance3;
   grid-template-columns: repeat(auto-fit,calc(100% / var(--section-grid-column-count) - @distance3 * (var(--section-grid-column-count) - 1) / var(--section-grid-column-count)));
-  overflow: hidden;
   &.xuer-list-grid-2{
     grid-template-columns: repeat(auto-fit,calc(100% / 2 - @distance3 * (2 - 1) / 2));
   }
@@ -165,6 +164,7 @@ xuer-list{
     grid-template-columns: repeat(auto-fit,calc(100% / 6 - @distance3 * (6 - 1) / 6));
   }
   xuer-list-item {
+    display: block;
     [xuer-list-item-image_placeholder]{
       height: 0;
       position: relative;
@@ -179,6 +179,10 @@ xuer-list{
 
 .xuer-shopify-section {
   padding: @distance3 0;
+}
+.xuer-text {
+  font-size: @font5;
+  line-height: 1.5;
 }
 .use_section_space {
   margin-top: var(--section_space);

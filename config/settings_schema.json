@@ -41,8 +41,8 @@
       {
         "type": "color",
         "id": "secondary_background_color",
-        "default": "#f5f5f5",
-        "label": "Background"
+        "default": "#ff4f33",
+        "label": "Secondary background"
       },
       {
         "type": "color",

@@ -1,0 +1,76 @@
+@import url(./variables.less);
+@import url(./animate.less);
+/**********************
+* flip-graphics
+*/
+.flip-graphics {
+  .flip-graphics_header {
+    display: flex;
+    align-items: center;
+    .flip-graphics_header-left {
+      flex: 4;
+      padding-right: @distance5;
+      border-right: 1px solid var(--border_color);
+      box-sizing: border-box;
+      .xuer-section-title {
+        text-align: left;
+        font-size: @font3;
+      }
+    }
+    .flip-graphics_header-right {
+      flex: 6;
+      padding-left: @distance5;
+    }
+  }
+  .flip-graphics_main-item {
+    transition: ease all 0.3s;
+    border-radius: @distance;
+    position: relative;
+    transform-style: preserve-3d;/*3D效果 */
+    transition: 1s ease;
+    box-shadow: 0 0 25px rgb(0 0 0 / 7%);
+    background-color: var(--background_color);
+    &:hover{
+      transform: rotateY(180deg);
+    }
+
+    .flip-graphics_content {
+      backface-visibility: hidden;
+      border-radius: @distance;
+      transform-style: inherit;
+    }
+    .flip-graphics_front {
+      background-color: var(--background_color);
+      .flip-graphics_front-inner {
+        padding: @distance4 @distance2;
+        transform: translate3d(0, 0, 60px) scale(0.9);
+        min-height: 250px;
+        .flip-graphics_front-title {
+          font-size: @font4;
+        }
+        .flip-graphics_front-content {
+          font-size: 18px;
+        }
+      }
+    }
+    .flip-graphics_back{
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: rotateY(180deg);/*繞著Y軸旋轉*/
+      width: 100%;
+      padding: @distance4;
+      box-sizing: border-box;
+      background-color: var(--secondary_background_color);
+      .flip-graphics_back-inner{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .pos-full;
+        transform: translate3d(0, 0, 60px);
+
+      }
+    }
+  }
+}

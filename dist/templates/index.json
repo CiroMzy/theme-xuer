@@ -1,5 +1,62 @@
 {
   "sections": {
+    "aadc05ef-d301-4ba7-a887-2f05fb358d18": {
+      "type": "flip-graphics",
+      "blocks": {
+        "template--16697861570810__aadc05ef-d301-4ba7-a887-2f05fb358d18-16716961513252972a-0": {
+          "type": "flip_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/logo.png",
+            "title": "Target Your Audience addddsfasfd",
+            "content": "Lorem ipsum dolor amet, websites that will make you more successful.make you more successful.make you more successful.make you more successful.make you more successful.",
+            "button_label": "Button label",
+            "link": "shopify:\/\/blogs\/news\/10-picnic-basket-bags-on-sale-to-carry-around-all-summer"
+          }
+        },
+        "template--16697861570810__aadc05ef-d301-4ba7-a887-2f05fb358d18-16716961513252972a-1": {
+          "type": "flip_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/O1CN015mUUF71HaXBm4q6QZ__6000000000774-0-cib.jpg",
+            "title": "Target Your Audience",
+            "content": "Lorem ipsum dolor amet, websites that will make you more successful.",
+            "button_label": "Button label",
+            "link": ""
+          }
+        },
+        "template--16697861570810__aadc05ef-d301-4ba7-a887-2f05fb358d18-16716961513252972a-2": {
+          "type": "flip_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/dressed-for-spring.jpg",
+            "title": "Target Your Audience",
+            "content": "Lorem ipsum dolor amet, websites that will make you more successful.",
+            "button_label": "Button label",
+            "link": ""
+          }
+        },
+        "6113b31c-fd21-4a64-bba4-f10887fd5bf1": {
+          "type": "flip_block",
+          "settings": {
+            "title": "Target Your Audience",
+            "content": "Lorem ipsum dolor amet, websites that will make you more successful.",
+            "button_label": "Button label",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16697861570810__aadc05ef-d301-4ba7-a887-2f05fb358d18-16716961513252972a-0",
+        "template--16697861570810__aadc05ef-d301-4ba7-a887-2f05fb358d18-16716961513252972a-1",
+        "template--16697861570810__aadc05ef-d301-4ba7-a887-2f05fb358d18-16716961513252972a-2",
+        "6113b31c-fd21-4a64-bba4-f10887fd5bf1"
+      ],
+      "settings": {
+        "title": "Optimal Manufacturing Solutions",
+        "content": "Donec pulvinar tellus egetmagna aliquet ultricies. nec eleifend sem convallis vitae. soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Sed sagittis sodales lobortis. Curabitur in eleifend turpis, id vehicula odio.",
+        "use_alt_color": true,
+        "use_section_space": true,
+        "image_height": 60
+      }
+    },
     "c06e9fb4-cf6f-4451-b339-00b6aed3f83d": {
       "type": "logo-list",
       "blocks": {
@@ -69,7 +126,7 @@
       "settings": {
         "title": "Logo list",
         "use_alt_color": true,
-        "use_section_space": false
+        "use_section_space": true
       }
     },
     "cab42e29-95b6-44a8-862b-cbf001e6774a": {
@@ -480,6 +537,7 @@
     }
   },
   "order": [
+    "aadc05ef-d301-4ba7-a887-2f05fb358d18",
     "c06e9fb4-cf6f-4451-b339-00b6aed3f83d",
     "cab42e29-95b6-44a8-862b-cbf001e6774a",
     "1d429872-5c33-45fc-af9f-26d33a923624",
