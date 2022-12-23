@@ -2,7 +2,7 @@
 /**********************
 * account
 */
-.xuer-form-error-msg {
+.xuer-form-error-msg, .xuer-form-success-msg {
   color: var(--error_color);
   background-color: var(--error_color_fade);
   display: flex;
@@ -23,7 +23,10 @@
     margin-right: @distance;
   }
 }
-
+.xuer-form-success-msg {
+  color: var(--success_color);
+  background-color: var(--success_color_fade);
+}
 .account {
   margin: @distance4 auto;
   .account-title {

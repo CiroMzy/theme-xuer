@@ -1,5 +1,59 @@
 {
   "sections": {
+    "18c66ab6-15fd-4fab-ab03-7d4938f306ac": {
+      "type": "contact-form",
+      "blocks": {
+        "template--16697861570810__18c66ab6-15fd-4fab-ab03-7d4938f306ac-16717754018dc7c19a-0": {
+          "type": "name_input",
+          "settings": {
+            "is_half_width": false
+          }
+        },
+        "template--16697861570810__18c66ab6-15fd-4fab-ab03-7d4938f306ac-16717754018dc7c19a-1": {
+          "type": "email_input",
+          "settings": {
+            "is_half_width": true
+          }
+        },
+        "template--16697861570810__18c66ab6-15fd-4fab-ab03-7d4938f306ac-16717754018dc7c19a-2": {
+          "type": "message_input",
+          "settings": {
+            "is_half_width": true,
+            "use_long_text": false
+          }
+        },
+        "60d4b1e5-d008-42dd-bd7e-ef1055e1bbd9": {
+          "type": "text",
+          "settings": {
+            "name": "Custom text field",
+            "use_long_text": true,
+            "is_required": true,
+            "is_half_width": false
+          }
+        },
+        "5f241657-c372-442e-bffb-45b66250cc2f": {
+          "type": "dropdown",
+          "settings": {
+            "name": "Custom dropdown field2",
+            "values": "value 1, value 2, value 3",
+            "is_required": true,
+            "is_half_width": false
+          }
+        }
+      },
+      "block_order": [
+        "template--16697861570810__18c66ab6-15fd-4fab-ab03-7d4938f306ac-16717754018dc7c19a-0",
+        "template--16697861570810__18c66ab6-15fd-4fab-ab03-7d4938f306ac-16717754018dc7c19a-1",
+        "template--16697861570810__18c66ab6-15fd-4fab-ab03-7d4938f306ac-16717754018dc7c19a-2",
+        "60d4b1e5-d008-42dd-bd7e-ef1055e1bbd9",
+        "5f241657-c372-442e-bffb-45b66250cc2f"
+      ],
+      "settings": {
+        "title": "Contact us",
+        "use_alt_color": false,
+        "use_section_space": true
+      }
+    },
     "aadc05ef-d301-4ba7-a887-2f05fb358d18": {
       "type": "flip-graphics",
       "blocks": {
@@ -537,6 +591,7 @@
     }
   },
   "order": [
+    "18c66ab6-15fd-4fab-ab03-7d4938f306ac",
     "aadc05ef-d301-4ba7-a887-2f05fb358d18",
     "c06e9fb4-cf6f-4451-b339-00b6aed3f83d",
     "cab42e29-95b6-44a8-862b-cbf001e6774a",

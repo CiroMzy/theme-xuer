@@ -484,6 +484,9 @@ a.xuer-image-enlarge:hover {
   display: flex;
   flex-wrap: wrap;
 }
+.xuer-row.left-margin {
+  margin-left: -16px;
+}
 .xuer-row.xuer-vertical-center {
   align-items: center;
 }
@@ -899,6 +902,9 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
   display: flex;
   position: relative;
 }
+.xuer-input_wrapper.is_textarea {
+  height: 120px;
+}
 .xuer-input_wrapper[submit-button] input {
   padding-right: 50px;
 }
@@ -921,6 +927,27 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
   transform: scale(0.733) translateY(calc(-18px - 0.5em)) translate(3.665px);
 }
 .xuer-input_wrapper input:-internal-autofill-selected {
+  background-color: var(--background_color);
+}
+.xuer-input_wrapper textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 120px;
+  line-height: 40px;
+  padding: 0 16px;
+  border-radius: var(--button_border_radius);
+  border: 1px solid var(--border_color);
+  box-shadow: none;
+  background-color: var(--background_color);
+  color: var(--text_color);
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.xuer-input_wrapper textarea:focus ~ .xuer-input_label,
+.xuer-input_wrapper textarea.xuer-focus ~ .xuer-input_label {
+  transform: scale(0.733) translateY(calc(-18px - 0.5em)) translate(3.665px);
+}
+.xuer-input_wrapper textarea:-internal-autofill-selected {
   background-color: var(--background_color);
 }
 .xuer-input_wrapper .xuer-input_label {
@@ -1674,26 +1701,35 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
 /**********************
 * account
 */
-.xuer-form-error-msg {
+.xuer-form-error-msg,
+.xuer-form-success-msg {
   color: var(--error_color);
   background-color: var(--error_color_fade);
   display: flex;
   align-items: center;
   padding: 8px;
 }
-.xuer-form-error-msg.xuer-form-error-multi {
+.xuer-form-error-msg.xuer-form-error-multi,
+.xuer-form-success-msg.xuer-form-error-multi {
   display: block;
 }
-.xuer-form-error-msg.xuer-form-error-multi li {
+.xuer-form-error-msg.xuer-form-error-multi li,
+.xuer-form-success-msg.xuer-form-error-multi li {
   display: flex;
   align-items: center;
 }
-.xuer-form-error-msg.xuer-form-error-multi li + li {
+.xuer-form-error-msg.xuer-form-error-multi li + li,
+.xuer-form-success-msg.xuer-form-error-multi li + li {
   margin-top: 8px;
 }
-.xuer-form-error-msg svg {
+.xuer-form-error-msg svg,
+.xuer-form-success-msg svg {
   width: 20px;
   margin-right: 8px;
+}
+.xuer-form-success-msg {
+  color: var(--success_color);
+  background-color: var(--success_color_fade);
 }
 .account {
   margin: 32px auto;

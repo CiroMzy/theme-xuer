@@ -671,7 +671,9 @@ window.customElements.define("xuer-form-checkbox", FormCheckbox);
 // FormInput
 var FormInput = class extends BaseHTMLElement {
   connectedCallback () {
-    this.$input = $(this.$container.find('[xuer-input]'))
+    this.isTextarea = this.$container.hasClass('is_textarea')
+    this.$input = $(this.$container.find('[xuer-input]'))  
+    
     this.focusClass = 'xuer-focus'
     this.bindChange()
     this.init()
@@ -699,7 +701,7 @@ var FormInput = class extends BaseHTMLElement {
   }
 
   getCurInputVal () {
-    return this.$input.val()
+    return this.$input.val() === undefined ? '' : this.$input.val()
   }
 };
 window.customElements.define("xuer-form-input", FormInput);

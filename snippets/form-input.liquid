@@ -23,19 +23,31 @@
   assign submit_button_icon = submit_button_icon | default: 'arrow-right-line'
 -%}
 
-<xuer-form-input class="xuer-input_wrapper {{ className }}" {% if submit_button == true %} submit-button {% endif %}>
-  <input 
-    type="{{ type }}" 
-    id="{{ id }}" 
-    class="xuer-input" 
-    name="{{ name }}" 
-    {% if required == true %}
-      required="required"
-    {% endif %}
-    xuer-input
-    value="{{ value }}"
-  />
-  <label for="{{ id }}" class="xuer-input_label">{{ label | t }}</label>
+<xuer-form-input class="xuer-input_wrapper {% if is_textarea == true %} is_textarea {% endif %} {{ className }}" {% if submit_button == true %} submit-button {% endif %}>
+  {% if is_textarea %}
+    <textarea
+      id="{{ id }}" 
+      name="{{ name }}" 
+      {% if required == true %}
+        required="required"
+      {% endif %}
+      xuer-input
+    >{{ value }}</textarea>
+  {% else %}
+    <input 
+      type="{{ type }}" 
+      id="{{ id }}" 
+      class="xuer-input" 
+      name="{{ name }}" 
+      {% if required == true %}
+        required="required"
+      {% endif %}
+      xuer-input
+      value="{{ value }}"
+    />
+  {% endif %}
+  <label for="{{ id }}" class="xuer-input_label">
+    {% if no_translate %} {{ label }} {% else %}{{ label | t }}{% endif %}</label>
   {% if submit_button == true %}
     <button class="xuer-input_submit xuer-button clean" type="submit">
       {% render 'icon', name: submit_button_icon %}

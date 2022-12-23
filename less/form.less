@@ -233,6 +233,9 @@
 /***** input *****/
 .xuer-input_wrapper{
   height: @distance5;
+  &.is_textarea {
+    height: @distance5 * 3;
+  }
   display: flex;
   position: relative;
   &[submit-button] {
@@ -245,6 +248,26 @@
     appearance: none;
     width: 100%;
     height: @form-input-height;
+    line-height: @form-input-height;
+    padding: 0 @distance2;
+    border-radius: var(--button_border_radius);
+    border: 1px solid var(--border_color);
+    box-shadow: none;
+    background-color: var(--background_color);
+    color: var(--text_color);
+    transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+    &:focus~.xuer-input_label, &.xuer-focus~.xuer-input_label{
+      transform: scale(.733) translateY(calc(-18px - .5em)) translate(3.665px);
+    }
+    &:-internal-autofill-selected {
+      background-color: var(--background_color);
+    }
+  }
+  textarea{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: @form-input-height*3;
     line-height: @form-input-height;
     padding: 0 @distance2;
     border-radius: var(--button_border_radius);
