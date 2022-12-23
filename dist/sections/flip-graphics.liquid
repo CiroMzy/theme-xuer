@@ -12,50 +12,50 @@
   <xuer-list class="flip-graphics_main xuer-list-grid-4 page_width">
     {% for block in section.blocks %}
       <xuer-list-item class="flip-graphics_main-item">
-        <div class="flip-graphics_content flip-graphics_front">
-          <div class="flip-graphics_front-inner">
-            <div class="flip-graphics_front-icon xuer-line2">
-              {%- 
-                render 'image', 
-                image: block.settings.image,
-                sizes: '20vw',
-                height: section.settings.image_height,
-                in_box: true,
-                fix_height: true
-              -%}
-            </div>
-            {% if block.settings.title != blank %}
-              <h4 class="flip-graphics_front-title xuer-line2 xuer-h4">
-                {{ block.settings.title }}
-              </h4>
-            {% endif %}
-            {% if block.settings.title != blank %}
-              <div class="flip-graphics_front-content xuer-text xuer-line2">
-                {{ block.settings.content }}
+        <div class="flip-graphics_main-item-inner">
+          <div class="flip-graphics_content flip-graphics_front">
+            <div class="flip-graphics_front-inner">
+              <div class="flip-graphics_front-icon xuer-line2">
+                {%- 
+                  render 'image', 
+                  image: block.settings.image,
+                  sizes: '20vw',
+                  height: section.settings.image_height,
+                  in_box: true,
+                  fix_height: true
+                -%}
               </div>
-            {% endif %}
+              {% if block.settings.title != blank %}
+                <h4 class="flip-graphics_front-title xuer-line2 xuer-h4">
+                  {{ block.settings.title }}
+                </h4>
+              {% endif %}
+              {% if block.settings.title != blank %}
+                <div class="flip-graphics_front-content xuer-text xuer-line2">
+                  {{ block.settings.content }}
+                </div>
+              {% endif %}
+            </div>
           </div>
-        </div>
-        <div class="flip-graphics_content flip-graphics_back">
-          <div class="flip-graphics_back-inner">
-            {% if block.settings.button_label != blank %}
-              {% if block.settings.link != blank %}
-                <a href="{{ block.settings.link }}" class="xuer-link_keep">  
+          <div class="flip-graphics_content flip-graphics_back">
+            <div class="flip-graphics_back-inner">
+              {% if block.settings.button_label != blank %}
+                {% if block.settings.link != blank %}
+                  <a href="{{ block.settings.link }}" class="xuer-link_keep">  
+                {% endif %}
+                  {% 
+                    render 'form-button', 
+                    label: block.settings.button_label, 
+                    className: 'xuer-button-animate-slide' 
+                  %}
+                {% if block.settings.link != blank %}
+                  </a>
+                {% endif %}
               {% endif %}
-                {% 
-                  render 'form-button', 
-                  label: block.settings.button_label, 
-                  className: 'xuer-button-animate-slide' 
-                %}
-              {% if block.settings.link != blank %}
-                </a>
-              {% endif %}
-            {% endif %}
+            </div>
           </div>
         </div>
       </xuer-list-item>
-
-      
     {% endfor %}
   </xuer-list>
 </div>

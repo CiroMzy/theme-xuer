@@ -2302,17 +2302,16 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
   flex: 6;
   padding-left: 40px;
 }
-.flip-graphics .flip-graphics_main-item {
-  transition: ease all 0.3s;
+.flip-graphics .flip-graphics_main-item .flip-graphics_main-item-inner {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.07);
+  background-color: var(--background_color);
+  transition: ease all 0.5s;
   border-radius: 8px;
   position: relative;
   transform-style: preserve-3d;
   /*3D效果 */
-  transition: 1s ease;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.07);
-  background-color: var(--background_color);
 }
-.flip-graphics .flip-graphics_main-item:hover {
+.flip-graphics .flip-graphics_main-item:hover .flip-graphics_main-item-inner {
   transform: rotateY(180deg);
 }
 .flip-graphics .flip-graphics_main-item .flip-graphics_content {
@@ -2325,7 +2324,7 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
 }
 .flip-graphics .flip-graphics_main-item .flip-graphics_front .flip-graphics_front-inner {
   padding: 32px 16px;
-  transform: translate3d(0, 0, 60px) scale(0.9);
+  transform: translate3d(0, 0, 60px) scale(0.85);
   min-height: 250px;
 }
 .flip-graphics .flip-graphics_main-item .flip-graphics_front .flip-graphics_front-inner .flip-graphics_front-title {

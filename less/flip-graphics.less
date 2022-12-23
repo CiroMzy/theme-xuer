@@ -23,15 +23,18 @@
     }
   }
   .flip-graphics_main-item {
-    transition: ease all 0.3s;
-    border-radius: @distance;
-    position: relative;
-    transform-style: preserve-3d;/*3D效果 */
-    transition: 1s ease;
-    box-shadow: 0 0 25px rgb(0 0 0 / 7%);
-    background-color: var(--background_color);
+    .flip-graphics_main-item-inner {
+      box-shadow: 0 0 25px rgb(0 0 0 / 7%);
+      background-color: var(--background_color);
+      transition: ease all .5s;
+      border-radius: @distance;
+      position: relative;
+      transform-style: preserve-3d;/*3D效果 */
+    }
     &:hover{
-      transform: rotateY(180deg);
+      .flip-graphics_main-item-inner{
+        transform: rotateY(180deg);
+      }
     }
 
     .flip-graphics_content {
@@ -43,7 +46,7 @@
       background-color: var(--background_color);
       .flip-graphics_front-inner {
         padding: @distance4 @distance2;
-        transform: translate3d(0, 0, 60px) scale(0.9);
+        transform: translate3d(0, 0, 60px) scale(0.85);
         min-height: 250px;
         .flip-graphics_front-title {
           font-size: @font4;
