@@ -25,6 +25,10 @@
       
       "page_width": 1200,
       "section_space": 24,
+      "product_show_vendor": true,
+      "product_show_secondary_image": true,
+      "product_add_to_cart": true,
+      "product_aspect_ratio": "",
       
       "sections": {
         "announcement-bar": {

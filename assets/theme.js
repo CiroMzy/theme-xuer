@@ -398,7 +398,6 @@ window.customElements.define("xuer-drawer", Drawer);
 var PriceRange = class extends BaseHTMLElement {
   connectedCallback () {
     this.datas = this.$container.data()
-    console.log('datas', this.datas);
     this.debounceUpdate = theme.debounce(this.debounceUpdateHandler);
     this.bindMouseEvent()
   }
@@ -413,7 +412,7 @@ var PriceRange = class extends BaseHTMLElement {
       showLabels: false,
       showScale: false,
       isRange : true,
-      onstatechange: this.onPriceChange.bind(this)
+      ondragend: this.onPriceChange.bind(this)
     });
   }
   onPriceChange (e) {
@@ -545,17 +544,17 @@ var ProductFilters = class extends BaseHTMLElement {
     var mainHtml = $resultHtml.find('[collection-main]').html()
     var $main = $('[collection-main]')
     $main.html(mainHtml)
-    var $asideHtml = $($resultHtml.find('[collection-aside]').html())
-    var $aside = $('[collection-aside]')
-    $aside.find('[xuer-collapse-item]').each((i, el) => {
-      var $elTarget = $asideHtml.find('[xuer-collapse-item]').eq(i)
-      if ($(el).hasClass('open')) {
-        $elTarget.addClass('open')
-      } else {
-        $elTarget.removeClass('open')
-      }
-    })
-    $aside.html($asideHtml)
+    // var $asideHtml = $($resultHtml.find('[collection-aside]').html())
+    // var $aside = $('[collection-aside]')
+    // $aside.find('[xuer-collapse-item]').each((i, el) => {
+    //   var $elTarget = $asideHtml.find('[xuer-collapse-item]').eq(i)
+    //   if ($(el).hasClass('open')) {
+    //     $elTarget.addClass('open')
+    //   } else {
+    //     $elTarget.removeClass('open')
+    //   }
+    // })
+    // $aside.html($asideHtml)
   }
   getFormData() {
     const formEl = this.$container.find("[product-filters-form]");

@@ -40,9 +40,17 @@
                   {%- endfor -%}
                 {%- when 'price_range'-%}
                   {%- liquid
-                    assign min_value = filter.min_value.value | divided_by: 100.0 | default: 0 | ceil
-                    assign max_value = filter.max_value.value | divided_by: 100.0 | default: filter.range_max | ceil
-                    assign range_max = filter.range_max | ceil
+                    if filter.min_value.value
+                      assign min_value = filter.min_value.value | default: 0 | divided_by: 100 | ceil
+                    else
+                      assign min_value = 0
+                    endif
+                    if filter.max_value.value
+                      assign max_value = filter.max_value.value | divided_by: 100 | ceil
+                    else
+                      assign max_value = filter.range_max | ceil | divided_by: 100
+                    endif
+                    assign range_max = filter.range_max | ceil | divided_by: 100
                   -%}
                   {% render 'form-price-range', 
                     value_start: min_value, 

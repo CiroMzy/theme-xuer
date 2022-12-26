@@ -187,6 +187,57 @@
     ]
   },
   {
+    "name": "Product grid",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "product_show_vendor",
+        "label": "Show vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "product_show_secondary_image",
+        "label": "Show secondary image on hover",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "product_add_to_cart",
+        "label": "Enable quick add to cart",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "product_aspect_ratio",
+        "label": "Image ratio",
+        "options": [
+          {
+            "value": "",
+            "label": "Auto"
+          },
+          {
+            "value": "0.67",
+            "label": "Portrait (2:3)"
+          },
+          {
+            "value": "1.0",
+            "label": "Square (1:1)"
+          },
+          {
+            "value": "1.33",
+            "label": "Landscape (4:3)"
+          },
+          {
+            "value": "1.78",
+            "label": "Wide (16:9)"
+          }
+        ],
+        "default": ""
+      }
+    ]
+  },
+  {
     "name": "Favicon",
     "settings": [
       {

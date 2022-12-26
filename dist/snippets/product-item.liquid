@@ -8,7 +8,8 @@
     <div class="product-image-show">
       {%- 
         render 'image', 
-        image: product.media.first.preview_image
+        image: product.media.first.preview_image,
+        aspect_ratio: settings.product_aspect_ratio
       -%}
     </div>
     {% comment %} <div class="product-image-hover">

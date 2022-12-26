@@ -5,11 +5,13 @@
   <main class="collection-main" collection-main >
     {%- if collection.products_count > 0 -%}
       {%- paginate collection.products by section.settings.products_per_page -%}
-      
-        {%- for product in collection.products -%}
-          {%- render 'product-item', product: product, min_height: 400 -%}
-        {%- endfor -%}
-
+        <xuer-list>
+          {%- for product in collection.products -%}
+            <xuer-list-item>
+              {%- render 'product-item', product: product, min_height: 400 -%}
+            </xuer-list-item>
+          {%- endfor -%}
+        </xuer-list>
       {%- endpaginate -%}
 
     {%- endif -%}
