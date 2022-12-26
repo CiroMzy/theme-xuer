@@ -22,18 +22,20 @@
                   render 'form-input', id: "contact_body", name: "contact[body]", label: 'general.message', className: "xuer-line2", value: form.body, is_textarea: block.settings.use_long_text
                 when 'text'
                   assign name_handle = block.settings.name | handle
+                  assign name = "contact[" | append: name_handle | append: "]"
                   assign form_input_id = 'contact-form-' | append: block.id
-                  render 'form-input', id: form_input_id, name: name_handle, label: block.settings.name, className: "xuer-line2", value: form[name_handle], is_textarea: block.settings.use_long_text, no_translate: true, required: block.settings.is_required
+                  render 'form-input', id: form_input_id, name: name, label: block.settings.name, className: "xuer-line2", value: form[name_handle], is_textarea: block.settings.use_long_text, no_translate: true, required: block.settings.is_required
                 when 'dropdown'
                   assign values = block.settings.values | split: ','
                   assign form_input_id = 'contact-form-' | append: block.id
                   assign options = ''
                   assign name_handle = block.settings.name | default: block.settings.title | handle
+                  assign name = "contact[" | append: name_handle | append: "]"
                   for value in values
                     assign val = value | strip | escape
                     assign options = options | append: '<option value="' | append: val | append: '">' | append: val | append: '</option>'
                   endfor
-                  render 'form-select', id: form_input_id, name: name_handle, label: block.settings.name, className: "xuer-line2", value: form[name_handle], no_translate: true, options: options, required: block.settings.is_required
+                  render 'form-select', id: form_input_id, name: name, label: block.settings.name, className: "xuer-line2", value: form[name_handle], no_translate: true, options: options, required: block.settings.is_required
               endcase
             -%}
           </div>
