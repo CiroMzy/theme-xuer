@@ -4,6 +4,7 @@ var BaseHTMLElement = class extends HTMLElement {
     super();
     this.$container = $(this);
     this.resizeEvt = null
+    this.animateTime = 300
   }
   get rootDelegate() {}
   get delegate() {}
@@ -101,6 +102,11 @@ var BaseHTMLElement = class extends HTMLElement {
   }
   removeResizeListener () {
     this.resizeEvt && window.removeEventListener('resize', this.resizeEvt)
+  }
+  animateOpacity (el, vis) {
+    $(el).stop().animate({
+      opacity: vis ? 1 : 0,
+    }, this.animateTime);
   }
 };
 

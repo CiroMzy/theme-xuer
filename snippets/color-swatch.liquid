@@ -1,0 +1,42 @@
+
+{% comment %}
+  Accepts:
+  - color_name: {String} 
+  - color_id: {String} 
+  - value: {String} 
+  - checked: {Boolean}
+  
+
+  Usage:
+  {% render 'form-radio', is_checked: true,value: 'red',name: 'color', label: 'color'   %}
+{% endcomment %}
+
+{%-liquid
+
+  assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />'
+  
+  assign color_value_downcase = value | downcase
+  assign color_swatch_style = 'background-color: ' | append: color_value_downcase
+  for color_swatch_item in color_swatch_config
+    assign color_swatch_arr = color_swatch_item | split: ':'
+    
+    assign color_swatch_name = color_swatch_arr.first | downcase | strip
+    
+    if color_value_downcase == color_swatch_name
+      assign color_swatch_value = color_swatch_arr.last | strip
+      if color_swatch_value contains '#'
+        assign color_swatch_style = 'background-color: ' | append: color_swatch_value
+      elsif images[color_swatch_value] != blank
+        assign color_swatch_image = images[color_swatch_value] | img_url: '72x72'
+        assign color_swatch_style = 'background-image: url(' | append: color_swatch_image | append: ')'
+      endif
+    endif
+  endfor
+-%}
+<div class="xuer-color-swatch_item" data-name="{{ color_name }}">
+  <input class="xuer-color-swatch_radio xuer-hidden" type="radio" name="{{ color_name }}" id="{{ color_id }}" value="{{ value | escape }}" {% if checked %}checked="checked"{% endif %}  data-media="product-item_image-{{ variant_for_value.id }}" data-variant-id="{{ variant_for_value.id }}">
+  <label class="xuer-color-swatch_label" for="{{ color_id }}">
+    <span class="xuer-hidden">{{ value }}</span>
+    <span class="xuer-color"  style="{{ color_swatch_style }}"></span>
+  </label>
+</div>

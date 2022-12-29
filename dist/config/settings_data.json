@@ -14,6 +14,7 @@
       "primary_button_text_color": "#ffffff",
       "secondary_button_background_color": "#405de6",
       "secondary_button_text_color": "#ffffff",
+      "product_image_background_color": "#ffffff",
 
       "section_background_color": "#F7F1F0",
 
@@ -28,7 +29,10 @@
       "product_show_vendor": true,
       "product_show_secondary_image": true,
       "product_add_to_cart": true,
-      "product_aspect_ratio": "",
+      "product_aspect_ratio": "1.78",
+      "product_image_crop": true,
+      "product_color_swatch_show": true,
+      "color_swatch_config": "brown:#a52a2a\nblack:#000000\nblue:#0000ff\npink:#ffc0cb",
       
       "sections": {
         "announcement-bar": {

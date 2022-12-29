@@ -443,7 +443,8 @@ a,
   -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s;
 }
-[xuer-animated] {
+[xuer-animated],
+.xuer-animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
@@ -669,6 +670,9 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
 }
 .use_alt_color {
   background-color: var(--section_background_color);
+}
+.xuer-hidden {
+  display: none;
 }
 /**********************
 * form
@@ -2108,6 +2112,7 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
 */
 .xuer-page_second-banner .banner-container {
   height: 300px;
+  overflow: hidden;
 }
 /**********************
 * main-collections
@@ -2144,47 +2149,36 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
 .product-item-container .product-image-wrapper {
   position: relative;
 }
-.product-item-container .product-image-wrapper .swiper {
-  height: 100%;
-}
-.product-item-container .product-image-wrapper:hover .product-image-hover {
-  opacity: 1;
-}
-.product-item-container .product-image-wrapper .product-image-hover {
+.product-item-container .product-image-wrapper .product-image_hover {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 1;
-  transition: 0.3s ease all;
+  z-index: 3;
+  opacity: 0;
 }
-.product-item-container .product-image-wrapper .product-image-hover .product-image-hover_item {
+.product-item-container .product-image-wrapper .xuer-image-outer-wrapper {
+  background: var(--product_image_background_color);
+}
+.product-item-container .product-image-wrapper .product-image_switch .xuer-image-outer-wrapper {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  display: none;
+  opacity: 0;
 }
-.product-item-container .product-image-wrapper .product-image-hover .arrow {
-  position: absolute;
+.product-item-container .product-image-wrapper .product-image_switch .xuer-image-outer-wrapper.xuer-pre-active {
+  z-index: 1;
+  display: block;
+  opacity: 1;
+}
+.product-item-container .product-image-wrapper .product-image_switch .xuer-image-outer-wrapper.xuer-active {
   z-index: 2;
-  width: 32px;
-  height: 35px;
-  top: 50%;
-  margin-top: -27px;
-  left: 0;
-  background: var(--primary_button_background_color_fade);
-  color: var(--primary_button_text_color);
-  cursor: pointer;
-}
-.product-item-container .product-image-wrapper .product-image-hover .arrow.right-arrow {
-  left: auto;
-  right: 0;
-}
-.product-item-container .product-image-wrapper .product-image-hover .xuer-button-style {
-  width: 25px;
-  height: 25px;
+  display: block;
+  opacity: 1;
 }
 /**********************
 * video
@@ -2388,4 +2382,46 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
   right: 0;
   bottom: 0;
   transform: translate3d(0, 0, 60px);
+}
+/**********************
+* color-swatch
+*/
+.xuer-color-swatch {
+  display: flex;
+  flex-wrap: wrap;
+}
+.xuer-color-swatch .xuer-color-swatch_item {
+  margin-right: 8px;
+}
+.xuer-color-swatch .xuer-color-swatch_item .xuer-color-swatch_label {
+  width: 12px;
+  height: 12px;
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+.xuer-color-swatch .xuer-color-swatch_item .xuer-color-swatch_label .xuer-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  border-radius: 50%;
+  border: 1px solid var(--border_color);
+}
+.xuer-color-swatch .xuer-color-swatch_item .xuer-color-swatch_label::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  z-index: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.xuer-color-swatch .xuer-color-swatch_item .xuer-color-swatch_radio:checked + .xuer-color-swatch_label::before {
+  border: 1px solid var(--border_color);
 }
