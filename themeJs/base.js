@@ -103,10 +103,15 @@ var BaseHTMLElement = class extends HTMLElement {
   removeResizeListener () {
     this.resizeEvt && window.removeEventListener('resize', this.resizeEvt)
   }
-  animateOpacity (el, vis) {
-    $(el).stop().animate({
-      opacity: vis ? 1 : 0,
-    }, this.animateTime);
+  async loadPage (href) {
+    // const response = await fetch(href);
+    triggerNonBubblingEvent(this, "openable-element:load:start");
+    const response = await fetch(this.getAttribute("href"));
+    const element = document.createElement("div");
+    element.innerHTML = await response.text();
+    this.innerHTML = element.querySelector(this.tagName.toLowerCase()).innerHTML;
+    this.removeAttribute("href");
+    triggerNonBubblingEvent(this, "openable-element:load:end");
   }
 };
 

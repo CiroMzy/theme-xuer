@@ -15,7 +15,8 @@
     "product_title": "Pruduct title",
     "add_to_cart":"Add to cart",
     "unavailable":"Unavailable",
-    "no_stock":"No stock"
+    "no_stock":"No stock",
+    "quick_view": "Quick view"
   },
   "cart": {
     "min_cart_title": "Cart",

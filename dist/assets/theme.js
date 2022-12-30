@@ -311,10 +311,15 @@ var BaseHTMLElement = class extends HTMLElement {
   removeResizeListener () {
     this.resizeEvt && window.removeEventListener('resize', this.resizeEvt)
   }
-  animateOpacity (el, vis) {
-    $(el).stop().animate({
-      opacity: vis ? 1 : 0,
-    }, this.animateTime);
+  async loadPage (href) {
+    // const response = await fetch(href);
+    triggerNonBubblingEvent(this, "openable-element:load:start");
+    const response = await fetch(this.getAttribute("href"));
+    const element = document.createElement("div");
+    element.innerHTML = await response.text();
+    this.innerHTML = element.querySelector(this.tagName.toLowerCase()).innerHTML;
+    this.removeAttribute("href");
+    triggerNonBubblingEvent(this, "openable-element:load:end");
   }
 };
 
@@ -1201,9 +1206,11 @@ var ProductItem = class extends BaseHTMLElement {
     this.$hoverImage = this.$imageWrapper.find('.product-image_hover')
     const _this = this
     this.$imageWrapper.hover(function () {
-      _this.animateOpacity(_this.$hoverImage, true)
+      _this.$hoverImage.addClass('xuer-active')
+      _this.$container.find('.quick-buy-button').addClass('xuer-active')
     }, function () {
-      _this.animateOpacity(_this.$hoverImage, false)
+      _this.$hoverImage.removeClass('xuer-active')
+      _this.$container.find('.quick-buy-button').removeClass('xuer-active')
     })
   }
   bindVariantChange () {
@@ -1231,9 +1238,13 @@ var ProductItem = class extends BaseHTMLElement {
     })
   }
   changeLink (variantId) {
-    
     Array.from(this.querySelectorAll(`[href*="/products"]`)).forEach((link) => {
-      let url = new URL(link.href);
+      let url;
+      if (link.tagName === "A") {
+        url = new URL(link.href);
+      } else {
+        url = new URL(link.getAttribute("href"), `https://${theme.routes.host}`);
+      }
       url.searchParams.set("variant", variantId);
       link.setAttribute("href", url.toString());
     });
@@ -1330,3 +1341,13 @@ var Timeline = class extends BaseHTMLElement {
   }
 };
 window.customElements.define("xuer-time-line", Timeline);
+
+/*******
+ * quick-buy
+ */
+
+var QuickBuy = class extends BaseHTMLElement {
+  connectedCallback () {
+  }
+};
+window.customElements.define("xuer-quick-buy", QuickBuy);

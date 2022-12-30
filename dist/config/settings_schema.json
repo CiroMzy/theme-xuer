@@ -273,6 +273,26 @@
         "id": "product_secondary_image_hover_show",
         "label": "Show secondary image on hover",
         "default": true
+      },
+      {
+        "type": "select",
+        "id": "product_add_to_cart_position",
+        "label": "Add to cart position",
+        "options": [
+          {
+            "value": "",
+            "label": "none"
+          },
+          {
+            "value": "overlay",
+            "label": "Overlay product images"
+          },
+          {
+            "value": "below",
+            "label": "Below product info"
+          }
+        ],
+        "default": "overlay"
       }
     ]
   },

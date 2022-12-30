@@ -2157,6 +2157,10 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
   bottom: 0;
   z-index: 3;
   opacity: 0;
+  transition: 0.3s ease all;
+}
+.product-item-container .product-image-wrapper .product-image_hover.xuer-active {
+  opacity: 1;
 }
 .product-item-container .product-image-wrapper .xuer-image-outer-wrapper {
   background: var(--product_image_background_color);
@@ -2424,4 +2428,21 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
 }
 .xuer-color-swatch .xuer-color-swatch_item .xuer-color-swatch_radio:checked + .xuer-color-swatch_label::before {
   border: 1px solid var(--border_color);
+}
+/**********************
+* quick-buy
+*/
+.quick-buy .quick-buy-button {
+  position: absolute;
+  top: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  height: 0;
+  overflow: hidden;
+  transition: 0.3s ease all;
+}
+.quick-buy .quick-buy-button.xuer-active {
+  height: 42px;
 }

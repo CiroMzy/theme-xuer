@@ -9,7 +9,7 @@
     assign is_inbox = true
   endif
 -%}
-<xuer-product-item class="custom-section product-item-container" >
+<xuer-product-item class="custom-section product-item-container {{ settings.product_add_to_cart_position }}" >
   <div class="product-image-wrapper xuer-line2">
     <a href="{{ product.url }}" class="xuer-link_keep">
       <div class="product-image_default">
@@ -36,10 +36,13 @@
       {%- liquid
         if settings.product_secondary_image_hover_show and product.media.size > 1
           assign next_media = product.media[product.featured_media.position] | default: product.media[1]
-          render 'image', image: next_media, aspect_ratio: settings.product_aspect_ratio, is_inbox: is_inbox, is_cover: is_cover, image_wrapper_class: "product-image_hover"
+          render 'image', image: next_media, aspect_ratio: settings.product_aspect_ratio, is_inbox: is_inbox, is_cover: is_cover, image_wrapper_class: "product-image_hover "
         endif
       -%}
     </a>
+    {% if settings.product_add_to_cart_position == 'overlay' %}
+      {% render 'quick-buy', product: product, type: settings.product_add_to_cart_position %}
+    {% endif %}
   </div>
   <div class="product-item_content">
     <a href="{{ product.url }}" class="product-item-title xuer-line">{{ product.title }}</a>
@@ -64,6 +67,10 @@
       endif
     -%}
   </div>
+
+  {% if settings.product_add_to_cart_position == 'below' %}
+    {% render 'quick-buy', product: product %}
+  {% endif %}
 
 
 </xuer-product-item>

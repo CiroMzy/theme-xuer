@@ -29,10 +29,11 @@
       "product_show_vendor": true,
       "product_show_secondary_image": true,
       "product_add_to_cart": true,
-      "product_aspect_ratio": "1.78",
+      "product_aspect_ratio": "0.67",
       "product_image_crop": true,
       "product_color_swatch_show": true,
       "color_swatch_config": "brown:#a52a2a\nblack:#000000\nblue:#0000ff\npink:#ffc0cb",
+      "product_add_to_cart_position": "overlay",
       
       "sections": {
         "announcement-bar": {
