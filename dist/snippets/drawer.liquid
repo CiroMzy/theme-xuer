@@ -16,31 +16,7 @@
 </xuer-drawer>
 
 <template id="search-tpl" data-title="{{ 'header.search.title' | t }}">
-  <xuer-drawer-search class="search-container">
-    <div class="search-form-container">
-      <form id="predictive-search-form" class="search-form" action="{{ routes.search_url }}" method="get" autocomplete="off">
-        <input type="hidden" name="type" value="product">
-        <input type="hidden" name="options[prefix]" value="last">
-        <div class="search-input">
-          {% render 
-            'form-input', 
-            id: "q", 
-            name: "q", 
-            label: 'general.search', className: "search" ,
-            submit_button: true,
-            submit_button_icon: 'search'
-          %}
-        </div>
-      </form>
-    </div>
-    <div class="search-suggest-wrapper" search-result >
-      
-    </div>
-
-    <div class="search-loading xuer-loading" search-loading >
-      {% render 'icon', name: 'loading' %}
-    </div>
-  </xuer-drawer-search>
+  {% render 'predictive-search' %}
 </template>
 
 

@@ -1,0 +1,49 @@
+@import url(./variables.less);
+@import url(./animate.less);
+/**********************
+* tab-nav
+*/
+xuer-tab-nav {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid var(--border_color);
+  position: relative;
+  display: flex;
+  
+  .active-bar {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    .trans;
+    &::after{
+      content: '';
+      position: absolute;
+      width: @distance6;
+      height: 2px;
+      background-color: var(--primary_color);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .xuer-button {
+    background: none;
+    border: none;
+    padding: @distance2 @distance;
+    color: var(--text_color_fade);
+    flex: 1;
+    &.active{
+      color: var(--text_color);
+    }
+    .xuer-button-content {
+      line-height: 1;
+    }
+  }
+}
+xuer-tab-content{
+  xuer-tab-item{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
+}

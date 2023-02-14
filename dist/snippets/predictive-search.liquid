@@ -1,0 +1,139 @@
+{%- liquid
+  assign search_type = ''
+  if settings.search_products
+    assign search_type = search_type | append: ',product'
+  endif
+  if settings.search_blog_posts
+    assign search_type = search_type | append: ',article'
+  endif
+  if settings.search_pages
+    assign search_type = search_type | append: ',page'
+  endif
+  assign search_type = search_type | remove_first: ','
+  assign default_active_tab = 0
+  assign is_empty = true
+  for resource in predictive_search.resources
+    if resource.last.size > 0
+      assign is_empty = false
+    endif
+  endfor
+-%}
+<xuer-drawer-search class="search-container" data-search_type="{{ search_type }}">
+  <div class="search-suggest-wrapper" >
+    <div class="search-form-container">
+      <form id="predictive-search-form" class="search-form" action="{{ routes.search_url }}" method="get" autocomplete="off">
+        <input type="hidden" name="type" value="product">
+        <input type="hidden" name="options[prefix]" value="last">
+        <div class="search-input">
+          {% render
+            'form-input', 
+            id: "q", 
+            name: "q", 
+            label: 'general.search', className: "search" ,
+            submit_button: true,
+            submit_button_icon: 'search'
+          %}
+        </div>
+      </form>
+    </div>
+    <div class="search-suggest-main">
+      <div class="search-loading xuer-loading" search-loading >
+        {% render 'icon', name: 'loading' %}
+      </div>
+      <div class="search-suggest-result">
+        {% if is_empty == true %}
+          <div class="search-suggest_empty">
+            <span class="xuer-line2">{{ 'search.no_results' | t }}</span>
+            {% comment %} {% render 'form-button', text: 'search.new_search', is_block: false %} {% endcomment %}
+          </div>
+        {% else %}
+          <div class="search-suggest_types xuer-line4">
+            <xuer-tab-nav 
+              data-tab_content_id="tab-content-{{ section.id }}"
+              data-active="{{ default_active_tab }}"
+            >
+              {%- for resource in predictive_search.resources -%}
+                {%- if resource.last.size > 0 -%}
+                  {%- capture translation_key -%}search.{{ resource.first }}{%- endcapture -%}
+                  {%- liquid
+                    assign active = ''
+                    if forloop.index == default_active_tab
+                      assign active = 'active'
+                    endif
+                  %}
+                  {% render 'form-button', text: translation_key, type: 'link', className: active %}
+                {%- endif -%}
+              {%- endfor -%}
+            </xuer-tab-nav>
+          </div>
+          <xuer-tab-content id="tab-content-{{ section.id }}">
+            <div class="tab-content_inner">
+              {%- for resource in predictive_search.resources -%}
+                {%- liquid
+                  assign active = ''
+                  if forloop.index == default_active_tab
+                    assign active = 'active'
+                  endif
+                %}
+                {% if resource.last.size > 0 %}
+                  <xuer-tab-item class="{{ active }} xuer-animate_fadeInUp" xuer-animated >
+                    {%- case resource.first -%}
+                      {%- when 'products' -%}
+                        <ul >
+                          {%- for product in predictive_search.resources.products -%}
+                            <li class="search-item search-item_product xuer-line2">
+                              {% render 'product-item-mini', product: product %}
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- when 'articles' -%}
+                        <ul>
+                          {%- for article in predictive_search.resources.articles -%}
+                            <li class="search-item search-item_article xuer-line2">
+                              {% render 'article-item-mini', article: article %}
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- when 'pages' -%}
+                        <ul class="search-pages">
+                          {%- for page in predictive_search.resources.pages -%}
+                            <li class="search-item search-item_page xuer-line2">
+                              <a class="search-item_link" href="{{ page.url }}">
+                                {{- page.title -}}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                    {%- endcase -%}
+                  </xuer-tab-item>
+                {% endif %}
+              {%- endfor -%}
+            </div>
+          </xuer-tab-content>
+          <div class="predictive-search_submit">
+            {% render 
+              'form-button', 
+              type: 'submit', 
+              attrs: 'form="predictive-search-form"', 
+              text: 'search.view_all_results',
+              is_block: true
+            %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="search-collection">
+      <h2 class="xuer-h4 search-collection-title xuer-line4">
+        {{ settings.search_collection.title }}
+      </h2>
+      <ul >
+        {%- for product in settings.search_collection.products -%}
+          <li  class="search-item search-item_product xuer-line2">
+            {% render 'product-item-mini', product: product %}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+
+</xuer-drawer-search>

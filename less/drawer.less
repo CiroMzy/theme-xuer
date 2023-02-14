@@ -8,7 +8,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background: @black-background-fade;
+  background: @black-background-fade2;
   z-index: 100;
   opacity: 0;
   visibility: hidden;
@@ -33,7 +33,7 @@
     position: relative;
     z-index: 1;
     float: right;
-    width: 480px;
+    width: 420px;
     background: @white-background;
     height: 100%;
     transform: translateX(100%);
@@ -48,7 +48,6 @@
       align-items: center;
       height: @drawer-title-height;
       color: var(--text_color_fade);
-      .header-box-shadow(var(--border_color));
       .close {
         width: 20px;
         height: 20px;
@@ -68,6 +67,7 @@
       .drawer-content {
         flex: 1;
         overflow: hidden;
+        height: 100%;
         .drawer-padding-container {
           padding: @distance2;
           display: block;

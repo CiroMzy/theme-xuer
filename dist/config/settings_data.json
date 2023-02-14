@@ -35,6 +35,8 @@
       "color_swatch_config": "brown:#a52a2a\nblack:#000000\nblue:#0000ff\npink:#ffc0cb",
       "product_add_to_cart_position": "overlay",
       
+      "search_collection": "new-arrivals",
+      
       "sections": {
         "announcement-bar": {
           "settings": {

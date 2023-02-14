@@ -1,8 +1,11 @@
 
 var DrawerSrarch = class extends BaseHTMLElement {
   connectedCallback () {
+    this.$searchLoading = $(this.$container.find('[search-loading]'))
+    this.$searchResult = this.$container.find('.search-suggest-result')
+    this.$searchCollection = this.$container.find('.search-collection')
+    this.searchType = this.$container.data('search_type')
     this.bindSearch()
-    
   }
   searchProduct(val) {
     return new Promise(resolve => {
@@ -10,12 +13,12 @@ var DrawerSrarch = class extends BaseHTMLElement {
         resolve('')
         return
       }
-      this.$container.find('[search-loading]').addClass('show')
+      this.startLoad()
       theme.ajax.get(theme.routes.predictive_search_url, {
         "q": val,
         "section_id": "predictive-search",
         "resources": {
-          "type": "product",
+          "type": this.searchType,
           "limit": 10,
           "options": {
             "unavailable_products": "last",
@@ -41,15 +44,29 @@ var DrawerSrarch = class extends BaseHTMLElement {
   bindSearch() {
     var _this = this
     this.debounceSearchProduct = theme.debounce(_this.searchProduct, 800, _this.insertSearchResult.bind(_this));
-    console.log(this.$container.find('.search input'));
     this.$container.find('.search input').bind("input propertychange", function(){
-      _this.$container.find('[drawer-loading]').addClass('show')
-      _this.debounceSearchProduct($(this).val())
+      const _val = $(this).val()
+      if (_val === '') {
+        _this.reset()
+        return
+      }
+      _this.startLoad()
+      _this.debounceSearchProduct(_val)
     })
+  }
+  reset () {
+    this.$searchLoading.removeClass('show')
+    this.$searchResult.html('').removeClass('show')
+  }
+  startLoad () {
+    this.$searchLoading.addClass('show')
+    this.$searchResult.html('').removeClass('show')
+    this.$searchCollection.html('')
   }
 
   insertSearchResult(res) {
-    this.$container.find('[search-result]').html(res)
+    var _result = $(res).find('.search-suggest-result').html()
+    this.$searchResult.html(_result).addClass('show')
   }
  
 };

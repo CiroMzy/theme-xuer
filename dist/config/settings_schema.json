@@ -297,6 +297,38 @@
     ]
   },
   {
+    "name": "Search",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Search for"
+      },
+      {
+        "type": "checkbox",
+        "id": "search_products",
+        "label": "Products",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "search_blog_posts",
+        "label": "Blog posts",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "search_pages",
+        "label": "Pages",
+        "default": true
+      },
+      {
+        "type": "collection",
+        "id": "search_collection",
+        "label": "Recommend Collection"
+      }
+    ]
+  },
+  {
     "name": "Favicon",
     "settings": [
       {

@@ -1,0 +1,20 @@
+
+<a href="{{ product.url }}" class="product-item-mini xuer-link_keep" tabindex="-1">
+  {%- if product.featured_media != blank -%}
+    <div class="product-item-mini_image">
+      {%- 
+        render 'image', 
+        image: product.featured_media, 
+        width: 100, 
+        height: 100,
+        alt: product.featured_media.alt, 
+        sizes: "180px",
+        is_inbox: true
+      -%}
+    </div>
+  {%- endif -%}
+  <div class="product-item-mini_main ">
+    <h3 class="product-item-mini_title xuer-h6 xuer-line">{{ product.title }}</h3> 
+    {% render 'price', product: product %} 
+  </div>
+</a>

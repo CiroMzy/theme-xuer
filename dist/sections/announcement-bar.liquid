@@ -21,6 +21,7 @@
     id="swiper-{{ section.id }}" 
     {% if single %}data-swiper-disable="true" {% endif %}
     data-swiper-loop="true"
+    data-swiper-autoplay="true"
   >
     <div class="swiper-wrapper">
       {%- for block in section.blocks -%}

@@ -1,7 +1,7 @@
 {
   "header":{
     "search":{
-      "title": "Search Products",
+      "title": "Search",
       "title_placeholder": "Search..."
     }
   },
@@ -24,6 +24,14 @@
     "remove": "Remove",
     "checkout":"Check out",
     "start_shopping":"Start shopping"
+  },
+  "search": {
+    "products": "PRODUCTS",
+    "articles": "ARTICLE",
+    "pages": "PAGES",
+    "no_results": "Sorry, we couldn't find any results",
+    "new_search": "NEW SEARCH",
+    "view_all_results": "VIEW ALL RESULTS"
   },
   "account": {
     "login_title": "Login",

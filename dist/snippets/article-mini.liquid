@@ -1,0 +1,20 @@
+<a class="article-item article-item--horizontal" href="{{ article.url }}">
+  {%- if article.image -%}
+    {%- 
+      render 'image', 
+      image: article.image, 
+      width: 140, 
+      height: 100,
+      sizes: "180px",
+      is_inbox: true
+    -%}
+  {%- endif -%}
+
+  <div class="predictive-search__article-info">
+    {%- if article.tags.size > 0 -%}
+      <span class="predictive-search__article-category heading heading--xxsmall text--subdued">{{ article.tags.first }}</span>
+    {%- endif -%}
+
+    <span class="predictive-search__article-title">{{ article.title }}</span>
+  </div>
+</a>

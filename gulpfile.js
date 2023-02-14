@@ -41,6 +41,7 @@ function concatJs() {
     "video",
     "time-line",
     "quick-buy",
+    "tab",
   ];
 
   const computedSrc = jsFiles.map((i) => `themeJs/${i}.js`);

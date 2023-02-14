@@ -1,0 +1,18 @@
+<a class="article-item-mini xuer-link_keep" href="{{ article.url }}">
+  {%- if article.image -%}
+    <div class="article-item-mini_left">
+      {%- 
+        render 'image', 
+        image: article.image, 
+        width: 140, 
+        height: 100,
+        sizes: "180px",
+        is_cover: true
+      -%}
+    </div>
+  {%- endif -%}
+  <div class="article-item-mini_main">
+    <h3 class="article-item-mini_main_color xuer-h6 xuer-line">{{ article.tags.first }}</h3>
+    <span class="article-item-mini_main_title">{{ article.title }}</span>
+  </div>
+</a>
