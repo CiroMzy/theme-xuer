@@ -1,4 +1,9 @@
-<div class="multicolumn">
+{% style %}
+#section-{{ section.id }} {
+  --alignment: {{ section.settings.alignment }};
+}
+{% endstyle %}
+<div id="section-{{ section.id }}" class="multicolumn xuer-shopify-section {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}">
   {% if section.settings.title != blank %}
     <h2 class="xuer-h2 xuer-section-title">{{ section.settings.title }}</h2>
   {% endif %}
@@ -11,14 +16,15 @@
               render 'image', 
               image: block.settings.image, 
               aspect_ratio: section.settings.aspect_ratio,
-              is_cover: true
+              is_cover: true,
+              width: section.settings.image_width
             -%}
           </div>
         {% endif %}
 
         <div class="multicolumn_block_main">
           {% if block.settings.column_title != blank %}
-            <h3 class="xuer-h3 xuer-block-title">{{ block.settings.column_title }}</h3>
+            <h3 class="xuer-h3 xuer-block-title xuer-line2">{{ block.settings.column_title }}</h3>
           {% endif %}
 
           {% if block.settings.column_text != blank %}
@@ -29,7 +35,7 @@
             {% if block.settings.link != blank %}
               <a href="{{ block.settings.link }}">  
             {% endif %}
-              {% render 'form-button', label: block.settings.button_label, className: 'slideshow-content_button' %}
+              {% render 'form-button', is_second_button: true, label: block.settings.button_label, className: 'slideshow-content_button' %}
             {% if block.settings.link != blank %}
               </a>
             {% endif %}
@@ -68,6 +74,35 @@
       "default": true
     },
     {
+      "type": "range",
+      "id": "image_width",
+      "min": 30,
+      "max": 300,
+      "step": 5,
+      "label": "Image width",
+      "default": 80
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
       "type": "select",
       "id": "aspect_ratio",
       "label": "Image ratio",
@@ -94,6 +129,18 @@
         }
       ],
       "default": "1.0"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_alt_color",
+      "label": "Use alternate section color",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "use_section_space",
+      "label": "Use section space",
+      "default": true
     }
   ],
   "blocks": [

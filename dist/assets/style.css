@@ -849,6 +849,18 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
 .xuer-button:hover svg {
   color: var(--primary_button_background_color);
 }
+.xuer-button.xuer-button-secondary {
+  background-color: var(--secondary_button_background_color);
+  border: 1px solid var(--secondary_button_background_color);
+}
+.xuer-button.xuer-button-secondary:hover {
+  background-color: var(--secondary_button_text_color);
+  color: var(--secondary_button_background_color);
+  border-color: var(--secondary_button_background_color);
+}
+.xuer-button.xuer-button-secondary:hover svg {
+  color: var(--secondary_button_background_color);
+}
 .xuer-button.default {
   background-color: var(--background_color);
   border: 1px solid var(--border_color);
@@ -2624,4 +2636,14 @@ xuer-tab-content xuer-tab-item.active {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+/**********************
+* multicolumn
+*/
+.multicolumn .xuer-image-outer-wrapper {
+  display: inline-block;
+}
+.multicolumn .multicolumn_block_main,
+.multicolumn .text-column__image {
+  text-align: var(--alignment);
 }

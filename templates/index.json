@@ -80,6 +80,66 @@
         "use_section_space": false
       }
     },
+    "d2136f44-bea8-4a0c-9500-dae091267c31": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--16734039834874__d2136f44-bea8-4a0c-9500-dae091267c31-1676449460bcd3659e-0": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/62.png",
+            "column_title": "Cruelty Free",
+            "column_text": "<p>Peta Vegan & Cruelty-Free & Leaping Bunny certified.<\/p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "template--16734039834874__d2136f44-bea8-4a0c-9500-dae091267c31-1676449460bcd3659e-1": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/df9f333424ff6cc6164ce421b019fb94.png",
+            "column_title": "Natural",
+            "column_text": "<p>Plant-based sourcing ingredients from ethical farming.<\/p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "template--16734039834874__d2136f44-bea8-4a0c-9500-dae091267c31-1676449460bcd3659e-2": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/63.png",
+            "column_title": "Vegan Products",
+            "column_text": "<p>As and Ayurvedic Practitioner and Wellness coach.<\/p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "6fdfff7a-9c81-40c3-8430-a069cb83ef19": {
+          "type": "text_block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/64.png",
+            "column_title": "Sustainable",
+            "column_text": "<p>In her ongoing quest for the best skincare suited to her.<\/p>",
+            "button_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16734039834874__d2136f44-bea8-4a0c-9500-dae091267c31-1676449460bcd3659e-0",
+        "template--16734039834874__d2136f44-bea8-4a0c-9500-dae091267c31-1676449460bcd3659e-1",
+        "template--16734039834874__d2136f44-bea8-4a0c-9500-dae091267c31-1676449460bcd3659e-2",
+        "6fdfff7a-9c81-40c3-8430-a069cb83ef19"
+      ],
+      "settings": {
+        "title": "",
+        "columns_per_row": 4,
+        "enable_image": true,
+        "aspect_ratio": "1.0",
+        "use_alt_color": false,
+        "image_width": 80,
+        "alignment": "center"
+      }
+    },
     "f0ce9b50-1a44-4883-bac4-9aadb14a7a6e": {
       "type": "rich-text",
       "blocks": {
@@ -98,10 +158,50 @@
         "use_alt_color": false,
         "use_section_space": true
       }
+    },
+    "da49876a-8b55-4c61-a3dd-40b5d9f0ed30": {
+      "type": "collage",
+      "blocks": {
+        "1b7fb11d-ae46-4c57-94f2-634b4411bd0d": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/christopher-campbell-wtZgw1nQ3FI-unsplash_2376x_71e1e229-18f3-48fd-8196-0993a563300d.jpg",
+            "title": "Image with text",
+            "subheading": "Tell your brand's story through images",
+            "button_label_1": "Button label 1",
+            "button_link_1": "",
+            "button_label_2": "Button label 2",
+            "button_link_2": ""
+          }
+        },
+        "5676beb7-8dc4-4bd2-9398-8632c21aff89": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gift-card-cropped_2376x_3644bf75-2f16-42c0-b8af-60bc7f4edd27.jpg",
+            "title": "Image with text",
+            "subheading": "Tell your brand's story through images",
+            "button_label_1": "Button label 1",
+            "button_link_1": "",
+            "button_label_2": "Button label 2",
+            "button_link_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "1b7fb11d-ae46-4c57-94f2-634b4411bd0d",
+        "5676beb7-8dc4-4bd2-9398-8632c21aff89"
+      ],
+      "settings": {
+        "full_width": true,
+        "use_alt_color": true,
+        "use_section_space": true
+      }
     }
   },
   "order": [
     "166416263949705a88",
-    "f0ce9b50-1a44-4883-bac4-9aadb14a7a6e"
+    "d2136f44-bea8-4a0c-9500-dae091267c31",
+    "f0ce9b50-1a44-4883-bac4-9aadb14a7a6e",
+    "da49876a-8b55-4c61-a3dd-40b5d9f0ed30"
   ]
 }

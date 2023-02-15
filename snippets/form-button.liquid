@@ -13,6 +13,7 @@
   - type: {String} 
   - attrs: {String}
   - link: {String}
+  - is_second_button: {Boolean}
 
   Usage:
   {% render 'form-button', is_checked: true,value: 'red',name: 'color', label: 'color'   %}
@@ -37,7 +38,7 @@
 <a href="{{ link }}" class="xuer-button_wrapper">
 {% endif %}
   <button 
-    class="xuer-button  {{ size_class }} {{ className }} {{ block_class }} {{ uppercase_class }}"
+    class="xuer-button  {{ size_class }} {{ className }} {{ block_class }} {{ uppercase_class }} {% if is_second_button != blank %} xuer-button-secondary{% endif %}"
     {% if type != blank %} 
       type="{{ type }}"
     {% endif %}
