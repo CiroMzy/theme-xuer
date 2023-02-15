@@ -128,6 +128,26 @@
         "default": "zurich_extended_n8"
       },
       {
+        "type": "select",
+        "id": "heading_font_size",
+        "label": "Heading size",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ],
+        "default": "medium"
+      },
+      {
         "type": "checkbox",
         "id": "capitalize_headings",
         "label": "Capitalize headings",

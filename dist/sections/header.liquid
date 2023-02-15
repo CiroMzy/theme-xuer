@@ -19,7 +19,7 @@
   {% render 'icon', name: 'search' %}
 </div>
 {%- endcapture -%}
-<xuer-header class="header-wrapper  full-width-padding">
+<xuer-header class="header-wrapper  full-width-padding" style="padding: {{ section.settings.navigation_padding }}px 0;">
   <div class="page_width header-main">
     {%- liquid
       if section.settings.menu_alignment == 'left' 
@@ -89,6 +89,16 @@
     {
       "type": "header",
       "content": "NAVIGATION"
+    },
+    {
+      "type": "range",
+      "id": "navigation_padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Navigation padding",
+      "default": 10
     },
     {
       "type": "link_list",

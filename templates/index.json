@@ -1,5 +1,79 @@
 {
   "sections": {
+    "166416263949705a88": {
+      "type": "slideshow",
+      "blocks": {
+        "1664162639d434a28a-0": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/focus-banner1.jpg",
+            "heading": "The Maison Kitsuné Collab",
+            "subheading": "New in",
+            "button_label": "Learn more",
+            "text_color": "#ffffff",
+            "link": "",
+            "text_position": "flex-start",
+            "text_alignment": "left"
+          }
+        },
+        "1664162639d434a28a-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/focus-banner3.jpg",
+            "heading": "The Heritage ",
+            "subheading": "Premium Collection Collection",
+            "button_label": "Button label",
+            "text_color": "#ffffff",
+            "link": "",
+            "text_position": "flex-end",
+            "text_alignment": "right"
+          }
+        },
+        "1320fd99-fbf5-4e57-917b-49906cd755cb": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/focus-banner2.jpg",
+            "heading": "New Jump+ Powerbank",
+            "subheading": "Charge anywhere, anytime",
+            "button_label": "Button label",
+            "text_color": "#ffffff",
+            "link": "",
+            "text_position": "flex-start",
+            "text_alignment": "left"
+          }
+        },
+        "da1a690d-1c99-4db9-87c3-a4e24ccae459": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/focus-banner4.jpg",
+            "heading": "Sage Collection",
+            "subheading": "Meet the",
+            "button_label": "Button label",
+            "text_color": "#ffffff",
+            "link": "",
+            "text_position": "flex-end",
+            "text_alignment": "right"
+          }
+        }
+      },
+      "block_order": [
+        "1664162639d434a28a-0",
+        "1664162639d434a28a-1",
+        "1320fd99-fbf5-4e57-917b-49906cd755cb",
+        "da1a690d-1c99-4db9-87c3-a4e24ccae459"
+      ],
+      "settings": {
+        "section_height": "large",
+        "height_desktop": 600,
+        "height_mobile": 460,
+        "mobile_text_under": true,
+        "show_dots": true,
+        "slide_transform_type": "sweep",
+        "dot_color": "#ffffff",
+        "text_animate_type": "fadeInRight",
+        "slide_speed": 600
+      }
+    },
     "18c66ab6-15fd-4fab-ab03-7d4938f306ac": {
       "type": "contact-form",
       "blocks": {
@@ -34,7 +108,7 @@
         "5f241657-c372-442e-bffb-45b66250cc2f": {
           "type": "dropdown",
           "settings": {
-            "name": "Custom dropdown field2",
+            "title": "Custom dropdown field",
             "values": "value 1, value 2, value 3",
             "is_required": true,
             "is_half_width": false
@@ -106,9 +180,9 @@
       "settings": {
         "title": "Optimal Manufacturing Solutions",
         "content": "Donec pulvinar tellus egetmagna aliquet ultricies. nec eleifend sem convallis vitae. soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Sed sagittis sodales lobortis. Curabitur in eleifend turpis, id vehicula odio.",
+        "image_height": 60,
         "use_alt_color": true,
-        "use_section_space": true,
-        "image_height": 60
+        "use_section_space": true
       }
     },
     "c06e9fb4-cf6f-4451-b339-00b6aed3f83d": {
@@ -189,7 +263,6 @@
         "template--16697861570810__cab42e29-95b6-44a8-862b-cbf001e6774a-1671610795f6006584-0": {
           "type": "text_block",
           "settings": {
-            "enable_image": true,
             "image": "shopify:\/\/shop_images\/img2.jpg",
             "column_title": "Column heading",
             "column_text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
@@ -200,7 +273,6 @@
         "template--16697861570810__cab42e29-95b6-44a8-862b-cbf001e6774a-1671610795f6006584-1": {
           "type": "text_block",
           "settings": {
-            "enable_image": true,
             "image": "shopify:\/\/shop_images\/smile_09539ed9-37d2-4eda-abf7-cc6a302d78be.jpg",
             "column_title": "Column heading",
             "column_text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
@@ -211,7 +283,6 @@
         "template--16697861570810__cab42e29-95b6-44a8-862b-cbf001e6774a-1671610795f6006584-2": {
           "type": "text_block",
           "settings": {
-            "enable_image": true,
             "column_title": "Column heading",
             "column_text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
             "button_label": "Button label",
@@ -221,7 +292,6 @@
         "663dda02-9746-459d-8025-1fb52294c61f": {
           "type": "text_block",
           "settings": {
-            "enable_image": true,
             "column_title": "Column heading",
             "column_text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
             "button_label": "Button label",
@@ -231,7 +301,6 @@
         "8de0ff74-40d0-41c9-bf4d-5c6ba219b50a": {
           "type": "text_block",
           "settings": {
-            "enable_image": true,
             "column_title": "Column heading",
             "column_text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
             "button_label": "Button label",
@@ -249,6 +318,7 @@
       "settings": {
         "title": "Multi-column",
         "columns_per_row": 4,
+        "enable_image": true,
         "aspect_ratio": "1.0"
       }
     },
@@ -453,8 +523,8 @@
       "type": "blog-posts",
       "settings": {
         "blog": "news",
-        "title": "Blog posts12",
         "articles_count": 6,
+        "title": "Blog posts12",
         "show_category": true,
         "show_author": true,
         "show_date": true,
@@ -468,70 +538,13 @@
         "subheading": "Tell your story",
         "title": "Video heading",
         "text": "<p>Use a video to get a customer's attention<\/p>",
-        "image": "shopify:\/\/shop_images\/img2.jpg",
+        "desktop_heading_text_size": 58,
         "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "full_width": true,
-        "autoplay": false,
+        "image": "shopify:\/\/shop_images\/img2.jpg",
         "text_color": "#ffffff",
         "section_height_desktop": 500,
-        "desktop_heading_text_size": 58,
-        "video_ratio": 57
-      }
-    },
-    "166416263949705a88": {
-      "type": "slideshow",
-      "blocks": {
-        "1664162639d434a28a-0": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/img2.jpg",
-            "slide_background_color":"rgb(180, 183, 166)",
-            "heading": "Image slide",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "button_type": "fill",
-            "link": ""
-          }
-        },
-        "1664162639d434a28a-1": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/img1.jpg",
-            "slide_background_color":"rgb(179, 189, 196)",
-            "heading": "Image slide",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "button_type": "outline",
-            "text_color":"#02867f",
-            "link": ""
-          }
-        },
-        "1320fd99-fbf5-4e57-917b-49906cd755cb": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/img3.jpg",
-            "slide_background_color":"rgb(140, 152, 187)",
-            "heading": "Image slide",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "button_type": "filled",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "1664162639d434a28a-0",
-        "1664162639d434a28a-1",
-        "1320fd99-fbf5-4e57-917b-49906cd755cb"
-      ],
-      "settings": {
-        "section_height": "medium",
-        "height_desktop": 600,
-        "height_mobile": 460,
-        "mobile_text_under": false,
-        "show_arrow": true,
-        "show_dots": false,
-        "arrorw_dots_color": "#ffffff"
+        "video_ratio": 57,
+        "full_width": true
       }
     },
     "a59215dc-dfc6-401c-b473-d5903993fd0c": {
@@ -591,6 +604,7 @@
     }
   },
   "order": [
+    "166416263949705a88",
     "18c66ab6-15fd-4fab-ab03-7d4938f306ac",
     "aadc05ef-d301-4ba7-a887-2f05fb358d18",
     "c06e9fb4-cf6f-4451-b339-00b6aed3f83d",
@@ -601,7 +615,6 @@
     "3e588abd-0eab-45e4-ac52-2cd264c93ae9",
     "18fe2233-8d95-4586-a266-93aa02f06c35",
     "eb4dc3d8-d52b-49d5-b28e-f00716d557d6",
-    "166416263949705a88",
     "a59215dc-dfc6-401c-b473-d5903993fd0c",
     "96e1597a-9eff-4810-bedb-8a1f7663d566"
   ]

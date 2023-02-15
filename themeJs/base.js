@@ -23,7 +23,7 @@ var BaseHTMLElement = class extends HTMLElement {
         var $swiperContainer = $(el);
         var swiperId = $swiperContainer.attr("id");
         var datas = $swiperContainer.data() || {};
-        var swiper = new Swiper(`#${swiperId}`, {
+        var opt = {
           loop: datas.swiperLoop || false,
           autoplay: datas.swiperAutoplay,
           speed: datas.swiperSpeed || 300,
@@ -33,7 +33,9 @@ var BaseHTMLElement = class extends HTMLElement {
             prevEl: `#${swiperId} .swiper-button-prev`,
           },
           ...options,
-        });
+        }
+        console.log('opt', opt)
+        var swiper = new Swiper(`#${swiperId}`, opt);
         _this.swiper = swiper
         theme.swipers[swiperId] = swiper;
       });

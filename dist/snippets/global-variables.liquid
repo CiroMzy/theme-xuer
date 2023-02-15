@@ -3,6 +3,19 @@
 
 {{ settings.type_header_font | font_face: font_display: 'swap' }}
 {{ settings.type_base_font | font_face: type_base_font: 'swap' }}
+{%-liquid 
+  case settings.heading_font_size
+    when 'small'
+      assign heading_font_size = '24px'
+      assign heading_font_size_mobile = '24px'
+    when 'medium'
+      assign heading_font_size = '32px'
+      assign heading_font_size_mobile = '24px'
+    when 'large'
+      assign heading_font_size = '64px'
+      assign heading_font_size_mobile = '24px'
+  endcase
+-%}
 :root {
   /* font-family */
   --font-heading-family: {{ settings.type_header_font.family }};
@@ -41,6 +54,10 @@
   /* Layout */
   --section-grid-column-count: 3;
   --section_space: 24px;
+
+  /* Typography */
+  --heading_font_size: {{ heading_font_size }};
+  --heading_font_size_mobile: {{ heading_font_size_mobile }};
 }
 .page_width {
   width: {{ settings.page_width }}px;
