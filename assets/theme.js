@@ -203,7 +203,6 @@ theme.initAnimate = function () {
 };
 theme.initAnimate()
 document.addEventListener('shopify:section:load', () => {
-  debugger
   theme.initAnimate()
 });
 

@@ -1,5 +1,5 @@
 
-<div class="rich-text xuer-align {{ section.settings.align_text }} page_width " xuer-animated>
+<div class="rich-text xuer-align {{ section.settings.align_text }} page_width  xuer-shopify-section {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}" xuer-animated>
   {%- for block in section.blocks -%}
     <div class="rich-text_block">
       {%- case block.type -%}
@@ -53,6 +53,18 @@
       ],
       "default": "center",
       "label": "Text alignment"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_alt_color",
+      "label": "Use alternate section color",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "use_section_space",
+      "label": "Use section space",
+      "default": true
     }
   ],
   "blocks": [

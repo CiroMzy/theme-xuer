@@ -102,6 +102,9 @@ q:after {
   content: "";
   content: none;
 }
+body {
+  line-height: 1.5;
+}
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -760,7 +763,7 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
   right: 0;
   bottom: 0;
 }
-.xuer-shopify-section {
+.xuer-shopify-section:not(.xuer-shopify-section-full) {
   padding: 24px 0;
 }
 .xuer-text {
@@ -1576,7 +1579,7 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
 .slideshow .swiper-slide .slideshow-image {
   width: 100%;
   position: relative;
-  background-color: #ffffff;
+  background-color: #000;
 }
 .slideshow .swiper-slide .slideshow-image.small img,
 .slideshow .swiper-slide .slideshow-image.medium img,

@@ -13,7 +13,7 @@
 }
 {% endstyle %}
 
-<xuer-slideshow class="slideshow custom-section" id="section-{{ section.id }}">
+<xuer-slideshow class="slideshow custom-section xuer-shopify-section xuer-shopify-section-full {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}" id="section-{{ section.id }}">
   <div
     swiper
     id="swiper-{{ section.id }}" 
@@ -212,6 +212,18 @@
       "unit": "px",
       "label": "Slide speed",
       "default": 300
+    },
+    {
+      "type": "checkbox",
+      "id": "use_alt_color",
+      "label": "Use alternate section color",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "use_section_space",
+      "label": "Use section space",
+      "default": true
     }
   ],
   "blocks": [
