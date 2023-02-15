@@ -1,31 +1,44 @@
 
 
-<div class="collage xuer-shopify-section {% if section.settings.full_width == false %} page_width{%- endif -%} {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}" xuer-animated >
-  
+<div class="collage xuer-shopify-section xuer-shopify-section-full xuer-animate_fadeInUp {% if section.settings.full_width == false %} page_width{%- endif -%} {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}" xuer-animated >
   {% for block in section.blocks %}
-    <div class="collage-block">
+    <div id="block-{{ block.id }}" class="collage-block" style="height: {{ block.settings.height }}px">
+      {% style %}
+        #block-{{ block.id }} {
+          --block-alignment: {{ block.settings.block_alignment }};
+          --block-position: {{ block.settings.block_positioin }};
+          --block-title_font_size: {{ block.settings.title_font_size }}px;
+          --block-content_color: {{ block.settings.content_color }};
+          --block-content_background_color: {{ block.settings.content_background_color }};
+        }
+      {% endstyle %}
       {%- 
         render 'image', 
         is_cover: true,
-        image: block.settings.image 
+        image: block.settings.image,
+        height: section.settings.height,
+        is_cover: true
       -%}
-      <div class="collage-block_content">
-        <h6 class="xuer-h6">{{ block.settings.subheading }}</h6>
-        <h3 class="xuer-h3">{{ block.settings.title }}</h3>
-        <div class="collage-block_buttons">
-          {% if block.settings.button_label_1 != blank %}
-            {% render 'form-button', 
-              label: block.settings.button_label_1, 
-              link: block.settings.button_link_1 
-            %}
-          {% endif %}
-          {% if block.settings.button_label_2 != blank %}
-            {% render 'form-button', 
-              label: block.settings.button_label_2, 
-              link: block.settings.button_link_2
-            %}
-          {% endif %}
-          
+      <div class="collage-block_main">
+        <div class="collage-block_content">
+          <h6 class="xuer-h6 xuer-line2">{{ block.settings.subheading }}</h6>
+          <h3 class="xuer-h3 xuer-line2">{{ block.settings.title }}</h3>
+          <p class="xuer-text xuer-line2">{{ block.settings.text }}</p>
+          <div class="collage-block_buttons">
+            {% if block.settings.button_label_1 != blank %}
+              {% render 'form-button', 
+                label: block.settings.button_label_1, 
+                link: block.settings.button_link_1
+              %}
+            {% endif %}
+            {% if block.settings.button_label_2 != blank %}
+              {% render 'form-button', 
+                label: block.settings.button_label_2, 
+                link: block.settings.button_link_2
+              %}
+            {% endif %}
+            
+          </div>
         </div>
       </div>
     </div>
@@ -38,6 +51,15 @@
 {
   "name": "Collage",
   "settings": [
+    {
+      "type": "range",
+      "id": "height",
+      "min": 500,
+      "max": 800,
+      "step": 10,
+      "label": "Height",
+      "default": 700
+    },
     {
       "type": "checkbox",
       "id": "full_width",
@@ -82,6 +104,12 @@
         },
         {
           "type": "text",
+          "id": "text",
+          "default": "Tell your brand's story through images",
+          "label": "Text"
+        },
+        {
+          "type": "text",
           "id": "button_label_1",
           "default": "Button label 1",
           "label": "Button label 1"
@@ -101,6 +129,71 @@
           "type": "url",
           "id": "button_link_2",
           "label": "Button link 2"
+        },
+        {
+          "type": "range",
+          "id": "title_font_size",
+          "min": 20,
+          "max": 50,
+          "step": 2,
+          "label": "Heading font size",
+          "default": 46
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "content_color",
+          "label": "Content color"
+        },
+        {
+          "type": "color",
+          "id": "content_background_color",
+          "label": "Content background color"
+        },
+        {
+          "type": "select",
+          "id": "block_alignment",
+          "label": "Alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "block_positioin",
+          "label": "position",
+          "options": [
+            {
+              "value": "flex-start",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "flex-end",
+              "label": "Bottom"
+            }
+          ],
+          "default": "center"
         }
       ]
     }

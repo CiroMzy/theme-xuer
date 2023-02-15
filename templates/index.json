@@ -166,24 +166,32 @@
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/christopher-campbell-wtZgw1nQ3FI-unsplash_2376x_71e1e229-18f3-48fd-8196-0993a563300d.jpg",
-            "title": "Image with text",
-            "subheading": "Tell your brand's story through images",
-            "button_label_1": "Button label 1",
+            "title": "BEACH READY",
+            "text": "",
+            "subheading": "TIME TO GET",
+            "button_label_1": "SHOP SWIM",
             "button_link_1": "",
-            "button_label_2": "Button label 2",
-            "button_link_2": ""
+            "button_label_2": "SHOP ALL",
+            "button_link_2": "",
+            "block_alignment": "center",
+            "content_color": "#ffffff",
+            "title_font_size": 46
           }
         },
         "5676beb7-8dc4-4bd2-9398-8632c21aff89": {
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/gift-card-cropped_2376x_3644bf75-2f16-42c0-b8af-60bc7f4edd27.jpg",
-            "title": "Image with text",
-            "subheading": "Tell your brand's story through images",
+            "title": "Gift cards",
+            "text": "Help support local business by buying a gift card. Local pickup available!",
+            "subheading": "",
             "button_label_1": "Button label 1",
             "button_link_1": "",
-            "button_label_2": "Button label 2",
-            "button_link_2": ""
+            "button_label_2": "",
+            "button_link_2": "",
+            "block_alignment": "center",
+            "block_positioin": "flex-end",
+            "content_background_color": "#ffffff"
           }
         }
       },
@@ -193,8 +201,9 @@
       ],
       "settings": {
         "full_width": true,
-        "use_alt_color": true,
-        "use_section_space": true
+        "use_alt_color": false,
+        "use_section_space": false,
+        "height": 700
       }
     }
   },
