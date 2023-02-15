@@ -1,49 +1,51 @@
 
-
-<div class="collage xuer-shopify-section xuer-shopify-section-full xuer-animate_fadeInUp {% if section.settings.full_width == false %} page_width{%- endif -%} {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}" xuer-animated >
-  {% for block in section.blocks %}
-    <div id="block-{{ block.id }}" class="collage-block" style="height: {{ block.settings.height }}px">
-      {% style %}
-        #block-{{ block.id }} {
-          --block-alignment: {{ block.settings.block_alignment }};
-          --block-position: {{ block.settings.block_positioin }};
-          --block-title_font_size: {{ block.settings.title_font_size }}px;
-          --block-content_color: {{ block.settings.content_color }};
-          --block-content_background_color: {{ block.settings.content_background_color }};
-        }
-      {% endstyle %}
-      {%- 
-        render 'image', 
-        is_cover: true,
-        image: block.settings.image,
-        height: section.settings.height,
-        is_cover: true
-      -%}
-      <div class="collage-block_main">
-        <div class="collage-block_content">
-          <h6 class="xuer-h6 xuer-line2">{{ block.settings.subheading }}</h6>
-          <h3 class="xuer-h3 xuer-line2">{{ block.settings.title }}</h3>
-          <p class="xuer-text xuer-line2">{{ block.settings.text }}</p>
-          <div class="collage-block_buttons">
-            {% if block.settings.button_label_1 != blank %}
-              {% render 'form-button', 
-                label: block.settings.button_label_1, 
-                link: block.settings.button_link_1
-              %}
-            {% endif %}
-            {% if block.settings.button_label_2 != blank %}
-              {% render 'form-button', 
-                label: block.settings.button_label_2, 
-                link: block.settings.button_link_2
-              %}
-            {% endif %}
-            
+<div class="collage xuer-shopify-section xuer-shopify-section-full xuer-animate_fadeInUp {% if section.blocks.size == 2 %} is_two{%- endif -%} {% if section.settings.full_width == false %} page_width{%- endif -%} {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}" xuer-animated >
+  {% if section.blocks.size == 0 %}
+    <p class="xuer-section-empty">{{ 'sections.section_empty' | t }}</p>
+  {% else %}
+    {% for block in section.blocks %}
+      <div id="block-{{ block.id }}" class="collage-block" style="height: {{ section.settings.height }}px">
+        {% style %}
+          #block-{{ block.id }} {
+            --block-alignment: {{ block.settings.block_alignment }};
+            --block-position: {{ block.settings.block_positioin }};
+            --block-title_font_size: {{ block.settings.title_font_size }}px;
+            --block-content_color: {{ block.settings.content_color }};
+            --block-content_background_color: {{ block.settings.content_background_color }};
+          }
+        {% endstyle %}
+        {%- 
+          render 'image', 
+          is_cover: true,
+          image: block.settings.image,
+          height: section.settings.height,
+          is_cover: true
+        -%}
+        <div class="collage-block_main">
+          <div class="collage-block_content">
+            <h6 class="xuer-h6 xuer-line2">{{ block.settings.subheading }}</h6>
+            <h3 class="xuer-h3 xuer-line2">{{ block.settings.title }}</h3>
+            <p class="xuer-text xuer-line2">{{ block.settings.text }}</p>
+            <div class="collage-block_buttons">
+              {% if block.settings.button_label_1 != blank %}
+                {% render 'form-button', 
+                  label: block.settings.button_label_1, 
+                  link: block.settings.button_link_1
+                %}
+              {% endif %}
+              {% if block.settings.button_label_2 != blank %}
+                {% render 'form-button', 
+                  label: block.settings.button_label_2, 
+                  link: block.settings.button_link_2
+                %}
+              {% endif %}
+              
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    
-  {% endfor %}
+    {% endfor %}
+  {% endif %}
 
 </div>
 
@@ -81,8 +83,8 @@
   ],
   "blocks": [
     {
-      "type": "slide",
-      "name": "slide",
+      "type": "image_with_text",
+      "name": "Image with text",
       "limit": 2,
       "settings": [
         {
@@ -202,7 +204,15 @@
     {
       "name": "Collage",
       "settings": {
-      }
+      },
+      "blocks": [
+        {
+          "type": "image_with_text"
+        },
+        {
+          "type": "image_with_text"
+        }
+      ]
     }
   ]
 }

@@ -163,7 +163,7 @@
       "type": "collage",
       "blocks": {
         "1b7fb11d-ae46-4c57-94f2-634b4411bd0d": {
-          "type": "slide",
+          "type": "image_with_text",
           "settings": {
             "image": "shopify:\/\/shop_images\/christopher-campbell-wtZgw1nQ3FI-unsplash_2376x_71e1e229-18f3-48fd-8196-0993a563300d.jpg",
             "title": "BEACH READY",
@@ -179,7 +179,7 @@
           }
         },
         "5676beb7-8dc4-4bd2-9398-8632c21aff89": {
-          "type": "slide",
+          "type": "image_with_text",
           "settings": {
             "image": "shopify:\/\/shop_images\/gift-card-cropped_2376x_3644bf75-2f16-42c0-b8af-60bc7f4edd27.jpg",
             "title": "Gift cards",

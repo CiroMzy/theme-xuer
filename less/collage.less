@@ -6,16 +6,21 @@
   display: flex;
   justify-content: space-between;
   padding: 0 @distance2 @distance2;
+  &.is_two {
+    .collage-block{
+      width: 50%;
+      &:first-child{
+        margin-right: @distance;
+      }
+      &:last-child{
+        margin-left: @distance;
+      }
+    }
+  }
   .collage-block {
-    width: 50%;
+    width: 100%;
     text-align: var(--alignment);
     position: relative;
-    &:first-child{
-      margin-right: @distance;
-    }
-    &:last-child{
-      margin-left: @distance;
-    }
     .collage-block_main {
       position: absolute;
       left: 0;

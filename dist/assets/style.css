@@ -720,6 +720,10 @@ table th {
 .xuer-block-title {
   font-size: 16px;
 }
+.xuer-section-empty {
+  width: 100%;
+  text-align: center;
+}
 .xuer-align.center {
   text-align: center;
 }
@@ -2658,16 +2662,19 @@ xuer-tab-content xuer-tab-item.active {
   justify-content: space-between;
   padding: 0 16px 16px;
 }
-.collage .collage-block {
+.collage.is_two .collage-block {
   width: 50%;
-  text-align: var(--alignment);
-  position: relative;
 }
-.collage .collage-block:first-child {
+.collage.is_two .collage-block:first-child {
   margin-right: 8px;
 }
-.collage .collage-block:last-child {
+.collage.is_two .collage-block:last-child {
   margin-left: 8px;
+}
+.collage .collage-block {
+  width: 100%;
+  text-align: var(--alignment);
+  position: relative;
 }
 .collage .collage-block .collage-block_main {
   position: absolute;
