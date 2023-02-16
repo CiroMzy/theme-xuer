@@ -42,7 +42,7 @@
       ],
       "settings": {
         "section_height": "fixed",
-        "height_desktop": 650,
+        "height_desktop": 640,
         "height_mobile": 460,
         "mobile_text_under": true,
         "show_dots": true,
@@ -275,7 +275,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "Featured collection",
-        "collection": "new-arrivals",
+        "collection": "color-block",
         "columns_per_row": 4,
         "products_to_show": 4,
         "aspect_ratio": "1.78",
