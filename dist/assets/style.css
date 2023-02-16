@@ -344,6 +344,7 @@ a,
 }
 .xuer-image-outer-wrapper.is_cover {
   position: relative;
+  overflow: hidden;
 }
 .xuer-image-outer-wrapper.is_cover .xuer-image-wrapper {
   position: static;
@@ -594,6 +595,14 @@ a,
   -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s;
 }
+.xuer-animate_delay3 {
+  -webkit-animation-delay: 0.45s;
+  animation-delay: 0.45s;
+}
+.xuer-animate_delay4 {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
 [xuer-animated],
 .xuer-animated {
   -webkit-animation-duration: 1s;
@@ -710,6 +719,7 @@ a.xuer-image-enlarge:hover {
 }
 .xuer-overlay_wrapper {
   position: relative;
+  overflow: hidden;
 }
 .xuer-overlay_wrapper .xuer-overlay {
   position: absolute;

@@ -29,10 +29,10 @@
     {%- endif -%}
     <div class="image-banner_content_wrapper page_width xuer-content_wrapper">
       <div class="image-banner_content xuer-content_main" >
-        <h6 class="xuer-h6 xuer-line2 xuer-content_text">{{ section.settings.subheading }}</h6>
-        <h3 class="xuer-h3 xuer-line2 xuer-content_title">{{ section.settings.title }}</h3>
-        <p class="xuer-text xuer-line2 xuer-content_text">{{ section.settings.text | newline_to_br }}</p>
-        <div class="collage-block_buttons">
+        <h6 class="xuer-h6 xuer-line2 xuer-content_text xuer-animate_delay1" xuer-animated >{{ section.settings.subheading }}</h6>
+        <h3 class="xuer-h3 xuer-line2 xuer-content_title xuer-animate_delay2" xuer-animated>{{ section.settings.title }}</h3>
+        <p class="xuer-text xuer-line2 xuer-content_text xuer-animate_delay3" xuer-animated>{{ section.settings.text | newline_to_br }}</p>
+        <div class="collage-block_buttons xuer-animate_delay4" xuer-animated>
           {% if section.settings.button_label_1 != blank %}
             {% render 'form-button', 
               label: section.settings.button_label_1, 

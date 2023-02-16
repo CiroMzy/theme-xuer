@@ -10,9 +10,9 @@
 
 <div class="featured-collection xuer-shopify-section {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}">
   {% if section.settings.title != blank %}
-    <h2 class="xuer-h2 xuer-section-title">{{ section.settings.title }}</h2>    
+    <h2 class="xuer-h2 xuer-section-title" xuer-animated>{{ section.settings.title }}</h2>    
   {% endif %}
-  <xuer-list class="featured-collection_main page_width xuer-list-grid-{{ section.settings.columns_per_row }} xuer-line4">
+  <xuer-list xuer-animated class="xuer-animate_delay1 featured-collection_main page_width xuer-list-grid-{{ section.settings.columns_per_row }} xuer-line4">
     {% for product in local_collection.products limit: section.settings.products_to_show %}
       {%- render 'product-item', product: product -%}
     
@@ -24,7 +24,7 @@
   </xuer-list>
 
   {%- if section.settings.show_view_all and more_in_collection -%}
-    <div class="featured-collection_view-all">
+    <div class="featured-collection_view-all xuer-animate_delay2" xuer-animated>
       {% render 'form-button', text: 'sections.view_all', link: local_collection.title %}
     </div>
   {%- endif -%}
