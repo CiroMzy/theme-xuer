@@ -152,7 +152,8 @@
             "content_background_color": "",
             "content_horizontal_position": "center",
             "content_vertical_position": "center",
-            "text_alignment": "center"
+            "text_alignment": "center",
+            "image_focal_point": "top"
           }
         },
         "5676beb7-8dc4-4bd2-9398-8632c21aff89": {
@@ -181,7 +182,7 @@
         "5676beb7-8dc4-4bd2-9398-8632c21aff89"
       ],
       "settings": {
-        "height": 700,
+        "height": 500,
         "full_width": true,
         "use_alt_color": false,
         "use_section_space": false

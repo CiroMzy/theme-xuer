@@ -21,7 +21,8 @@
           is_cover: true,
           image: block.settings.image,
           height: section.settings.height,
-          is_cover: true
+          is_cover: true,
+          image_object_position: block.settings.image_focal_point
         -%}
         <div class="collage-block_main xuer-content_wrapper">
           <div class="collage-block_content xuer-content_main">
@@ -93,6 +94,26 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "image_focal_point",
+          "label": "Image focal point",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ],
+          "default": "center"
         },
         {
           "type": "range",

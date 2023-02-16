@@ -14,6 +14,7 @@
   - alt: {String}
   - sizes: {String}
   - image_background_fixed: {Boolean}
+  - image_object_position: {String}
 
 
   
@@ -79,7 +80,7 @@
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-background' }}
       {% else %}
         <img 
-          style="{{ wrapper_style }}"
+          style="{% if image_object_position %}object-position: {{image_object_position}};{% endif %}{{ wrapper_style }}"
           alt="{{ alt | default: image.alt | escape }}" 
           srcset="{{ src_list }}"
           srcset="{% if image.width >= 288 %}{{ image | image_url: width: 288 }} 288w,{% endif %}
