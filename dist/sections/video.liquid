@@ -13,7 +13,7 @@
           {{ section.settings.subheading | escape }}
       </h4>
       <h2 class="xuer-video_title xuer-h2 xuer-line4">
-        {{ section.settings.title }}
+        {{ section.settings.title | newline_to_br }}
       </h2>
       <p class="xuer-video_text">{{ section.settings.text }}</p>
     </div>
@@ -43,7 +43,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.video.name",
+  "name": "Video",
   "tag": "section",
   "settings": [
     {
@@ -53,10 +53,10 @@
     {
       "type": "text",
       "id": "subheading",
-      "label": "Tell your story"
+      "label": "Subheading"
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "title",
       "label": "Heading"
     },
@@ -76,7 +76,6 @@
       "label": "Desktop heading text size",
       "default": 58
     },
-
     {
       "type": "video_url",
       "id": "video_url",
@@ -96,8 +95,7 @@
     {
       "type": "color",
       "id": "text_color",
-      "label": "Text color",
-      "default": "rgba(0,0,0,0)"
+      "label": "Text color"
     },
     {
       "type": "header",

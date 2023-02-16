@@ -2400,6 +2400,7 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
 }
 .xuer-video-container .xuer-video_content h4,
 .xuer-video-container .xuer-video_content h2 {

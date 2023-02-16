@@ -139,6 +139,7 @@
           "type": "image_with_text",
           "settings": {
             "image": "shopify:\/\/shop_images\/christopher-campbell-wtZgw1nQ3FI-unsplash_2376x_71e1e229-18f3-48fd-8196-0993a563300d.jpg",
+            "image_focal_point": "center",
             "content_width": 380,
             "subheading": "TIME TO GET",
             "title": "BEACH READY",
@@ -152,19 +153,19 @@
             "content_background_color": "",
             "content_horizontal_position": "center",
             "content_vertical_position": "center",
-            "text_alignment": "center",
-            "image_focal_point": "top"
+            "text_alignment": "center"
           }
         },
         "5676beb7-8dc4-4bd2-9398-8632c21aff89": {
           "type": "image_with_text",
           "settings": {
             "image": "shopify:\/\/shop_images\/gift-card-cropped_2376x_3644bf75-2f16-42c0-b8af-60bc7f4edd27.jpg",
-            "content_width": 350,
+            "image_focal_point": "center",
+            "content_width": 360,
             "subheading": "",
             "title": "Gift cards",
             "text": "Help support local business by buying a gift card. Local pickup available!",
-            "button_label_1": "Shop gift cards",
+            "button_label_1": "Button label 1",
             "button_link_1": "",
             "button_label_2": "",
             "button_link_2": "",
@@ -182,7 +183,7 @@
         "5676beb7-8dc4-4bd2-9398-8632c21aff89"
       ],
       "settings": {
-        "height": 500,
+        "height": 700,
         "full_width": true,
         "use_alt_color": false,
         "use_section_space": false
@@ -307,49 +308,31 @@
         "use_section_space": true
       }
     },
-    "a1797cdf-b1b8-4731-89db-25031dc32824": {
-      "type": "featured-product",
-      "blocks": {
-        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-0": {
-          "type": "title",
-          "settings": {
-          }
-        },
-        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-1": {
-          "type": "price",
-          "settings": {
-            "show_tax_and_shipping": false
-          }
-        },
-        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-2": {
-          "type": "variant_picker",
-          "settings": {
-          }
-        },
-        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-3": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_quantity_selector": true,
-            "enable_payment_button": true
-          }
-        },
-        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-4": {
-          "type": "description",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-0",
-        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-1",
-        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-2",
-        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-3",
-        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-4"
-      ],
+    "c6b3ae2d-ea12-417d-8ec8-2ed9b9683189": {
+      "type": "blog-posts",
       "settings": {
-        "product": "suit-1",
-        "use_alt_color": false,
-        "use_section_space": true
+        "blog": "imp_blog1",
+        "articles_count": 3,
+        "title": "FROM THE JOURNAL",
+        "show_category": true,
+        "show_author": true,
+        "show_date": true,
+        "show_excerpt": false,
+        "image_ratio": "0.67"
+      }
+    },
+    "7f0fc0eb-f808-4559-8b31-53f15a9bbd64": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "Find the style that suits \n you best",
+        "text": "<p>Use a video to get a customer's attention<\/p>",
+        "desktop_heading_text_size": 58,
+        "video_url": "https:\/\/www.youtube.com\/watch?v=PrW33P3KufQ",
+        "text_color": "#ffffff",
+        "section_height_desktop": 500,
+        "video_ratio": 56,
+        "full_width": true
       }
     }
   },
@@ -362,6 +345,7 @@
     "213c3aa2-6ede-4715-893a-7dc426c047d4",
     "d6368180-04de-4c35-a1e1-ec23d1e4837b",
     "407c5bbc-471d-4327-b231-65ab756c3e9f",
-    "a1797cdf-b1b8-4731-89db-25031dc32824"
+    "c6b3ae2d-ea12-417d-8ec8-2ed9b9683189",
+    "7f0fc0eb-f808-4559-8b31-53f15a9bbd64"
   ]
 }
