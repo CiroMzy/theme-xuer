@@ -92,3 +92,26 @@ table {
 .xuer-opacity_important {
   opacity: 1 !important;
 }
+.xuer-content_wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10%;
+  height: 80%;
+  z-index: 1;
+  display: flex;
+  align-items: var(--content_vertical_position);
+  justify-content: var(--content_horizontal_position);
+  .xuer-content_main {
+    padding: @distance3;
+    color: var(--content_color);
+    text-align: var(--text_alignment);
+    background: var(--content_background_color);
+    .xuer-content_text, .xuer-content_title {
+      color: var(--content_color);
+    }
+    .xuer-content_title {
+      font-size: var(--title_font_size);
+    }
+  }
+}

@@ -11,8 +11,8 @@
             "subheading": "Fresh looks for sunny days.",
             "heading": "SPRING\nSTYLE",
             "button_label": "SHOP ALL",
-            "text_color": "#ffffff",
             "link": "",
+            "text_color": "#ffffff",
             "content_horizontal_position": "flex-start",
             "content_vertical_position": "center",
             "text_alignment": "left"
@@ -26,8 +26,8 @@
             "subheading": "",
             "heading": "Summer vibes",
             "button_label": "Shop tops",
-            "text_color": "#ffffff",
             "link": "",
+            "text_color": "#ffffff",
             "content_horizontal_position": "center",
             "content_vertical_position": "flex-end",
             "text_alignment": "center"
@@ -139,15 +139,14 @@
           "type": "image_with_text",
           "settings": {
             "image": "shopify:\/\/shop_images\/christopher-campbell-wtZgw1nQ3FI-unsplash_2376x_71e1e229-18f3-48fd-8196-0993a563300d.jpg",
-            "title": "BEACH READY",
             "subheading": "TIME TO GET",
+            "title": "BEACH READY",
             "text": "",
             "button_label_1": "SHOP SWIM",
             "button_link_1": "",
             "button_label_2": "SHOP ALL",
             "button_link_2": "",
             "title_font_size": 46,
-            "text_color": "#ffffff",
             "content_color": "#ffffff",
             "content_background_color": "",
             "block_alignment": "center",
@@ -158,15 +157,14 @@
           "type": "image_with_text",
           "settings": {
             "image": "shopify:\/\/shop_images\/gift-card-cropped_2376x_3644bf75-2f16-42c0-b8af-60bc7f4edd27.jpg",
-            "title": "Gift cards",
             "subheading": "",
+            "title": "Gift cards",
             "text": "Help support local business by buying a gift card. Local pickup available!",
             "button_label_1": "Button label 1",
             "button_link_1": "",
             "button_label_2": "",
             "button_link_2": "",
             "title_font_size": 46,
-            "text_color": "#ffffff",
             "content_color": "",
             "content_background_color": "#ffffff",
             "block_alignment": "center",
@@ -239,17 +237,26 @@
         "use_section_space": true
       }
     },
-    "aaae22d4-627f-435f-9031-c65c7b4fbd58": {
-      "type": "image-with-text",
+    "213c3aa2-6ede-4715-893a-7dc426c047d4": {
+      "type": "image-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/leather-handbag-on-bed_2160x_d90556ea-05b4-4034-8fe3-6037ec0494da.jpg",
-        "image_position": "bottom",
-        "image_width": 60,
-        "title": "GOOD DESIGN & QUALITY",
-        "content": "<p>Born out of a shared love of good design & quality products, we create considered solutions fit for the modern lifestyle. Always driven by passion, we work to empower others to live the same way.<\/p>",
-        "button_label": "",
-        "button_link": "shopify:\/\/collections\/all",
-        "text_alignment": "center",
+        "background_image": "shopify:\/\/shop_images\/leather-handbag-on-bed_2160x_d90556ea-05b4-4034-8fe3-6037ec0494da.jpg",
+        "height_desktop": 600,
+        "height_mobile": 460,
+        "subheading": "Fresh looks",
+        "title": "Fall accessories",
+        "text": "Get the perfect look for your fall wardrobe.\nFrom the city to the festival to campus.",
+        "button_label_1": "Shop bags",
+        "button_link_1": "",
+        "button_label_2": "Shop All",
+        "button_link_2": "",
+        "title_font_size": 46,
+        "content_color": "#ffffff",
+        "content_background_color": "",
+        "content_horizontal_position": "flex-end",
+        "content_vertical_position": "flex-start",
+        "text_alignment": "right",
+        "full_width": false,
         "use_alt_color": false,
         "use_section_space": true
       }
@@ -306,7 +313,7 @@
     "f0ce9b50-1a44-4883-bac4-9aadb14a7a6e",
     "da49876a-8b55-4c61-a3dd-40b5d9f0ed30",
     "0e6bad90-5ae7-44f1-9281-deb3169aacb8",
-    "aaae22d4-627f-435f-9031-c65c7b4fbd58",
+    "213c3aa2-6ede-4715-893a-7dc426c047d4",
     "a1797cdf-b1b8-4731-89db-25031dc32824"
   ]
 }
