@@ -25,9 +25,6 @@
 .product-section {
   display: flex;
   margin-bottom: 30px;
-  .product_slide {
-    width: 45%;
-  }
   .product_blocks {
     width: 50%;
     box-sizing: border-box;
@@ -37,4 +34,28 @@
     }
   }
 
+}
+
+/******* product-slide *******/
+.product_slide {
+  height: 720px;
+  width: 45%;
+  .product-slide_main {
+    height: 620px;
+  }
+  .media-container, .media-image {
+    height: 100%;
+  }
+
+  .product-slide_thumbnail {
+    margin-top: @distance2;
+    .swiper-slide {
+      height: 64px;
+      width: 64px;
+      border: 2px solid transparent;
+      &.swiper-slide-thumb-active {
+        border: 2px solid #000;
+      } 
+    }
+  }
 }

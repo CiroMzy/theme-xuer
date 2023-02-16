@@ -6,65 +6,37 @@
         "1664162639d434a28a-0": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/focus-banner1.jpg",
+            "image": "shopify:\/\/shop_images\/banner1.jpg",
             "slide_background_color": "",
-            "heading": "The Maison Kitsuné Collab",
-            "subheading": "New in",
-            "button_label": "Learn more",
+            "subheading": "Fresh looks for sunny days.",
+            "heading": "SPRING\nSTYLE",
+            "button_label": "SHOP ALL",
             "text_color": "#ffffff",
             "link": "",
-            "text_position": "flex-start",
+            "content_horizontal_position": "flex-start",
+            "content_vertical_position": "center",
             "text_alignment": "left"
           }
         },
-        "1664162639d434a28a-1": {
+        "eb3b5899-3494-47f7-922c-8f9f31bf7a19": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/focus-banner3.jpg",
+            "image": "shopify:\/\/shop_images\/woven_greenhouse_sg-20_15493a52-52f3-4708-a305-a8a9dec823b7.jpg",
             "slide_background_color": "",
-            "heading": "The Heritage",
-            "subheading": "Premium Collection Collection",
-            "button_label": "Button label",
+            "subheading": "",
+            "heading": "Summer vibes",
+            "button_label": "Shop tops",
             "text_color": "#ffffff",
             "link": "",
-            "text_position": "flex-end",
-            "text_alignment": "right"
-          }
-        },
-        "1320fd99-fbf5-4e57-917b-49906cd755cb": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/focus-banner2.jpg",
-            "slide_background_color": "",
-            "heading": "New Jump+ Powerbank",
-            "subheading": "Charge anywhere, anytime",
-            "button_label": "Button label",
-            "text_color": "#ffffff",
-            "link": "",
-            "text_position": "flex-start",
-            "text_alignment": "left"
-          }
-        },
-        "da1a690d-1c99-4db9-87c3-a4e24ccae459": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/focus-banner4.jpg",
-            "slide_background_color": "",
-            "heading": "Sage Collection",
-            "subheading": "Meet the",
-            "button_label": "Button label",
-            "text_color": "#ffffff",
-            "link": "",
-            "text_position": "flex-end",
-            "text_alignment": "right"
+            "content_horizontal_position": "center",
+            "content_vertical_position": "flex-end",
+            "text_alignment": "center"
           }
         }
       },
       "block_order": [
         "1664162639d434a28a-0",
-        "1664162639d434a28a-1",
-        "1320fd99-fbf5-4e57-917b-49906cd755cb",
-        "da1a690d-1c99-4db9-87c3-a4e24ccae459"
+        "eb3b5899-3494-47f7-922c-8f9f31bf7a19"
       ],
       "settings": {
         "section_height": "large",
@@ -74,7 +46,7 @@
         "show_dots": true,
         "dot_color": "#ffffff",
         "slide_transform_type": "sweep",
-        "text_animate_type": "fadeInRight",
+        "text_animate_type": "fadeInUp",
         "slide_speed": 600,
         "use_alt_color": false,
         "use_section_space": false
@@ -134,10 +106,11 @@
         "title": "",
         "columns_per_row": 4,
         "enable_image": true,
+        "image_width": 80,
+        "alignment": "center",
         "aspect_ratio": "1.0",
         "use_alt_color": false,
-        "image_width": 80,
-        "alignment": "center"
+        "use_section_space": true
       }
     },
     "f0ce9b50-1a44-4883-bac4-9aadb14a7a6e": {
@@ -167,15 +140,18 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/christopher-campbell-wtZgw1nQ3FI-unsplash_2376x_71e1e229-18f3-48fd-8196-0993a563300d.jpg",
             "title": "BEACH READY",
-            "text": "",
             "subheading": "TIME TO GET",
+            "text": "",
             "button_label_1": "SHOP SWIM",
             "button_link_1": "",
             "button_label_2": "SHOP ALL",
             "button_link_2": "",
-            "block_alignment": "center",
+            "title_font_size": 46,
+            "text_color": "#ffffff",
             "content_color": "#ffffff",
-            "title_font_size": 46
+            "content_background_color": "",
+            "block_alignment": "center",
+            "block_positioin": "center"
           }
         },
         "5676beb7-8dc4-4bd2-9398-8632c21aff89": {
@@ -183,15 +159,18 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/gift-card-cropped_2376x_3644bf75-2f16-42c0-b8af-60bc7f4edd27.jpg",
             "title": "Gift cards",
-            "text": "Help support local business by buying a gift card. Local pickup available!",
             "subheading": "",
+            "text": "Help support local business by buying a gift card. Local pickup available!",
             "button_label_1": "Button label 1",
             "button_link_1": "",
             "button_label_2": "",
             "button_link_2": "",
+            "title_font_size": 46,
+            "text_color": "#ffffff",
+            "content_color": "",
+            "content_background_color": "#ffffff",
             "block_alignment": "center",
-            "block_positioin": "flex-end",
-            "content_background_color": "#ffffff"
+            "block_positioin": "flex-end"
           }
         }
       },
@@ -200,10 +179,124 @@
         "5676beb7-8dc4-4bd2-9398-8632c21aff89"
       ],
       "settings": {
+        "height": 700,
         "full_width": true,
         "use_alt_color": false,
-        "use_section_space": false,
-        "height": 700
+        "use_section_space": false
+      }
+    },
+    "0e6bad90-5ae7-44f1-9281-deb3169aacb8": {
+      "type": "collection-list",
+      "blocks": {
+        "template--16734039834874__0e6bad90-5ae7-44f1-9281-deb3169aacb8-16764566216a0e4ae9-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "new-arrivals",
+            "image": "shopify:\/\/shop_images\/T185143-Heather-1_1800x_45d78bfc-03ef-4fcc-bd01-95895bb30264.jpg",
+            "title": "tops",
+            "overlay_opacity": 15
+          }
+        },
+        "template--16734039834874__0e6bad90-5ae7-44f1-9281-deb3169aacb8-16764566216a0e4ae9-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "blouses",
+            "image": "shopify:\/\/shop_images\/WTY387-TAUPE-1_1080x_83fe7a6a-006f-426e-ada9-f9fb4accc68d.jpg",
+            "title": "Tunics",
+            "overlay_opacity": 15
+          }
+        },
+        "template--16734039834874__0e6bad90-5ae7-44f1-9281-deb3169aacb8-16764566216a0e4ae9-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "dresses",
+            "image": "shopify:\/\/shop_images\/WDY561-Nocturne-1_1080x_12d1f819-7957-42ce-a2b7-cc3fd6ed647f.jpg",
+            "title": "Dresses",
+            "overlay_opacity": 15
+          }
+        },
+        "template--16734039834874__0e6bad90-5ae7-44f1-9281-deb3169aacb8-16764566216a0e4ae9-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "suits",
+            "image": "shopify:\/\/shop_images\/WTY489-Midnight-Teal-1_1080x_6ae9c0cc-8adb-4e0c-a246-27826537b297.jpg",
+            "title": "Sweatshirts",
+            "overlay_opacity": 15
+          }
+        }
+      },
+      "block_order": [
+        "template--16734039834874__0e6bad90-5ae7-44f1-9281-deb3169aacb8-16764566216a0e4ae9-0",
+        "template--16734039834874__0e6bad90-5ae7-44f1-9281-deb3169aacb8-16764566216a0e4ae9-1",
+        "template--16734039834874__0e6bad90-5ae7-44f1-9281-deb3169aacb8-16764566216a0e4ae9-2",
+        "template--16734039834874__0e6bad90-5ae7-44f1-9281-deb3169aacb8-16764566216a0e4ae9-3"
+      ],
+      "settings": {
+        "title": "SHOP BY CATEGORY",
+        "aspect_ratio": "0.67",
+        "columns_per_row": 4,
+        "use_alt_color": false,
+        "use_section_space": true
+      }
+    },
+    "aaae22d4-627f-435f-9031-c65c7b4fbd58": {
+      "type": "image-with-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/leather-handbag-on-bed_2160x_d90556ea-05b4-4034-8fe3-6037ec0494da.jpg",
+        "image_position": "bottom",
+        "image_width": 60,
+        "title": "GOOD DESIGN & QUALITY",
+        "content": "<p>Born out of a shared love of good design & quality products, we create considered solutions fit for the modern lifestyle. Always driven by passion, we work to empower others to live the same way.<\/p>",
+        "button_label": "",
+        "button_link": "shopify:\/\/collections\/all",
+        "text_alignment": "center",
+        "use_alt_color": false,
+        "use_section_space": true
+      }
+    },
+    "a1797cdf-b1b8-4731-89db-25031dc32824": {
+      "type": "featured-product",
+      "blocks": {
+        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-0": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-1": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": false
+          }
+        },
+        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-2": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-3": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "enable_payment_button": true
+          }
+        },
+        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-4": {
+          "type": "description",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-0",
+        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-1",
+        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-2",
+        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-3",
+        "template--16734039834874__a1797cdf-b1b8-4731-89db-25031dc32824-167646151228160c4a-4"
+      ],
+      "settings": {
+        "product": "suit-1",
+        "use_alt_color": false,
+        "use_section_space": true
       }
     }
   },
@@ -211,6 +304,9 @@
     "166416263949705a88",
     "d2136f44-bea8-4a0c-9500-dae091267c31",
     "f0ce9b50-1a44-4883-bac4-9aadb14a7a6e",
-    "da49876a-8b55-4c61-a3dd-40b5d9f0ed30"
+    "da49876a-8b55-4c61-a3dd-40b5d9f0ed30",
+    "0e6bad90-5ae7-44f1-9281-deb3169aacb8",
+    "aaae22d4-627f-435f-9031-c65c7b4fbd58",
+    "a1797cdf-b1b8-4731-89db-25031dc32824"
   ]
 }

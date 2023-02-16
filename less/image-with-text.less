@@ -2,3 +2,16 @@
 /**********************
 * image-with-text
 */
+.image-with-text {
+  .text-container {
+    text-align: var(--text_alignment);
+  }
+  &.image-bottom{
+    .xuer-vertical-center {
+      flex-direction: column;
+      .xuer-col-left {
+        margin-bottom: @distance3;
+      }
+    }
+  }
+}

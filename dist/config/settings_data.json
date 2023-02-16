@@ -1,5 +1,170 @@
 {
-  "current": "Default",
+  "current": {
+    "primary_color": "#02867f",
+    "heading_color": "#282828",
+    "text_color": "#282828",
+    "background_color": "#ffffff",
+    "secondary_background_color": "#405DE6",
+    "border_color": "#e2e2e2",
+    "success_color": "#52c41a",
+    "error_color": "#d9363e",
+    "primary_button_background_color": "#000000",
+    "primary_button_text_color": "#ffffff",
+    "secondary_button_background_color": "#405de6",
+    "secondary_button_text_color": "#ffffff",
+    "section_background_color": "#F7F1F0",
+    "product_image_background_color": "#ffffff",
+    "type_header_font": "tenor_sans_n4",
+    "heading_font_size": "large",
+    "capitalize_headings": false,
+    "type_base_font": "twentieth_century_n4",
+    "heading_text_transform": "uppercase",
+    "page_width": 1200,
+    "button_border_radius": 0,
+    "section_space": 24,
+    "color_swatch_config": "brown:#a52a2a\nblack:#000000\nblue:#0000ff\npink:#ffc0cb",
+    "product_show_vendor": true,
+    "product_show_secondary_image": true,
+    "product_add_to_cart": true,
+    "product_aspect_ratio": "0.67",
+    "product_image_crop": true,
+    "product_color_swatch_show": true,
+    "product_add_to_cart_position": "overlay",
+    "search_collection": "new-arrivals",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "1478526632860": {
+            "type": "announcement",
+            "settings": {
+              "text": "<p>Free shipping On all orders over $100<\/p>"
+            }
+          },
+          "1478526632861": {
+            "type": "announcement",
+            "settings": {
+              "text": "<p>Hassle-free returns 30-day postage paid returns <\/p>"
+            }
+          },
+          "92c917a4-9a91-4ba6-989e-6b9d18336007": {
+            "type": "announcement",
+            "settings": {
+              "text": "<p>10% off outerwear Stay warm this fall<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1478526632860",
+          "1478526632861",
+          "92c917a4-9a91-4ba6-989e-6b9d18336007"
+        ],
+        "settings": {
+          "announcement_text_color": "#ffffff",
+          "announcement_background_color": "#0f0f0f",
+          "announcement_link_color": "#ffffff",
+          "announcement_font_size": 14
+        }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "ec2c59e3-735f-4ca5-85cd-53a1ceb44f13": {
+            "type": "custom_menu_item",
+            "settings": {
+              "menu_title": "Shop",
+              "image": "shopify:\/\/shop_images\/collecting-order-at-curbside-from-retail-store.jpg",
+              "title": "Fast to home",
+              "link_url": "shopify:\/\/products\/suit-1"
+            }
+          },
+          "94193147-55d2-49ac-84fa-1004fe724378": {
+            "type": "custom_menu_item",
+            "settings": {
+              "menu_title": "Shop",
+              "image": "shopify:\/\/shop_images\/woman-and-two-children-stand-in-a-gold-colored-field.jpg",
+              "title": "Shirt-2",
+              "link_url": "shopify:\/\/products\/t-shirt-2"
+            }
+          }
+        },
+        "block_order": [
+          "ec2c59e3-735f-4ca5-85cd-53a1ceb44f13",
+          "94193147-55d2-49ac-84fa-1004fe724378"
+        ],
+        "settings": {
+          "header_logo": "shopify:\/\/shop_images\/logo_4eb949c9-be3b-4d5a-bcac-0479b9a1b4e0.png",
+          "desktop_logo_width": 80,
+          "mobile_logo_width": 120,
+          "enable_sticky": true,
+          "enable_search": true,
+          "navigation_padding": 10,
+          "menu": "multi-menu",
+          "menu_alignment": "left",
+          "header_background_color": "#ffffff",
+          "header_link_color": "#000000"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "5e5ee608-66d6-4bcb-b45e-6f92f3a125a5": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "617603ef-a2b3-4590-a505-9ec7d6bd72d5": {
+            "type": "company_info",
+            "settings": {
+              "heading": "Contact Information",
+              "company_info_address": "1635 Franklin Street Montgomery, Near Sherwood Mall. AL 36104",
+              "company_info_email": "info@abc.com",
+              "company_info_phone": "+1-202-555-1234"
+            }
+          },
+          "344df9ec-1d1e-40b8-8da2-6547905a1d96": {
+            "type": "newsletter",
+            "settings": {
+              "heading": "Newsletter",
+              "newsletter_info": "Sign Up to our Newsletter to get the latest news and offers."
+            }
+          }
+        },
+        "block_order": [
+          "5e5ee608-66d6-4bcb-b45e-6f92f3a125a5",
+          "617603ef-a2b3-4590-a505-9ec7d6bd72d5",
+          "344df9ec-1d1e-40b8-8da2-6547905a1d96"
+        ],
+        "settings": {
+          "logo_image": "shopify:\/\/shop_images\/logo-white.png",
+          "logo_image_width": 120,
+          "footer_describe": "Build any site you can imagine with no coding skills. We make websites are the number one ranked design, build and marketing team.",
+          "show_country_selector": true,
+          "show_language_selector": true,
+          "footer_background_color": "#000000",
+          "footer_text_color": "#ffffff"
+        }
+      },
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "logo_max_width": 100,
+          "color_scheme": "background-1"
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "color_scheme": "background-1"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
   "presets": {
     "Default": {
       "primary_color": "#02867f",
@@ -15,16 +180,13 @@
       "secondary_button_background_color": "#405de6",
       "secondary_button_text_color": "#ffffff",
       "product_image_background_color": "#ffffff",
-
       "section_background_color": "#F7F1F0",
-
       "button_border_radius": 4,
       "type_header_font": "zurich_extended_n8",
       "heading_font_size": "large",
       "capitalize_headings": false,
       "type_base_font": "lato_n4",
       "heading_text_transform": "uppercase",
-      
       "page_width": 1200,
       "section_space": 24,
       "product_show_vendor": true,
@@ -35,33 +197,34 @@
       "product_color_swatch_show": true,
       "color_swatch_config": "brown:#a52a2a\nblack:#000000\nblue:#0000ff\npink:#ffc0cb",
       "product_add_to_cart_position": "overlay",
-      
       "search_collection": "new-arrivals",
-      
       "sections": {
         "announcement-bar": {
           "settings": {
-            "announcement_text_color": "#282828",
-            "announcement_background_color": "#f3fe35",
-            "announcement_link_color": "#282828",
+            "announcement_text_color": "#ffffff",
+            "announcement_background_color": "#f0f0f0",
+            "announcement_link_color": "#ffffff",
             "announcement_font_size": 14
           },
           "blocks": {
             "1478526632861": {
               "settings": {
-                "text": "<p>Welcome to <a href=\"\/policies\/shipping-policy\" title=\"Shipping Policy\">our store<\/a><\/p>"
+                "text": "<p>Free shipping On all orders over $100"
               },
               "type": "announcement"
             },
             "1478526632860": {
               "settings": {
-                "text": "<p>Answer goes here...</p>"
+                "text": "<p>Hassle-free returns 30-day postage paid returns <\/p>"
               },
               "type": "announcement"
             }
           },
           "type": "announcement-bar",
-          "block_order": ["1478526632860", "1478526632861"]
+          "block_order": [
+            "1478526632860",
+            "1478526632861"
+          ]
         },
         "header": {
           "type": "header",

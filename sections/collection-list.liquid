@@ -1,15 +1,22 @@
-<div class="collection-list">
+<div class="collection-list xuer-shopify-section {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}">
   {% if section.settings.title != blank %}
     <h2 class="xuer-h2 xuer-section-title">{{ section.settings.title }}</h2>    
   {% endif %}
-  <xuer-list class="collection-list_main page_width">
+  <xuer-list class="collection-list_main page_width xuer-list-grid-{{ section.settings.columns_per_row }}">
     {% for block in section.blocks %}
+      {%-liquid
+        if block.settings.title != title
+          assign title = block.settings.title
+        else
+          assign title = block.settings.collection.title
+        endif
+      -%}
       {% 
         render 'collection-item', 
         aspect_ratio: section.settings.aspect_ratio,
         collection: block.settings.collection,
         image: block.settings.image,
-        title: block.settings.title,
+        title: title,
         overlay_opacity: block.settings.overlay_opacity,
         index: forloop.index
       %}
@@ -52,6 +59,27 @@
         }
       ],
       "default": "1.78"
+    },
+    {
+      "type": "range",
+      "id": "columns_per_row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Columns per row",
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "use_alt_color",
+      "label": "Use alternate section color",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "use_section_space",
+      "label": "Use section space",
+      "default": true
     }
   ],
   "blocks": [
@@ -82,7 +110,7 @@
           "max": 100,
           "step": 1,
           "unit": "%",
-          "default": 30
+          "default": 15
         }
       ]
     }

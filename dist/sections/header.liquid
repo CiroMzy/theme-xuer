@@ -11,6 +11,7 @@
 
   --header_background_color: {{ section.settings.header_background_color }};  
   --header_link_color: {{ section.settings.header_link_color }};
+  --header_padding: {{ section.settings.navigation_padding }}px;
 }
 {% endstyle %}
 
@@ -19,7 +20,7 @@
   {% render 'icon', name: 'search' %}
 </div>
 {%- endcapture -%}
-<xuer-header class="header-wrapper  full-width-padding" style="padding: {{ section.settings.navigation_padding }}px 0;">
+<xuer-header class="header-wrapper  full-width-padding">
   <div class="page_width header-main">
     {%- liquid
       if section.settings.menu_alignment == 'left' 

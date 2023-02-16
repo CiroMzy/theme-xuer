@@ -7,8 +7,8 @@
   background-color: var(--header_background_color);
   position: relative;
   display: flex;
-  .header-box-shadow(var(--header_background_color));
   .no-dec;
+  padding: var(--header_padding) 0;
   &.sticky{
     position: -webkit-sticky;
     position: sticky;
@@ -149,6 +149,7 @@
             top: 100%;
             min-width: 170px;
             max-width: 280px;
+            margin-top: var(--header_padding);
             a:hover{
               color: var(--text_color);
               opacity: 0.7;

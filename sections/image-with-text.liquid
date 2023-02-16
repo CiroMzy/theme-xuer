@@ -29,7 +29,13 @@
   </div>
 </div>
 {%- endcapture -%}
-<div class="image-with-text page_width " xuer-animated >
+
+{% style %}
+#section-{{ section.id }} {
+  --text_alignment: {{ section.settings.text_alignment }};
+}
+{% endstyle %}
+<div id="section-{{ section.id }}" class="image-with-text page_width xuer-shopify-section xuer-animate_fadeInUp {% if section.settings.image_position == 'bottom' %} image-bottom {%- endif -%} {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}" xuer-animated >
   <div class="xuer-row xuer-vertical-center">
     {%- if section.settings.image_position == 'left' -%}
       <div class="xuer-col xuer-col-left" style="width: {{ section.settings.image_width }}%;"> {{ image }} </div>
@@ -63,6 +69,10 @@
         {
           "value": "right",
           "label": "Right"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
         }
       ],
       "default": "left"
@@ -100,6 +110,38 @@
       "id": "button_link",
       "label": "Button link",
       "default": "/collections/all"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_alt_color",
+      "label": "Use alternate section color",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "use_section_space",
+      "label": "Use section space",
+      "default": true
     }
   ],
   "presets": [

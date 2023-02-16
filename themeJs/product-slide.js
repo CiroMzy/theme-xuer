@@ -12,13 +12,12 @@ var ProductSlide = class extends BaseHTMLElement {
 
     var swiperThumb = new Swiper(`#${thumbnailId}`, {
       spaceBetween: 10,
-      slidesPerView: 4,
+      slidesPerView: 'auto',
       watchSlidesProgress: true,
     });
 
     var swiperMain = new Swiper(`#${mainId}`, {
       spaceBetween: 10,
-      autoHeight: true,
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
