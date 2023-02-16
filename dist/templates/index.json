@@ -139,6 +139,7 @@
           "type": "image_with_text",
           "settings": {
             "image": "shopify:\/\/shop_images\/christopher-campbell-wtZgw1nQ3FI-unsplash_2376x_71e1e229-18f3-48fd-8196-0993a563300d.jpg",
+            "content_width": 380,
             "subheading": "TIME TO GET",
             "title": "BEACH READY",
             "text": "",
@@ -149,26 +150,29 @@
             "title_font_size": 46,
             "content_color": "#ffffff",
             "content_background_color": "",
-            "block_alignment": "center",
-            "block_positioin": "center"
+            "content_horizontal_position": "center",
+            "content_vertical_position": "center",
+            "text_alignment": "center"
           }
         },
         "5676beb7-8dc4-4bd2-9398-8632c21aff89": {
           "type": "image_with_text",
           "settings": {
             "image": "shopify:\/\/shop_images\/gift-card-cropped_2376x_3644bf75-2f16-42c0-b8af-60bc7f4edd27.jpg",
+            "content_width": 350,
             "subheading": "",
             "title": "Gift cards",
             "text": "Help support local business by buying a gift card. Local pickup available!",
-            "button_label_1": "Button label 1",
+            "button_label_1": "Shop gift cards",
             "button_link_1": "",
             "button_label_2": "",
             "button_link_2": "",
             "title_font_size": 46,
-            "content_color": "",
-            "content_background_color": "#ffffff",
-            "block_alignment": "center",
-            "block_positioin": "flex-end"
+            "content_color": "#ffffff",
+            "content_background_color": "",
+            "content_horizontal_position": "center",
+            "content_vertical_position": "flex-end",
+            "text_alignment": "center"
           }
         }
       },
@@ -241,8 +245,10 @@
       "type": "image-banner",
       "settings": {
         "background_image": "shopify:\/\/shop_images\/leather-handbag-on-bed_2160x_d90556ea-05b4-4034-8fe3-6037ec0494da.jpg",
+        "image_background_fixed": false,
         "height_desktop": 600,
         "height_mobile": 460,
+        "content_width": 380,
         "subheading": "Fresh looks",
         "title": "Fall accessories",
         "text": "Get the perfect look for your fall wardrobe.\nFrom the city to the festival to campus.",
@@ -257,6 +263,45 @@
         "content_vertical_position": "flex-start",
         "text_alignment": "right",
         "full_width": false,
+        "use_alt_color": false,
+        "use_section_space": true
+      }
+    },
+    "d6368180-04de-4c35-a1e1-ec23d1e4837b": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured collection",
+        "collection": "new-arrivals",
+        "columns_per_row": 4,
+        "products_to_show": 4,
+        "aspect_ratio": "1.78",
+        "show_view_all": true,
+        "use_alt_color": false,
+        "use_section_space": true
+      }
+    },
+    "407c5bbc-471d-4327-b231-65ab756c3e9f": {
+      "type": "image-banner",
+      "settings": {
+        "background_image": "shopify:\/\/shop_images\/karolis-puidokas-kB1itx3ABxE-unsplash.jpg",
+        "image_background_fixed": true,
+        "height_desktop": 600,
+        "height_mobile": 460,
+        "content_width": 380,
+        "subheading": "NEW FOR 2023",
+        "title": "BOUTIQUE STYLE",
+        "text": "Fierce elegance is about authenticity, refinement, beauty and grace. It’s a powerful lady like class with a touch of sophisticated sass that creates a sleek and commanding presence.",
+        "button_label_1": "VIEW LOOKBOOK",
+        "button_link_1": "",
+        "button_label_2": "",
+        "button_link_2": "",
+        "title_font_size": 26,
+        "content_color": "#000000",
+        "content_background_color": "#ffffff",
+        "content_horizontal_position": "flex-start",
+        "content_vertical_position": "flex-start",
+        "text_alignment": "left",
+        "full_width": true,
         "use_alt_color": false,
         "use_section_space": true
       }
@@ -314,6 +359,8 @@
     "da49876a-8b55-4c61-a3dd-40b5d9f0ed30",
     "0e6bad90-5ae7-44f1-9281-deb3169aacb8",
     "213c3aa2-6ede-4715-893a-7dc426c047d4",
+    "d6368180-04de-4c35-a1e1-ec23d1e4837b",
+    "407c5bbc-471d-4327-b231-65ab756c3e9f",
     "a1797cdf-b1b8-4731-89db-25031dc32824"
   ]
 }

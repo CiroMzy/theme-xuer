@@ -79,6 +79,12 @@ a, .link{
         object-fit: cover;
       }
     }
+    &.is_placeholder {
+      .xuer-image-wrapper {
+        padding: 0;
+        position: static;
+      }
+    }
   }
   .xuer-image-wrapper {
     position: relative;
@@ -125,7 +131,19 @@ a, .link{
     }
   }
 }
-
+.xuer-placeholder-image.xuer-full {
+  .placeholder-svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+}
+.xuer-image-outer-wrapper.image_background_fixed {
+  .xuer-image_background {
+    height: 100%;
+    background-attachment: fixed;
+  }
+}
 .custom-section {
   display: block;
 }

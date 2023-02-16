@@ -89,6 +89,9 @@ table {
 .placeholder-background {
   background-color: #f5f5f5;
 }
+.placeholder-background-dark {
+  background-color: #6a6a6a;
+}
 .xuer-opacity_important {
   opacity: 1 !important;
 }
@@ -107,11 +110,15 @@ table {
     color: var(--content_color);
     text-align: var(--text_alignment);
     background: var(--content_background_color);
+    width: var(--content_width);
     .xuer-content_text, .xuer-content_title {
       color: var(--content_color);
     }
     .xuer-content_title {
       font-size: var(--title_font_size);
+    }
+    .xuer-button+.xuer-button {
+      margin-left: @distance;
     }
   }
 }

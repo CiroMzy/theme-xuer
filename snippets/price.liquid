@@ -1,33 +1,39 @@
-{%- if line_price -%}
-<div class="product-price-container line-price">
-  {{ product.final_line_price | money }}
-</div>
-{% else %}
-<div class="product-price-container">
-  {%- if product.compare_at_price_min > product.price_min -%}
-    <span class="price-comparing">
-        <span class="price-sold">{{ product.price_min | money }}</span>
-        <span class="price-compare">{{ product.compare_at_price_min | money }}</span>
-    </span>
-  {%- else -%}
-    <span class="price-sold">{{ product.price_min | money }}</span>
-  {%- endif -%}
-
-  {%- if product.selected_or_first_available_variant.unit_price_measurement -%}
-    <small class="unit-price">
-      <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
-      <span class="price-item price-item--last">
-        <span>{{- product.selected_or_first_available_variant.unit_price | money -}}</span>
-        <span aria-hidden="true">/</span>
-        <span class="visually-hidden">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
-        <span>
-          {%- if product.selected_or_first_available_variant.unit_price_measurement.reference_value != 1 -%}
-            {{- product.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
-          {%- endif -%}
-          {{ product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}
+{% if product %}
+  {%- if line_price -%}
+    <div class="product-price-container line-price">
+      {{ product.final_line_price | money }}
+    </div>
+  {% else %}
+    <div class="product-price-container">
+      {%- if product.compare_at_price_min > product.price_min -%}
+        <span class="price-comparing">
+            <span class="price-sold">{{ product.price_min | money }}</span>
+            <span class="price-compare">{{ product.compare_at_price_min | money }}</span>
         </span>
-      </span>
-    </small>
+      {%- else -%}
+        <span class="price-sold">{{ product.price_min | money }}</span>
+      {%- endif -%}
+    
+      {%- if product.selected_or_first_available_variant.unit_price_measurement -%}
+        <small class="unit-price">
+          <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
+          <span class="price-item price-item--last">
+            <span>{{- product.selected_or_first_available_variant.unit_price | money -}}</span>
+            <span aria-hidden="true">/</span>
+            <span class="visually-hidden">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
+            <span>
+              {%- if product.selected_or_first_available_variant.unit_price_measurement.reference_value != 1 -%}
+                {{- product.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
+              {%- endif -%}
+              {{ product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}
+            </span>
+          </span>
+        </small>
+      {%- endif -%}
+    </div>
   {%- endif -%}
-</div>
-{%- endif -%}
+{% else %}
+    <div class="product-price-container line-price">
+      <span class="price-sold">{{ local_price | money }}</span>
+    </div>
+{% endif %}

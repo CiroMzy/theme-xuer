@@ -19,36 +19,6 @@
   }
   .collage-block {
     width: 100%;
-    text-align: var(--alignment);
     position: relative;
-    .collage-block_main {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      z-index: 1;
-      display: flex;
-      align-items: var(--block-position);
-      justify-content: center;
-      padding: @distance2;
-      .collage-block_content{
-        text-align: var(--block-alignment);
-        padding: @distance4;
-        background-color: var(--block-content_background_color);
-        max-width: 70%;
-        .xuer-h3 {
-          font-size: var(--block-title_font_size);
-        }
-        .xuer-h6,.xuer-h3,.xuer-text{
-          color: var(--block-content_color);
-        }
-        .collage-block_buttons {
-          .xuer-button+.xuer-button {
-            margin-left: @distance;
-          }
-        }
-      }
-    }
   }
 }

@@ -6,21 +6,29 @@
     --content_vertical_position: {{ section.settings.content_vertical_position }};
     --content_background_color: {{ section.settings.content_background_color }};
     --content_color: {{ section.settings.content_color }};
+    --content_width: {{ section.settings.content_width }}px;
     --title_font_size: {{ section.settings.title_font_size }}px;
     --text_alignment: {{ section.settings.text_alignment }};
   }
 {% endstyle %}
 
 <div id="section-{{ section.id }}" class="image-banner xuer-shopify-section {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}">
-  <div class="{% if section.settings.full_width == false %} page_width{%- endif -%}">
-    {%- 
-      render 'image', 
-      is_cover: true,
-      image: section.settings.background_image,
-      height: section.settings.height_desktop
-    -%}
+  <div class="image-banner_container {% if section.settings.full_width == false %} page_width{%- endif -%}">
+    {%- if section.settings.background_image != blank -%}
+      {%- 
+        render 'image', 
+        is_cover: true,
+        image: section.settings.background_image,
+        height: section.settings.height_desktop,
+        image_background_fixed: section.settings.image_background_fixed
+      -%}
+    {%- else -%}
+      <div class="xuer-placeholder-image xuer-full">
+        {{- 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-background-dark' -}}
+      </div>
+    {%- endif -%}
     <div class="image-banner_content_wrapper page_width xuer-content_wrapper">
-      <div class="image-banner_content xuer-content_main">
+      <div class="image-banner_content xuer-content_main" >
         <h6 class="xuer-h6 xuer-line2 xuer-content_text">{{ section.settings.subheading }}</h6>
         <h3 class="xuer-h3 xuer-line2 xuer-content_title">{{ section.settings.title }}</h3>
         <p class="xuer-text xuer-line2 xuer-content_text">{{ section.settings.text | newline_to_br }}</p>
@@ -54,6 +62,12 @@
       "label": "Background image"
     },
     {
+      "type": "checkbox",
+      "id": "image_background_fixed",
+      "label": "Image fixed",
+      "default": false
+    },
+    {
       "type": "range",
       "id": "height_desktop",
       "min": 200,
@@ -74,6 +88,16 @@
       "default": 460
     },
     {
+      "type": "range",
+      "id": "content_width",
+      "min": 200,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "label": "Content width",
+      "default": 380
+    },
+    {
       "type": "text",
       "id": "subheading",
       "default": "Tell your brand's story through images",
@@ -83,7 +107,7 @@
       "type": "text",
       "id": "title",
       "label": "Heading",
-      "default": "Image with text"
+      "default": "Image banner"
     },
     {
       "type": "textarea",
@@ -125,7 +149,8 @@
     {
       "type": "color",
       "id": "content_color",
-      "label": "Content color"
+      "label": "Content color",
+      "default": "#ffffff"
     },
     {
       "type": "color",
@@ -202,7 +227,7 @@
       "type": "checkbox",
       "id": "use_alt_color",
       "label": "Use alternate section color",
-      "default": true
+      "default": false
     },
     {
       "type": "checkbox",

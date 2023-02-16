@@ -16,7 +16,8 @@
     "add_to_cart":"Add to cart",
     "unavailable":"Unavailable",
     "no_stock":"No stock",
-    "quick_view": "Quick view"
+    "quick_view": "Quick view",
+    "example_product_title": "Example product title"
   },
   "cart": {
     "min_cart_title": "Cart",
@@ -93,6 +94,7 @@
     "blog_author": "Author name",
     "rich_text_page_empty": "Your page is empty",
     "main_article_empty": "Your blog is empty",
+    "view_all": "View all",
     "section_empty": "This section is empty, add content to this section."
   },
   "general": {

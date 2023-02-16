@@ -13,6 +13,7 @@
   - image_wrapper_class: {String}
   - alt: {String}
   - sizes: {String}
+  - image_background_fixed: {Boolean}
 
 
   
@@ -64,36 +65,41 @@
     endif
   endfor
 -%}
-<div class="xuer-image-outer-wrapper {{ image_wrapper_class }} {% if is_cover %} is_cover {% endif %} {% if is_inbox %} is_inbox {% endif %} {% if image == blank %} is_placeholder {% endif %} {% if fix_height %} fix_height {% endif %}"
+<div class="xuer-image-outer-wrapper {{ image_wrapper_class }} {% if is_cover %} is_cover {% endif %} {% if is_inbox %} is_inbox {% endif %} {% if image == blank %} is_placeholder {% endif %} {% if fix_height %} fix_height {% endif %} {% if image_background_fixed %} image_background_fixed {% endif %}"
   style="{{ wrapper_style }}"
 >
-  <div class="xuer-image-wrapper"
-    style="padding-top:{{ 1 | divided_by: local_aspect_ratio | times: 100 }}%"
-    xuer-image
-  >
-    {% if image == blank %}
-      {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-background' }}
-    {% else %}
-      <img 
-        style="{{ wrapper_style }}"
-        alt="{{ alt | default: image.alt | escape }}" 
-        srcset="{{ src_list }}"
-        srcset="{% if image.width >= 288 %}{{ image | image_url: width: 288 }} 288w,{% endif %}
-        {% if image.width >= 576 %}{{ image | image_url: width: 576 }} 576w,{% endif %}
-        {% if image.width >= 550 %}{{ image | image_url: width: 550 }} 550w,{% endif %}
-        {% if image.width >= 1100 %}{{ image | image_url: width: 1100 }} 1100w,{% endif %}
-        {{ image | image_url }} {{ image.width }}w"
-        {% if sizes != blank %}
-          sizes="{{ sizes }}"
-        {% else %}
-          sizes="100vw"
+  {% if image_background_fixed %}
+    <div class="xuer-image_background" style="background-image:url({{ image | image_url }})"></div>
+  {% else %}
+    <div class="xuer-image-wrapper"
+      style="padding-top:{{ 1 | divided_by: local_aspect_ratio | times: 100 }}%"
+      xuer-image
+    >
+      {% if image == blank %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-background' }}
+      {% else %}
+        <img 
+          style="{{ wrapper_style }}"
+          alt="{{ alt | default: image.alt | escape }}" 
+          srcset="{{ src_list }}"
+          srcset="{% if image.width >= 288 %}{{ image | image_url: width: 288 }} 288w,{% endif %}
+          {% if image.width >= 576 %}{{ image | image_url: width: 576 }} 576w,{% endif %}
+          {% if image.width >= 550 %}{{ image | image_url: width: 550 }} 550w,{% endif %}
+          {% if image.width >= 1100 %}{{ image | image_url: width: 1100 }} 1100w,{% endif %}
+          {{ image | image_url }} {{ image.width }}w"
+          {% if sizes != blank %}
+            sizes="{{ sizes }}"
+          {% else %}
+            sizes="100vw"
+          {% endif %}
+          loading="lazy" 
+          class="xuer-image {{ img_class }} {% if cover %}cover{% endif %}"
+          />
+        {% if enable_loading %}
+          {% render 'icon', name: 'loading' %}
         {% endif %}
-        loading="lazy" 
-        class="xuer-image {{ img_class }} {% if cover %}cover{% endif %}"
-        />
-      {% if enable_loading %}
-        {% render 'icon', name: 'loading' %}
       {% endif %}
-    {% endif %}
-  </div>
+    </div>
+      
+  {% endif %}
 </div>

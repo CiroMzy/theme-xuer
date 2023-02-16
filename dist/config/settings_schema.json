@@ -46,6 +46,12 @@
       },
       {
         "type": "color",
+        "id": "background_fade_color",
+        "default": "#f0f0f0",
+        "label": "Background fade"
+      },
+      {
+        "type": "color",
         "id": "border_color",
         "default": "#e2e2e2",
         "label": "Border color"

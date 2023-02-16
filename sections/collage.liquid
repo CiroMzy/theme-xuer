@@ -7,11 +7,13 @@
       <div id="block-{{ block.id }}" class="collage-block" style="height: {{ section.settings.height }}px">
         {% style %}
           #block-{{ block.id }} {
-            --block-alignment: {{ block.settings.block_alignment }};
-            --block-position: {{ block.settings.block_positioin }};
-            --block-title_font_size: {{ block.settings.title_font_size }}px;
-            --block-content_color: {{ block.settings.content_color }};
-            --block-content_background_color: {{ block.settings.content_background_color }};
+            --content_horizontal_position: {{ block.settings.content_horizontal_position }};
+            --content_vertical_position: {{ block.settings.content_vertical_position }};
+            --content_background_color: {{ block.settings.content_background_color }};
+            --content_color: {{ block.settings.content_color }};
+            --content_width: {{ block.settings.content_width }}px;
+            --title_font_size: {{ block.settings.title_font_size }}px;
+            --text_alignment: {{ block.settings.text_alignment }};
           }
         {% endstyle %}
         {%- 
@@ -21,11 +23,11 @@
           height: section.settings.height,
           is_cover: true
         -%}
-        <div class="collage-block_main">
-          <div class="collage-block_content">
-            <h6 class="xuer-h6 xuer-line2">{{ block.settings.subheading }}</h6>
-            <h3 class="xuer-h3 xuer-line2">{{ block.settings.title }}</h3>
-            <p class="xuer-text xuer-line2">{{ block.settings.text }}</p>
+        <div class="collage-block_main xuer-content_wrapper">
+          <div class="collage-block_content xuer-content_main">
+            <h6 class="xuer-h6 xuer-line2 xuer-content_text">{{ block.settings.subheading }}</h6>
+            <h3 class="xuer-h3 xuer-line2 xuer-content_title">{{ block.settings.title }}</h3>
+            <p class="xuer-text xuer-line2 xuer-content_text">{{ block.settings.text }}</p>
             <div class="collage-block_buttons">
               {% if block.settings.button_label_1 != blank %}
                 {% render 'form-button', 
@@ -72,7 +74,7 @@
       "type": "checkbox",
       "id": "use_alt_color",
       "label": "Use alternate section color",
-      "default": true
+      "default": false
     },
     {
       "type": "checkbox",
@@ -91,6 +93,16 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "content_width",
+          "min": 200,
+          "max": 800,
+          "step": 20,
+          "unit": "px",
+          "label": "Content width",
+          "default": 380
         },
         {
           "type": "text",
@@ -144,7 +156,8 @@
         {
           "type": "color",
           "id": "content_color",
-          "label": "Content color"
+          "label": "Content color",
+          "default": "#ffffff"
         },
         {
           "type": "color",
@@ -153,8 +166,48 @@
         },
         {
           "type": "select",
-          "id": "block_alignment",
-          "label": "Alignment",
+          "id": "content_horizontal_position",
+          "label": "Content horizontal position",
+          "options": [
+            {
+              "value": "flex-start",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "flex-end",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "content_vertical_position",
+          "label": "Content vertical position",
+          "options": [
+            {
+              "value": "flex-start",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "flex-end",
+              "label": "Botton"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text alignment",
           "options": [
             {
               "value": "left",
@@ -167,26 +220,6 @@
             {
               "value": "right",
               "label": "Right"
-            }
-          ],
-          "default": "center"
-        },
-        {
-          "type": "select",
-          "id": "block_positioin",
-          "label": "position",
-          "options": [
-            {
-              "value": "flex-start",
-              "label": "Top"
-            },
-            {
-              "value": "center",
-              "label": "Center"
-            },
-            {
-              "value": "flex-end",
-              "label": "Bottom"
             }
           ],
           "default": "center"
