@@ -2615,8 +2615,8 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
   margin-right: 8px;
 }
 .xuer-color-swatch .xuer-color-swatch_item .xuer-color-swatch_label {
-  width: 12px;
-  height: 12px;
+  width: 18px;
+  height: 18px;
   display: block;
   position: relative;
   cursor: pointer;
@@ -2630,6 +2630,7 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
   z-index: 1;
   border-radius: 50%;
   border: 1px solid var(--border_color);
+  background-position: center;
 }
 .xuer-color-swatch .xuer-color-swatch_item .xuer-color-swatch_label::before {
   content: "";
@@ -2652,8 +2653,8 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
 .quick-buy .quick-buy-button {
   position: absolute;
   top: auto;
-  left: 0;
-  right: 0;
+  left: 8px;
+  right: 8px;
   bottom: 0;
   z-index: 4;
   height: 0;
@@ -2662,6 +2663,7 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
 }
 .quick-buy .quick-buy-button.xuer-active {
   height: 42px;
+  bottom: 8px;
 }
 /**********************
 * tab-nav

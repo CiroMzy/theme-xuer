@@ -6,8 +6,8 @@
   .quick-buy-button {
     position: absolute;
     top: auto;
-    left: 0;
-    right: 0;
+    left: @distance;
+    right: @distance;
     bottom: 0;
     z-index: 4;
     height: 0;
@@ -15,6 +15,7 @@
     .trans;
     &.xuer-active{
       height: 42px;
+      bottom: @distance;
     }
   }
 }

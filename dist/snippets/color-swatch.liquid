@@ -10,7 +10,6 @@
   Usage:
   {% render 'form-radio', is_checked: true,value: 'red',name: 'color', label: 'color'   %}
 {% endcomment %}
-
 {%-liquid
 
   assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />'

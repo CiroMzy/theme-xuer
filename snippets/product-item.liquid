@@ -2,7 +2,6 @@
   assign product_images = product.media | where: 'media_type', 'image'
   assign cheapest_variant = product.variants | sort: 'price' | first
   assign color_arr = 'general.color' | t | replace: ', ', ',' | downcase | split: ','
-
   if settings.product_image_crop
     assign is_cover = true
   else
