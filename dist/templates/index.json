@@ -111,8 +111,8 @@
         "image_width": 80,
         "alignment": "center",
         "aspect_ratio": "1.0",
-        "use_alt_color": false,
-        "use_section_space": true
+        "use_alt_color": true,
+        "use_section_space": false
       }
     },
     "f0ce9b50-1a44-4883-bac4-9aadb14a7a6e": {
