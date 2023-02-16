@@ -342,6 +342,12 @@ a,
   position: static;
   object-fit: contain;
 }
+.xuer-image-outer-wrapper.is_cover {
+  position: relative;
+}
+.xuer-image-outer-wrapper.is_cover .xuer-image-wrapper {
+  position: static;
+}
 .xuer-image-outer-wrapper.is_cover .xuer-image-wrapper .xuer-image {
   object-fit: cover;
 }
@@ -1659,6 +1665,9 @@ xuer-list xuer-list-item [xuer-list-item-image_placeholder] svg {
 }
 .slideshow .swiper-slide .slideshow-image.large {
   height: 800px;
+}
+.slideshow .swiper-slide .slideshow-image.fixed {
+  height: var(--height_desktop);
 }
 .slideshow .swiper-slide .slideshow-image .xuer-image-outer-wrapper.is_cover {
   height: 100%;

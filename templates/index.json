@@ -7,6 +7,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/banner1.jpg",
+            "image_focal_point": "center",
             "slide_background_color": "",
             "subheading": "Fresh looks for sunny days.",
             "heading": "SPRING\nSTYLE",
@@ -22,6 +23,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/woven_greenhouse_sg-20_15493a52-52f3-4708-a305-a8a9dec823b7.jpg",
+            "image_focal_point": "top",
             "slide_background_color": "",
             "subheading": "",
             "heading": "Summer vibes",
@@ -39,8 +41,8 @@
         "eb3b5899-3494-47f7-922c-8f9f31bf7a19"
       ],
       "settings": {
-        "section_height": "large",
-        "height_desktop": 600,
+        "section_height": "fixed",
+        "height_desktop": 650,
         "height_mobile": 460,
         "mobile_text_under": true,
         "show_dots": true,
@@ -325,12 +327,12 @@
       "type": "video",
       "settings": {
         "subheading": "",
-        "title": "Find the style that suits \n you best",
+        "title": "<p>Find the style that suits you best<\/p>",
         "text": "<p>Use a video to get a customer's attention<\/p>",
         "desktop_heading_text_size": 58,
         "video_url": "https:\/\/www.youtube.com\/watch?v=PrW33P3KufQ",
         "text_color": "#ffffff",
-        "section_height_desktop": 500,
+        "section_height_desktop": 300,
         "video_ratio": 56,
         "full_width": true
       }

@@ -10,6 +10,7 @@
 {% style %}
 #section-{{ section.id }} {
   --dot_color: {{ section.settings.dot_color }};
+  --height_desktop: {{ section.settings.height_desktop }}px;
 }
 {% endstyle %}
 
@@ -46,7 +47,8 @@
               {%- 
                 render 'image', 
                 is_cover: true,
-                image: block.settings.image 
+                image: block.settings.image,
+                image_object_position: block.settings.image_focal_point
               -%}
             {%- else -%}
               <div class="xuer-placeholder-image xuer-full">
@@ -235,6 +237,26 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "image_focal_point",
+          "label": "Image focal point",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ],
+          "default": "center"
         },
         {
           "type": "color",

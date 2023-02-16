@@ -7,7 +7,7 @@
   --text_color_fade: rgba({{ settings.footer_text_color.red }}, {{ settings.footer_text_color.green }}, {{ settings.footer_text_color.blue }}, 0.6) ;
 }
 {% endstyle %}
-<footer class="site-footer " id="section-{{ section.id }}">
+<footer class="site-footer {% if section.settings.use_section_space %} use_section_space{%- endif -%} " id="section-{{ section.id }}">
   <div class="xuer-row page_width">
     <div class="xuer-col col-3">
       <div class="footer-base">
@@ -127,7 +127,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.footer.name",
+  "name": "Footer",
   "settings": [
     {
       "type": "image_picker",
@@ -172,6 +172,12 @@
       "id": "footer_text_color",
       "default": "#ffffff",
       "label": "Footer text color"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_section_space",
+      "label": "Use section space",
+      "default": true
     }
   ],
   "max_blocks": 6,
