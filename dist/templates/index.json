@@ -58,7 +58,7 @@
         "template--16734039834874__d2136f44-bea8-4a0c-9500-dae091267c31-1676449460bcd3659e-0": {
           "type": "text_block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/62.png",
+            "image": "shopify:\/\/shop_images\/62_b36cc28a-9a51-4f19-b7cb-4eeeb1092de8.png",
             "column_title": "Cruelty Free",
             "column_text": "<p>Peta Vegan & Cruelty-Free & Leaping Bunny certified.<\/p>",
             "button_label": "",
@@ -68,7 +68,7 @@
         "template--16734039834874__d2136f44-bea8-4a0c-9500-dae091267c31-1676449460bcd3659e-1": {
           "type": "text_block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/df9f333424ff6cc6164ce421b019fb94.png",
+            "image": "shopify:\/\/shop_images\/63_43fd8e35-7c13-4be6-ac46-0e14f2cd30eb.png",
             "column_title": "Natural",
             "column_text": "<p>Plant-based sourcing ingredients from ethical farming.<\/p>",
             "button_label": "",
@@ -78,7 +78,7 @@
         "template--16734039834874__d2136f44-bea8-4a0c-9500-dae091267c31-1676449460bcd3659e-2": {
           "type": "text_block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/63.png",
+            "image": "shopify:\/\/shop_images\/64_9a9adfa1-fde3-41ff-a1bf-e700b65d5d80.png",
             "column_title": "Vegan Products",
             "column_text": "<p>As and Ayurvedic Practitioner and Wellness coach.<\/p>",
             "button_label": "",
@@ -88,7 +88,7 @@
         "6fdfff7a-9c81-40c3-8430-a069cb83ef19": {
           "type": "text_block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/64.png",
+            "image": "shopify:\/\/shop_images\/df9f333424ff6cc6164ce421b019fb94_f1c60e29-7c99-42f6-ba85-6e83cd139a85.png",
             "column_title": "Sustainable",
             "column_text": "<p>In her ongoing quest for the best skincare suited to her.<\/p>",
             "button_label": "",
@@ -165,7 +165,7 @@
             "subheading": "",
             "title": "Gift cards",
             "text": "Help support local business by buying a gift card. Local pickup available!",
-            "button_label_1": "Button label 1",
+            "button_label_1": "SHOP GIFT CARDS",
             "button_link_1": "",
             "button_label_2": "",
             "button_link_2": "",
@@ -321,6 +321,156 @@
         "image_ratio": "0.67"
       }
     },
+    "428a6622-a11b-4354-a9f5-569ac4f86715": {
+      "type": "map",
+      "settings": {
+        "title": "Our retail store",
+        "address": "123 Fake St.Toronto, CanadaMon - Fri, 10am - 9pmSaturday, 11am - 9pmSunday, 11am - 5pm",
+        "button_label": "GET DIRECTIONS",
+        "link": "",
+        "api_key": "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg",
+        "title_font_size": 26,
+        "content_width": 380,
+        "content_color": "#000000",
+        "content_background_color": "#ffffff",
+        "content_horizontal_position": "flex-start",
+        "content_vertical_position": "center",
+        "text_alignment": "left",
+        "use_alt_color": false,
+        "use_section_space": true
+      }
+    },
+    "2bd6ee2d-ffd4-4f25-868a-1f50382231a5": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16734039834874__2bd6ee2d-ffd4-4f25-868a-1f50382231a5-16766330071e545101-0": {
+          "type": "heading",
+          "settings": {
+            "title": "DOVE GRAY DOLMAN SLEEVE(IMP)"
+          }
+        },
+        "template--16734039834874__2bd6ee2d-ffd4-4f25-868a-1f50382231a5-16766330071e545101-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This is a demonstration store. You can purchase products like this from PIKO Feel free and flowing with this Dolman Sleeve High-Low Top. The continuous dolman sleeves drape from your shoulders and match the relaxed fit down the body to the high-low hem. Slits at the sides enhance this style and shape. With its soft, thermal-regulating bamboo fabric will keep you comfortable year-round.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--16734039834874__2bd6ee2d-ffd4-4f25-868a-1f50382231a5-16766330071e545101-0",
+        "template--16734039834874__2bd6ee2d-ffd4-4f25-868a-1f50382231a5-16766330071e545101-1"
+      ],
+      "settings": {
+        "align_text": "center",
+        "use_alt_color": false,
+        "use_section_space": true
+      }
+    },
+    "ab5d369e-3295-486f-a283-a3f7a8742906": {
+      "type": "featured-product",
+      "blocks": {
+        "template--16734039834874__ab5d369e-3295-486f-a283-a3f7a8742906-1676633526e70b8ebb-0": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "template--16734039834874__ab5d369e-3295-486f-a283-a3f7a8742906-1676633526e70b8ebb-1": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": false
+          }
+        },
+        "template--16734039834874__ab5d369e-3295-486f-a283-a3f7a8742906-1676633526e70b8ebb-2": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "template--16734039834874__ab5d369e-3295-486f-a283-a3f7a8742906-1676633526e70b8ebb-3": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "enable_payment_button": true
+          }
+        },
+        "template--16734039834874__ab5d369e-3295-486f-a283-a3f7a8742906-1676633526e70b8ebb-4": {
+          "type": "description",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "template--16734039834874__ab5d369e-3295-486f-a283-a3f7a8742906-1676633526e70b8ebb-0",
+        "template--16734039834874__ab5d369e-3295-486f-a283-a3f7a8742906-1676633526e70b8ebb-1",
+        "template--16734039834874__ab5d369e-3295-486f-a283-a3f7a8742906-1676633526e70b8ebb-2",
+        "template--16734039834874__ab5d369e-3295-486f-a283-a3f7a8742906-1676633526e70b8ebb-3",
+        "template--16734039834874__ab5d369e-3295-486f-a283-a3f7a8742906-1676633526e70b8ebb-4"
+      ],
+      "settings": {
+        "product": "dove-gray-dolman-sleeve",
+        "use_alt_color": false,
+        "use_section_space": true
+      }
+    },
+    "f6faf158-7f73-4e01-8495-a33ee71742d6": {
+      "type": "logo-list",
+      "blocks": {
+        "template--16734039834874__f6faf158-7f73-4e01-8495-a33ee71742d6-16766331382133f5c2-0": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/the-verge_200x_676eaf30-5b5a-4d0c-9681-f5538bf7c6b3.png",
+            "link": ""
+          }
+        },
+        "template--16734039834874__f6faf158-7f73-4e01-8495-a33ee71742d6-16766331382133f5c2-1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/tnw_200x_ea26eb9a-fa5c-4284-97bd-b31742a12cf3.png",
+            "link": ""
+          }
+        },
+        "template--16734039834874__f6faf158-7f73-4e01-8495-a33ee71742d6-16766331382133f5c2-2": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/techcrunch_200x_7f6139b3-ac17-43b2-b070-5095e8e00762.png",
+            "link": ""
+          }
+        },
+        "template--16734039834874__f6faf158-7f73-4e01-8495-a33ee71742d6-16766331382133f5c2-3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/engadget_200x_3d6e1cc3-b754-4f9f-ac33-6d0539ddd29b.png",
+            "link": ""
+          }
+        },
+        "template--16734039834874__f6faf158-7f73-4e01-8495-a33ee71742d6-16766331382133f5c2-4": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/lifehacker_200x_0969faa9-b82f-463f-84d0-732030734d2a.png",
+            "link": ""
+          }
+        },
+        "template--16734039834874__f6faf158-7f73-4e01-8495-a33ee71742d6-16766331382133f5c2-5": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/techradar_200x_13066212-173e-46d7-852a-640181df0167.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16734039834874__f6faf158-7f73-4e01-8495-a33ee71742d6-16766331382133f5c2-0",
+        "template--16734039834874__f6faf158-7f73-4e01-8495-a33ee71742d6-16766331382133f5c2-1",
+        "template--16734039834874__f6faf158-7f73-4e01-8495-a33ee71742d6-16766331382133f5c2-2",
+        "template--16734039834874__f6faf158-7f73-4e01-8495-a33ee71742d6-16766331382133f5c2-3",
+        "template--16734039834874__f6faf158-7f73-4e01-8495-a33ee71742d6-16766331382133f5c2-4",
+        "template--16734039834874__f6faf158-7f73-4e01-8495-a33ee71742d6-16766331382133f5c2-5"
+      ],
+      "settings": {
+        "title": "FEATURED IN",
+        "use_alt_color": false,
+        "use_section_space": true
+      }
+    },
     "7f0fc0eb-f808-4559-8b31-53f15a9bbd64": {
       "type": "video",
       "settings": {
@@ -330,26 +480,9 @@
         "desktop_heading_text_size": 58,
         "video_url": "https:\/\/www.youtube.com\/watch?v=PrW33P3KufQ",
         "text_color": "#ffffff",
-        "section_height_desktop": 300,
+        "section_height_desktop": 480,
         "video_ratio": 56,
-        "full_width": true
-      }
-    },
-    "428a6622-a11b-4354-a9f5-569ac4f86715": {
-      "type": "map",
-      "settings": {
-        "title": "Our retail store",
-        "address": "123 Fake St.Toronto, CanadaMon - Fri, 10am - 9pmSaturday, 11am - 9pmSunday, 11am - 5pm",
-        "button_label": "GET DIRECTIONS",
-        "link": "",
-        "title_font_size":24,
-        "api_key": "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg",
-        "content_width": 380,
-        "content_color": "#000000",
-        "content_background_color": "#ffffff",
-        "content_horizontal_position": "flex-start",
-        "content_vertical_position": "center",
-        "text_alignment": "left",
+        "full_width": true,
         "use_alt_color": false,
         "use_section_space": true
       }
@@ -365,7 +498,10 @@
     "d6368180-04de-4c35-a1e1-ec23d1e4837b",
     "407c5bbc-471d-4327-b231-65ab756c3e9f",
     "c6b3ae2d-ea12-417d-8ec8-2ed9b9683189",
-    "7f0fc0eb-f808-4559-8b31-53f15a9bbd64",
-    "428a6622-a11b-4354-a9f5-569ac4f86715"
+    "428a6622-a11b-4354-a9f5-569ac4f86715",
+    "2bd6ee2d-ffd4-4f25-868a-1f50382231a5",
+    "ab5d369e-3295-486f-a283-a3f7a8742906",
+    "f6faf158-7f73-4e01-8495-a33ee71742d6",
+    "7f0fc0eb-f808-4559-8b31-53f15a9bbd64"
   ]
 }

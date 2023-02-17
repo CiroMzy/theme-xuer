@@ -20,7 +20,7 @@
   </xuer-map>
 
   <div class="map_content_wrapper page_width xuer-content_wrapper">
-    <div class="map_content xuer-content_main" >
+    <div class="map_content xuer-content_main" xuer-animated>
       {% if section.settings.title != blank %}
         <h3 class="xuer-h3 xuer-line2 xuer-content_title xuer-animate_delay2" xuer-animated>{{ section.settings.title }}</h3>
       {% endif %}
@@ -45,7 +45,7 @@
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
+    {% comment %} center: { lat: -34.397, lng: 150.644 }, {% endcomment %}
     zoom: 8,
   });
 }

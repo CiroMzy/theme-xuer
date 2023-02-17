@@ -6,7 +6,7 @@
 }
 {% endstyle %}
 
-<div class="xuer-video-container {% if section.settings.full_width == false %} page_width {% endif %} " id="xuer-video-{{ section.id }}">
+<div class="xuer-video-container {% if section.settings.full_width == false %} page_width {% endif %} uer-shopify-section {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}" id="xuer-video-{{ section.id }}">
   {% if section.settings.subheading != blank or section.settings.title != blank or section.settings.text != blank %}
     <div class="xuer-video_content " xuer-animated>
       <h4 class="xuer-video_subheading xuer-line2">
@@ -125,6 +125,18 @@
       "type": "checkbox",
       "id": "full_width",
       "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "use_alt_color",
+      "label": "Use alternate section color",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "use_section_space",
+      "label": "Use section space",
       "default": true
     }
   ],
