@@ -8,7 +8,6 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/banner1.jpg",
             "image_focal_point": "center",
-            "slide_background_color": "",
             "subheading": "Fresh looks for sunny days.",
             "heading": "SPRING\nSTYLE",
             "button_label": "SHOP ALL",
@@ -24,7 +23,6 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/woven_greenhouse_sg-20_15493a52-52f3-4708-a305-a8a9dec823b7.jpg",
             "image_focal_point": "top",
-            "slide_background_color": "",
             "subheading": "",
             "heading": "Summer vibes",
             "button_label": "Shop tops",
@@ -336,6 +334,25 @@
         "video_ratio": 56,
         "full_width": true
       }
+    },
+    "428a6622-a11b-4354-a9f5-569ac4f86715": {
+      "type": "map",
+      "settings": {
+        "title": "Our retail store",
+        "address": "123 Fake St.Toronto, CanadaMon - Fri, 10am - 9pmSaturday, 11am - 9pmSunday, 11am - 5pm",
+        "button_label": "GET DIRECTIONS",
+        "link": "",
+        "title_font_size":24,
+        "api_key": "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg",
+        "content_width": 380,
+        "content_color": "#000000",
+        "content_background_color": "#ffffff",
+        "content_horizontal_position": "flex-start",
+        "content_vertical_position": "center",
+        "text_alignment": "left",
+        "use_alt_color": false,
+        "use_section_space": true
+      }
     }
   },
   "order": [
@@ -348,6 +365,7 @@
     "d6368180-04de-4c35-a1e1-ec23d1e4837b",
     "407c5bbc-471d-4327-b231-65ab756c3e9f",
     "c6b3ae2d-ea12-417d-8ec8-2ed9b9683189",
-    "7f0fc0eb-f808-4559-8b31-53f15a9bbd64"
+    "7f0fc0eb-f808-4559-8b31-53f15a9bbd64",
+    "428a6622-a11b-4354-a9f5-569ac4f86715"
   ]
 }

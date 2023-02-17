@@ -2775,3 +2775,9 @@ xuer-tab-content xuer-tab-item.active {
   align-items: center;
   justify-content: center;
 }
+/**********************
+* map
+*/
+.map-container {
+  position: relative;
+}

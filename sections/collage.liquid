@@ -25,9 +25,15 @@
         -%}
         <div class="collage-block_main xuer-content_wrapper">
           <div class="collage-block_content xuer-content_main">
-            <h6 class="xuer-h6 xuer-line2 xuer-content_text">{{ block.settings.subheading }}</h6>
-            <h3 class="xuer-h3 xuer-line2 xuer-content_title">{{ block.settings.title }}</h3>
-            <p class="xuer-text xuer-line2 xuer-content_text">{{ block.settings.text }}</p>
+            {% if block.settings.subheading != blank %}
+              <h6 class="xuer-h6 xuer-line2 xuer-content_text">{{ block.settings.subheading }}</h6>  
+            {% endif %}
+            {% if block.settings.title != blank %}
+              <h3 class="xuer-h3 xuer-line2 xuer-content_title">{{ block.settings.title }}</h3>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <p class="xuer-text xuer-line2 xuer-content_text">{{ block.settings.text }}</p>
+            {% endif %}
             <div class="collage-block_buttons">
               {% if block.settings.button_label_1 != blank %}
                 {% render 'form-button', 
