@@ -1004,6 +1004,13 @@ var Slideshow = class extends BaseHTMLElement {
 				init: function () {
 					_this._slides = this.slides
 					_this.slideShow(0)
+
+					if(_this.datas.swiperHeight === 'full') {
+						const headerHeight = $('#shopify-section-header').outerHeight()
+						const announceHeight = $('#shopify-section-announcement-bar').outerHeight()
+						const height = window.innerHeight - headerHeight - announceHeight
+						_this.$container.find('.swiper').height(height)
+					}
 				},
 				slideChangeTransitionStart: function () {
 					if (!_this._slides) {

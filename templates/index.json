@@ -39,7 +39,7 @@
         "eb3b5899-3494-47f7-922c-8f9f31bf7a19"
       ],
       "settings": {
-        "section_height": "fixed",
+        "section_height": "full",
         "height_desktop": 640,
         "height_mobile": 460,
         "mobile_text_under": true,
