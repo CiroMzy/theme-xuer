@@ -12,6 +12,7 @@
   --header_background_color: {{ section.settings.header_background_color }};  
   --header_link_color: {{ section.settings.header_link_color }};
   --header_padding: {{ section.settings.navigation_padding }}px;
+  --header_padding_negative: -{{ section.settings.navigation_padding }}px;
 }
 {% endstyle %}
 
@@ -24,9 +25,7 @@
   <div class="page_width header-main">
     {%- liquid
       if section.settings.menu_alignment == 'left' 
-        if section.settings.menu == blank and section.settings.enable_search
-          echo search_button
-        else
+        if section.settings.menu != blank
           render 'header-menu', section_settings: section.settings, blocks: section.blocks
         endif
         render 'header-logo', section_settings: section.settings

@@ -24,7 +24,7 @@
                   <ul class="{% if wide_mode %}page_width{% endif %}">
                     {%- for childlink in link.links -%}
                       {%- if childlink.links != blank -%}
-                        <li class="menu-level-2 menu-item {% if childlink.current %}menu-item-active{% endif %} ">
+                        <li class="menu-level-2 menu-item {% if childlink.current %}menu-item-active{% endif %} xuer-animate_delay{{ forloop.index }}" >
                           <a href="{{ childlink.url }}" class="menu-title">
                             {{ childlink.title | escape }}
                           </a>

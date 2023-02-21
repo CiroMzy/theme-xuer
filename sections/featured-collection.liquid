@@ -14,7 +14,13 @@
   {% endif %}
   <xuer-list xuer-animated class="xuer-animate_delay1 featured-collection_main page_width xuer-list-grid-{{ section.settings.columns_per_row }} xuer-line4">
     {% for product in local_collection.products limit: section.settings.products_to_show %}
-      {%- render 'product-item', product: product -%}
+      {% assign animateClasses = 'xuer-animate_delay' | append : forloop.index %}
+      {%- 
+        render 'product-item', 
+        product: product, 
+        animateClasses: animateClasses,
+        animated: true
+      -%}
     
     {%- else -%}
       {%- for i in (1..4) -%}

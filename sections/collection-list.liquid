@@ -1,6 +1,6 @@
 <div class="collection-list xuer-shopify-section {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}">
   {% if section.settings.title != blank %}
-    <h2 class="xuer-h2 xuer-section-title">{{ section.settings.title }}</h2>    
+    <h2 class="xuer-h2 xuer-section-title" xuer-animated>{{ section.settings.title }}</h2>    
   {% endif %}
   <xuer-list class="collection-list_main page_width xuer-list-grid-{{ section.settings.columns_per_row }}">
     {% for block in section.blocks %}
@@ -10,6 +10,7 @@
         else
           assign title = block.settings.collection.title
         endif
+        assign animateClasses = 'xuer-animate_delay' | append : forloop.index
       -%}
       {% 
         render 'collection-item', 
@@ -18,7 +19,9 @@
         image: block.settings.image,
         title: title,
         overlay_opacity: block.settings.overlay_opacity,
-        index: forloop.index
+        index: forloop.index,
+        animateClasses: animateClasses,
+        animated: true
       %}
     {% endfor %}
   </xuer-list>

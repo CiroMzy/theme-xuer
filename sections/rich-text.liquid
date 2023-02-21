@@ -1,7 +1,7 @@
 
 <div class="rich-text xuer-align {{ section.settings.align_text }} page_width  xuer-shopify-section {% if section.settings.use_section_space %} use_section_space{%- endif -%} {% if section.settings.use_alt_color %} use_alt_color{%- endif -%}" xuer-animated>
   {%- for block in section.blocks -%}
-    <div class="rich-text_block">
+    <div class="rich-text_block xuer-animate_delay{{ forloop.index }}" xuer-animated>
       {%- case block.type -%}
         {%- when 'heading' -%}
           <h2 class="xuer-h2 xuer-section-title">{{ block.settings.title | escape }}</h2>

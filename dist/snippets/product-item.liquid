@@ -8,7 +8,7 @@
     assign is_inbox = true
   endif
 -%}
-<xuer-product-item class="custom-section product-item-container {{ settings.product_add_to_cart_position }}" >
+<xuer-product-item class="custom-section product-item-container {{ animateClasses }} {{ settings.product_add_to_cart_position }}" {%- if animated -%}xuer-animated {%- endif -%}>
   {% if product %}
     <div class="product-image-wrapper xuer-line2">
       <a href="{{ product.url }}" class="xuer-link_keep">

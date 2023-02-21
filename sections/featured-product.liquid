@@ -22,76 +22,78 @@
   </div>
   <div class="product_blocks">
     {% for block in section.blocks %}
-      {% case block.type %}
-        {% when '@app' %}
-          {% render block %}
-
-        {% when 'title' %}
-          <div class="product_row" >
-            {% if product != blank %}
-              <h2 class="xuer-h1 title">{{ product.title | link_to: product.url }}</h2>
-            {% else %}
-              <h2 class="xuer-h1 title">{{ 'product.product_title' | t }}</h2>
-            {% endif %}
-          </div>
-
-        {% when 'price' %}
-          <div class="product_row xuer-h4" >
-            {% render 'price', product: product %}
-          </div>
-
-        {% when 'variant_picker' %}
-          <div class="input-row" >
-            {% if product != blank %}
-              {% render 'variant-picker', section: section, product: product, block: block %}
-            {% endif %}
-          </div>
-
-        {% when 'buy_buttons' %}
-          <div class="product-form">
-            {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled >
-              <div class="xuer-line2">
-                {% render 'quantity-selector', quantity: 1, name: "quantity" %}
-              </div>
-              <div class="product-form__buttons">
-                {% render 'form-button', text: 'product.add_to_cart', className: 'product_row', is_block: true, type: 'submit', attrs: "add-to-cart" %}
-                {{ form | payment_button }}
-              </div>
-            {%- endform -%}
-          </div>
-
-        {% when 'description' %}
-          <div class="product_row" >
-            {{ product.description }}
-          </div>
-
-        {% when 'vendor' %}
-          {%- liquid
-            assign product_vendor_handle = product.vendor | handle
-            if collections[product_vendor_handle].handle == product_vendor_handle
-              assign vendor_url = collections[product_vendor_handle].url
-            else
-              assign vendor_url = product.vendor | url_for_vendor
-            endif
-          -%}
-          <div class="vendor lightly-spaced-row" >
-            {{ product.vendor | link_to: vendor_url }}
-          </div>
-
-        {% when 'sku' %}
-          <div class="sku {% if current_variant and current_variant.sku == blank %}sku--no-sku{% endif %}" >
-            {{- current_variant.sku -}}
-          </div>
-
-        {% when 'richtext' %}
-          {% if block.settings.richtext != blank %}
-            <div class="lightly-spaced-row" >
-              <div class="rte cf">{{ block.settings.richtext }}</div>
+      <div class="xuer-animate_delay{{ forloop.index }}" xuer-animated>
+        {% case block.type %}
+          {% when '@app' %}
+            {% render block %}
+  
+          {% when 'title' %}
+            <div class="product_row" >
+              {% if product != blank %}
+                <h2 class="xuer-h1 title">{{ product.title | link_to: product.url }}</h2>
+              {% else %}
+                <h2 class="xuer-h1 title">{{ 'product.product_title' | t }}</h2>
+              {% endif %}
             </div>
-          {% endif %}
-
-      {% endcase %}
+  
+          {% when 'price' %}
+            <div class="product_row xuer-h4" >
+              {% render 'price', product: product %}
+            </div>
+  
+          {% when 'variant_picker' %}
+            <div class="input-row" >
+              {% if product != blank %}
+                {% render 'variant-picker', section: section, product: product, block: block %}
+              {% endif %}
+            </div>
+  
+          {% when 'buy_buttons' %}
+            <div class="product-form">
+              {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled >
+                <div class="xuer-line2">
+                  {% render 'quantity-selector', quantity: 1, name: "quantity" %}
+                </div>
+                <div class="product-form__buttons">
+                  {% render 'form-button', text: 'product.add_to_cart', className: 'product_row', is_block: true, type: 'submit', attrs: "add-to-cart" %}
+                  {{ form | payment_button }}
+                </div>
+              {%- endform -%}
+            </div>
+  
+          {% when 'description' %}
+            <div class="product_row" >
+              {{ product.description }}
+            </div>
+  
+          {% when 'vendor' %}
+            {%- liquid
+              assign product_vendor_handle = product.vendor | handle
+              if collections[product_vendor_handle].handle == product_vendor_handle
+                assign vendor_url = collections[product_vendor_handle].url
+              else
+                assign vendor_url = product.vendor | url_for_vendor
+              endif
+            -%}
+            <div class="vendor lightly-spaced-row" >
+              {{ product.vendor | link_to: vendor_url }}
+            </div>
+  
+          {% when 'sku' %}
+            <div class="sku {% if current_variant and current_variant.sku == blank %}sku--no-sku{% endif %}" >
+              {{- current_variant.sku -}}
+            </div>
+  
+          {% when 'richtext' %}
+            {% if block.settings.richtext != blank %}
+              <div class="lightly-spaced-row" >
+                <div class="rte cf">{{ block.settings.richtext }}</div>
+              </div>
+            {% endif %}
+  
+        {% endcase %}
+      </div>
     {% endfor %}
   </div>
   

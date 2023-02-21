@@ -1,6 +1,6 @@
 
 {% if is_empty %}
-  <div class="xuer-article_item {{ classes }} ">
+  <div class="xuer-article_item {{ classes }}" >
     <div class="article-main">
       <div class="article-main_image">
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-background' }}
@@ -27,7 +27,7 @@
     </div>
   </div>
 {% else %}
-  <div class="xuer-article_item {{ classes }}">
+  <div class="xuer-article_item {{ classes }} {{ animateClasses }}"  {%- if animated -%}xuer-animated {%- endif -%}>
     <div class="article-main">
       <div class="article-main_image">
         {% 

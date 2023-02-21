@@ -2,7 +2,7 @@
   assign collection_image = image | default: collection.featured_image
 -%}
 
-<xuer-list-item class="collection-item xuer-image-enlarge {{ classes }} xuer-overlay_wrapper" >
+<xuer-list-item class="collection-item xuer-image-enlarge {{ classes }}  {{ animateClasses }} xuer-overlay_wrapper" {%- if animated -%}xuer-animated {%- endif -%}>
   <a href="{{ collection.url }}" class="xuer-link_keep">
     <div class="collection-item_image" >
       {%- if collection_image -%}
@@ -23,7 +23,7 @@
     {% if title != blank %}
       <div class="xuer-overlay">
         <div class="xuer-overlay_cover" style="opacity: {{ overlay_opacity }}%;"></div>
-        <h2 class="xuer-overlay_title xuer-h2 " xuer-animated >{{ title }}</h2>
+        <h2 class="xuer-overlay_title xuer-h2 {{ animateClasses }}" xuer-animated >{{ title }}</h2>
       </div>
     {% endif %}
   </a>

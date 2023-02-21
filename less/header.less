@@ -55,6 +55,8 @@
         &.menu-level-1 {
           display: flex;
           align-items: center;
+          margin-top: var(--header_padding_negative);
+          height: calc(100% + var(--header_padding) * 2);
           &>a{
             color: var(--header_link_color);
           }
@@ -149,7 +151,6 @@
             top: 100%;
             min-width: 170px;
             max-width: 280px;
-            margin-top: var(--header_padding);
             a:hover{
               color: var(--text_color);
               opacity: 0.7;
